@@ -18,7 +18,7 @@ export const AboutPage: React.FC = () => {
     <div className="py-12 md:py-20 space-y-16">
       
       {/* Header */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 text-center max-w-3xl">
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4">
           <GraduationCap className="w-3.5 h-3.5 text-sky-600" />
           {t.aboutPage.tag}
@@ -32,7 +32,7 @@ export const AboutPage: React.FC = () => {
       </section>
 
       {/* Philosophy Banner */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-gradient-to-r from-sky-800 via-sky-700 to-blue-900 rounded-3xl p-8 md:p-14 text-white shadow-xl relative overflow-hidden">
           <div className="max-w-3xl space-y-4">
             <span className="text-xs font-bold text-amber-300 uppercase tracking-wider">
@@ -49,7 +49,7 @@ export const AboutPage: React.FC = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-4">
             <div className="w-12 h-12 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center">
@@ -78,7 +78,7 @@ export const AboutPage: React.FC = () => {
       </section>
 
       {/* Golden Rules of the Academy */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-slate-900 rounded-3xl p-8 md:p-12 text-white shadow-xl">
           <div className="max-w-3xl mx-auto text-center space-y-3 mb-10">
             <span className="text-xs font-bold text-sky-400 uppercase tracking-wider">
@@ -89,7 +89,7 @@ export const AboutPage: React.FC = () => {
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl mx-auto">
             {t.aboutPage.rules.map((rule, idx) => (
               <div key={idx} className="bg-slate-800/80 p-5 rounded-2xl border border-slate-700/80 flex items-start gap-3.5">
                 <span className="w-7 h-7 rounded-lg bg-sky-500/20 text-sky-300 font-bold flex items-center justify-center text-xs shrink-0">
@@ -105,7 +105,7 @@ export const AboutPage: React.FC = () => {
       </section>
 
       {/* Campus & Location showcase */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-3xl p-8 md:p-12 border border-slate-200 shadow-sm">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div className="space-y-4">

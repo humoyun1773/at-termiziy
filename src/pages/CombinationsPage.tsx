@@ -19,7 +19,7 @@ export const CombinationsPage: React.FC = () => {
     <div className="py-12 md:py-20 space-y-16">
       
       {/* Header */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 text-center max-w-3xl">
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4">
           <Layers className="w-3.5 h-3.5 text-sky-600" />
           {t.combinationsSection.tag}
@@ -33,7 +33,7 @@ export const CombinationsPage: React.FC = () => {
       </section>
 
       {/* 4 Detailed Combinations Sections */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 space-y-12">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         {combinationsData.map((combo) => (
           <div
             key={combo.id}
@@ -164,7 +164,7 @@ export const CombinationsPage: React.FC = () => {
       </section>
 
       {/* Bottom Consultation Banner */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-sky-900 text-white rounded-3xl p-8 md:p-12 text-center max-w-4xl mx-auto space-y-4">
           <h3 className="text-2xl font-bold font-heading">
             Qaysi Kombinatsiya Sizga Mos Kelishini Bilmayapsizmi?
