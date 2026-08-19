@@ -485,26 +485,6 @@ export const LocationSection: React.FC<Props> = ({ className = '' }) => {
               loading="lazy"
             />
 
-            {/* Map Overlay Badge Card */}
-            <div className="absolute top-4 left-4 right-4 sm:right-auto max-w-sm bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-3.5 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 shadow-lg pointer-events-none sm:pointer-events-auto">
-              <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-xl bg-sky-600 text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-xs">
-                  AT
-                </div>
-                <div className="min-w-0 flex-1">
-                  <h4 className="text-xs font-bold text-slate-900 dark:text-white truncate font-heading">
-                    {selectedLocation.name}
-                  </h4>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate">
-                    {selectedLocation.desc}
-                  </p>
-                </div>
-                <Badge variant="secondary" className="text-[10px] px-2 py-0.5 bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 font-bold shrink-0">
-                  Faol
-                </Badge>
-              </div>
-            </div>
-
             {/* Fullscreen Map Link Action */}
             <div className="absolute bottom-4 right-4">
               <Button
