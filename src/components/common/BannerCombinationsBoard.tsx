@@ -4,10 +4,10 @@ import {
   Phone, 
   MapPin, 
   Calendar, 
-  ShieldCheck,
-  ChevronDown,
-  Send,
-  Sparkles
+  ShieldCheck, 
+  ChevronDown, 
+  Send, 
+  Sparkles 
 } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
@@ -104,13 +104,13 @@ export const BannerCombinationsBoard: React.FC = () => {
               onClick={() => setActiveCombo(combo.id)}
               className={`rounded-2xl p-5 transition-all duration-300 flex flex-col justify-between cursor-pointer group relative ${
                 isActive
-                  ? 'bg-sky-50/90 dark:bg-slate-850 border-2 border-sky-500 dark:border-sky-400 shadow-xl shadow-sky-500/10 ring-2 ring-sky-300/40 dark:ring-sky-500/20 -translate-y-1'
-                  : 'bg-slate-50/70 hover:bg-white dark:bg-slate-800/50 dark:hover:bg-slate-800/90 border border-slate-200 dark:border-slate-700/80 hover:border-sky-400 dark:hover:border-sky-500/70 hover:shadow-lg hover:-translate-y-1'
+                  ? 'bg-sky-50/80 dark:bg-slate-800 border-2 border-sky-500 dark:border-sky-500 shadow-xl shadow-sky-500/15 ring-2 ring-sky-300/40 dark:ring-sky-500/30 -translate-y-1'
+                  : 'bg-slate-50/70 hover:bg-white dark:bg-slate-800/40 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700/80 hover:border-sky-400 dark:hover:border-sky-500/70 hover:shadow-lg hover:-translate-y-1'
               }`}
             >
               <div>
                 {/* Column Header */}
-                <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-200/80 dark:border-slate-700/80">
+                <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-200/80 dark:border-slate-700">
                   <div>
                     <span className={`text-xs font-black tracking-wider uppercase font-heading block ${
                       isActive 
@@ -128,7 +128,7 @@ export const BannerCombinationsBoard: React.FC = () => {
                   
                   <span className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
                     isActive 
-                      ? 'bg-sky-500 ring-4 ring-sky-400/20 shadow-xs' 
+                      ? 'bg-sky-500 ring-4 ring-sky-400/30 shadow-xs' 
                       : 'bg-slate-300 dark:bg-slate-600 group-hover:bg-sky-400'
                   }`} />
                 </div>
@@ -140,10 +140,10 @@ export const BannerCombinationsBoard: React.FC = () => {
                       <div className={`p-2.5 rounded-xl transition-all duration-200 flex items-center justify-between gap-2 shadow-2xs ${
                         isActive
                           ? 'bg-white dark:bg-slate-900 border border-sky-200 dark:border-slate-700'
-                          : 'bg-white dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-700/70 group-hover:border-sky-200 dark:group-hover:border-slate-600'
+                          : 'bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-700/70 group-hover:border-sky-200 dark:group-hover:border-slate-600'
                       }`}>
                         <div className="flex items-center gap-2.5 min-w-0">
-                          <span className="w-7 h-7 rounded-lg bg-sky-50 dark:bg-slate-800 text-sky-700 dark:text-sky-300 font-extrabold text-[10px] flex items-center justify-center shrink-0 border border-sky-100 dark:border-slate-700 font-heading">
+                          <span className="w-7 h-7 rounded-lg bg-sky-100/70 dark:bg-sky-950 text-sky-700 dark:text-sky-300 font-extrabold text-[10px] flex items-center justify-center shrink-0 border border-sky-200/60 dark:border-sky-800 font-heading">
                             {step.code}
                           </span>
                           <span className="text-xs font-bold text-slate-900 dark:text-white tracking-tight font-heading truncate">
@@ -172,7 +172,7 @@ export const BannerCombinationsBoard: React.FC = () => {
               </div>
 
               {/* Column Bottom Action (Direct Telegram Link) */}
-              <div className="mt-5 pt-3 border-t border-slate-200/80 dark:border-slate-700/80">
+              <div className="mt-5 pt-3 border-t border-slate-200/80 dark:border-slate-700">
                 <Button
                   asChild
                   variant={isActive ? "default" : "outline"}
@@ -201,7 +201,7 @@ export const BannerCombinationsBoard: React.FC = () => {
       </div>
 
       {/* Bottom Info Ribbon Bar */}
-      <div className="rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+      <div className="rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
         
         {/* Left: Phone */}
         <Button 

@@ -83,7 +83,7 @@ export const CareerPage: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {t.careerPage.steps.map((st, idx) => (
-              <div key={idx} className="bg-slate-50 dark:bg-slate-850 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 relative flex flex-col justify-between">
+              <div key={idx} className="bg-slate-50 dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700/80 relative flex flex-col justify-between">
                 <div>
                   <span className="text-2xl font-black text-sky-600 dark:text-sky-400 font-heading block mb-3">
                     {st.step}

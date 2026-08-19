@@ -94,7 +94,7 @@ export const CombinationsPage: React.FC = () => {
                 {combo.modules.map((mod, idx) => (
                   <div
                     key={mod.id}
-                    className="relative bg-slate-50 dark:bg-slate-850 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 flex flex-col justify-between"
+                    className="relative bg-slate-50 dark:bg-slate-800 rounded-2xl p-5 border border-slate-200 dark:border-slate-700/80 flex flex-col justify-between"
                   >
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">
@@ -139,7 +139,7 @@ export const CombinationsPage: React.FC = () => {
 
             {/* Career Outcomes & Guarantee */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 pt-4 border-t border-slate-100 dark:border-slate-800">
-              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800">
+              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700/80">
                 <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider mb-2 flex items-center gap-1.5">
                   <Briefcase className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
                   Karyera Imkoniyatlari:
