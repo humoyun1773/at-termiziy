@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import type { Combination } from '../../types';
 import { useLanguage } from '../../context/LanguageContext';
 import { TELEGRAM_URL } from '../../data/siteConfig';
@@ -16,20 +17,27 @@ export const CombinationCard: React.FC<Props> = ({ combination }) => {
   const { t } = useLanguage();
 
   return (
-    <Card className={`relative rounded-3xl p-6 lg:p-8 flex flex-col justify-between transition-all ${
-      combination.isPopular 
-        ? 'border-sky-300 dark:border-sky-700 shadow-xl shadow-sky-100 dark:shadow-none ring-2 ring-sky-400/20' 
-        : 'border-slate-200/90 dark:border-slate-800 shadow-md hover:shadow-xl hover:border-sky-200'
-    }`}>
-      {/* Popular Badge */}
-      {combination.isPopular && (
-        <div className="absolute -top-3.5 right-6">
-          <Badge className="bg-sky-600 text-white gap-1 px-3 py-1 shadow-md font-bold">
-            <Star className="w-3 h-3 fill-current" />
-            <span>{combination.badgeKey || "Tavsiya Qilinadi"}</span>
-          </Badge>
-        </div>
-      )}
+    <motion.div
+      initial={{ opacity: 0, y: 25 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.45 }}
+      whileHover={{ y: -5, transition: { duration: 0.2 } }}
+    >
+      <Card className={`relative rounded-3xl p-6 lg:p-8 flex flex-col justify-between h-full transition-all ${
+        combination.isPopular 
+          ? 'border-sky-300 dark:border-sky-700 shadow-xl shadow-sky-100 dark:shadow-none ring-2 ring-sky-400/20' 
+          : 'border-slate-200/90 dark:border-slate-800 shadow-md hover:shadow-xl hover:border-sky-200'
+      }`}>
+        {/* Popular Badge */}
+        {combination.isPopular && (
+          <div className="absolute -top-3.5 right-6">
+            <Badge className="bg-sky-600 text-white gap-1 px-3 py-1 shadow-md font-bold animate-pulse-subtle">
+              <Star className="w-3 h-3 fill-current" />
+              <span>{combination.badgeKey || "Tavsiya Qilinadi"}</span>
+            </Badge>
+          </div>
+        )}
 
       <div>
         {/* Header */}
@@ -67,7 +75,7 @@ export const CombinationCard: React.FC<Props> = ({ combination }) => {
             {combination.modules.map((module) => (
               <div
                 key={module.id}
-                className="relative p-3 rounded-2xl bg-slate-50/70 dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800 hover:border-sky-300 transition-all flex items-center gap-3 shadow-2xs"
+                className="relative p-3 rounded-2xl bg-slate-50/70 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-800 hover:border-sky-300 transition-all flex items-center gap-3 shadow-2xs"
               >
                 <div className="w-10 h-10 rounded-xl bg-white dark:bg-slate-900 shadow-2xs border border-slate-200 dark:border-slate-800 flex items-center justify-center text-xl shrink-0">
                   {module.flag}
@@ -134,5 +142,6 @@ export const CombinationCard: React.FC<Props> = ({ combination }) => {
         </Button>
       </div>
     </Card>
+  </motion.div>
   );
 };

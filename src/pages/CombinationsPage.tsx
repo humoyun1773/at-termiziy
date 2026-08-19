@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { TELEGRAM_URL } from '../data/siteConfig';
 import { combinationsData } from '../data/combinationsData';
@@ -16,10 +17,15 @@ export const CombinationsPage: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <div className="py-12 md:py-20 space-y-16">
+    <div className="py-12 md:py-20 space-y-16 overflow-hidden">
       
       {/* Header */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <motion.section 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+      >
         <span className="px-3.5 py-1 rounded-full bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-300 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4">
           <Layers className="w-3.5 h-3.5 text-sky-600" />
           {t.combinationsSection.tag}
@@ -30,14 +36,18 @@ export const CombinationsPage: React.FC = () => {
         <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
           4 ta tilga muvofiq chuqur va keng tafakkurga ega bo'ling. Har bir til 7 oydan o'rgatiladi va yakunda bitiruvchilar nufuzli tashkilotlarga ish bilan ta'minlanadi.
         </p>
-      </section>
+      </motion.section>
 
       {/* 4 Detailed Combinations Sections */}
       <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        {combinationsData.map((combo) => (
-          <div
+        {combinationsData.map((combo, idx) => (
+          <motion.div
             key={combo.id}
             id={`kombinatsiya-${combo.id}`}
+            initial={{ opacity: 0, y: 35 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5, delay: idx * 0.1 }}
             className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200 dark:border-slate-800 shadow-md hover:shadow-xl transition-all"
           >
             {/* Header info */}
@@ -94,7 +104,7 @@ export const CombinationsPage: React.FC = () => {
                 {combo.modules.map((mod, idx) => (
                   <div
                     key={mod.id}
-                    className="relative bg-slate-50 dark:bg-slate-850 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 flex flex-col justify-between"
+                    className="relative bg-slate-50 dark:bg-slate-800/80 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 flex flex-col justify-between"
                   >
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">
@@ -139,7 +149,7 @@ export const CombinationsPage: React.FC = () => {
 
             {/* Career Outcomes & Guarantee */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 pt-4 border-t border-slate-100 dark:border-slate-800">
-              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800">
+              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-800">
                 <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider mb-2 flex items-center gap-1.5">
                   <Briefcase className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
                   Karyera Imkoniyatlari:
@@ -166,12 +176,18 @@ export const CombinationsPage: React.FC = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </section>
 
       {/* Bottom Consultation Banner */}
-      <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <motion.section 
+        initial={{ opacity: 0, scale: 0.96 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.5 }}
+        className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8"
+      >
         <div className="bg-sky-900 text-white rounded-3xl p-8 md:p-12 text-center max-w-4xl mx-auto space-y-4">
           <h3 className="text-2xl font-bold font-heading">
             Qaysi Kombinatsiya Sizga Mos Kelishini Bilmayapsizmi?
@@ -182,7 +198,7 @@ export const CombinationsPage: React.FC = () => {
           <div className="pt-2">
             <Button
               asChild
-              className="px-8 py-3.5 rounded-xl bg-sky-400 hover:bg-sky-300 text-slate-950 font-bold text-xs md:text-sm shadow-lg transition-all active:scale-95 cursor-pointer"
+              className="px-8 py-3.5 rounded-xl bg-sky-400 hover:bg-sky-300 text-slate-950 font-bold text-xs md:text-sm shadow-lg transition-all hover:scale-105 active:scale-95 cursor-pointer"
             >
               <a 
                 href={TELEGRAM_URL} 
@@ -196,7 +212,7 @@ export const CombinationsPage: React.FC = () => {
             </Button>
           </div>
         </div>
-      </section>
+      </motion.section>
 
     </div>
   );

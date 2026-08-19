@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { TELEGRAM_URL } from '../data/siteConfig';
 import { 
@@ -16,10 +17,15 @@ export const AboutPage: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <div className="py-12 md:py-20 space-y-16">
+    <div className="py-12 md:py-20 space-y-16 overflow-hidden">
       
       {/* Header */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <motion.section 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+      >
         <span className="px-3.5 py-1 rounded-full bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-300 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4">
           <GraduationCap className="w-3.5 h-3.5 text-sky-600" />
           {t.aboutPage.tag}
@@ -30,10 +36,16 @@ export const AboutPage: React.FC = () => {
         <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
           {t.aboutPage.intro}
         </p>
-      </section>
+      </motion.section>
 
       {/* Philosophy Banner */}
-      <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <motion.section 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.5 }}
+        className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8"
+      >
         <div className="bg-gradient-to-r from-sky-800 via-sky-700 to-blue-900 rounded-3xl p-8 md:p-14 text-white shadow-xl relative overflow-hidden">
           <div className="max-w-3xl space-y-4">
             <span className="text-xs font-bold text-amber-300 uppercase tracking-wider">
@@ -47,12 +59,21 @@ export const AboutPage: React.FC = () => {
             </p>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Mission & Vision */}
-      <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <motion.section 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.5 }}
+        className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8"
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+          <motion.div 
+            whileHover={{ y: -4, transition: { duration: 0.2 } }}
+            className="bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4"
+          >
             <div className="w-12 h-12 rounded-2xl bg-sky-50 dark:bg-sky-950/60 text-sky-600 dark:text-sky-400 flex items-center justify-center">
               <Target className="w-6 h-6" />
             </div>
@@ -62,9 +83,12 @@ export const AboutPage: React.FC = () => {
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
               {t.aboutPage.missionText}
             </p>
-          </div>
+          </motion.div>
 
-          <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+          <motion.div 
+            whileHover={{ y: -4, transition: { duration: 0.2 } }}
+            className="bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4"
+          >
             <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
               <Compass className="w-6 h-6" />
             </div>
@@ -74,12 +98,18 @@ export const AboutPage: React.FC = () => {
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
               {t.aboutPage.visionText}
             </p>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Golden Rules of the Academy */}
-      <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <motion.section 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.5 }}
+        className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8"
+      >
         <div className="bg-slate-900 dark:bg-slate-950 rounded-3xl p-8 md:p-12 text-white shadow-xl border border-slate-800">
           <div className="max-w-3xl mx-auto text-center space-y-3 mb-10">
             <span className="text-xs font-bold text-sky-400 uppercase tracking-wider">
@@ -92,21 +122,31 @@ export const AboutPage: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-[1600px] w-full mx-auto">
             {t.aboutPage.rules.map((rule, idx) => (
-              <div key={idx} className="bg-slate-800/80 dark:bg-slate-900/90 p-5 rounded-2xl border border-slate-700/80 dark:border-slate-800 flex items-start gap-3.5">
+              <motion.div 
+                key={idx} 
+                whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+                className="bg-slate-800/80 dark:bg-slate-900/90 p-5 rounded-2xl border border-slate-700/80 dark:border-slate-800 flex items-start gap-3.5"
+              >
                 <span className="w-7 h-7 rounded-lg bg-sky-500/20 text-sky-300 font-bold flex items-center justify-center text-xs shrink-0">
                   {idx + 1}
                 </span>
                 <span className="text-xs md:text-sm font-semibold text-slate-200 leading-relaxed">
                   {rule}
                 </span>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Campus & Location showcase */}
-      <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <motion.section 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.5 }}
+        className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8"
+      >
         <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 md:p-12 border border-slate-200 dark:border-slate-800 shadow-sm">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div className="space-y-4">
@@ -182,7 +222,7 @@ export const AboutPage: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
     </div>
   );

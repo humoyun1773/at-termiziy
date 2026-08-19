@@ -43,17 +43,17 @@ export const Modal: React.FC<ModalProps> = ({
       />
 
       {/* Modal Dialog */}
-      <div className="relative bg-white rounded-3xl shadow-2xl border border-slate-100 w-full max-w-lg p-6 sm:p-8 z-10 transform transition-all duration-300 animate-in fade-in zoom-in-95">
+      <div className="relative bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-100 dark:border-slate-800 w-full max-w-lg p-6 sm:p-8 z-10 transform transition-all duration-300 animate-in fade-in zoom-in-95">
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
+          className="absolute top-5 right-5 p-2 rounded-full text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
           aria-label="Yopish"
         >
           <X className="w-5 h-5" />
         </button>
 
         {title && (
-          <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4 pr-8">
+          <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4 pr-8">
             {title}
           </h3>
         )}

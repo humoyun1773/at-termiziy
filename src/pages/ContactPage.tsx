@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { 
   Phone, 
@@ -42,10 +43,15 @@ export const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="py-12 md:py-20 space-y-16">
+    <div className="py-12 md:py-20 space-y-16 overflow-hidden">
       
       {/* Header */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <motion.section 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+      >
         <span className="px-3.5 py-1 rounded-full bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-300 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4">
           <Phone className="w-3.5 h-3.5 text-sky-600" />
           {t.contactPage.tag}
@@ -56,10 +62,16 @@ export const ContactPage: React.FC = () => {
         <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
           {t.contactPage.subtitle}
         </p>
-      </section>
+      </motion.section>
 
       {/* Main Grid: Form + Info */}
-      <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <motion.section 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.5 }}
+        className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8"
+      >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           
           {/* Left: Contact Info & Campus Details */}
@@ -126,31 +138,47 @@ export const ContactPage: React.FC = () => {
           {/* Right: Registration Form */}
           <div className="lg:col-span-7">
             <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 md:p-10 border border-slate-200 dark:border-slate-800 shadow-lg">
-              {isSuccess ? (
-                <div className="py-12 text-center space-y-4">
-                  <div className="w-16 h-16 bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 rounded-full flex items-center justify-center mx-auto">
-                    <CheckCircle2 className="w-10 h-10" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white font-heading">
-                    {t.contactPage.successTitle}
-                  </h3>
-                  <p className="text-sm text-slate-600 dark:text-slate-300 max-w-sm mx-auto">
-                    {t.contactPage.successDesc}
-                  </p>
-                  <button
-                    onClick={() => {
-                      setIsSuccess(false);
-                      setFullName('');
-                      setPhone('');
-                      setSelectedTarget('');
-                    }}
-                    className="px-6 py-2.5 rounded-xl bg-sky-600 text-white text-xs font-bold shadow-md hover:bg-sky-700 transition-colors cursor-pointer"
+              <AnimatePresence mode="wait">
+                {isSuccess ? (
+                  <motion.div 
+                    key="success"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.3 }}
+                    className="py-12 text-center space-y-4"
                   >
-                    Yangi Ariza Qoldirish
-                  </button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
+                    <div className="w-16 h-16 bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 rounded-full flex items-center justify-center mx-auto animate-pulse-subtle">
+                      <CheckCircle2 className="w-10 h-10" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white font-heading">
+                      {t.contactPage.successTitle}
+                    </h3>
+                    <p className="text-sm text-slate-600 dark:text-slate-300 max-w-sm mx-auto">
+                      {t.contactPage.successDesc}
+                    </p>
+                    <button
+                      onClick={() => {
+                        setIsSuccess(false);
+                        setFullName('');
+                        setPhone('');
+                        setSelectedTarget('');
+                      }}
+                      className="px-6 py-2.5 rounded-xl bg-sky-600 text-white text-xs font-bold shadow-md hover:bg-sky-700 hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                    >
+                      Yangi Ariza Qoldirish
+                    </button>
+                  </motion.div>
+                ) : (
+                  <motion.form 
+                    key="form"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    onSubmit={handleSubmit} 
+                    className="space-y-5"
+                  >
                   <div>
                     <h3 className="text-xl font-bold text-slate-900 dark:text-white font-heading mb-1">
                       {t.contactPage.formTitle}
@@ -261,13 +289,14 @@ export const ContactPage: React.FC = () => {
                         </>
                       )}
                     </button>
-                  </div>
-                </form>
-              )}
+                    </div>
+                  </motion.form>
+                )}
+              </AnimatePresence>
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
     </div>
   );

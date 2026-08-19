@@ -29,9 +29,9 @@ export const Button: React.FC<ButtonProps> = ({
   const variantStyles = {
     primary: 'bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white shadow-lg shadow-emerald-600/25 hover:shadow-emerald-600/40 hover:-translate-y-0.5',
     secondary: 'bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-0.5',
-    outline: 'border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-50 bg-transparent',
-    ghost: 'text-slate-700 hover:text-emerald-600 hover:bg-slate-100/80 bg-transparent',
-    white: 'bg-white text-slate-900 hover:bg-slate-50 shadow-md shadow-black/5 hover:-translate-y-0.5'
+    outline: 'border-2 border-emerald-600 dark:border-emerald-500 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 bg-transparent',
+    ghost: 'text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100/80 dark:hover:bg-slate-800/80 bg-transparent',
+    white: 'bg-white dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-700 shadow-md shadow-black/5 hover:-translate-y-0.5'
   };
 
   return (

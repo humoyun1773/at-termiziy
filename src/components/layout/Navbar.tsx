@@ -132,7 +132,7 @@ export const Navbar: React.FC = () => {
                       className={`block px-4 py-3 rounded-xl text-sm font-bold transition-colors ${
                         isActive
                           ? 'bg-sky-600 text-white'
-                          : 'text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800'
+                          : 'text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-sky-600 dark:hover:text-sky-400'
                       }`}
                     >
                       {link.label}

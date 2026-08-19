@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { TELEGRAM_URL } from '../../data/siteConfig';
 import { 
   Phone, 
@@ -94,12 +95,15 @@ export const BannerCombinationsBoard: React.FC = () => {
           const isActive = activeCombo === combo.id;
 
           return (
-            <div
+            <motion.div
               key={combo.id}
               onClick={() => setActiveCombo(combo.id)}
-              className={`rounded-2xl p-4 sm:p-5 transition-all duration-200 flex flex-col justify-between cursor-pointer ${
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              animate={isActive ? { scale: 1.02 } : { scale: 1 }}
+              transition={{ duration: 0.25 }}
+              className={`rounded-2xl p-4 sm:p-5 transition-colors duration-200 flex flex-col justify-between cursor-pointer ${
                 isActive
-                  ? 'bg-sky-50 dark:bg-slate-800 border-2 border-sky-400 dark:border-sky-600 shadow-md'
+                  ? 'bg-sky-50 dark:bg-slate-800 border-2 border-sky-400 dark:border-sky-600 shadow-md ring-2 ring-sky-400/20'
                   : 'bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-sm'
               }`}
             >
@@ -111,8 +115,8 @@ export const BannerCombinationsBoard: React.FC = () => {
                   }`}>
                     {combo.title}
                   </span>
-                  <span className={`w-2 h-2 rounded-full ${
-                    isActive ? 'bg-sky-500' : 'bg-slate-300 dark:bg-slate-600'
+                  <span className={`w-2 h-2 rounded-full transition-all ${
+                    isActive ? 'bg-sky-500 scale-125 shadow-xs shadow-sky-500' : 'bg-slate-300 dark:bg-slate-600'
                   }`} />
                 </div>
 
@@ -120,7 +124,7 @@ export const BannerCombinationsBoard: React.FC = () => {
                 <div className="space-y-2">
                   {combo.steps.map((step, sIdx) => (
                     <React.Fragment key={sIdx}>
-                      <div className="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-2xs flex items-center justify-between gap-2">
+                      <div className="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-2xs flex items-center justify-between gap-2 hover:border-sky-300 dark:hover:border-sky-700 transition-colors">
                         <div className="flex items-center gap-2.5 min-w-0">
                           <span className="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-extrabold text-[10px] flex items-center justify-center shrink-0 font-heading">
                             {step.code}
@@ -154,7 +158,7 @@ export const BannerCombinationsBoard: React.FC = () => {
                   asChild
                   variant={isActive ? "default" : "outline"}
                   size="sm"
-                  className="w-full font-bold text-xs"
+                  className="w-full font-bold text-xs hover:scale-102 active:scale-98 transition-transform"
                 >
                   <a 
                     href={TELEGRAM_URL} 
@@ -168,7 +172,7 @@ export const BannerCombinationsBoard: React.FC = () => {
                   </a>
                 </Button>
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>

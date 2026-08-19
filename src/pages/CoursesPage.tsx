@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { coursesData } from '../data/coursesData';
 import { CourseCard } from '../components/common/CourseCard';
@@ -19,10 +20,15 @@ export const CoursesPage: React.FC = () => {
   });
 
   return (
-    <div className="py-12 md:py-20 space-y-16">
+    <div className="py-12 md:py-20 space-y-16 overflow-hidden">
       
       {/* Header */}
-      <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 text-center max-w-3xl">
+      <motion.section 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 text-center max-w-3xl"
+      >
         <Badge variant="secondary" className="px-3.5 py-1 gap-1.5 mb-4">
           <BookOpen className="w-3.5 h-3.5 text-sky-600" />
           {t.coursesPage.tag}
@@ -33,7 +39,7 @@ export const CoursesPage: React.FC = () => {
         <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
           {t.coursesPage.desc}
         </p>
-      </section>
+      </motion.section>
 
       {/* Filter Tabs using shadcn Tabs */}
       <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6">
@@ -60,11 +66,13 @@ export const CoursesPage: React.FC = () => {
           </Tabs>
         </div>
 
-        {/* Courses Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredCourses.map((course) => (
-            <CourseCard key={course.id} course={course} />
-          ))}
+        {/* Courses Grid with smooth transition */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 min-h-[400px]">
+          <AnimatePresence mode="popLayout">
+            {filteredCourses.map((course) => (
+              <CourseCard key={course.id} course={course} />
+            ))}
+          </AnimatePresence>
         </div>
       </section>
 
@@ -75,21 +83,21 @@ export const CoursesPage: React.FC = () => {
             Har Bir Til Kursida Qanday Yondashuv Qo'llaniladi?
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-            <div className="bg-white dark:bg-slate-850 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xs">
+            <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-2xs">
               <span className="text-2xl font-black text-sky-600 dark:text-sky-400 block mb-2 font-heading">01</span>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1">To'liq Sho'ng'ish (Immersion)</h4>
               <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
                 Darslarda 100% o'rganilayotgan tildan foydalaniladi, bu esa nutq to'sig'ini tezda yengishga yordam beradi.
               </p>
             </div>
-            <div className="bg-white dark:bg-slate-850 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xs">
+            <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-2xs">
               <span className="text-2xl font-black text-sky-600 dark:text-sky-400 block mb-2 font-heading">02</span>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1">Kunlik Lug'at & Monitoring</h4>
               <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
                 Har kuni yangi so'zlar maxsus algoritmlar asosida takrorlanadi va qat'iy nazorat qilinadi.
               </p>
             </div>
-            <div className="bg-white dark:bg-slate-850 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xs">
+            <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-2xs">
               <span className="text-2xl font-black text-sky-600 dark:text-sky-400 block mb-2 font-heading">03</span>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1">Xalqaro Standartlar</h4>
               <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">

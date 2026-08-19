@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { TELEGRAM_URL } from '../data/siteConfig';
 import { combinationsData } from '../data/combinationsData';
@@ -35,12 +36,17 @@ export const HomePage: React.FC = () => {
   const { t, language } = useLanguage();
 
   return (
-    <div className="space-y-16 md:space-y-20 pb-20">
+    <div className="space-y-16 md:space-y-20 pb-20 overflow-hidden">
       
       {/* 1. HERO SECTION */}
       <section className="relative pt-6 pb-4 md:pt-10 md:pb-8 bg-mesh-subtle">
         <div className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 relative z-10">
-          <div className="text-center max-w-3xl mx-auto space-y-4 mb-8 md:mb-12">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="text-center max-w-3xl mx-auto space-y-4 mb-8 md:mb-12"
+          >
             
             {/* Main Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight font-heading">
@@ -61,7 +67,7 @@ export const HomePage: React.FC = () => {
               <Button
                 asChild
                 size="lg"
-                className="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs sm:text-sm shadow-md shadow-sky-600/20"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs sm:text-sm shadow-md shadow-sky-600/20 hover:scale-105 active:scale-95 transition-transform"
               >
                 <a 
                   href={TELEGRAM_URL} 
@@ -74,12 +80,17 @@ export const HomePage: React.FC = () => {
                 </a>
               </Button>
             </div>
-          </div>
+          </motion.div>
 
           {/* 2. THE CENTRAL 4-COMBINATIONS BOARD */}
-          <div className="mt-2 max-w-[1600px] w-full mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
+            className="mt-2 max-w-[1600px] w-full mx-auto"
+          >
             <BannerCombinationsBoard />
-          </div>
+          </motion.div>
 
           {/* Quick Stats Grid */}
           <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-[1600px] w-full mx-auto">
@@ -89,21 +100,29 @@ export const HomePage: React.FC = () => {
               { num: "100%", label: t.hero.statJobGuarantee, icon: Briefcase, color: "text-emerald-600 dark:text-emerald-400", bg: "bg-emerald-50 dark:bg-emerald-950/50" },
               { num: "500+", label: t.hero.statStudents, icon: Users, color: "text-amber-600 dark:text-amber-400", bg: "bg-amber-50 dark:bg-amber-950/50" }
             ].map((stat, idx) => (
-              <Card key={idx} className="rounded-2xl border-slate-200 dark:border-slate-800 dark:bg-slate-900 shadow-2xs">
-                <CardContent className="p-4 flex items-center gap-3">
-                  <div className={`w-10 h-10 rounded-xl ${stat.bg} ${stat.color} flex items-center justify-center shrink-0`}>
-                    <stat.icon className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <span className="text-lg font-extrabold text-slate-900 dark:text-white font-heading block leading-none mb-1">
-                      {stat.num}
-                    </span>
-                    <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium leading-tight block">
-                      {stat.label}
-                    </span>
-                  </div>
-                </CardContent>
-              </Card>
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.2 + idx * 0.08 }}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              >
+                <Card className="rounded-2xl border-slate-200 dark:border-slate-800 dark:bg-slate-900 shadow-2xs h-full transition-shadow hover:shadow-md">
+                  <CardContent className="p-4 flex items-center gap-3">
+                    <div className={`w-10 h-10 rounded-xl ${stat.bg} ${stat.color} flex items-center justify-center shrink-0`}>
+                      <stat.icon className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <span className="text-lg font-extrabold text-slate-900 dark:text-white font-heading block leading-none mb-1">
+                        {stat.num}
+                      </span>
+                      <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium leading-tight block">
+                        {stat.label}
+                      </span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -111,7 +130,13 @@ export const HomePage: React.FC = () => {
 
 
       {/* 3. TA'LIM METODIKASI & TAMOYILLAR */}
-      <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6">
+      <motion.section 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.5 }}
+        className="max-w-[1600px] w-full mx-auto px-4 sm:px-6"
+      >
         <div className="bg-slate-50 dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200 dark:border-slate-800">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-6 space-y-3">
@@ -136,7 +161,11 @@ export const HomePage: React.FC = () => {
 
             <div className="lg:col-span-6 space-y-3">
               {t.mottoSection.points.map((pt, idx) => (
-                <div key={idx} className="bg-white dark:bg-slate-850 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-start gap-3.5 shadow-2xs">
+                <motion.div 
+                  key={idx} 
+                  whileHover={{ x: 4, transition: { duration: 0.2 } }}
+                  className="bg-white dark:bg-slate-800/90 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 flex items-start gap-3.5 shadow-2xs"
+                >
                   <div className="w-7 h-7 rounded-lg bg-sky-50 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 font-bold flex items-center justify-center shrink-0 text-xs">
                     0{idx + 1}
                   </div>
@@ -148,16 +177,22 @@ export const HomePage: React.FC = () => {
                       {pt.desc}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
 
       {/* 4. 28-MONTH COMBINATIONS (DETAILED CARDS) */}
-      <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6">
+      <motion.section 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.5 }}
+        className="max-w-[1600px] w-full mx-auto px-4 sm:px-6"
+      >
         <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
           <Badge variant="secondary" className="px-3 py-1">
             {t.combinationsSection.tag}
@@ -195,7 +230,7 @@ export const HomePage: React.FC = () => {
 
           <Button
             asChild
-            className="px-5 py-2.5 rounded-xl bg-white hover:bg-sky-50 text-sky-900 font-bold text-xs whitespace-nowrap transition-colors shrink-0"
+            className="px-5 py-2.5 rounded-xl bg-white hover:bg-sky-50 text-sky-900 font-bold text-xs whitespace-nowrap transition-transform hover:scale-105 active:scale-95 shrink-0"
           >
             <a 
               href={TELEGRAM_URL} 
@@ -208,11 +243,17 @@ export const HomePage: React.FC = () => {
             </a>
           </Button>
         </div>
-      </section>
+      </motion.section>
 
 
       {/* 6. CAMPUS & ENVIRONMENT IN QARSHI */}
-      <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6">
+      <motion.section 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.5 }}
+        className="max-w-[1600px] w-full mx-auto px-4 sm:px-6"
+      >
         <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200 dark:border-slate-800 shadow-2xs grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-6 space-y-4">
             <Badge variant="secondary" className="px-3 py-1 gap-1.5">
@@ -241,7 +282,7 @@ export const HomePage: React.FC = () => {
             </div>
 
             <div className="pt-2">
-              <Button asChild className="rounded-xl font-bold text-xs">
+              <Button asChild className="rounded-xl font-bold text-xs hover:scale-105 active:scale-95 transition-transform">
                 <a href="tel:+998919517335" className="flex items-center gap-2">
                   <Phone className="w-3.5 h-3.5" />
                   <span>Markazga Tashrif: +998 91 951 73 35</span>
@@ -272,11 +313,17 @@ export const HomePage: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
 
       {/* 7. EXPERT TEACHERS & POLYGLOTS */}
-      <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6">
+      <motion.section 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.5 }}
+        className="max-w-[1600px] w-full mx-auto px-4 sm:px-6"
+      >
         <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
           <Badge variant="secondary" className="px-3 py-1">
             Bizning Ustozlarimiz
@@ -290,44 +337,59 @@ export const HomePage: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {teachersData.map((teacher) => {
+          {teachersData.map((teacher, idx) => {
             const role = teacher.role[language] || teacher.role.uz;
             const exp = teacher.experience[language] || teacher.experience.uz;
             const bio = teacher.bio[language] || teacher.bio.uz;
 
             return (
-              <Card key={teacher.id} className="rounded-2xl border-slate-200 dark:border-slate-800 dark:bg-slate-900 shadow-2xs hover:border-sky-300 dark:hover:border-sky-700 transition-all text-center">
-                <CardContent className="p-5">
-                  <div className="w-12 h-12 mx-auto rounded-xl bg-sky-50 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 flex items-center justify-center mb-3">
-                    <UserCheck className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-sm font-bold text-slate-900 dark:text-white font-heading">
-                    {teacher.name}
-                  </h3>
-                  <span className="text-[11px] text-sky-700 dark:text-sky-400 font-medium block mt-0.5">
-                    {role}
-                  </span>
-                  <div className="flex items-center justify-center gap-1.5 my-2">
-                    <Badge variant="secondary" className="text-[10px] px-2 py-0.5">
-                      {teacher.certificate}
-                    </Badge>
-                    <Badge variant="outline" className="text-[10px] px-2 py-0.5">
-                      {exp}
-                    </Badge>
-                  </div>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed">
-                    {bio}
-                  </p>
-                </CardContent>
-              </Card>
+              <motion.div
+                key={teacher.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.08 }}
+                whileHover={{ y: -6, transition: { duration: 0.2 } }}
+              >
+                <Card className="rounded-2xl border-slate-200 dark:border-slate-800 dark:bg-slate-900 shadow-2xs hover:border-sky-300 dark:hover:border-sky-700 transition-all text-center h-full">
+                  <CardContent className="p-5">
+                    <div className="w-12 h-12 mx-auto rounded-xl bg-sky-50 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 flex items-center justify-center mb-3">
+                      <UserCheck className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-sm font-bold text-slate-900 dark:text-white font-heading">
+                      {teacher.name}
+                    </h3>
+                    <span className="text-[11px] text-sky-700 dark:text-sky-400 font-medium block mt-0.5">
+                      {role}
+                    </span>
+                    <div className="flex items-center justify-center gap-1.5 my-2">
+                      <Badge variant="secondary" className="text-[10px] px-2 py-0.5">
+                        {teacher.certificate}
+                      </Badge>
+                      <Badge variant="outline" className="text-[10px] px-2 py-0.5">
+                        {exp}
+                      </Badge>
+                    </div>
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed">
+                      {bio}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
             );
           })}
         </div>
-      </section>
+      </motion.section>
 
 
       {/* 8. TESTIMONIALS */}
-      <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6">
+      <motion.section 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.5 }}
+        className="max-w-[1600px] w-full mx-auto px-4 sm:px-6"
+      >
         <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
           <Badge variant="success" className="px-3 py-1">
             Muvaffaqiyat Tarixlari
@@ -338,44 +400,59 @@ export const HomePage: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
-          {testimonialsData.map((item) => {
+          {testimonialsData.map((item, idx) => {
             const role = item.currentRole[language] || item.currentRole.uz;
             const quote = item.quote[language] || item.quote.uz;
 
             return (
-              <Card key={item.id} className="rounded-2xl border-slate-200 dark:border-slate-800 dark:bg-slate-900 shadow-2xs flex flex-col justify-between">
-                <CardContent className="p-5 sm:p-6">
-                  <div>
-                    <div className="flex items-center gap-1 text-amber-400 mb-3">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                      ))}
-                    </div>
-                    <p className="text-xs text-slate-700 dark:text-slate-300 italic leading-relaxed mb-5">
-                      "{quote}"
-                    </p>
-                  </div>
-
-                  <div className="flex items-center gap-3 pt-3 border-t border-slate-100 dark:border-slate-800">
-                    <div className="w-8 h-8 rounded-full bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-300 font-bold flex items-center justify-center text-[11px]">
-                      {item.name.slice(0, 2).toUpperCase()}
-                    </div>
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                whileHover={{ y: -6, transition: { duration: 0.2 } }}
+              >
+                <Card className="rounded-2xl border-slate-200 dark:border-slate-800 dark:bg-slate-900 shadow-2xs flex flex-col justify-between h-full">
+                  <CardContent className="p-5 sm:p-6">
                     <div>
-                      <h4 className="text-xs font-bold text-slate-900 dark:text-white">{item.name}</h4>
-                      <span className="text-[10px] text-sky-600 dark:text-sky-400 font-medium block">{role}</span>
-                      <span className="text-[10px] text-slate-400 block">{item.company}</span>
+                      <div className="flex items-center gap-1 text-amber-400 mb-3">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                        ))}
+                      </div>
+                      <p className="text-xs text-slate-700 dark:text-slate-300 italic leading-relaxed mb-5">
+                        "{quote}"
+                      </p>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
+
+                    <div className="flex items-center gap-3 pt-3 border-t border-slate-100 dark:border-slate-800">
+                      <div className="w-8 h-8 rounded-full bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-300 font-bold flex items-center justify-center text-[11px]">
+                        {item.name.slice(0, 2).toUpperCase()}
+                      </div>
+                      <div>
+                        <h4 className="text-xs font-bold text-slate-900 dark:text-white">{item.name}</h4>
+                        <span className="text-[10px] text-sky-600 dark:text-sky-400 font-medium block">{role}</span>
+                        <span className="text-[10px] text-slate-400 block">{item.company}</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
             );
           })}
         </div>
-      </section>
+      </motion.section>
 
 
       {/* 9. FAQ ACCORDION WITH SHADCN */}
-      <section className="max-w-3xl mx-auto px-4 sm:px-6">
+      <motion.section 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.5 }}
+        className="max-w-3xl mx-auto px-4 sm:px-6"
+      >
         <div className="text-center mb-8 space-y-1.5">
           <Badge variant="secondary" className="px-3 py-1">
             Savollar & Javoblar
@@ -402,11 +479,17 @@ export const HomePage: React.FC = () => {
             );
           })}
         </Accordion>
-      </section>
+      </motion.section>
 
 
       {/* 10. BOTTOM REGISTRATION CTA */}
-      <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6">
+      <motion.section 
+        initial={{ opacity: 0, scale: 0.96 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.5 }}
+        className="max-w-[1600px] w-full mx-auto px-4 sm:px-6"
+      >
         <div className="bg-sky-900 text-white rounded-3xl p-6 sm:p-10 text-center max-w-3xl mx-auto space-y-4 shadow-lg border border-sky-800">
           <h2 className="text-xl sm:text-3xl font-extrabold font-heading text-white">
             Kelajagingizni 4 Ta Til Bilan Boshlang!
@@ -418,7 +501,7 @@ export const HomePage: React.FC = () => {
             <Button
               asChild
               size="lg"
-              className="w-full sm:w-auto px-7 py-3 rounded-xl bg-white text-sky-900 font-bold text-xs sm:text-sm hover:bg-sky-50"
+              className="w-full sm:w-auto px-7 py-3 rounded-xl bg-white text-sky-900 font-bold text-xs sm:text-sm hover:bg-sky-50 hover:scale-105 active:scale-95 transition-transform"
             >
               <a 
                 href={TELEGRAM_URL} 
@@ -434,7 +517,7 @@ export const HomePage: React.FC = () => {
               variant="outline"
               size="lg"
               asChild
-              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-sky-800 text-white font-bold text-xs sm:text-sm border-sky-700 hover:bg-sky-750 hover:text-white"
+              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-sky-800 text-white font-bold text-xs sm:text-sm border-sky-700 hover:bg-sky-700 hover:text-white hover:scale-105 active:scale-95 transition-transform"
             >
               <a href="tel:+998919517335" className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5" />
@@ -443,7 +526,7 @@ export const HomePage: React.FC = () => {
             </Button>
           </div>
         </div>
-      </section>
+      </motion.section>
 
     </div>
   );

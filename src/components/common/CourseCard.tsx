@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import type { CourseDetail } from '../../types';
 import { useLanguage } from '../../context/LanguageContext';
 import { TELEGRAM_URL } from '../../data/siteConfig';
@@ -19,7 +20,15 @@ export const CourseCard: React.FC<Props> = ({ course }) => {
   const features = course.features[language] || course.features.uz;
 
   return (
-    <Card className="rounded-3xl p-6 md:p-8 border-slate-200 dark:border-slate-800 shadow-2xs hover:shadow-xl hover:border-sky-300 transition-all flex flex-col justify-between group">
+    <motion.div
+      initial={{ opacity: 0, scale: 0.96 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.96 }}
+      transition={{ duration: 0.3 }}
+      whileHover={{ y: -6, transition: { duration: 0.2 } }}
+      className="h-full"
+    >
+      <Card className="rounded-3xl p-6 md:p-8 border-slate-200 dark:border-slate-800 shadow-2xs hover:shadow-xl hover:border-sky-300 dark:hover:border-sky-700 transition-all flex flex-col justify-between group h-full">
       <div>
         {/* Flag and certificate header */}
         <div className="flex items-center justify-between gap-2 mb-4">
@@ -87,5 +96,6 @@ export const CourseCard: React.FC<Props> = ({ course }) => {
         </a>
       </Button>
     </Card>
+  </motion.div>
   );
 };
