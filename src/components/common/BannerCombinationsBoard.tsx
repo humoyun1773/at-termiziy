@@ -81,7 +81,7 @@ export const BannerCombinationsBoard: React.FC = () => {
       {/* Top Header of the Board */}
       <div className="relative text-center max-w-3xl mx-auto mb-8 sm:mb-12 space-y-3">
         <h2 className="text-xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-wider font-heading uppercase">
-          AL-HAKIM AT-TERMEZIY O'QUV MARKAZI
+          AT-TERMEZIY O'QUV MARKAZI
         </h2>
 
         {/* Ribbon Motto */}

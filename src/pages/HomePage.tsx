@@ -297,7 +297,7 @@ export const HomePage: React.FC = () => {
                 <span className="px-2.5 py-1 rounded-full bg-emerald-500 text-white text-[10px] font-bold">Ochiq</span>
               </div>
               <h3 className="text-xl font-bold font-heading">
-                Al-Hakim At-Termeziy O'quv Markazi
+                At-Termeziy O'quv Markazi
               </h3>
               <p className="text-xs text-sky-100 leading-relaxed">
                 Manzil: Qashqadaryo viloyati, Qarshi shahri, Mustaqillik shoh ko'chasi. Dushanba - Shanba kunlari soat 08:00 dan 20:00 gacha xizmatingizdamiz.

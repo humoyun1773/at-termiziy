@@ -377,9 +377,9 @@ export const coursesData: CourseDetail[] = [
       en: 'The language of Eastern culture, historical manuscripts, and Middle-Eastern trade'
     },
     description: {
-      uz: 'Al-Hakim At-Termeziy, Mirzo Ulug\'bek va Ibn Sino davri manbalarini tushunish, zamonaviy Eron, Afg\'oniston va Tojikiston bilan savdo aloqalari tili.',
-      ru: 'Понимание исторических источников времен Аль-Хакима Ат-Термезий, Ибн Сино, а также современный деловой язык Ирана и региона.',
-      en: 'Access to classical manuscripts of Al-Hakim At-Termeziy and Avicenna, alongside modern diplomatic and commercial Persian.'
+      uz: 'At-Termeziy, Mirzo Ulug\'bek va Ibn Sino davri manbalarini tushunish, zamonaviy Eron, Afg\'oniston va Tojikiston bilan savdo aloqalari tili.',
+      ru: 'Понимание исторических источников времен Ат-Термезий, Ибн Сино, а также современный деловой язык Ирана и региона.',
+      en: 'Access to classical manuscripts of At-Termeziy and Avicenna, alongside modern diplomatic and commercial Persian.'
     },
     features: {
       uz: [
