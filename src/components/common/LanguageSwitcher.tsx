@@ -1,17 +1,17 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import type { Language } from '../../types';
-import { ChevronDown } from 'lucide-react';
+import { Globe, ChevronDown, Check } from 'lucide-react';
 
 export const LanguageSwitcher: React.FC = () => {
   const { language, setLanguage } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const languagesList: { code: Language; label: string; flag: string }[] = [
-    { code: 'uz', label: "O'zbekcha", flag: "🇺🇿" },
-    { code: 'ru', label: "Русский", flag: "🇷🇺" },
-    { code: 'en', label: "English", flag: "🇬🇧" }
+  const languagesList: { code: Language; label: string; short: string }[] = [
+    { code: 'uz', label: "O'zbekcha", short: "UZ" },
+    { code: 'ru', label: "Русский", short: "RU" },
+    { code: 'en', label: "English", short: "EN" }
   ];
 
   const currentLang = languagesList.find(l => l.code === language) || languagesList[0];
@@ -30,35 +30,45 @@ export const LanguageSwitcher: React.FC = () => {
     <div className="relative inline-block text-left" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-sky-50 hover:bg-sky-100 text-sky-900 border border-sky-200 transition-all duration-200 shadow-xs active:scale-95 cursor-pointer"
+        className="flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-50 hover:bg-sky-50 text-slate-800 hover:text-sky-700 border border-slate-200 hover:border-sky-200 transition-all duration-200 shadow-2xs active:scale-95 cursor-pointer"
         aria-label="Change Language"
       >
-        <span className="text-sm">{currentLang.flag}</span>
-        <span className="uppercase tracking-wider font-bold text-sky-950">{currentLang.code}</span>
-        <ChevronDown className={`w-3.5 h-3.5 text-sky-700 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+        <Globe className="w-3.5 h-3.5 text-sky-600 shrink-0" />
+        <span className="tracking-wide text-slate-800 font-extrabold">{currentLang.short}</span>
+        <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${isOpen ? 'rotate-180 text-sky-600' : ''}`} />
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-36 rounded-2xl bg-white shadow-xl border border-sky-100 py-1.5 z-50 animate-in fade-in zoom-in-95 duration-150">
-          {languagesList.map((item) => (
-            <button
-              key={item.code}
-              onClick={() => {
-                setLanguage(item.code);
-                setIsOpen(false);
-              }}
-              className={`w-full flex items-center gap-2.5 px-3.5 py-2 text-xs font-medium text-left transition-colors cursor-pointer ${
-                language === item.code
-                  ? 'bg-sky-500 text-white font-bold'
-                  : 'text-slate-700 hover:bg-sky-50 hover:text-sky-900'
-              }`}
-            >
-              <span className="text-base">{item.flag}</span>
-              <span>{item.label}</span>
-            </button>
-          ))}
+        <div className="absolute right-0 mt-2 w-40 rounded-2xl bg-white shadow-xl border border-slate-100 py-1.5 z-50 animate-in fade-in zoom-in-95 duration-150">
+          <div className="px-3 py-1 text-[10px] font-bold text-slate-400 uppercase tracking-wider border-b border-slate-100 mb-1">
+            Tilni tanlang
+          </div>
+          {languagesList.map((item) => {
+            const isSelected = language === item.code;
+            return (
+              <button
+                key={item.code}
+                onClick={() => {
+                  setLanguage(item.code);
+                  setIsOpen(false);
+                }}
+                className={`w-full flex items-center justify-between px-3 py-2 text-xs font-semibold transition-colors cursor-pointer ${
+                  isSelected
+                    ? 'bg-sky-50 text-sky-700 font-bold'
+                    : 'text-slate-700 hover:bg-slate-50 hover:text-sky-600'
+                }`}
+              >
+                <div className="flex items-center gap-2">
+                  <span className="w-5 text-[10px] font-extrabold text-slate-400 uppercase">{item.short}</span>
+                  <span>{item.label}</span>
+                </div>
+                {isSelected && <Check className="w-3.5 h-3.5 text-sky-600" />}
+              </button>
+            );
+          })}
         </div>
       )}
     </div>
   );
 };
+
