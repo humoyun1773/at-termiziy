@@ -15,79 +15,14 @@ import {
   RotateCcw, 
   Copy, 
   Check, 
-  Compass 
+  Compass,
+  X
 } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { Card } from '../ui/card';
 
-interface PresetLocation {
-  id: string;
-  name: string;
-  category: string;
-  lat: number;
-  lng: number;
-  query: string;
-  desc: string;
-}
-
-const PRESET_LOCATIONS: PresetLocation[] = [
-  {
-    id: 'center',
-    name: "Al-Hakim At-Termiziy (Bosh Bino)",
-    category: "O'quv Markazi",
-    lat: 38.86056,
-    lng: 65.78905,
-    query: "Qarshi Mustaqillik shoh ko'chasi",
-    desc: "Qarshi shahar, Mustaqillik shoh ko'chasi, Mustaqillik maydoni yaqinida"
-  },
-  {
-    id: 'vokzal',
-    name: "Qarshi Temir Yo'l Vokzali",
-    category: "Transport",
-    lat: 38.84550,
-    lng: 65.80230,
-    query: "Qarshi temir yol vokzali",
-    desc: "Markazdan ~3.2 km masofada (Avtobus va marshrutkalar mavjud)"
-  },
-  {
-    id: 'qdu',
-    name: "Qarshi Davlat Universiteti (QDU)",
-    category: "Ta'lim",
-    lat: 38.85120,
-    lng: 65.79410,
-    query: "Karshi State University",
-    desc: "Markazdan ~1.8 km masofada"
-  },
-  {
-    id: 'hokimlik',
-    name: "Viloyat Hokimligi / Markaz",
-    category: "Ma'muriy",
-    lat: 38.86180,
-    lng: 65.78450,
-    query: "Qashqadaryo viloyat hokimligi",
-    desc: "Markazga piyoda 5 daqiqalik yo'l (~600 m)"
-  },
-  {
-    id: 'nasaf',
-    name: "Markaziy 'Nasaf' Stadioni",
-    category: "Sport & Madaniyat",
-    lat: 38.87100,
-    lng: 65.79500,
-    query: "Nasaf stadioni Qarshi",
-    desc: "Markazdan ~2.1 km masofada"
-  },
-  {
-    id: 'aeroport',
-    name: "Qarshi Xalqaro Aeroporti",
-    category: "Transport",
-    lat: 38.82850,
-    lng: 65.77800,
-    query: "Karshi Airport",
-    desc: "Markazdan ~6.5 km masofada"
-  }
-];
-
+// Haversine formula to compute distance in km
 function calculateDistance(lat1: number, lon1: number, lat2: number, lon2: number): number {
   const R = 6371;
   const dLat = (lat2 - lat1) * (Math.PI / 180);
@@ -105,49 +40,38 @@ interface Props {
 }
 
 export const LocationSection: React.FC<Props> = ({ className = '' }) => {
-  const defaultLocation = PRESET_LOCATIONS[0];
-  const [selectedLocation, setSelectedLocation] = useState<PresetLocation>(defaultLocation);
+  const defaultQuery = "Al-Hakim At-Termiziy, Mustaqillik shoh ko'chasi, Qarshi, Uzbekistan";
   const [searchQuery, setSearchQuery] = useState('');
-  const [customMapUrl, setCustomMapUrl] = useState<string | null>(null);
+  const [activeLocationQuery, setActiveLocationQuery] = useState(defaultQuery);
+  const [locationTitle, setLocationTitle] = useState("Al-Hakim At-Termiziy (Bosh Bino)");
+  const [locationDesc, setLocationDesc] = useState("Qarshi shahar, Mustaqillik shoh ko'chasi, Mustaqillik maydoni yaqinida");
   const [distanceKm, setDistanceKm] = useState<number | null>(null);
   const [isLocating, setIsLocating] = useState(false);
   const [locationError, setLocationError] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
 
+  // Search handler: user can search ANY place
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (!searchQuery.trim()) return;
 
-    const match = PRESET_LOCATIONS.find(loc => 
-      loc.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-      loc.query.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-
-    if (match) {
-      setSelectedLocation(match);
-      setCustomMapUrl(null);
-    } else {
-      const encodedQuery = encodeURIComponent(searchQuery + ', Qarshi, Uzbekistan');
-      setCustomMapUrl('https://www.google.com/maps?q=' + encodedQuery + '&output=embed');
-      setSelectedLocation({
-        id: 'custom',
-        name: searchQuery,
-        category: "Qidirilgan Joy",
-        lat: siteConfig.coordinates.lat,
-        lng: siteConfig.coordinates.lng,
-        query: searchQuery,
-        desc: 'Qidiruv natijasi: ' + searchQuery
-      });
-    }
-  };
-
-  const handleResetToAcademy = () => {
-    setSelectedLocation(defaultLocation);
-    setSearchQuery('');
-    setCustomMapUrl(null);
+    const query = searchQuery.trim();
+    setActiveLocationQuery(query + ', Qarshi, Uzbekistan');
+    setLocationTitle(query);
+    setLocationDesc('Qidiruv natijasi: ' + query);
     setDistanceKm(null);
   };
 
+  // Reset back to main academy
+  const handleResetToAcademy = () => {
+    setSearchQuery('');
+    setActiveLocationQuery(defaultQuery);
+    setLocationTitle("Al-Hakim At-Termiziy (Bosh Bino)");
+    setLocationDesc("Qarshi shahar, Mustaqillik shoh ko'chasi, Mustaqillik maydoni yaqinida");
+    setDistanceKm(null);
+  };
+
+  // Detect user geolocation
   const handleDetectLocation = () => {
     if (!navigator.geolocation) {
       setLocationError("Brauzeringiz GPS aniqlashni qo'llab-quvvatlamaydi.");
@@ -161,10 +85,12 @@ export const LocationSection: React.FC<Props> = ({ className = '' }) => {
       (position) => {
         const uLat = position.coords.latitude;
         const uLng = position.coords.longitude;
-        const dist = calculateDistance(uLat, uLng, defaultLocation.lat, defaultLocation.lng);
+        const dist = calculateDistance(uLat, uLng, siteConfig.coordinates.lat, siteConfig.coordinates.lng);
         setDistanceKm(dist);
         setIsLocating(false);
-        setCustomMapUrl('https://www.google.com/maps?saddr=' + uLat + ',' + uLng + '&daddr=' + defaultLocation.lat + ',' + defaultLocation.lng + '&output=embed');
+        setActiveLocationQuery(uLat + ',' + uLng);
+        setLocationTitle("Sizning Hozirgi Joylashuvingiz");
+        setLocationDesc("GPS orqali aniqlangan koordinata: " + uLat.toFixed(5) + ", " + uLng.toFixed(5));
       },
       (error) => {
         setIsLocating(false);
@@ -175,19 +101,19 @@ export const LocationSection: React.FC<Props> = ({ className = '' }) => {
     );
   };
 
+  // Copy coordinates
   const handleCopyCoords = () => {
-    navigator.clipboard.writeText(selectedLocation.lat + ', ' + selectedLocation.lng);
+    navigator.clipboard.writeText(siteConfig.coordinates.lat + ', ' + siteConfig.coordinates.lng);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const mapIframeSrc = customMapUrl 
-    ? customMapUrl 
-    : 'https://www.openstreetmap.org/export/embed.html?bbox=' + (selectedLocation.lng - 0.015) + '%2C' + (selectedLocation.lat - 0.01) + '%2C' + (selectedLocation.lng + 0.015) + '%2C' + (selectedLocation.lat + 0.01) + '&layer=mapnik&marker=' + selectedLocation.lat + '%2C' + selectedLocation.lng;
+  // Dynamic Google Maps embed without hardcoded OSM green pin
+  const mapIframeSrc = 'https://maps.google.com/maps?q=' + encodeURIComponent(activeLocationQuery) + '&t=&z=16&ie=UTF8&iwloc=&output=embed';
 
-  const currentYandexUrl = 'https://yandex.uz/maps/?ll=' + selectedLocation.lng + ',' + selectedLocation.lat + '&z=16&text=' + encodeURIComponent(selectedLocation.query || selectedLocation.name);
-  const currentGoogleUrl = 'https://www.google.com/maps/search/?api=1&query=' + selectedLocation.lat + ',' + selectedLocation.lng + '+(' + encodeURIComponent(selectedLocation.name) + ')';
-  const current2GisUrl = 'https://2gis.uz/karshi/search/' + encodeURIComponent(selectedLocation.query || selectedLocation.name);
+  const currentYandexUrl = 'https://yandex.uz/maps/?text=' + encodeURIComponent(activeLocationQuery);
+  const currentGoogleUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(activeLocationQuery);
+  const current2GisUrl = 'https://2gis.uz/karshi/search/' + encodeURIComponent(activeLocationQuery);
 
   return (
     <div className={'space-y-8 ' + className}>
@@ -202,11 +128,11 @@ export const LocationSection: React.FC<Props> = ({ className = '' }) => {
           Qarshi Shahridagi Markazimizni Qidiring va Toping
         </h2>
         <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-          Istalgan joy, bekat yoki mo'ljalni qidiring, o'z joylashuvingizdan markazimizgacha bo'lgan masofa va qulay marshrutni aniqlang.
+          Istalgan joy, bekat yoki ko'chani qidiring � xarita siz qidirgan manzilga darhol moslashadi.
         </p>
       </div>
 
-      {/* Interactive Search Bar & GPS Detector */}
+      {/* ?? Search Input Bar & GPS Button */}
       <div className="max-w-3xl mx-auto">
         <Card className="p-3 sm:p-4 rounded-3xl bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 shadow-md">
           <form onSubmit={handleSearch} className="flex flex-col sm:flex-row items-center gap-2">
@@ -216,9 +142,18 @@ export const LocationSection: React.FC<Props> = ({ className = '' }) => {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Qarshi shahridagi istalgan joy, ko'cha yoki mo'ljalni qidiring..."
-                className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all"
+                placeholder="Istalgan manzil, ko'cha yoki mo'ljalni qidiring..."
+                className="w-full pl-10 pr-9 py-2.5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all"
               />
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery('')}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 cursor-pointer"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              )}
             </div>
             
             <div className="flex items-center gap-2 w-full sm:w-auto">
@@ -281,7 +216,7 @@ export const LocationSection: React.FC<Props> = ({ className = '' }) => {
               className="bg-white text-emerald-900 hover:bg-emerald-50 font-bold text-xs rounded-xl shrink-0 cursor-pointer"
             >
               <RotateCcw className="w-3.5 h-3.5 mr-1" />
-              <span>Tiklash</span>
+              <span>Bosh binoga qaytish</span>
             </Button>
           </motion.div>
         )}
@@ -302,7 +237,7 @@ export const LocationSection: React.FC<Props> = ({ className = '' }) => {
             
             <div className="space-y-5">
               
-              {/* Selected Location Details Box */}
+              {/* Current Active Location Details Box */}
               <div className="p-4 rounded-2xl bg-sky-50/80 dark:bg-slate-800/80 border border-sky-100 dark:border-slate-700/80 flex items-start gap-3.5">
                 <div className="w-10 h-10 rounded-xl bg-sky-600 text-white flex items-center justify-center shrink-0 shadow-sm shadow-sky-500/30 mt-0.5">
                   <MapPin className="w-5 h-5" />
@@ -310,9 +245,9 @@ export const LocationSection: React.FC<Props> = ({ className = '' }) => {
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center justify-between gap-1 mb-0.5">
                     <span className="text-[10px] text-sky-600 dark:text-sky-400 uppercase font-extrabold tracking-wider block">
-                      {selectedLocation.category}
+                      Manzil
                     </span>
-                    {selectedLocation.id !== 'center' && (
+                    {activeLocationQuery !== defaultQuery && (
                       <button 
                         onClick={handleResetToAcademy} 
                         className="text-[10px] text-sky-600 dark:text-sky-400 font-bold hover:underline cursor-pointer flex items-center gap-0.5"
@@ -323,10 +258,10 @@ export const LocationSection: React.FC<Props> = ({ className = '' }) => {
                     )}
                   </div>
                   <h3 className="font-bold text-slate-900 dark:text-white text-sm leading-snug">
-                    {selectedLocation.name}
+                    {locationTitle}
                   </h3>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
-                    {selectedLocation.desc}
+                    {locationDesc}
                   </p>
                 </div>
               </div>
@@ -376,7 +311,7 @@ export const LocationSection: React.FC<Props> = ({ className = '' }) => {
                 <div className="flex items-center gap-2 min-w-0">
                   <Compass className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0" />
                   <span className="font-mono text-[11px] text-slate-600 dark:text-slate-300 truncate">
-                    GPS: {selectedLocation.lat.toFixed(5)}, {selectedLocation.lng.toFixed(5)}
+                    GPS: {siteConfig.coordinates.lat.toFixed(5)}, {siteConfig.coordinates.lng.toFixed(5)}
                   </span>
                 </div>
                 <button
@@ -467,7 +402,7 @@ export const LocationSection: React.FC<Props> = ({ className = '' }) => {
           </Card>
         </motion.div>
 
-        {/* Right Col (7 cols): Interactive Map Iframe */}
+        {/* Right Col (7 cols): Interactive Dynamic Map Iframe */}
         <motion.div 
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -479,7 +414,7 @@ export const LocationSection: React.FC<Props> = ({ className = '' }) => {
             
             <iframe
               key={mapIframeSrc}
-              title={selectedLocation.name + ' Joylashuvi'}
+              title={locationTitle + ' Joylashuvi'}
               src={mapIframeSrc}
               className="w-full h-full min-h-[440px] sm:min-h-[500px] border-0"
               loading="lazy"
@@ -490,7 +425,7 @@ export const LocationSection: React.FC<Props> = ({ className = '' }) => {
               <Button
                 asChild
                 size="sm"
-                className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 shadow-md hover:bg-sky-50 dark:hover:bg-slate-800 text-xs font-bold rounded-xl gap-1.5"
+                className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 shadow-md hover:bg-sky-50 dark:hover:bg-slate-800 text-xs font-bold rounded-xl gap-1.5 cursor-pointer"
               >
                 <a 
                   href={currentGoogleUrl} 
