@@ -141,12 +141,6 @@ export const LocationSection: React.FC<Props> = ({ className = '' }) => {
     }
   };
 
-  const handleSelectPreset = (loc: PresetLocation) => {
-    setSelectedLocation(loc);
-    setSearchQuery('');
-    setCustomMapUrl(null);
-  };
-
   const handleResetToAcademy = () => {
     setSelectedLocation(defaultLocation);
     setSearchQuery('');
@@ -250,30 +244,6 @@ export const LocationSection: React.FC<Props> = ({ className = '' }) => {
               </Button>
             </div>
           </form>
-
-          {/* Quick preset badges for popular Qarshi landmarks */}
-          <div className="pt-3 mt-2 border-t border-slate-100 dark:border-slate-800 flex items-center gap-1.5 flex-wrap">
-            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mr-1">
-              Ommabop Mo'ljallar:
-            </span>
-            {PRESET_LOCATIONS.map((loc) => {
-              const isSelected = selectedLocation.id === loc.id;
-              return (
-                <button
-                  key={loc.id}
-                  type="button"
-                  onClick={() => handleSelectPreset(loc)}
-                  className={'text-[11px] font-semibold px-2.5 py-1 rounded-xl transition-all cursor-pointer ' + (
-                    isSelected
-                      ? 'bg-sky-600 text-white font-bold shadow-xs'
-                      : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-sky-50 dark:hover:bg-slate-700 hover:text-sky-600'
-                  )}
-                >
-                  {loc.name.split(' (')[0]}
-                </button>
-              );
-            })}
-          </div>
 
           {locationError && (
             <div className="mt-2 text-xs text-rose-500 font-medium bg-rose-50 dark:bg-rose-950/40 p-2.5 rounded-xl border border-rose-200 dark:border-rose-900">
