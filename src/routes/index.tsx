@@ -10,6 +10,7 @@ import { CombinationsPage } from '../pages/CombinationsPage';
 import { CoursesPage } from '../pages/CoursesPage';
 import { AboutPage } from '../pages/AboutPage';
 import { CareerPage } from '../pages/CareerPage';
+import { LocationPage } from '../pages/LocationPage';
 import { ContactPage } from '../pages/ContactPage';
 import { NotFoundPage } from '../pages/NotFoundPage';
 
@@ -57,6 +58,10 @@ export const router = createBrowserRouter([
       {
         path: 'career',
         element: <CareerPage />
+      },
+      {
+        path: 'location',
+        element: <LocationPage />
       },
       {
         path: 'contact',
