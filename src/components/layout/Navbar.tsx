@@ -44,49 +44,57 @@ export const Navbar: React.FC = () => {
           ? 'glass-panel shadow-md py-3' 
           : 'bg-white/95 backdrop-blur-md py-4 border-b border-slate-100'
       }`}>
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="flex items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between gap-6">
             
             {/* Brand Logo */}
             <Link 
               to="/" 
-              className="flex items-center gap-3 group cursor-pointer"
+              className="flex items-center gap-3 group cursor-pointer shrink-0"
             >
               <div className="w-10 h-10 md:w-11 md:h-11 rounded-2xl bg-gradient-to-tr from-sky-600 via-sky-500 to-blue-600 flex items-center justify-center text-white shadow-md shadow-sky-500/25 group-hover:scale-105 transition-transform">
                 <GraduationCap className="w-6 h-6" />
               </div>
               <div className="flex flex-col">
-                <span className="text-base md:text-lg font-extrabold tracking-tight text-slate-900 font-heading leading-tight group-hover:text-sky-600 transition-colors">
+                <span className="text-base md:text-lg font-extrabold tracking-tight text-slate-900 font-heading leading-tight group-hover:text-sky-600 transition-colors whitespace-nowrap">
                   {t.brand.name}
                 </span>
-                <span className="text-[10px] font-bold text-sky-600 uppercase tracking-widest leading-none">
+                <span className="text-[10px] font-bold text-sky-600 uppercase tracking-widest leading-none whitespace-nowrap">
                   {t.brand.type} • {t.brand.city}
                 </span>
               </div>
             </Link>
 
-            {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
+            {/* Desktop Navigation Links (Strictly Single-Line & Premium Underline on Hover) */}
+            <nav className="hidden lg:flex items-center gap-5 xl:gap-8 whitespace-nowrap">
               {navLinks.map((link) => {
                 const isActive = location.pathname === link.path;
                 return (
                   <Link
                     key={link.path}
                     to={link.path}
-                    className={`px-3 py-2 rounded-xl text-xs xl:text-sm font-semibold transition-all cursor-pointer ${
+                    className={`group relative py-2 text-xs xl:text-sm font-semibold transition-colors duration-200 whitespace-nowrap cursor-pointer ${
                       isActive
-                        ? 'bg-sky-50 text-sky-700 shadow-xs font-bold border border-sky-200/60'
-                        : 'text-slate-600 hover:text-sky-600 hover:bg-slate-50'
+                        ? 'text-sky-600 font-bold'
+                        : 'text-slate-700 hover:text-sky-600'
                     }`}
                   >
-                    {link.label}
+                    <span>{link.label}</span>
+                    {/* Premium Animated Border Bottom */}
+                    <span 
+                      className={`absolute bottom-0 left-0 w-full h-[2.5px] rounded-full bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 transition-all duration-300 origin-left ${
+                        isActive 
+                          ? 'scale-x-100 opacity-100 shadow-xs' 
+                          : 'scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100'
+                      }`}
+                    />
                   </Link>
                 );
               })}
             </nav>
 
             {/* Right actions: Language Switcher & Mobile Menu Toggle */}
-            <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-3 shrink-0">
               <LanguageSwitcher />
 
               {/* Mobile Menu Toggle Button */}
