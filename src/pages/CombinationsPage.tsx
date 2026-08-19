@@ -33,7 +33,7 @@ export const CombinationsPage: React.FC = () => {
       </section>
 
       {/* 4 Detailed Combinations Sections */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         {combinationsData.map((combo) => (
           <div
             key={combo.id}
@@ -164,7 +164,7 @@ export const CombinationsPage: React.FC = () => {
       </section>
 
       {/* Bottom Consultation Banner */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-sky-900 text-white rounded-3xl p-8 md:p-12 text-center max-w-4xl mx-auto space-y-4">
           <h3 className="text-2xl font-bold font-heading">
             Qaysi Kombinatsiya Sizga Mos Kelishini Bilmayapsizmi?

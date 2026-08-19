@@ -55,7 +55,7 @@ export const Navbar: React.FC = () => {
           ? 'glass-panel shadow-md py-3' 
           : 'bg-white/95 backdrop-blur-md py-4 border-b border-slate-100'
       }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1600px] w-full mx-auto px-4 sm:px-8 lg:px-12">
           <div className="flex items-center justify-between gap-6">
             
             {/* Brand Logo */}
