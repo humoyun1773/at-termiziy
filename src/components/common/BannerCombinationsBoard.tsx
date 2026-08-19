@@ -7,8 +7,7 @@ import {
   Calendar, 
   ShieldCheck,
   ChevronDown,
-  Send,
-  Sparkles
+  Send
 } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
@@ -77,10 +76,6 @@ export const BannerCombinationsBoard: React.FC = () => {
       
       {/* Board Top Header */}
       <div className="text-center mb-8">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 dark:bg-slate-800 border border-sky-100 dark:border-slate-700 text-sky-700 dark:text-sky-400 text-xs font-bold uppercase tracking-wider mb-2">
-          <Sparkles className="w-3.5 h-3.5" />
-          <span>28 Oylik Ta'lim Tizimi</span>
-        </div>
         <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight font-heading uppercase">
           AL-HAKIM AT-TERMIZIY O'QUV MARKAZI
         </h2>
