@@ -11,7 +11,6 @@ import { CourseCard } from '../components/common/CourseCard';
 import { 
   ArrowRight, 
   CheckCircle2, 
-  Award, 
   Users, 
   Briefcase, 
   GraduationCap, 
@@ -19,10 +18,11 @@ import {
   MapPin, 
   Phone, 
   Star, 
-  ChevronDown,
-  Layers,
-  UserCheck,
-  Building2
+  ChevronDown, 
+  Layers, 
+  UserCheck, 
+  Building2, 
+  ShieldCheck 
 } from 'lucide-react';
 
 export const HomePage: React.FC = () => {
@@ -31,38 +31,32 @@ export const HomePage: React.FC = () => {
   const [openFaq, setOpenFaq] = React.useState<string | null>(faqData[0].id);
 
   return (
-    <div className="space-y-16 md:space-y-24 pb-20">
+    <div className="space-y-16 md:space-y-20 pb-20">
       
       {/* 1. HERO SECTION */}
-      <section className="relative pt-6 pb-8 md:pt-12 md:pb-16 overflow-hidden bg-hero-glow">
-        {/* Subtle grid background */}
-        <div className="absolute inset-0 bg-pattern-grid pointer-events-none" />
-
-        {/* Ambient light blue circles */}
-        <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-sky-200/50 rounded-full blur-3xl pointer-events-none" />
-
+      <section className="relative pt-6 pb-4 md:pt-10 md:pb-8 bg-mesh-subtle">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
-          <div className="text-center max-w-3xl mx-auto space-y-5 mb-10 md:mb-14">
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-8 md:mb-12">
             
             {/* Main Headline */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.15] font-heading">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight font-heading">
               {t.hero.titleStart}{' '}
-              <span className="shimmer-text block sm:inline">
+              <span className="text-sky-600 inline">
                 {t.hero.titleHighlight}
               </span>{' '}
               {t.hero.titleEnd}
             </h1>
 
             {/* Subtitle */}
-            <p className="text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed font-normal max-w-2xl mx-auto">
+            <p className="text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed font-normal max-w-2xl mx-auto">
               {t.hero.subheading}
             </p>
 
-            {/* CTA Action Buttons */}
+            {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
               <button
                 onClick={() => openModal()}
-                className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-sky-600 via-sky-500 to-blue-600 hover:from-sky-500 hover:to-blue-500 text-white font-bold text-sm md:text-base shadow-xl shadow-sky-500/25 transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2.5 cursor-pointer"
+                className="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs sm:text-sm shadow-md shadow-sky-600/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>{t.hero.freeConsultation}</span>
                 <ArrowRight className="w-4 h-4" />
@@ -70,7 +64,7 @@ export const HomePage: React.FC = () => {
 
               <Link
                 to="/combinations"
-                className="w-full sm:w-auto px-7 py-4 rounded-2xl bg-sky-50 hover:bg-sky-100 text-sky-900 font-bold text-sm md:text-base border border-sky-200 shadow-xs transition-all hover:border-sky-300 flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-sky-50 hover:bg-sky-100 text-sky-800 font-bold text-xs sm:text-sm border border-sky-200 transition-colors flex items-center justify-center gap-2 cursor-pointer"
               >
                 <Layers className="w-4 h-4 text-sky-600" />
                 <span>{t.hero.exploreCombinations}</span>
@@ -78,28 +72,28 @@ export const HomePage: React.FC = () => {
             </div>
           </div>
 
-          {/* 2. THE CENTRAL 4-COMBINATIONS BOARD (Exact interactive replicate of the 3rd Banner) */}
-          <div className="mt-4 max-w-6xl mx-auto">
+          {/* 2. THE CENTRAL 4-COMBINATIONS BOARD */}
+          <div className="mt-2 max-w-5xl mx-auto">
             <BannerCombinationsBoard />
           </div>
 
           {/* Quick Stats Grid */}
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+          <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-5xl mx-auto">
             {[
               { num: "28 OY", label: t.hero.statMonths, icon: Clock, color: "text-sky-600", bg: "bg-sky-50" },
               { num: "4 TA", label: t.hero.statLanguages, icon: GraduationCap, color: "text-blue-600", bg: "bg-blue-50" },
               { num: "100%", label: t.hero.statJobGuarantee, icon: Briefcase, color: "text-emerald-600", bg: "bg-emerald-50" },
               { num: "500+", label: t.hero.statStudents, icon: Users, color: "text-amber-600", bg: "bg-amber-50" }
             ].map((stat, idx) => (
-              <div key={idx} className="bg-white p-5 rounded-2xl border border-sky-100 shadow-sm flex items-center gap-3.5">
-                <div className={`w-12 h-12 rounded-xl ${stat.bg} ${stat.color} flex items-center justify-center shrink-0`}>
-                  <stat.icon className="w-6 h-6" />
+              <div key={idx} className="bg-white p-4 rounded-2xl border border-slate-200 shadow-2xs flex items-center gap-3">
+                <div className={`w-10 h-10 rounded-xl ${stat.bg} ${stat.color} flex items-center justify-center shrink-0`}>
+                  <stat.icon className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-xl font-extrabold text-slate-900 font-heading block">
+                  <span className="text-lg font-extrabold text-slate-900 font-heading block leading-none mb-1">
                     {stat.num}
                   </span>
-                  <span className="text-xs text-slate-500 font-medium leading-tight block">
+                  <span className="text-[11px] text-slate-500 font-medium leading-tight block">
                     {stat.label}
                   </span>
                 </div>
@@ -110,45 +104,42 @@ export const HomePage: React.FC = () => {
       </section>
 
 
-      {/* 3. MOTTO & DISCIPLINE PHILOSOPHY */}
+      {/* 3. TA'LIM METODIKASI & TAMOYILLAR */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6">
-        <div className="bg-gradient-to-br from-sky-900 via-sky-800 to-blue-900 rounded-3xl p-8 md:p-14 text-white relative overflow-hidden shadow-2xl">
-          {/* Decorative glow */}
-          <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-sky-400/20 rounded-full blur-3xl" />
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
-            <div className="lg:col-span-6 space-y-4">
-              <span className="px-3.5 py-1 rounded-full bg-white/10 text-sky-200 text-xs font-bold uppercase tracking-wider inline-block">
+        <div className="bg-slate-50 rounded-3xl p-6 sm:p-10 border border-slate-200">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-6 space-y-3">
+              <span className="px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider inline-block">
                 {t.mottoSection.tag}
               </span>
-              <h2 className="text-2xl sm:text-4xl font-extrabold font-heading text-white tracking-tight">
+              <h2 className="text-xl sm:text-3xl font-extrabold font-heading text-slate-900 tracking-tight">
                 {t.mottoSection.title}
               </h2>
-              <p className="text-sm md:text-base text-sky-100/90 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 {t.mottoSection.description}
               </p>
               <div className="pt-2">
                 <Link
                   to="/about"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-sky-950 font-bold text-xs md:text-sm hover:bg-sky-50 transition-all shadow-md active:scale-95"
+                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-white text-sky-800 border border-slate-200 hover:border-sky-300 font-bold text-xs shadow-2xs transition-colors"
                 >
-                  <span>Markaz Nizomi & Qoidalari Bilan Tanishish</span>
-                  <ArrowRight className="w-4 h-4 text-sky-600" />
+                  <span>Markaz Nizomi & Qoidalari</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-sky-600" />
                 </Link>
               </div>
             </div>
 
-            <div className="lg:col-span-6 space-y-3.5">
+            <div className="lg:col-span-6 space-y-3">
               {t.mottoSection.points.map((pt, idx) => (
-                <div key={idx} className="bg-white/10 backdrop-blur-md p-5 rounded-2xl border border-white/15 flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-xl bg-sky-400/20 text-sky-200 font-bold flex items-center justify-center shrink-0 text-sm">
+                <div key={idx} className="bg-white p-4 rounded-2xl border border-slate-200 flex items-start gap-3.5 shadow-2xs">
+                  <div className="w-7 h-7 rounded-lg bg-sky-50 text-sky-700 font-bold flex items-center justify-center shrink-0 text-xs">
                     0{idx + 1}
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-white font-heading">
+                    <h4 className="text-xs font-bold text-slate-900 font-heading">
                       {pt.title}
                     </h4>
-                    <p className="text-xs text-sky-100/80 mt-1 leading-relaxed">
+                    <p className="text-[11px] text-slate-500 mt-0.5 leading-relaxed">
                       {pt.desc}
                     </p>
                   </div>
@@ -162,37 +153,36 @@ export const HomePage: React.FC = () => {
 
       {/* 4. 28-MONTH COMBINATIONS (DETAILED CARDS) */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6">
-        <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-          <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5">
-            <Layers className="w-3.5 h-3.5 text-sky-600" />
+        <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
+          <span className="px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider inline-block">
             {t.combinationsSection.tag}
           </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 font-heading">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
             {t.combinationsSection.title}
           </h2>
-          <p className="text-sm sm:text-base text-slate-600">
+          <p className="text-xs sm:text-sm text-slate-600">
             {t.combinationsSection.subtitle}
           </p>
         </div>
 
         {/* Combinations Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {combinationsData.map((combo) => (
             <CombinationCard key={combo.id} combination={combo} />
           ))}
         </div>
 
         {/* Guaranteed Job Placement Announcement Bar */}
-        <div className="mt-10 p-6 md:p-8 rounded-3xl bg-gradient-to-r from-emerald-600 to-teal-700 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center text-white shrink-0">
-              <Award className="w-8 h-8" />
+        <div className="mt-8 p-5 sm:p-6 rounded-2xl bg-sky-900 text-white shadow-md flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3.5">
+            <div className="w-11 h-11 rounded-xl bg-white/15 flex items-center justify-center text-white shrink-0">
+              <ShieldCheck className="w-6 h-6 text-emerald-400" />
             </div>
             <div>
-              <h3 className="text-lg md:text-xl font-bold font-heading">
+              <h3 className="text-sm sm:text-base font-bold font-heading">
                 {t.combinationsSection.guaranteeBanner}
               </h3>
-              <p className="text-xs text-emerald-100 mt-0.5">
+              <p className="text-xs text-sky-200 mt-0.5">
                 {t.combinationsSection.guaranteeSub}
               </p>
             </div>
@@ -200,7 +190,7 @@ export const HomePage: React.FC = () => {
 
           <button
             onClick={() => openModal()}
-            className="px-6 py-3 rounded-xl bg-white hover:bg-emerald-50 text-emerald-900 font-bold text-xs md:text-sm whitespace-nowrap shadow-md transition-all active:scale-95 cursor-pointer shrink-0"
+            className="px-5 py-2.5 rounded-xl bg-white hover:bg-sky-50 text-sky-900 font-bold text-xs whitespace-nowrap transition-colors cursor-pointer shrink-0"
           >
             Hozir Ro'yxatdan O'tish →
           </button>
@@ -210,9 +200,9 @@ export const HomePage: React.FC = () => {
 
       {/* 5. INDIVIDUAL LANGUAGES OVERVIEW */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-8">
           <div>
-            <span className="px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider inline-block mb-2">
+            <span className="px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider inline-block mb-1.5">
               {t.coursesPage.tag}
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
@@ -221,14 +211,14 @@ export const HomePage: React.FC = () => {
           </div>
           <Link
             to="/courses"
-            className="text-xs md:text-sm font-bold text-sky-600 hover:text-sky-800 flex items-center gap-1.5 shrink-0"
+            className="text-xs font-bold text-sky-600 hover:text-sky-800 flex items-center gap-1 shrink-0"
           >
-            <span>Barcha kurslarni batafsil ko'rish</span>
-            <ArrowRight className="w-4 h-4" />
+            <span>Barcha kurslarni ko'rish</span>
+            <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {coursesData.slice(0, 6).map((course) => (
             <CourseCard key={course.id} course={course} />
           ))}
@@ -236,63 +226,63 @@ export const HomePage: React.FC = () => {
       </section>
 
 
-      {/* 6. CAMPUS & ENVIRONMENT IN QARSHI (Pure UI Card Design without external photo) */}
+      {/* 6. CAMPUS & ENVIRONMENT IN QARSHI */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6">
-        <div className="bg-white rounded-3xl p-8 md:p-12 border border-slate-200 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          <div className="lg:col-span-6 space-y-5">
+        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-2xs grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-6 space-y-4">
             <span className="px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5">
               <MapPin className="w-3.5 h-3.5 text-sky-600" />
               Qarshi Shahar Bosh Binomiz
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading leading-tight">
+            <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 font-heading leading-tight">
               Zamonaviy Sharoitlar va Haqiqiy Poliglot Muhiti
             </h2>
-            <p className="text-xs md:text-sm text-slate-600 leading-relaxed">
-              Markazimiz Qarshi shahrining eng qulay joyida joylashgan bo'lib, har bir xona interaktiv texnologiyalar, audio tizimlar va speaking zonalar bilan jihozlangan. Darslarda har bir talabaning 100% faol ishtiroki ta'minlanadi.
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Markazimiz Qarshi shahrining eng qulay joyida joylashgan bo'lib, har bir xona interaktiv texnologiyalar va speaking zonalar bilan jihozlangan.
             </p>
 
-            <div className="space-y-2.5 pt-2">
+            <div className="space-y-2 pt-1">
               {[
                 "Interaktiv aqlli doskalar va multimedia xonalari",
                 "Maxsus Language Lab va xalqaro speaking klublar",
                 "Katta kutubxona: 7 tildagi nodir adabiyotlar va qo'llanmalar",
                 "Individual mentorlik va kunlik monitoring xonasi"
               ].map((feat, idx) => (
-                <div key={idx} className="flex items-center gap-2.5 text-xs text-slate-700 font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-sky-600 shrink-0" />
+                <div key={idx} className="flex items-center gap-2 text-xs text-slate-700 font-medium">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-sky-600 shrink-0" />
                   <span>{feat}</span>
                 </div>
               ))}
             </div>
 
-            <div className="pt-3">
+            <div className="pt-2">
               <a
                 href="tel:+998919517335"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs transition-colors shadow-md"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs transition-colors shadow-2xs"
               >
-                <Phone className="w-4 h-4" />
-                <span>Markazga Tashrif Buyurish: +998 91 951 73 35</span>
+                <Phone className="w-3.5 h-3.5" />
+                <span>Markazga Tashrif: +998 91 951 73 35</span>
               </a>
             </div>
           </div>
 
-          <div className="lg:col-span-6 space-y-4">
-            <div className="p-6 rounded-3xl bg-gradient-to-br from-sky-900 to-blue-900 text-white shadow-xl space-y-4">
+          <div className="lg:col-span-6">
+            <div className="p-6 rounded-2xl bg-slate-900 text-white shadow-md space-y-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <Building2 className="w-5 h-5 text-sky-300" />
-                  <span className="text-xs font-bold uppercase tracking-wider text-sky-200">Qarshi Shahri Bosh Filiali</span>
+                  <Building2 className="w-4 h-4 text-sky-400" />
+                  <span className="text-xs font-bold uppercase tracking-wider text-sky-200">Qarshi Filiali</span>
                 </div>
-                <span className="px-2.5 py-1 rounded-full bg-emerald-500 text-white text-[10px] font-bold">Ochiq</span>
+                <span className="px-2 py-0.5 rounded-md bg-emerald-500 text-white text-[10px] font-bold">Ochiq</span>
               </div>
-              <h3 className="text-xl font-bold font-heading">
+              <h3 className="text-lg font-bold font-heading text-white">
                 At-Termeziy O'quv Markazi
               </h3>
-              <p className="text-xs text-sky-100 leading-relaxed">
+              <p className="text-xs text-slate-300 leading-relaxed">
                 Manzil: Qashqadaryo viloyati, Qarshi shahri, Mustaqillik shoh ko'chasi. Dushanba - Shanba kunlari soat 08:00 dan 20:00 gacha xizmatingizdamiz.
               </p>
-              <div className="p-3 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-between text-xs">
-                <span className="text-sky-200">Qabul bo'limi:</span>
+              <div className="p-3 rounded-xl bg-white/10 border border-white/10 flex items-center justify-between text-xs">
+                <span className="text-slate-300">Qabul bo'limi:</span>
                 <span className="font-mono font-bold text-white">+998 91 951 73 35</span>
               </div>
             </div>
@@ -301,35 +291,35 @@ export const HomePage: React.FC = () => {
       </section>
 
 
-      {/* 7. EXPERT TEACHERS & POLYGLOTS (Clean Card Design) */}
+      {/* 7. EXPERT TEACHERS & POLYGLOTS */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6">
-        <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-          <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider inline-block">
+        <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
+          <span className="px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider inline-block">
             Bizning Ustozlarimiz
           </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
-            Xalqaro Sertifikatlarga Ega Poliglot Mentorlar
+            Xalqaro Sertifikatlarga Ega Mentorlar
           </h2>
           <p className="text-xs sm:text-sm text-slate-600">
-            Darslarni o'z sohasining eng yuqori darajadagi (C1/C2, IELTS 8.0+, HSK 6, TOPIK 6) mutaxassislari olib boradilar.
+            Darslarni o'z sohasining eng yuqori darajadagi mutaxassislari olib boradilar.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {teachersData.map((teacher) => {
             const role = teacher.role[language] || teacher.role.uz;
             const exp = teacher.experience[language] || teacher.experience.uz;
             const bio = teacher.bio[language] || teacher.bio.uz;
 
             return (
-              <div key={teacher.id} className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-lg transition-all text-center group">
-                <div className="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-tr from-sky-500 to-blue-600 text-white font-black text-xl flex items-center justify-center mb-4 shadow-md group-hover:scale-105 transition-transform">
-                  <UserCheck className="w-8 h-8" />
+              <div key={teacher.id} className="bg-white rounded-2xl p-5 border border-slate-200 shadow-2xs hover:border-sky-300 transition-all text-center">
+                <div className="w-12 h-12 mx-auto rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center mb-3">
+                  <UserCheck className="w-6 h-6" />
                 </div>
-                <h3 className="text-base font-bold text-slate-900 font-heading">
+                <h3 className="text-sm font-bold text-slate-900 font-heading">
                   {teacher.name}
                 </h3>
-                <span className="text-xs text-sky-600 font-semibold block mt-0.5">
+                <span className="text-[11px] text-sky-700 font-medium block mt-0.5">
                   {role}
                 </span>
                 <div className="flex items-center justify-center gap-1.5 my-2">
@@ -350,42 +340,42 @@ export const HomePage: React.FC = () => {
       </section>
 
 
-      {/* 8. TESTIMONIALS & SUCCESS STORIES */}
+      {/* 8. TESTIMONIALS */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6">
-        <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-          <span className="px-3.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider inline-block">
+        <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
+          <span className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider inline-block">
             Muvaffaqiyat Tarixlari
           </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
-            28 Oylik Kurs Bitiruvchilarining Fikrlari
+            28 Oylik Kurs Bitiruvchilarining Natijalari
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
           {testimonialsData.map((item) => {
             const role = item.currentRole[language] || item.currentRole.uz;
             const quote = item.quote[language] || item.quote.uz;
 
             return (
-              <div key={item.id} className="bg-white rounded-3xl p-6 md:p-8 border border-slate-200 shadow-sm flex flex-col justify-between">
+              <div key={item.id} className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-2xs flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center gap-1 text-amber-400 mb-4">
+                  <div className="flex items-center gap-1 text-amber-400 mb-3">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-current" />
+                      <Star key={i} className="w-3.5 h-3.5 fill-current" />
                     ))}
                   </div>
-                  <p className="text-xs md:text-sm text-slate-700 italic leading-relaxed mb-6">
+                  <p className="text-xs text-slate-700 italic leading-relaxed mb-5">
                     "{quote}"
                   </p>
                 </div>
 
-                <div className="flex items-center gap-3 pt-4 border-t border-slate-100">
-                  <div className="w-10 h-10 rounded-full bg-sky-100 text-sky-800 font-bold flex items-center justify-center text-xs">
+                <div className="flex items-center gap-3 pt-3 border-t border-slate-100">
+                  <div className="w-8 h-8 rounded-full bg-sky-100 text-sky-800 font-bold flex items-center justify-center text-[11px]">
                     {item.name.slice(0, 2).toUpperCase()}
                   </div>
                   <div>
                     <h4 className="text-xs font-bold text-slate-900">{item.name}</h4>
-                    <span className="text-[11px] text-sky-600 font-medium block">{role}</span>
+                    <span className="text-[10px] text-sky-600 font-medium block">{role}</span>
                     <span className="text-[10px] text-slate-400 block">{item.company}</span>
                   </div>
                 </div>
@@ -397,17 +387,17 @@ export const HomePage: React.FC = () => {
 
 
       {/* 9. FAQ ACCORDION */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 space-y-2">
-          <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider inline-block">
-            Ko'p Beriladigan Savollar
+      <section className="max-w-3xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-8 space-y-1.5">
+          <span className="px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider inline-block">
+            Savollar & Javoblar
           </span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
-            Barcha Savollaringizga Aniq Javoblar
+          <h2 className="text-2xl font-extrabold text-slate-900 font-heading">
+            Ko'p Beriladigan Savollar
           </h2>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-2.5">
           {faqData.map((faq) => {
             const question = faq.question[language] || faq.question.uz;
             const answer = faq.answer[language] || faq.answer.uz;
@@ -416,17 +406,17 @@ export const HomePage: React.FC = () => {
             return (
               <div
                 key={faq.id}
-                className="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden transition-all"
+                className="bg-white rounded-xl border border-slate-200 shadow-2xs overflow-hidden"
               >
                 <button
                   onClick={() => setOpenFaq(isOpen ? null : faq.id)}
-                  className="w-full p-5 text-left font-bold text-slate-900 text-xs sm:text-sm flex items-center justify-between gap-4 cursor-pointer hover:bg-slate-50"
+                  className="w-full p-4 text-left font-bold text-slate-900 text-xs sm:text-sm flex items-center justify-between gap-3 cursor-pointer hover:bg-slate-50 transition-colors"
                 >
                   <span>{question}</span>
                   <ChevronDown className={`w-4 h-4 text-sky-600 transition-transform duration-200 shrink-0 ${isOpen ? 'rotate-180' : ''}`} />
                 </button>
                 {isOpen && (
-                  <div className="px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+                  <div className="px-4 pb-4 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-2.5">
                     {answer}
                   </div>
                 )}
@@ -439,28 +429,25 @@ export const HomePage: React.FC = () => {
 
       {/* 10. BOTTOM REGISTRATION CTA */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6">
-        <div className="bg-gradient-to-r from-sky-600 via-sky-500 to-blue-600 rounded-3xl p-8 md:p-14 text-white shadow-2xl text-center max-w-4xl mx-auto space-y-6">
-          <span className="px-3.5 py-1 rounded-full bg-white/20 text-white text-xs font-bold uppercase tracking-wider inline-block">
-            Qabulga Yozilish Ochiq
-          </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold font-heading text-white">
+        <div className="bg-sky-900 rounded-3xl p-6 sm:p-10 text-white text-center max-w-3xl mx-auto space-y-4 shadow-lg">
+          <h2 className="text-xl sm:text-3xl font-extrabold font-heading text-white">
             Kelajagingizni 4 Ta Til Bilan Boshlang!
           </h2>
-          <p className="text-xs sm:text-sm md:text-base text-sky-100 max-w-xl mx-auto leading-relaxed">
-            Qarshi shahridagi eng intizomli va natijador o'quv markazimizda joylar soni cheklangan. Bepul konsultatsiyaga yoziling!
+          <p className="text-xs sm:text-sm text-sky-200 max-w-lg mx-auto leading-relaxed">
+            Qarshi shahridagi eng intizomli va natijador o'quv markazimizda bepul konsultatsiyaga yoziling.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
             <button
               onClick={() => openModal()}
-              className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white text-sky-900 font-bold text-sm shadow-lg hover:bg-sky-50 transition-all active:scale-95 cursor-pointer"
+              className="w-full sm:w-auto px-7 py-3 rounded-xl bg-white text-sky-900 font-bold text-xs sm:text-sm hover:bg-sky-50 transition-colors cursor-pointer"
             >
               Ariza Qoldirish (Bepul)
             </button>
             <a
               href="tel:+998919517335"
-              className="w-full sm:w-auto px-7 py-4 rounded-2xl bg-sky-700/80 hover:bg-sky-700 text-white font-bold text-sm border border-sky-400/40 transition-all flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-sky-800 text-white font-bold text-xs sm:text-sm border border-sky-700 hover:bg-sky-750 transition-colors flex items-center justify-center gap-2"
             >
-              <Phone className="w-4 h-4" />
+              <Phone className="w-3.5 h-3.5" />
               <span>+998 91 951 73 35</span>
             </a>
           </div>
