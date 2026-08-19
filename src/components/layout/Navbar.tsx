@@ -66,14 +66,9 @@ export const Navbar: React.FC = () => {
               <div className="w-10 h-10 md:w-11 md:h-11 rounded-2xl bg-gradient-to-tr from-sky-600 via-sky-500 to-blue-600 flex items-center justify-center text-white shadow-md shadow-sky-500/25 group-hover:scale-105 transition-transform">
                 <GraduationCap className="w-6 h-6" />
               </div>
-              <div className="flex flex-col">
-                <span className="text-base md:text-lg font-extrabold tracking-tight text-slate-900 font-heading leading-tight group-hover:text-sky-600 transition-colors whitespace-nowrap">
-                  {t.brand.name}
-                </span>
-                <span className="text-[10px] font-bold text-sky-600 uppercase tracking-widest leading-none whitespace-nowrap">
-                  {t.brand.type} • {t.brand.city}
-                </span>
-              </div>
+              <span className="text-lg md:text-xl font-extrabold tracking-tight text-slate-900 font-heading leading-tight group-hover:text-sky-600 transition-colors whitespace-nowrap">
+                {t.brand.name}
+              </span>
             </Link>
 
             {/* Desktop Navigation Links (Strictly Single-Line & Premium Underline on Hover) */}
