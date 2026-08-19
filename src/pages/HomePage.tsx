@@ -84,21 +84,21 @@ export const HomePage: React.FC = () => {
           {/* Quick Stats Grid */}
           <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-[1600px] w-full mx-auto">
             {[
-              { num: "28 OY", label: t.hero.statMonths, icon: Clock, color: "text-sky-600", bg: "bg-sky-50" },
-              { num: "4 TA", label: t.hero.statLanguages, icon: GraduationCap, color: "text-blue-600", bg: "bg-blue-50" },
-              { num: "100%", label: t.hero.statJobGuarantee, icon: Briefcase, color: "text-emerald-600", bg: "bg-emerald-50" },
-              { num: "500+", label: t.hero.statStudents, icon: Users, color: "text-amber-600", bg: "bg-amber-50" }
+              { num: "28 OY", label: t.hero.statMonths, icon: Clock, color: "text-sky-600 dark:text-sky-400", bg: "bg-sky-50 dark:bg-sky-950/50" },
+              { num: "4 TA", label: t.hero.statLanguages, icon: GraduationCap, color: "text-blue-600 dark:text-blue-400", bg: "bg-blue-50 dark:bg-blue-950/50" },
+              { num: "100%", label: t.hero.statJobGuarantee, icon: Briefcase, color: "text-emerald-600 dark:text-emerald-400", bg: "bg-emerald-50 dark:bg-emerald-950/50" },
+              { num: "500+", label: t.hero.statStudents, icon: Users, color: "text-amber-600 dark:text-amber-400", bg: "bg-amber-50 dark:bg-amber-950/50" }
             ].map((stat, idx) => (
-              <Card key={idx} className="rounded-2xl border-slate-200 shadow-2xs">
+              <Card key={idx} className="rounded-2xl border-slate-200 dark:border-slate-800 dark:bg-slate-900 shadow-2xs">
                 <CardContent className="p-4 flex items-center gap-3">
                   <div className={`w-10 h-10 rounded-xl ${stat.bg} ${stat.color} flex items-center justify-center shrink-0`}>
                     <stat.icon className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-lg font-extrabold text-slate-900 font-heading block leading-none mb-1">
+                    <span className="text-lg font-extrabold text-slate-900 dark:text-white font-heading block leading-none mb-1">
                       {stat.num}
                     </span>
-                    <span className="text-[11px] text-slate-500 font-medium leading-tight block">
+                    <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium leading-tight block">
                       {stat.label}
                     </span>
                   </div>
@@ -112,23 +112,23 @@ export const HomePage: React.FC = () => {
 
       {/* 3. TA'LIM METODIKASI & TAMOYILLAR */}
       <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6">
-        <div className="bg-slate-50 rounded-3xl p-6 sm:p-10 border border-slate-200">
+        <div className="bg-slate-50 dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200 dark:border-slate-800">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-6 space-y-3">
               <Badge variant="secondary" className="px-3 py-1">
                 {t.mottoSection.tag}
               </Badge>
-              <h2 className="text-xl sm:text-3xl font-extrabold font-heading text-slate-900 tracking-tight">
+              <h2 className="text-xl sm:text-3xl font-extrabold font-heading text-slate-900 dark:text-white tracking-tight">
                 {t.mottoSection.title}
               </h2>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                 {t.mottoSection.description}
               </p>
               <div className="pt-2">
                 <Button variant="outline" size="sm" asChild className="rounded-xl font-bold">
                   <Link to="/about" className="flex items-center gap-1.5">
                     <span>Markaz Nizomi & Qoidalari</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-sky-600" />
+                    <ArrowRight className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
                   </Link>
                 </Button>
               </div>
@@ -136,15 +136,15 @@ export const HomePage: React.FC = () => {
 
             <div className="lg:col-span-6 space-y-3">
               {t.mottoSection.points.map((pt, idx) => (
-                <div key={idx} className="bg-white p-4 rounded-2xl border border-slate-200 flex items-start gap-3.5 shadow-2xs">
-                  <div className="w-7 h-7 rounded-lg bg-sky-50 text-sky-700 font-bold flex items-center justify-center shrink-0 text-xs">
+                <div key={idx} className="bg-white dark:bg-slate-850 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-start gap-3.5 shadow-2xs">
+                  <div className="w-7 h-7 rounded-lg bg-sky-50 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 font-bold flex items-center justify-center shrink-0 text-xs">
                     0{idx + 1}
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-slate-900 font-heading">
+                    <h4 className="text-xs font-bold text-slate-900 dark:text-white font-heading">
                       {pt.title}
                     </h4>
-                    <p className="text-[11px] text-slate-500 mt-0.5 leading-relaxed">
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 leading-relaxed">
                       {pt.desc}
                     </p>
                   </div>
@@ -162,10 +162,10 @@ export const HomePage: React.FC = () => {
           <Badge variant="secondary" className="px-3 py-1">
             {t.combinationsSection.tag}
           </Badge>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-heading">
             {t.combinationsSection.title}
           </h2>
-          <p className="text-xs sm:text-sm text-slate-600">
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
             {t.combinationsSection.subtitle}
           </p>
         </div>
@@ -213,16 +213,16 @@ export const HomePage: React.FC = () => {
 
       {/* 6. CAMPUS & ENVIRONMENT IN QARSHI */}
       <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6">
-        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-2xs grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200 dark:border-slate-800 shadow-2xs grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-6 space-y-4">
             <Badge variant="secondary" className="px-3 py-1 gap-1.5">
-              <MapPin className="w-3.5 h-3.5 text-sky-600" />
+              <MapPin className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
               Qarshi Shahar Bosh Binomiz
             </Badge>
-            <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 font-heading leading-tight">
+            <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white font-heading leading-tight">
               Zamonaviy Sharoitlar va Haqiqiy Poliglot Muhiti
             </h2>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
               Markazimiz Qarshi shahrining eng qulay joyida joylashgan bo'lib, har bir xona interaktiv texnologiyalar va speaking zonalar bilan jihozlangan.
             </p>
 
@@ -233,8 +233,8 @@ export const HomePage: React.FC = () => {
                 "Katta kutubxona: 7 tildagi nodir adabiyotlar va qo'llanmalar",
                 "Individual mentorlik va kunlik monitoring xonasi"
               ].map((feat, idx) => (
-                <div key={idx} className="flex items-center gap-2 text-xs text-slate-700 font-medium">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-sky-600 shrink-0" />
+                <div key={idx} className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 font-medium">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400 shrink-0" />
                   <span>{feat}</span>
                 </div>
               ))}
@@ -251,7 +251,7 @@ export const HomePage: React.FC = () => {
           </div>
 
           <div className="lg:col-span-6">
-            <div className="p-6 rounded-2xl bg-slate-900 text-white shadow-md space-y-4">
+            <div className="p-6 rounded-2xl bg-slate-900 text-white shadow-md space-y-4 border border-slate-800">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <Building2 className="w-4 h-4 text-sky-400" />
@@ -281,10 +281,10 @@ export const HomePage: React.FC = () => {
           <Badge variant="secondary" className="px-3 py-1">
             Bizning Ustozlarimiz
           </Badge>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-heading">
             Xalqaro Sertifikatlarga Ega Mentorlar
           </h2>
-          <p className="text-xs sm:text-sm text-slate-600">
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
             Darslarni o'z sohasining eng yuqori darajadagi mutaxassislari olib boradilar.
           </p>
         </div>
@@ -296,15 +296,15 @@ export const HomePage: React.FC = () => {
             const bio = teacher.bio[language] || teacher.bio.uz;
 
             return (
-              <Card key={teacher.id} className="rounded-2xl border-slate-200 shadow-2xs hover:border-sky-300 transition-all text-center">
+              <Card key={teacher.id} className="rounded-2xl border-slate-200 dark:border-slate-800 dark:bg-slate-900 shadow-2xs hover:border-sky-300 dark:hover:border-sky-700 transition-all text-center">
                 <CardContent className="p-5">
-                  <div className="w-12 h-12 mx-auto rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center mb-3">
+                  <div className="w-12 h-12 mx-auto rounded-xl bg-sky-50 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 flex items-center justify-center mb-3">
                     <UserCheck className="w-6 h-6" />
                   </div>
-                  <h3 className="text-sm font-bold text-slate-900 font-heading">
+                  <h3 className="text-sm font-bold text-slate-900 dark:text-white font-heading">
                     {teacher.name}
                   </h3>
-                  <span className="text-[11px] text-sky-700 font-medium block mt-0.5">
+                  <span className="text-[11px] text-sky-700 dark:text-sky-400 font-medium block mt-0.5">
                     {role}
                   </span>
                   <div className="flex items-center justify-center gap-1.5 my-2">
@@ -315,7 +315,7 @@ export const HomePage: React.FC = () => {
                       {exp}
                     </Badge>
                   </div>
-                  <p className="text-[11px] text-slate-500 line-clamp-2 leading-relaxed">
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed">
                     {bio}
                   </p>
                 </CardContent>
@@ -332,7 +332,7 @@ export const HomePage: React.FC = () => {
           <Badge variant="success" className="px-3 py-1">
             Muvaffaqiyat Tarixlari
           </Badge>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-heading">
             28 Oylik Kurs Bitiruvchilarining Natijalari
           </h2>
         </div>
@@ -343,7 +343,7 @@ export const HomePage: React.FC = () => {
             const quote = item.quote[language] || item.quote.uz;
 
             return (
-              <Card key={item.id} className="rounded-2xl border-slate-200 shadow-2xs flex flex-col justify-between">
+              <Card key={item.id} className="rounded-2xl border-slate-200 dark:border-slate-800 dark:bg-slate-900 shadow-2xs flex flex-col justify-between">
                 <CardContent className="p-5 sm:p-6">
                   <div>
                     <div className="flex items-center gap-1 text-amber-400 mb-3">
@@ -351,18 +351,18 @@ export const HomePage: React.FC = () => {
                         <Star key={i} className="w-3.5 h-3.5 fill-current" />
                       ))}
                     </div>
-                    <p className="text-xs text-slate-700 italic leading-relaxed mb-5">
+                    <p className="text-xs text-slate-700 dark:text-slate-300 italic leading-relaxed mb-5">
                       "{quote}"
                     </p>
                   </div>
 
-                  <div className="flex items-center gap-3 pt-3 border-t border-slate-100">
-                    <div className="w-8 h-8 rounded-full bg-sky-100 text-sky-800 font-bold flex items-center justify-center text-[11px]">
+                  <div className="flex items-center gap-3 pt-3 border-t border-slate-100 dark:border-slate-800">
+                    <div className="w-8 h-8 rounded-full bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-300 font-bold flex items-center justify-center text-[11px]">
                       {item.name.slice(0, 2).toUpperCase()}
                     </div>
                     <div>
-                      <h4 className="text-xs font-bold text-slate-900">{item.name}</h4>
-                      <span className="text-[10px] text-sky-600 font-medium block">{role}</span>
+                      <h4 className="text-xs font-bold text-slate-900 dark:text-white">{item.name}</h4>
+                      <span className="text-[10px] text-sky-600 dark:text-sky-400 font-medium block">{role}</span>
                       <span className="text-[10px] text-slate-400 block">{item.company}</span>
                     </div>
                   </div>
@@ -380,7 +380,7 @@ export const HomePage: React.FC = () => {
           <Badge variant="secondary" className="px-3 py-1">
             Savollar & Javoblar
           </Badge>
-          <h2 className="text-2xl font-extrabold text-slate-900 font-heading">
+          <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white font-heading">
             Ko'p Beriladigan Savollar
           </h2>
         </div>
@@ -407,7 +407,7 @@ export const HomePage: React.FC = () => {
 
       {/* 10. BOTTOM REGISTRATION CTA */}
       <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6">
-        <div className="bg-sky-900 rounded-3xl p-6 sm:p-10 text-white text-center max-w-3xl mx-auto space-y-4 shadow-lg">
+        <div className="bg-sky-900 text-white rounded-3xl p-6 sm:p-10 text-center max-w-3xl mx-auto space-y-4 shadow-lg border border-sky-800">
           <h2 className="text-xl sm:text-3xl font-extrabold font-heading text-white">
             Kelajagingizni 4 Ta Til Bilan Boshlang!
           </h2>

@@ -27,10 +27,10 @@ export const CoursesPage: React.FC = () => {
           <BookOpen className="w-3.5 h-3.5 text-sky-600" />
           {t.coursesPage.tag}
         </Badge>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 font-heading mb-4">
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white font-heading mb-4">
           {t.coursesPage.title}
         </h1>
-        <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+        <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
           {t.coursesPage.desc}
         </p>
       </section>
@@ -43,17 +43,17 @@ export const CoursesPage: React.FC = () => {
             onValueChange={(val) => setActiveFilter(val as any)}
             className="w-full max-w-2xl"
           >
-            <TabsList className="grid grid-cols-2 sm:grid-cols-4 h-auto p-1.5 gap-1 bg-slate-100/80 rounded-2xl">
-              <TabsTrigger value="all" className="rounded-xl py-2 text-xs font-bold">
+            <TabsList className="grid grid-cols-2 sm:grid-cols-4 h-auto p-1.5 gap-1 bg-slate-100/80 dark:bg-slate-800/90 rounded-2xl border border-slate-200 dark:border-slate-700">
+              <TabsTrigger value="all" className="rounded-xl py-2 text-xs font-bold text-slate-700 dark:text-slate-300 data-[state=active]:bg-white dark:data-[state=active]:bg-slate-900 dark:data-[state=active]:text-white">
                 Barcha Tillar
               </TabsTrigger>
-              <TabsTrigger value="western" className="rounded-xl py-2 text-xs font-bold">
+              <TabsTrigger value="western" className="rounded-xl py-2 text-xs font-bold text-slate-700 dark:text-slate-300 data-[state=active]:bg-white dark:data-[state=active]:bg-slate-900 dark:data-[state=active]:text-white">
                 G'arbiy Tillar
               </TabsTrigger>
-              <TabsTrigger value="eastern" className="rounded-xl py-2 text-xs font-bold">
+              <TabsTrigger value="eastern" className="rounded-xl py-2 text-xs font-bold text-slate-700 dark:text-slate-300 data-[state=active]:bg-white dark:data-[state=active]:bg-slate-900 dark:data-[state=active]:text-white">
                 Sharqiy Osiyo
               </TabsTrigger>
-              <TabsTrigger value="regional" className="rounded-xl py-2 text-xs font-bold">
+              <TabsTrigger value="regional" className="rounded-xl py-2 text-xs font-bold text-slate-700 dark:text-slate-300 data-[state=active]:bg-white dark:data-[state=active]:bg-slate-900 dark:data-[state=active]:text-white">
                 Rus & Fors
               </TabsTrigger>
             </TabsList>
@@ -70,29 +70,29 @@ export const CoursesPage: React.FC = () => {
 
       {/* Course Methodology Features */}
       <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6">
-        <div className="bg-slate-50 rounded-3xl p-8 md:p-12 border border-slate-200">
-          <h3 className="text-xl font-bold text-slate-900 font-heading mb-6 text-center">
+        <div className="bg-slate-50 dark:bg-slate-900 rounded-3xl p-8 md:p-12 border border-slate-200 dark:border-slate-800">
+          <h3 className="text-xl font-bold text-slate-900 dark:text-white font-heading mb-6 text-center">
             Har Bir Til Kursida Qanday Yondashuv Qo'llaniladi?
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-2xs">
-              <span className="text-2xl font-black text-sky-600 block mb-2 font-heading">01</span>
-              <h4 className="text-sm font-bold text-slate-900 mb-1">To'liq Sho'ng'ish (Immersion)</h4>
-              <p className="text-xs text-slate-500 leading-relaxed">
+            <div className="bg-white dark:bg-slate-850 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xs">
+              <span className="text-2xl font-black text-sky-600 dark:text-sky-400 block mb-2 font-heading">01</span>
+              <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1">To'liq Sho'ng'ish (Immersion)</h4>
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
                 Darslarda 100% o'rganilayotgan tildan foydalaniladi, bu esa nutq to'sig'ini tezda yengishga yordam beradi.
               </p>
             </div>
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-2xs">
-              <span className="text-2xl font-black text-sky-600 block mb-2 font-heading">02</span>
-              <h4 className="text-sm font-bold text-slate-900 mb-1">Kunlik Lug'at & Monitoring</h4>
-              <p className="text-xs text-slate-500 leading-relaxed">
+            <div className="bg-white dark:bg-slate-850 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xs">
+              <span className="text-2xl font-black text-sky-600 dark:text-sky-400 block mb-2 font-heading">02</span>
+              <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1">Kunlik Lug'at & Monitoring</h4>
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
                 Har kuni yangi so'zlar maxsus algoritmlar asosida takrorlanadi va qat'iy nazorat qilinadi.
               </p>
             </div>
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-2xs">
-              <span className="text-2xl font-black text-sky-600 block mb-2 font-heading">03</span>
-              <h4 className="text-sm font-bold text-slate-900 mb-1">Xalqaro Standartlar</h4>
-              <p className="text-xs text-slate-500 leading-relaxed">
+            <div className="bg-white dark:bg-slate-850 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xs">
+              <span className="text-2xl font-black text-sky-600 dark:text-sky-400 block mb-2 font-heading">03</span>
+              <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1">Xalqaro Standartlar</h4>
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
                 Dasturlar IELTS, CEFR, Goethe, HSK, TOPIK va JLPT xalqaro imtihonlari talablariga to'liq mos keladi.
               </p>
             </div>

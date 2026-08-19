@@ -46,14 +46,14 @@ export const ContactPage: React.FC = () => {
       
       {/* Header */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4">
+        <span className="px-3.5 py-1 rounded-full bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-300 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4">
           <Phone className="w-3.5 h-3.5 text-sky-600" />
           {t.contactPage.tag}
         </span>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 font-heading mb-4">
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white font-heading mb-4">
           {t.contactPage.title}
         </h1>
-        <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+        <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
           {t.contactPage.subtitle}
         </p>
       </section>
@@ -64,37 +64,37 @@ export const ContactPage: React.FC = () => {
           
           {/* Left: Contact Info & Campus Details */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-6">
-              <h3 className="text-xl font-bold text-slate-900 font-heading">
+            <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white font-heading">
                 Aloqa Ma'lumotlari
               </h3>
 
               <div className="space-y-4 text-xs sm:text-sm">
-                <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
-                  <Phone className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-100 dark:border-slate-800">
+                  <Phone className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
                   <div>
                     <span className="text-slate-400 text-[10px] uppercase font-bold block">Telefon Raqam</span>
-                    <a href="tel:+998919517335" className="font-mono font-bold text-slate-900 hover:text-sky-600 transition-colors text-sm">
+                    <a href="tel:+998919517335" className="font-mono font-bold text-slate-900 dark:text-white hover:text-sky-600 dark:hover:text-sky-400 transition-colors text-sm">
                       +998 91 951 73 35
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
-                  <MapPin className="w-5 h-5 text-sky-600 shrink-0 mt-0.5" />
+                <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-100 dark:border-slate-800">
+                  <MapPin className="w-5 h-5 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" />
                   <div>
                     <span className="text-slate-400 text-[10px] uppercase font-bold block">Manzil</span>
-                    <span className="font-semibold text-slate-800">
+                    <span className="font-semibold text-slate-800 dark:text-slate-200">
                       Qashqadaryo viloyati, Qarshi shahri, Mustaqillik shoh ko'chasi
                     </span>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
+                <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-100 dark:border-slate-800">
                   <Clock className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
                   <div>
                     <span className="text-slate-400 text-[10px] uppercase font-bold block">Ish Vaqti</span>
-                    <span className="font-semibold text-slate-800">
+                    <span className="font-semibold text-slate-800 dark:text-slate-200">
                       Dushanba – Shanba: 08:00 – 20:00
                     </span>
                   </div>
@@ -113,7 +113,7 @@ export const ContactPage: React.FC = () => {
             </div>
 
             {/* Banner preview widget */}
-            <div className="bg-sky-900 rounded-3xl p-6 text-white text-xs space-y-3">
+            <div className="bg-sky-900 rounded-3xl p-6 text-white text-xs space-y-3 border border-sky-800">
               <span className="font-bold text-sky-300 uppercase tracking-wider block">
                 {t.brand.motto}
               </span>
@@ -125,16 +125,16 @@ export const ContactPage: React.FC = () => {
 
           {/* Right: Registration Form */}
           <div className="lg:col-span-7">
-            <div className="bg-white rounded-3xl p-8 md:p-10 border border-slate-200 shadow-lg">
+            <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 md:p-10 border border-slate-200 dark:border-slate-800 shadow-lg">
               {isSuccess ? (
                 <div className="py-12 text-center space-y-4">
-                  <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
+                  <div className="w-16 h-16 bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 rounded-full flex items-center justify-center mx-auto">
                     <CheckCircle2 className="w-10 h-10" />
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-900 font-heading">
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white font-heading">
                     {t.contactPage.successTitle}
                   </h3>
-                  <p className="text-sm text-slate-600 max-w-sm mx-auto">
+                  <p className="text-sm text-slate-600 dark:text-slate-300 max-w-sm mx-auto">
                     {t.contactPage.successDesc}
                   </p>
                   <button
@@ -144,7 +144,7 @@ export const ContactPage: React.FC = () => {
                       setPhone('');
                       setSelectedTarget('');
                     }}
-                    className="px-6 py-2.5 rounded-xl bg-sky-600 text-white text-xs font-bold shadow-md hover:bg-sky-700 transition-colors"
+                    className="px-6 py-2.5 rounded-xl bg-sky-600 text-white text-xs font-bold shadow-md hover:bg-sky-700 transition-colors cursor-pointer"
                   >
                     Yangi Ariza Qoldirish
                   </button>
@@ -152,17 +152,17 @@ export const ContactPage: React.FC = () => {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div>
-                    <h3 className="text-xl font-bold text-slate-900 font-heading mb-1">
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white font-heading mb-1">
                       {t.contactPage.formTitle}
                     </h3>
-                    <p className="text-xs text-slate-500">
+                    <p className="text-xs text-slate-500 dark:text-slate-400">
                       {t.contactPage.formSubtitle}
                     </p>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-                      <User className="w-3.5 h-3.5 text-sky-600" />
+                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+                      <User className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
                       {t.contactPage.nameLabel} *
                     </label>
                     <input
@@ -171,13 +171,13 @@ export const ContactPage: React.FC = () => {
                       placeholder={t.contactPage.namePlaceholder}
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
-                      className="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-hidden transition-all bg-slate-50 focus:bg-white"
+                      className="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 dark:border-slate-700 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-hidden transition-all bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-900"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-                      <Phone className="w-3.5 h-3.5 text-sky-600" />
+                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+                      <Phone className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
                       {t.contactPage.phoneLabel} *
                     </label>
                     <input
@@ -186,28 +186,28 @@ export const ContactPage: React.FC = () => {
                       placeholder={t.contactPage.phonePlaceholder}
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      className="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-hidden transition-all bg-slate-50 focus:bg-white font-mono"
+                      className="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 dark:border-slate-700 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-hidden transition-all bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-900 font-mono"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-                      <BookOpen className="w-3.5 h-3.5 text-sky-600" />
+                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+                      <BookOpen className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
                       {t.contactPage.combinationLabel}
                     </label>
                     <select
                       value={selectedTarget}
                       onChange={(e) => setSelectedTarget(e.target.value)}
-                      className="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-hidden transition-all bg-slate-50 focus:bg-white cursor-pointer"
+                      className="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 dark:border-slate-700 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-hidden transition-all bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-900 cursor-pointer"
                     >
-                      <option value="">{t.contactPage.selectOptionDefault}</option>
-                      <optgroup label="28 Oylik Kombinatsiyalar">
+                      <option value="" className="dark:bg-slate-900">{t.contactPage.selectOptionDefault}</option>
+                      <optgroup label="28 Oylik Kombinatsiyalar" className="dark:bg-slate-900">
                         <option value="Kombinatsiya 1">Kombinatsiya 1: Ingliz, Fors, Nemis, Xitoy</option>
                         <option value="Kombinatsiya 2">Kombinatsiya 2: Ingliz, Koreys, Nemis, Yapon</option>
                         <option value="Kombinatsiya 3">Kombinatsiya 3: Rus, Ingliz, Xitoy, Yapon</option>
                         <option value="Kombinatsiya 4">Kombinatsiya 4: Ingliz, Rus, Fors, Nemis</option>
                       </optgroup>
-                      <optgroup label="Alohida Tillar">
+                      <optgroup label="Alohida Tillar" className="dark:bg-slate-900">
                         <option value="Ingliz Tili">Ingliz Tili (IELTS / CEFR)</option>
                         <option value="Nemis Tili">Nemis Tili (Goethe / TestDaF)</option>
                         <option value="Xitoy Tili">Xitoy Tili (HSK / HSKK)</option>
@@ -220,8 +220,8 @@ export const ContactPage: React.FC = () => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-                      <Clock className="w-3.5 h-3.5 text-sky-600" />
+                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+                      <Clock className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
                       {t.contactPage.timeLabel}
                     </label>
                     <div className="grid grid-cols-3 gap-2">
@@ -236,8 +236,8 @@ export const ContactPage: React.FC = () => {
                           onClick={() => setShiftTime(shift.id)}
                           className={`p-2.5 rounded-xl text-xs font-medium border text-center transition-all cursor-pointer ${
                             shiftTime === shift.id
-                              ? 'border-sky-500 bg-sky-50 text-sky-700 font-bold'
-                              : 'border-slate-200 text-slate-600 hover:bg-slate-50'
+                              ? 'border-sky-500 bg-sky-50 dark:bg-sky-950 text-sky-700 dark:text-sky-300 font-bold'
+                              : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'
                           }`}
                         >
                           {shift.label}

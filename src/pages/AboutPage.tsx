@@ -20,14 +20,14 @@ export const AboutPage: React.FC = () => {
       
       {/* Header */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4">
+        <span className="px-3.5 py-1 rounded-full bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-300 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4">
           <GraduationCap className="w-3.5 h-3.5 text-sky-600" />
           {t.aboutPage.tag}
         </span>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 font-heading mb-4">
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white font-heading mb-4">
           {t.aboutPage.title}
         </h1>
-        <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+        <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
           {t.aboutPage.intro}
         </p>
       </section>
@@ -52,26 +52,26 @@ export const AboutPage: React.FC = () => {
       {/* Mission & Vision */}
       <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-4">
-            <div className="w-12 h-12 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+            <div className="w-12 h-12 rounded-2xl bg-sky-50 dark:bg-sky-950/60 text-sky-600 dark:text-sky-400 flex items-center justify-center">
               <Target className="w-6 h-6" />
             </div>
-            <h3 className="text-xl font-bold text-slate-900 font-heading">
+            <h3 className="text-xl font-bold text-slate-900 dark:text-white font-heading">
               {t.aboutPage.missionTitle}
             </h3>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
               {t.aboutPage.missionText}
             </p>
           </div>
 
-          <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-4">
-            <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+            <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
               <Compass className="w-6 h-6" />
             </div>
-            <h3 className="text-xl font-bold text-slate-900 font-heading">
+            <h3 className="text-xl font-bold text-slate-900 dark:text-white font-heading">
               {t.aboutPage.visionTitle}
             </h3>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
               {t.aboutPage.visionText}
             </p>
           </div>
@@ -80,7 +80,7 @@ export const AboutPage: React.FC = () => {
 
       {/* Golden Rules of the Academy */}
       <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-slate-900 rounded-3xl p-8 md:p-12 text-white shadow-xl">
+        <div className="bg-slate-900 dark:bg-slate-950 rounded-3xl p-8 md:p-12 text-white shadow-xl border border-slate-800">
           <div className="max-w-3xl mx-auto text-center space-y-3 mb-10">
             <span className="text-xs font-bold text-sky-400 uppercase tracking-wider">
               Qat'iy Qoidalar
@@ -92,7 +92,7 @@ export const AboutPage: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-[1600px] w-full mx-auto">
             {t.aboutPage.rules.map((rule, idx) => (
-              <div key={idx} className="bg-slate-800/80 p-5 rounded-2xl border border-slate-700/80 flex items-start gap-3.5">
+              <div key={idx} className="bg-slate-800/80 dark:bg-slate-900/90 p-5 rounded-2xl border border-slate-700/80 dark:border-slate-800 flex items-start gap-3.5">
                 <span className="w-7 h-7 rounded-lg bg-sky-500/20 text-sky-300 font-bold flex items-center justify-center text-xs shrink-0">
                   {idx + 1}
                 </span>
@@ -107,30 +107,30 @@ export const AboutPage: React.FC = () => {
 
       {/* Campus & Location showcase */}
       <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-3xl p-8 md:p-12 border border-slate-200 shadow-sm">
+        <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 md:p-12 border border-slate-200 dark:border-slate-800 shadow-sm">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div className="space-y-4">
-              <span className="px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider inline-block">
+              <span className="px-3 py-1 rounded-full bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-300 text-xs font-bold uppercase tracking-wider inline-block">
                 Qarshi Shahridagi Manzilimiz
               </span>
-              <h3 className="text-2xl font-bold text-slate-900 font-heading">
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white font-heading">
                 Kelajakning Ko'p Tilli Mutaxassislari Shu Yerda Tarbiyalanadi
               </h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                 Markazimizga bevosita tashrif buyurib, o'quv xonalari, kutubxona va dars jarayonlari bilan shaxsan tanishishingiz mumkin.
               </p>
 
-              <div className="space-y-2 pt-2 text-xs text-slate-700">
+              <div className="space-y-2 pt-2 text-xs text-slate-700 dark:text-slate-300">
                 <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-sky-600" />
+                  <MapPin className="w-4 h-4 text-sky-600 dark:text-sky-400" />
                   <span>Qarshi shahar, Mustaqillik shoh ko'chasi</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Phone className="w-4 h-4 text-emerald-600" />
+                  <Phone className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                   <span className="font-mono font-bold">+998 91 951 73 35</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-sky-600" />
+                  <Clock className="w-4 h-4 text-sky-600 dark:text-sky-400" />
                   <span>Dushanba - Shanba: 08:00 dan 20:00 gacha</span>
                 </div>
               </div>
