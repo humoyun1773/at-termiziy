@@ -22,7 +22,7 @@ export const CoursesPage: React.FC = () => {
     <div className="py-12 md:py-20 space-y-16">
       
       {/* Header */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 text-center max-w-3xl">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 text-center max-w-3xl">
         <Badge variant="secondary" className="px-3.5 py-1 gap-1.5 mb-4">
           <BookOpen className="w-3.5 h-3.5 text-sky-600" />
           {t.coursesPage.tag}
@@ -36,7 +36,7 @@ export const CoursesPage: React.FC = () => {
       </section>
 
       {/* Filter Tabs using shadcn Tabs */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex justify-center mb-10">
           <Tabs 
             value={activeFilter} 
@@ -69,7 +69,7 @@ export const CoursesPage: React.FC = () => {
       </section>
 
       {/* Course Methodology Features */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="bg-slate-50 rounded-3xl p-8 md:p-12 border border-slate-200">
           <h3 className="text-xl font-bold text-slate-900 font-heading mb-6 text-center">
             Har Bir Til Kursida Qanday Yondashuv Qo'llaniladi?

@@ -42,7 +42,7 @@ export const HomePage: React.FC = () => {
       
       {/* 1. HERO SECTION */}
       <section className="relative pt-6 pb-4 md:pt-10 md:pb-8 bg-mesh-subtle">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-8 md:mb-12">
             
             {/* Main Headline */}
@@ -85,12 +85,12 @@ export const HomePage: React.FC = () => {
           </div>
 
           {/* 2. THE CENTRAL 4-COMBINATIONS BOARD */}
-          <div className="mt-2 max-w-5xl mx-auto">
+          <div className="mt-2 max-w-7xl mx-auto">
             <BannerCombinationsBoard />
           </div>
 
           {/* Quick Stats Grid */}
-          <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-5xl mx-auto">
+          <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-7xl mx-auto">
             {[
               { num: "28 OY", label: t.hero.statMonths, icon: Clock, color: "text-sky-600", bg: "bg-sky-50" },
               { num: "4 TA", label: t.hero.statLanguages, icon: GraduationCap, color: "text-blue-600", bg: "bg-blue-50" },
@@ -119,7 +119,7 @@ export const HomePage: React.FC = () => {
 
 
       {/* 3. TA'LIM METODIKASI & TAMOYILLAR */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="bg-slate-50 rounded-3xl p-6 sm:p-10 border border-slate-200">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-6 space-y-3">
@@ -165,7 +165,7 @@ export const HomePage: React.FC = () => {
 
 
       {/* 4. 28-MONTH COMBINATIONS (DETAILED CARDS) */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
           <Badge variant="secondary" className="px-3 py-1">
             {t.combinationsSection.tag}
@@ -212,7 +212,7 @@ export const HomePage: React.FC = () => {
 
 
       {/* 5. INDIVIDUAL LANGUAGES OVERVIEW */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-8">
           <div>
             <Badge variant="secondary" className="px-3 py-1 mb-1.5">
@@ -240,7 +240,7 @@ export const HomePage: React.FC = () => {
 
 
       {/* 6. CAMPUS & ENVIRONMENT IN QARSHI */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-2xs grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-6 space-y-4">
             <Badge variant="secondary" className="px-3 py-1 gap-1.5">
@@ -304,7 +304,7 @@ export const HomePage: React.FC = () => {
 
 
       {/* 7. EXPERT TEACHERS & POLYGLOTS */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
           <Badge variant="secondary" className="px-3 py-1">
             Bizning Ustozlarimiz
@@ -355,7 +355,7 @@ export const HomePage: React.FC = () => {
 
 
       {/* 8. TESTIMONIALS */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
           <Badge variant="success" className="px-3 py-1">
             Muvaffaqiyat Tarixlari
@@ -434,7 +434,7 @@ export const HomePage: React.FC = () => {
 
 
       {/* 10. BOTTOM REGISTRATION CTA */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="bg-sky-900 rounded-3xl p-6 sm:p-10 text-white text-center max-w-3xl mx-auto space-y-4 shadow-lg">
           <h2 className="text-xl sm:text-3xl font-extrabold font-heading text-white">
             Kelajagingizni 4 Ta Til Bilan Boshlang!
