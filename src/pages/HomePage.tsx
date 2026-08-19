@@ -3,11 +3,9 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { useModal } from '../context/ModalContext';
 import { combinationsData } from '../data/combinationsData';
-import { coursesData } from '../data/coursesData';
 import { teachersData, testimonialsData, faqData } from '../data/mockData';
 import { BannerCombinationsBoard } from '../components/common/BannerCombinationsBoard';
 import { CombinationCard } from '../components/common/CombinationCard';
-import { CourseCard } from '../components/common/CourseCard';
 import { Button } from '../components/ui/button';
 import { Badge } from '../components/ui/badge';
 import { Card, CardContent } from '../components/ui/card';
@@ -207,34 +205,6 @@ export const HomePage: React.FC = () => {
           >
             Hozir Ro'yxatdan O'tish →
           </Button>
-        </div>
-      </section>
-
-
-      {/* 5. INDIVIDUAL LANGUAGES OVERVIEW */}
-      <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-8">
-          <div>
-            <Badge variant="secondary" className="px-3 py-1 mb-1.5">
-              {t.coursesPage.tag}
-            </Badge>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
-              {t.coursesPage.title}
-            </h2>
-          </div>
-          <Link
-            to="/courses"
-            className="text-xs font-bold text-sky-600 hover:text-sky-800 flex items-center gap-1 shrink-0"
-          >
-            <span>Barcha kurslarni ko'rish</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-          {coursesData.slice(0, 6).map((course) => (
-            <CourseCard key={course.id} course={course} />
-          ))}
         </div>
       </section>
 
