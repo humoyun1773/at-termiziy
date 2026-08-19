@@ -22,10 +22,21 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on route change
+  // Close mobile menu on route change & lock body scroll when open
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
+
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
 
   const navLinks = [
     { path: '/', label: t.nav.home },
@@ -109,28 +120,45 @@ export const Navbar: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation Drawer */}
+        {/* Mobile Navigation Drawer & Backdrop */}
         {mobileMenuOpen && (
-          <div className="lg:hidden fixed inset-x-0 top-[73px] bg-white border-b border-sky-100 shadow-2xl p-6 animate-in slide-in-from-top-4 duration-200 z-50">
-            <div className="space-y-2 mb-6">
-              {navLinks.map((link) => {
-                const isActive = location.pathname === link.path;
-                return (
-                  <Link
-                    key={link.path}
-                    to={link.path}
-                    className={`block px-4 py-3 rounded-2xl text-sm font-bold transition-colors ${
-                      isActive
-                        ? 'bg-sky-500 text-white'
-                        : 'text-slate-800 hover:bg-sky-50 hover:text-sky-700'
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                );
-              })}
+          <>
+            <div 
+              onClick={() => setMobileMenuOpen(false)}
+              className="lg:hidden fixed inset-0 bg-slate-900/40 backdrop-blur-xs z-40 top-[65px]"
+            />
+            <div className="lg:hidden fixed inset-x-0 top-[65px] bg-white border-b border-slate-200 shadow-2xl p-5 z-50 animate-in slide-in-from-top-2 duration-200">
+              <div className="space-y-1.5 mb-4">
+                {navLinks.map((link) => {
+                  const isActive = location.pathname === link.path;
+                  return (
+                    <Link
+                      key={link.path}
+                      to={link.path}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={`block px-4 py-3 rounded-xl text-sm font-bold transition-colors ${
+                        isActive
+                          ? 'bg-sky-600 text-white'
+                          : 'text-slate-800 hover:bg-slate-50'
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  );
+                })}
+              </div>
+
+              <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-medium">
+                <span>Qarshi shahar</span>
+                <a 
+                  href="tel:+998919517335" 
+                  className="font-mono font-bold text-sky-700 hover:underline"
+                >
+                  +998 91 951 73 35
+                </a>
+              </div>
             </div>
-          </div>
+          </>
         )}
       </header>
     </>
