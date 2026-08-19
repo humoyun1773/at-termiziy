@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useModal } from '../../context/ModalContext';
 import { useLanguage } from '../../context/LanguageContext';
-import { X, Send, CheckCircle2, Sparkles, Phone, User, BookOpen, Clock, ShieldCheck } from 'lucide-react';
+import { X, Send, CheckCircle2, Phone, User, BookOpen, Clock, ShieldCheck, GraduationCap } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 export const LeadModal: React.FC = () => {
@@ -74,7 +74,7 @@ export const LeadModal: React.FC = () => {
           </button>
           <div className="flex items-center gap-2 mb-2">
             <span className="p-1.5 rounded-lg bg-white/20 text-white">
-              <Sparkles className="w-4 h-4 text-sky-200" />
+              <GraduationCap className="w-4 h-4 text-white" />
             </span>
             <span className="text-xs font-semibold uppercase tracking-wider text-sky-100">
               {t.brand.name}
