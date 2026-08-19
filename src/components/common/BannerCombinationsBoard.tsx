@@ -77,7 +77,7 @@ export const BannerCombinationsBoard: React.FC = () => {
       {/* Board Top Header */}
       <div className="text-center mb-8">
         <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-heading uppercase">
-          AT-TERMEZIY O'QUV MARKAZI
+          AL-HAKIM AT-TERMIZIY O'QUV MARKAZI
         </h2>
         <p className="text-xs sm:text-sm text-slate-500 font-medium mt-1">
           28 Oylik Ta'lim Kombinatsiyalariga Mos 4 Ta Til Dasturi

@@ -288,7 +288,7 @@ export const HomePage: React.FC = () => {
                 <Badge variant="success" className="text-[10px]">Ochiq</Badge>
               </div>
               <h3 className="text-lg font-bold font-heading text-white">
-                At-Termeziy O'quv Markazi
+                Al-Hakim At-Termiziy O'quv Markazi
               </h3>
               <p className="text-xs text-slate-300 leading-relaxed">
                 Manzil: Qashqadaryo viloyati, Qarshi shahri, Mustaqillik shoh ko'chasi. Dushanba - Shanba kunlari soat 08:00 dan 20:00 gacha xizmatingizdamiz.

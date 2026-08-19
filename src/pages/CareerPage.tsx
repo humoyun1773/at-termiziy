@@ -135,7 +135,7 @@ export const CareerPage: React.FC = () => {
             Xalqaro Karyerangizni Bugundan Rejalashtiring
           </h3>
           <p className="text-xs sm:text-sm text-sky-100 max-w-md mx-auto">
-            Qarshi shahridagi "At-Termeziy" o'quv markaziga ariza qoldiring va 4 til bo'yicha orzuingizdagi kasb sari qadam tashlang.
+            Qarshi shahridagi "Al-Hakim At-Termiziy" o'quv markaziga ariza qoldiring va 4 til bo'yicha orzuingizdagi kasb sari qadam tashlang.
           </p>
           <div className="pt-2">
             <button
