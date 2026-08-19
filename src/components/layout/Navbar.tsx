@@ -94,10 +94,12 @@ export const Navbar: React.FC = () => {
               })}
             </nav>
 
-            {/* Right actions: ThemeToggle, Language Switcher & Mobile Menu Toggle */}
+            {/* Right actions: Desktop ThemeToggle & LanguageSwitcher + Mobile Menu Toggle */}
             <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-              <ThemeToggle />
-              <LanguageSwitcher />
+              <div className="hidden lg:flex items-center gap-2 sm:gap-3">
+                <ThemeToggle />
+                <LanguageSwitcher />
+              </div>
 
               {/* Mobile Menu Toggle Button */}
               <button
@@ -137,6 +139,18 @@ export const Navbar: React.FC = () => {
                     </Link>
                   );
                 })}
+              </div>
+
+              {/* Controls inside Mobile Menu: Theme Toggle & Language Switcher */}
+              <div className="py-3 px-1 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-3">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-semibold text-slate-600 dark:text-slate-400">Rejim:</span>
+                  <ThemeToggle />
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-semibold text-slate-600 dark:text-slate-400">Til:</span>
+                  <LanguageSwitcher />
+                </div>
               </div>
 
               <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 font-medium">
