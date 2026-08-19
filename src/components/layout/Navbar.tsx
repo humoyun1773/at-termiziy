@@ -77,14 +77,14 @@ export const Navbar: React.FC = () => {
             </Link>
 
             {/* Desktop Navigation Links (Strictly Single-Line & Premium Underline on Hover) */}
-            <nav className="hidden lg:flex items-center gap-5 xl:gap-8 whitespace-nowrap">
+            <nav className="hidden lg:flex items-center gap-3 lg:gap-4 xl:gap-7 whitespace-nowrap">
               {navLinks.map((link) => {
                 const isActive = location.pathname === link.path;
                 return (
                   <Link
                     key={link.path}
                     to={link.path}
-                    className={`group relative py-2 text-xs xl:text-sm font-semibold transition-colors duration-200 whitespace-nowrap cursor-pointer ${
+                    className={`group relative py-2.5 text-xs xl:text-sm font-semibold tracking-normal transition-colors duration-200 whitespace-nowrap cursor-pointer ${
                       isActive
                         ? 'text-sky-600 font-bold'
                         : 'text-slate-700 hover:text-sky-600'
