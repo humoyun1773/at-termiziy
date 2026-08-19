@@ -8,6 +8,15 @@ import { teachersData, testimonialsData, faqData } from '../data/mockData';
 import { BannerCombinationsBoard } from '../components/common/BannerCombinationsBoard';
 import { CombinationCard } from '../components/common/CombinationCard';
 import { CourseCard } from '../components/common/CourseCard';
+import { Button } from '../components/ui/button';
+import { Badge } from '../components/ui/badge';
+import { Card, CardContent } from '../components/ui/card';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '../components/ui/accordion';
 import { 
   ArrowRight, 
   CheckCircle2, 
@@ -18,7 +27,6 @@ import {
   MapPin, 
   Phone, 
   Star, 
-  ChevronDown, 
   Layers, 
   UserCheck, 
   Building2, 
@@ -28,14 +36,13 @@ import {
 export const HomePage: React.FC = () => {
   const { t, language } = useLanguage();
   const { openModal } = useModal();
-  const [openFaq, setOpenFaq] = React.useState<string | null>(faqData[0].id);
 
   return (
     <div className="space-y-16 md:space-y-20 pb-20">
       
       {/* 1. HERO SECTION */}
       <section className="relative pt-6 pb-4 md:pt-10 md:pb-8 bg-mesh-subtle">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-8 md:mb-12">
             
             {/* Main Headline */}
@@ -54,50 +61,57 @@ export const HomePage: React.FC = () => {
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-              <button
+              <Button
                 onClick={() => openModal()}
-                className="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs sm:text-sm shadow-md shadow-sky-600/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                size="lg"
+                className="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs sm:text-sm shadow-md shadow-sky-600/20"
               >
                 <span>{t.hero.freeConsultation}</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </Button>
 
-              <Link
-                to="/combinations"
-                className="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-sky-50 hover:bg-sky-100 text-sky-800 font-bold text-xs sm:text-sm border border-sky-200 transition-colors flex items-center justify-center gap-2 cursor-pointer"
+              <Button
+                variant="secondary"
+                size="lg"
+                asChild
+                className="w-full sm:w-auto px-6 py-3.5 rounded-2xl border-sky-200 text-sky-800 font-bold text-xs sm:text-sm"
               >
-                <Layers className="w-4 h-4 text-sky-600" />
-                <span>{t.hero.exploreCombinations}</span>
-              </Link>
+                <Link to="/combinations" className="flex items-center gap-2">
+                  <Layers className="w-4 h-4 text-sky-600" />
+                  <span>{t.hero.exploreCombinations}</span>
+                </Link>
+              </Button>
             </div>
           </div>
 
           {/* 2. THE CENTRAL 4-COMBINATIONS BOARD */}
-          <div className="mt-2 max-w-7xl mx-auto">
+          <div className="mt-2 max-w-5xl mx-auto">
             <BannerCombinationsBoard />
           </div>
 
           {/* Quick Stats Grid */}
-          <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-7xl mx-auto">
+          <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-5xl mx-auto">
             {[
               { num: "28 OY", label: t.hero.statMonths, icon: Clock, color: "text-sky-600", bg: "bg-sky-50" },
               { num: "4 TA", label: t.hero.statLanguages, icon: GraduationCap, color: "text-blue-600", bg: "bg-blue-50" },
               { num: "100%", label: t.hero.statJobGuarantee, icon: Briefcase, color: "text-emerald-600", bg: "bg-emerald-50" },
               { num: "500+", label: t.hero.statStudents, icon: Users, color: "text-amber-600", bg: "bg-amber-50" }
             ].map((stat, idx) => (
-              <div key={idx} className="bg-white p-4 rounded-2xl border border-slate-200 shadow-2xs flex items-center gap-3">
-                <div className={`w-10 h-10 rounded-xl ${stat.bg} ${stat.color} flex items-center justify-center shrink-0`}>
-                  <stat.icon className="w-5 h-5" />
-                </div>
-                <div>
-                  <span className="text-lg font-extrabold text-slate-900 font-heading block leading-none mb-1">
-                    {stat.num}
-                  </span>
-                  <span className="text-[11px] text-slate-500 font-medium leading-tight block">
-                    {stat.label}
-                  </span>
-                </div>
-              </div>
+              <Card key={idx} className="rounded-2xl border-slate-200 shadow-2xs">
+                <CardContent className="p-4 flex items-center gap-3">
+                  <div className={`w-10 h-10 rounded-xl ${stat.bg} ${stat.color} flex items-center justify-center shrink-0`}>
+                    <stat.icon className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-lg font-extrabold text-slate-900 font-heading block leading-none mb-1">
+                      {stat.num}
+                    </span>
+                    <span className="text-[11px] text-slate-500 font-medium leading-tight block">
+                      {stat.label}
+                    </span>
+                  </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
@@ -105,13 +119,13 @@ export const HomePage: React.FC = () => {
 
 
       {/* 3. TA'LIM METODIKASI & TAMOYILLAR */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="bg-slate-50 rounded-3xl p-6 sm:p-10 border border-slate-200">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-6 space-y-3">
-              <span className="px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider inline-block">
+              <Badge variant="secondary" className="px-3 py-1">
                 {t.mottoSection.tag}
-              </span>
+              </Badge>
               <h2 className="text-xl sm:text-3xl font-extrabold font-heading text-slate-900 tracking-tight">
                 {t.mottoSection.title}
               </h2>
@@ -119,13 +133,12 @@ export const HomePage: React.FC = () => {
                 {t.mottoSection.description}
               </p>
               <div className="pt-2">
-                <Link
-                  to="/about"
-                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-white text-sky-800 border border-slate-200 hover:border-sky-300 font-bold text-xs shadow-2xs transition-colors"
-                >
-                  <span>Markaz Nizomi & Qoidalari</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-sky-600" />
-                </Link>
+                <Button variant="outline" size="sm" asChild className="rounded-xl font-bold">
+                  <Link to="/about" className="flex items-center gap-1.5">
+                    <span>Markaz Nizomi & Qoidalari</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-sky-600" />
+                  </Link>
+                </Button>
               </div>
             </div>
 
@@ -152,11 +165,11 @@ export const HomePage: React.FC = () => {
 
 
       {/* 4. 28-MONTH COMBINATIONS (DETAILED CARDS) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
-          <span className="px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider inline-block">
+          <Badge variant="secondary" className="px-3 py-1">
             {t.combinationsSection.tag}
-          </span>
+          </Badge>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
             {t.combinationsSection.title}
           </h2>
@@ -188,23 +201,23 @@ export const HomePage: React.FC = () => {
             </div>
           </div>
 
-          <button
+          <Button
             onClick={() => openModal()}
-            className="px-5 py-2.5 rounded-xl bg-white hover:bg-sky-50 text-sky-900 font-bold text-xs whitespace-nowrap transition-colors cursor-pointer shrink-0"
+            className="px-5 py-2.5 rounded-xl bg-white hover:bg-sky-50 text-sky-900 font-bold text-xs whitespace-nowrap transition-colors shrink-0"
           >
             Hozir Ro'yxatdan O'tish →
-          </button>
+          </Button>
         </div>
       </section>
 
 
       {/* 5. INDIVIDUAL LANGUAGES OVERVIEW */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-8">
           <div>
-            <span className="px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider inline-block mb-1.5">
+            <Badge variant="secondary" className="px-3 py-1 mb-1.5">
               {t.coursesPage.tag}
-            </span>
+            </Badge>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
               {t.coursesPage.title}
             </h2>
@@ -227,15 +240,15 @@ export const HomePage: React.FC = () => {
 
 
       {/* 6. CAMPUS & ENVIRONMENT IN QARSHI */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-2xs grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-6 space-y-4">
-            <span className="px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5">
+            <Badge variant="secondary" className="px-3 py-1 gap-1.5">
               <MapPin className="w-3.5 h-3.5 text-sky-600" />
               Qarshi Shahar Bosh Binomiz
-            </span>
+            </Badge>
             <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 font-heading leading-tight">
-              Zamonaviy Sharoitlar va Haqiqiy Ko'p Tilli Muhit
+              Zamonaviy Sharoitlar va Haqiqiy Poliglot Muhiti
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
               Markazimiz Qarshi shahrining eng qulay joyida joylashgan bo'lib, har bir xona interaktiv texnologiyalar va speaking zonalar bilan jihozlangan.
@@ -256,13 +269,12 @@ export const HomePage: React.FC = () => {
             </div>
 
             <div className="pt-2">
-              <a
-                href="tel:+998919517335"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs transition-colors shadow-2xs"
-              >
-                <Phone className="w-3.5 h-3.5" />
-                <span>Markazga Tashrif: +998 91 951 73 35</span>
-              </a>
+              <Button asChild className="rounded-xl font-bold text-xs">
+                <a href="tel:+998919517335" className="flex items-center gap-2">
+                  <Phone className="w-3.5 h-3.5" />
+                  <span>Markazga Tashrif: +998 91 951 73 35</span>
+                </a>
+              </Button>
             </div>
           </div>
 
@@ -273,7 +285,7 @@ export const HomePage: React.FC = () => {
                   <Building2 className="w-4 h-4 text-sky-400" />
                   <span className="text-xs font-bold uppercase tracking-wider text-sky-200">Qarshi Filiali</span>
                 </div>
-                <span className="px-2 py-0.5 rounded-md bg-emerald-500 text-white text-[10px] font-bold">Ochiq</span>
+                <Badge variant="success" className="text-[10px]">Ochiq</Badge>
               </div>
               <h3 className="text-lg font-bold font-heading text-white">
                 At-Termeziy O'quv Markazi
@@ -291,14 +303,14 @@ export const HomePage: React.FC = () => {
       </section>
 
 
-      {/* 6. EXPERT TEACHERS & MULTILINGUAL SPECIALISTS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 7. EXPERT TEACHERS & POLYGLOTS */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
-          <span className="px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider inline-block">
+          <Badge variant="secondary" className="px-3 py-1">
             Bizning Ustozlarimiz
-          </span>
+          </Badge>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
-            Xalqaro Sertifikatlarga Ega Ko'p Tilli Mentorlar
+            Xalqaro Sertifikatlarga Ega Mentorlar
           </h2>
           <p className="text-xs sm:text-sm text-slate-600">
             Darslarni o'z sohasining eng yuqori darajadagi mutaxassislari olib boradilar.
@@ -312,28 +324,30 @@ export const HomePage: React.FC = () => {
             const bio = teacher.bio[language] || teacher.bio.uz;
 
             return (
-              <div key={teacher.id} className="bg-white rounded-2xl p-5 border border-slate-200 shadow-2xs hover:border-sky-300 transition-all text-center">
-                <div className="w-12 h-12 mx-auto rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center mb-3">
-                  <UserCheck className="w-6 h-6" />
-                </div>
-                <h3 className="text-sm font-bold text-slate-900 font-heading">
-                  {teacher.name}
-                </h3>
-                <span className="text-[11px] text-sky-700 font-medium block mt-0.5">
-                  {role}
-                </span>
-                <div className="flex items-center justify-center gap-1.5 my-2">
-                  <span className="px-2 py-0.5 rounded-md bg-sky-100 text-sky-800 text-[10px] font-bold">
-                    {teacher.certificate}
+              <Card key={teacher.id} className="rounded-2xl border-slate-200 shadow-2xs hover:border-sky-300 transition-all text-center">
+                <CardContent className="p-5">
+                  <div className="w-12 h-12 mx-auto rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center mb-3">
+                    <UserCheck className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-sm font-bold text-slate-900 font-heading">
+                    {teacher.name}
+                  </h3>
+                  <span className="text-[11px] text-sky-700 font-medium block mt-0.5">
+                    {role}
                   </span>
-                  <span className="px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 text-[10px] font-medium">
-                    {exp}
-                  </span>
-                </div>
-                <p className="text-[11px] text-slate-500 line-clamp-2 leading-relaxed">
-                  {bio}
-                </p>
-              </div>
+                  <div className="flex items-center justify-center gap-1.5 my-2">
+                    <Badge variant="secondary" className="text-[10px] px-2 py-0.5">
+                      {teacher.certificate}
+                    </Badge>
+                    <Badge variant="outline" className="text-[10px] px-2 py-0.5">
+                      {exp}
+                    </Badge>
+                  </div>
+                  <p className="text-[11px] text-slate-500 line-clamp-2 leading-relaxed">
+                    {bio}
+                  </p>
+                </CardContent>
+              </Card>
             );
           })}
         </div>
@@ -341,11 +355,11 @@ export const HomePage: React.FC = () => {
 
 
       {/* 8. TESTIMONIALS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
-          <span className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider inline-block">
+          <Badge variant="success" className="px-3 py-1">
             Muvaffaqiyat Tarixlari
-          </span>
+          </Badge>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
             28 Oylik Kurs Bitiruvchilarining Natijalari
           </h2>
@@ -357,78 +371,70 @@ export const HomePage: React.FC = () => {
             const quote = item.quote[language] || item.quote.uz;
 
             return (
-              <div key={item.id} className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-2xs flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center gap-1 text-amber-400 mb-3">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                    ))}
-                  </div>
-                  <p className="text-xs text-slate-700 italic leading-relaxed mb-5">
-                    "{quote}"
-                  </p>
-                </div>
-
-                <div className="flex items-center gap-3 pt-3 border-t border-slate-100">
-                  <div className="w-8 h-8 rounded-full bg-sky-100 text-sky-800 font-bold flex items-center justify-center text-[11px]">
-                    {item.name.slice(0, 2).toUpperCase()}
-                  </div>
+              <Card key={item.id} className="rounded-2xl border-slate-200 shadow-2xs flex flex-col justify-between">
+                <CardContent className="p-5 sm:p-6">
                   <div>
-                    <h4 className="text-xs font-bold text-slate-900">{item.name}</h4>
-                    <span className="text-[10px] text-sky-600 font-medium block">{role}</span>
-                    <span className="text-[10px] text-slate-400 block">{item.company}</span>
+                    <div className="flex items-center gap-1 text-amber-400 mb-3">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                      ))}
+                    </div>
+                    <p className="text-xs text-slate-700 italic leading-relaxed mb-5">
+                      "{quote}"
+                    </p>
                   </div>
-                </div>
-              </div>
+
+                  <div className="flex items-center gap-3 pt-3 border-t border-slate-100">
+                    <div className="w-8 h-8 rounded-full bg-sky-100 text-sky-800 font-bold flex items-center justify-center text-[11px]">
+                      {item.name.slice(0, 2).toUpperCase()}
+                    </div>
+                    <div>
+                      <h4 className="text-xs font-bold text-slate-900">{item.name}</h4>
+                      <span className="text-[10px] text-sky-600 font-medium block">{role}</span>
+                      <span className="text-[10px] text-slate-400 block">{item.company}</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             );
           })}
         </div>
       </section>
 
 
-      {/* 9. FAQ ACCORDION */}
+      {/* 9. FAQ ACCORDION WITH SHADCN */}
       <section className="max-w-3xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 space-y-1.5">
-          <span className="px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider inline-block">
+          <Badge variant="secondary" className="px-3 py-1">
             Savollar & Javoblar
-          </span>
+          </Badge>
           <h2 className="text-2xl font-extrabold text-slate-900 font-heading">
             Ko'p Beriladigan Savollar
           </h2>
         </div>
 
-        <div className="space-y-2.5">
+        <Accordion type="single" collapsible defaultValue="faq-1" className="space-y-2.5">
           {faqData.map((faq) => {
             const question = faq.question[language] || faq.question.uz;
             const answer = faq.answer[language] || faq.answer.uz;
-            const isOpen = openFaq === faq.id;
 
             return (
-              <div
-                key={faq.id}
-                className="bg-white rounded-xl border border-slate-200 shadow-2xs overflow-hidden"
-              >
-                <button
-                  onClick={() => setOpenFaq(isOpen ? null : faq.id)}
-                  className="w-full p-4 text-left font-bold text-slate-900 text-xs sm:text-sm flex items-center justify-between gap-3 cursor-pointer hover:bg-slate-50 transition-colors"
-                >
+              <AccordionItem key={faq.id} value={faq.id}>
+                <AccordionTrigger>
                   <span>{question}</span>
-                  <ChevronDown className={`w-4 h-4 text-sky-600 transition-transform duration-200 shrink-0 ${isOpen ? 'rotate-180' : ''}`} />
-                </button>
-                {isOpen && (
-                  <div className="px-4 pb-4 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-2.5">
-                    {answer}
-                  </div>
-                )}
-              </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  {answer}
+                </AccordionContent>
+              </AccordionItem>
             );
           })}
-        </div>
+        </Accordion>
       </section>
 
 
       {/* 10. BOTTOM REGISTRATION CTA */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="bg-sky-900 rounded-3xl p-6 sm:p-10 text-white text-center max-w-3xl mx-auto space-y-4 shadow-lg">
           <h2 className="text-xl sm:text-3xl font-extrabold font-heading text-white">
             Kelajagingizni 4 Ta Til Bilan Boshlang!
@@ -437,19 +443,24 @@ export const HomePage: React.FC = () => {
             Qarshi shahridagi eng intizomli va natijador o'quv markazimizda bepul konsultatsiyaga yoziling.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-            <button
+            <Button
               onClick={() => openModal()}
-              className="w-full sm:w-auto px-7 py-3 rounded-xl bg-white text-sky-900 font-bold text-xs sm:text-sm hover:bg-sky-50 transition-colors cursor-pointer"
+              size="lg"
+              className="w-full sm:w-auto px-7 py-3 rounded-xl bg-white text-sky-900 font-bold text-xs sm:text-sm hover:bg-sky-50"
             >
               Ariza Qoldirish (Bepul)
-            </button>
-            <a
-              href="tel:+998919517335"
-              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-sky-800 text-white font-bold text-xs sm:text-sm border border-sky-700 hover:bg-sky-750 transition-colors flex items-center justify-center gap-2"
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              asChild
+              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-sky-800 text-white font-bold text-xs sm:text-sm border-sky-700 hover:bg-sky-750 hover:text-white"
             >
-              <Phone className="w-3.5 h-3.5" />
-              <span>+998 91 951 73 35</span>
-            </a>
+              <a href="tel:+998919517335" className="flex items-center gap-2">
+                <Phone className="w-3.5 h-3.5" />
+                <span>+998 91 951 73 35</span>
+              </a>
+            </Button>
           </div>
         </div>
       </section>

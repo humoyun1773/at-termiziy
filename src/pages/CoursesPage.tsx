@@ -3,16 +3,18 @@ import { useLanguage } from '../context/LanguageContext';
 import { coursesData } from '../data/coursesData';
 import { CourseCard } from '../components/common/CourseCard';
 import { BookOpen } from 'lucide-react';
+import { Badge } from '../components/ui/badge';
+import { Tabs, TabsList, TabsTrigger } from '../components/ui/tabs';
 
 export const CoursesPage: React.FC = () => {
   const { t } = useLanguage();
   const [activeFilter, setActiveFilter] = useState<'all' | 'western' | 'eastern' | 'regional'>('all');
 
-  const filteredCourses = coursesData.filter((c) => {
+  const filteredCourses = coursesData.filter(course => {
     if (activeFilter === 'all') return true;
-    if (activeFilter === 'western') return ['english', 'german'].includes(c.id);
-    if (activeFilter === 'eastern') return ['chinese', 'korean', 'japanese'].includes(c.id);
-    if (activeFilter === 'regional') return ['russian', 'persian'].includes(c.id);
+    if (activeFilter === 'western') return ['c-en', 'c-de'].includes(course.id);
+    if (activeFilter === 'eastern') return ['c-zh', 'c-ko', 'c-ja'].includes(course.id);
+    if (activeFilter === 'regional') return ['c-ru', 'c-fa'].includes(course.id);
     return true;
   });
 
@@ -20,11 +22,11 @@ export const CoursesPage: React.FC = () => {
     <div className="py-12 md:py-20 space-y-16">
       
       {/* Header */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 text-center max-w-3xl">
+        <Badge variant="secondary" className="px-3.5 py-1 gap-1.5 mb-4">
           <BookOpen className="w-3.5 h-3.5 text-sky-600" />
           {t.coursesPage.tag}
-        </span>
+        </Badge>
         <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 font-heading mb-4">
           {t.coursesPage.title}
         </h1>
@@ -33,27 +35,29 @@ export const CoursesPage: React.FC = () => {
         </p>
       </section>
 
-      {/* Filter Tabs */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
-          {[
-            { id: 'all', label: 'Barcha Tillar (7 ta til)' },
-            { id: 'western', label: 'G\'arbiy Tillar (Ingliz, Nemis)' },
-            { id: 'eastern', label: 'Sharqiy Osiyo (Xitoy, Koreys, Yapon)' },
-            { id: 'regional', label: 'Mintaqaviy & Sharqiy (Rus, Fors)' }
-          ].map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveFilter(tab.id as any)}
-              className={`px-5 py-2.5 rounded-full text-xs md:text-sm font-bold transition-all cursor-pointer ${
-                activeFilter === tab.id
-                  ? 'bg-sky-600 text-white shadow-md shadow-sky-600/20'
-                  : 'bg-white text-slate-700 hover:bg-sky-50 border border-slate-200'
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
+      {/* Filter Tabs using shadcn Tabs */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-6">
+        <div className="flex justify-center mb-10">
+          <Tabs 
+            value={activeFilter} 
+            onValueChange={(val) => setActiveFilter(val as any)}
+            className="w-full max-w-2xl"
+          >
+            <TabsList className="grid grid-cols-2 sm:grid-cols-4 h-auto p-1.5 gap-1 bg-slate-100/80 rounded-2xl">
+              <TabsTrigger value="all" className="rounded-xl py-2 text-xs font-bold">
+                Barcha Tillar
+              </TabsTrigger>
+              <TabsTrigger value="western" className="rounded-xl py-2 text-xs font-bold">
+                G'arbiy Tillar
+              </TabsTrigger>
+              <TabsTrigger value="eastern" className="rounded-xl py-2 text-xs font-bold">
+                Sharqiy Osiyo
+              </TabsTrigger>
+              <TabsTrigger value="regional" className="rounded-xl py-2 text-xs font-bold">
+                Rus & Fors
+              </TabsTrigger>
+            </TabsList>
+          </Tabs>
         </div>
 
         {/* Courses Grid */}
@@ -65,38 +69,33 @@ export const CoursesPage: React.FC = () => {
       </section>
 
       {/* Course Methodology Features */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="bg-slate-50 rounded-3xl p-8 md:p-12 border border-slate-200">
           <h3 className="text-xl font-bold text-slate-900 font-heading mb-6 text-center">
             Har Bir Til Kursida Qanday Yondashuv Qo'llaniladi?
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                title: "To'liq Sho'ng'ish (Immersion)",
-                desc: "Dars xonasiga kirishingiz bilan faqat o'rganilayotgan tilda muloqot boshlanadi. Bu miyadagi til to'sig'ini tezda yengishga yordam beradi."
-              },
-              {
-                title: "Haftalik Mock & Sinovlar",
-                desc: "Har shanba kuni xalqaro standartdagi (IELTS, Goethe, HSK, TOPIK) sinov imtihonlari o'tkazilib, natijalar ochiq e'lon qilinadi."
-              },
-              {
-                title: "Real Karyera Amaliyoti",
-                desc: "Talabalar faqat nazariya emas, balki jonli muzokaralar, chet ellik mehmonlar bilan suhbat va sinxron tarjima amaliyotini o'tashadi."
-              }
-            ].map((box, idx) => (
-              <div key={idx} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs">
-                <div className="w-8 h-8 rounded-lg bg-sky-100 text-sky-700 font-bold flex items-center justify-center text-xs mb-3">
-                  0{idx + 1}
-                </div>
-                <h4 className="text-sm font-bold text-slate-900 font-heading mb-2">
-                  {box.title}
-                </h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  {box.desc}
-                </p>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-2xs">
+              <span className="text-2xl font-black text-sky-600 block mb-2 font-heading">01</span>
+              <h4 className="text-sm font-bold text-slate-900 mb-1">To'liq Sho'ng'ish (Immersion)</h4>
+              <p className="text-xs text-slate-500 leading-relaxed">
+                Darslarda 100% o'rganilayotgan tildan foydalaniladi, bu esa nutq to'sig'ini tezda yengishga yordam beradi.
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-2xs">
+              <span className="text-2xl font-black text-sky-600 block mb-2 font-heading">02</span>
+              <h4 className="text-sm font-bold text-slate-900 mb-1">Kunlik Lug'at & Monitoring</h4>
+              <p className="text-xs text-slate-500 leading-relaxed">
+                Har kuni yangi so'zlar maxsus algoritmlar asosida takrorlanadi va qat'iy nazorat qilinadi.
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-2xs">
+              <span className="text-2xl font-black text-sky-600 block mb-2 font-heading">03</span>
+              <h4 className="text-sm font-bold text-slate-900 mb-1">Xalqaro Standartlar</h4>
+              <p className="text-xs text-slate-500 leading-relaxed">
+                Dasturlar IELTS, CEFR, Goethe, HSK, TOPIK va JLPT xalqaro imtihonlari talablariga to'liq mos keladi.
+              </p>
+            </div>
           </div>
         </div>
       </section>

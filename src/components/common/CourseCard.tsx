@@ -3,6 +3,8 @@ import type { CourseDetail } from '../../types';
 import { useLanguage } from '../../context/LanguageContext';
 import { useModal } from '../../context/ModalContext';
 import { Award, Clock, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Card } from '../ui/card';
+import { Button } from '../ui/button';
 
 interface Props {
   course: CourseDetail;
@@ -18,12 +20,12 @@ export const CourseCard: React.FC<Props> = ({ course }) => {
   const features = course.features[language] || course.features.uz;
 
   return (
-    <div className="bg-white rounded-3xl p-6 md:p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:border-sky-300 transition-all duration-300 flex flex-col justify-between group">
+    <Card className="rounded-3xl p-6 md:p-8 border-slate-200 shadow-2xs hover:shadow-xl hover:border-sky-300 transition-all flex flex-col justify-between group">
       <div>
         {/* Flag and certificate header */}
         <div className="flex items-center justify-between gap-2 mb-4">
           <div className="flex items-center gap-3">
-            <span className="w-12 h-12 rounded-2xl bg-sky-50 border border-sky-100 flex items-center justify-center text-2xl shadow-xs group-hover:scale-110 transition-transform">
+            <span className="w-12 h-12 rounded-2xl bg-sky-50 border border-sky-100 flex items-center justify-center text-2xl shadow-2xs group-hover:scale-105 transition-transform">
               {course.flag}
             </span>
             <div>
@@ -70,13 +72,14 @@ export const CourseCard: React.FC<Props> = ({ course }) => {
         </div>
       </div>
 
-      <button
+      <Button
+        variant="secondary"
         onClick={() => openModal({ languageName: title })}
-        className="w-full py-3 px-4 rounded-xl bg-sky-50 hover:bg-sky-600 text-sky-700 hover:text-white font-bold text-xs transition-all flex items-center justify-center gap-2 cursor-pointer group-hover:bg-sky-600 group-hover:text-white shadow-xs"
+        className="w-full font-bold text-xs hover:bg-sky-600 hover:text-white"
       >
         <span>{t.coursesPage.enrollCourse}</span>
         <ArrowRight className="w-3.5 h-3.5" />
-      </button>
-    </div>
+      </Button>
+    </Card>
   );
 };

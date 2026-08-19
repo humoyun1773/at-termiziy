@@ -4,6 +4,9 @@ import { useLanguage } from '../../context/LanguageContext';
 import { useModal } from '../../context/ModalContext';
 import { ArrowRight, Clock, CheckCircle2, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Card } from '../ui/card';
+import { Button } from '../ui/button';
+import { Badge } from '../ui/badge';
 
 interface Props {
   combination: Combination;
@@ -14,16 +17,18 @@ export const CombinationCard: React.FC<Props> = ({ combination }) => {
   const { openModal } = useModal();
 
   return (
-    <div className={`relative bg-white rounded-3xl p-6 lg:p-8 border transition-all duration-300 flex flex-col justify-between ${
+    <Card className={`relative rounded-3xl p-6 lg:p-8 flex flex-col justify-between transition-all ${
       combination.isPopular 
         ? 'border-sky-300 shadow-xl shadow-sky-100 ring-2 ring-sky-400/20' 
         : 'border-slate-200/90 shadow-md hover:shadow-xl hover:border-sky-200'
     }`}>
       {/* Popular Badge */}
       {combination.isPopular && (
-        <div className="absolute -top-3.5 right-6 px-3.5 py-1 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 text-white text-xs font-bold shadow-md flex items-center gap-1">
-          <Star className="w-3 h-3 fill-current" />
-          <span>{combination.badgeKey || "Tavsiya Qilinadi"}</span>
+        <div className="absolute -top-3.5 right-6">
+          <Badge className="bg-sky-600 text-white gap-1 px-3 py-1 shadow-md font-bold">
+            <Star className="w-3 h-3 fill-current" />
+            <span>{combination.badgeKey || "Tavsiya Qilinadi"}</span>
+          </Badge>
         </div>
       )}
 
@@ -31,10 +36,10 @@ export const CombinationCard: React.FC<Props> = ({ combination }) => {
         {/* Header */}
         <div className="flex items-start justify-between gap-4 mb-4">
           <div>
-            <div className="flex items-center gap-2 mb-1">
-              <span className="px-2.5 py-0.5 rounded-lg bg-sky-100 text-sky-800 font-extrabold text-xs tracking-wider uppercase">
+            <div className="flex items-center gap-2 mb-1.5">
+              <Badge variant="secondary" className="font-extrabold uppercase">
                 {combination.titleKey}
-              </span>
+              </Badge>
               <span className="text-xs font-semibold text-slate-500 flex items-center gap-1">
                 <Clock className="w-3.5 h-3.5 text-sky-600" />
                 28 Oylik Ta'lim
@@ -52,7 +57,7 @@ export const CombinationCard: React.FC<Props> = ({ combination }) => {
           {combination.recommendedForKey}
         </p>
 
-        {/* 4 Language Stages (7 Months each) - Exactly as depicted on banner */}
+        {/* 4 Language Stages */}
         <div className="space-y-2.5 mb-6">
           <div className="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center justify-between">
             <span>4 Ta Til Ketma-ketligi</span>
@@ -63,9 +68,9 @@ export const CombinationCard: React.FC<Props> = ({ combination }) => {
             {combination.modules.map((module) => (
               <div
                 key={module.id}
-                className="relative p-3 rounded-2xl bg-gradient-to-br from-white to-sky-50/50 border border-sky-100 hover:border-sky-300 transition-all group flex items-center gap-3 shadow-xs"
+                className="relative p-3 rounded-2xl bg-slate-50/70 border border-slate-200/80 hover:border-sky-300 transition-all flex items-center gap-3 shadow-2xs"
               >
-                <div className="w-10 h-10 rounded-xl bg-white shadow-xs border border-slate-100 flex items-center justify-center text-xl shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-white shadow-2xs border border-slate-200 flex items-center justify-center text-xl shrink-0">
                   {module.flag}
                 </div>
                 <div className="min-w-0 flex-1">
@@ -73,9 +78,9 @@ export const CombinationCard: React.FC<Props> = ({ combination }) => {
                     <h4 className="text-xs font-bold text-slate-900 truncate">
                       {module.nameKey}
                     </h4>
-                    <span className="text-[10px] font-extrabold px-1.5 py-0.5 rounded-md bg-sky-100 text-sky-800 shrink-0">
+                    <Badge variant="secondary" className="text-[10px] px-1.5 py-0.5">
                       {module.durationMonths} OY
-                    </span>
+                    </Badge>
                   </div>
                   <p className="text-[11px] font-medium text-slate-500 truncate mt-0.5">
                     {module.targetLevel}
@@ -102,21 +107,26 @@ export const CombinationCard: React.FC<Props> = ({ combination }) => {
 
       {/* Action Buttons */}
       <div className="space-y-2 pt-2 border-t border-slate-100">
-        <button
+        <Button
           onClick={() => openModal({ combinationId: combination.id })}
-          className="w-full py-3 px-4 rounded-2xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs md:text-sm transition-all shadow-md shadow-sky-600/20 flex items-center justify-center gap-2 active:scale-98 cursor-pointer"
+          size="lg"
+          className="w-full font-bold text-xs md:text-sm shadow-md"
         >
           <span>{t.combinationsSection.selectBtn}</span>
           <ArrowRight className="w-4 h-4" />
-        </button>
+        </Button>
 
-        <Link
-          to={`/combinations#kombinatsiya-${combination.id}`}
-          className="w-full py-2 px-3 text-center block text-xs font-semibold text-sky-700 hover:text-sky-900 transition-colors"
+        <Button
+          variant="ghost"
+          size="sm"
+          asChild
+          className="w-full text-xs font-semibold text-sky-700 hover:text-sky-900"
         >
-          {t.combinationsSection.viewDetails} →
-        </Link>
+          <Link to={`/combinations#kombinatsiya-${combination.id}`}>
+            {t.combinationsSection.viewDetails} →
+          </Link>
+        </Button>
       </div>
-    </div>
+    </Card>
   );
 };

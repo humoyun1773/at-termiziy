@@ -8,6 +8,9 @@ import {
   ShieldCheck,
   ChevronDown
 } from 'lucide-react';
+import { Button } from '../ui/button';
+import { Badge } from '../ui/badge';
+import { Card } from '../ui/card';
 
 interface LanguageStep {
   name: string;
@@ -69,7 +72,7 @@ export const BannerCombinationsBoard: React.FC = () => {
   ];
 
   return (
-    <div className="w-full bg-white rounded-3xl p-5 sm:p-8 border border-slate-200 shadow-lg shadow-slate-100">
+    <Card className="w-full bg-white rounded-3xl p-5 sm:p-8 border-slate-200 shadow-lg shadow-slate-100">
       
       {/* Board Top Header */}
       <div className="text-center mb-8">
@@ -120,9 +123,9 @@ export const BannerCombinationsBoard: React.FC = () => {
                             {step.name}
                           </span>
                         </div>
-                        <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-md bg-sky-100 text-sky-800 shrink-0">
+                        <Badge variant="secondary" className="text-[10px] px-1.5 py-0.5 rounded-md font-extrabold">
                           {step.duration}
-                        </span>
+                        </Badge>
                       </div>
 
                       {/* Direction flow connector */}
@@ -138,21 +141,19 @@ export const BannerCombinationsBoard: React.FC = () => {
 
               {/* Column Bottom Action */}
               <div className="mt-5 pt-3 border-t border-slate-200/70">
-                <button
+                <Button
                   type="button"
+                  variant={isActive ? "default" : "outline"}
+                  size="sm"
                   onClick={(e) => {
                     e.stopPropagation();
                     openModal({ combinationId: combo.id });
                   }}
-                  className={`w-full py-2.5 px-3 rounded-xl font-bold text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
-                    isActive
-                      ? 'bg-sky-600 hover:bg-sky-700 text-white shadow-sm'
-                      : 'bg-white hover:bg-sky-50 text-sky-800 border border-slate-200 hover:border-sky-300'
-                  }`}
+                  className="w-full font-bold text-xs"
                 >
                   <span>Qabulga Yozilish</span>
                   <ArrowRight className="w-3.5 h-3.5" />
-                </button>
+                </Button>
               </div>
             </div>
           );
@@ -163,13 +164,12 @@ export const BannerCombinationsBoard: React.FC = () => {
       <div className="rounded-2xl bg-slate-50 border border-slate-200 p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
         
         {/* Left: Phone */}
-        <a
-          href="tel:+998919517335"
-          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white hover:bg-sky-50 text-slate-900 border border-slate-200 font-mono font-bold text-xs sm:text-sm transition-colors shrink-0 shadow-2xs"
-        >
-          <Phone className="w-4 h-4 text-emerald-600" />
-          <span>+998 91 951 73 35</span>
-        </a>
+        <Button variant="outline" size="sm" asChild className="rounded-xl font-mono font-bold text-xs sm:text-sm">
+          <a href="tel:+998919517335" className="flex items-center gap-2">
+            <Phone className="w-4 h-4 text-emerald-600" />
+            <span>+998 91 951 73 35</span>
+          </a>
+        </Button>
 
         {/* Center: Guarantee & Details */}
         <div className="space-y-1 text-xs text-slate-600">
@@ -188,13 +188,13 @@ export const BannerCombinationsBoard: React.FC = () => {
         </div>
 
         {/* Right: Location */}
-        <div className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white text-slate-800 border border-slate-200 text-xs font-bold shrink-0 shadow-2xs">
-          <MapPin className="w-4 h-4 text-sky-600" />
+        <Badge variant="outline" className="px-3 py-1.5 gap-1.5 font-bold text-slate-800">
+          <MapPin className="w-3.5 h-3.5 text-sky-600" />
           <span>Qarshi Shahar</span>
-        </div>
+        </Badge>
 
       </div>
 
-    </div>
+    </Card>
   );
 };
