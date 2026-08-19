@@ -144,12 +144,32 @@ export const AboutPage: React.FC = () => {
               </div>
             </div>
 
-            <div className="rounded-2xl overflow-hidden border-2 border-slate-100 shadow-lg">
-              <img
-                src="/images/banner.jpg"
-                alt="Al-Hakim At-Termeziy O'quv Markazi"
-                className="w-full h-auto object-cover"
-              />
+            <div className="rounded-3xl bg-gradient-to-br from-sky-900 via-sky-800 to-blue-900 text-white p-8 shadow-xl space-y-6">
+              <div className="flex items-center justify-between">
+                <span className="px-3 py-1 rounded-full bg-white/10 text-sky-200 text-xs font-bold uppercase tracking-wider">
+                  28 Oylik Ta'lim Tizimi
+                </span>
+                <span className="px-2.5 py-1 rounded-full bg-emerald-500 text-white text-[10px] font-extrabold uppercase">
+                  ✓ Ish Kafolatlangan
+                </span>
+              </div>
+              <h4 className="text-xl font-bold font-heading text-white">
+                4 Ta Tilga Muvofiq Yuqori Intellektual Tafakkur
+              </h4>
+              <div className="grid grid-cols-2 gap-3 text-xs">
+                <div className="p-3 rounded-xl bg-white/10 border border-white/10">
+                  <span className="text-sky-300 block text-[10px] uppercase font-bold">Davomiyligi</span>
+                  <span className="font-extrabold text-sm text-white">28 Oy</span>
+                </div>
+                <div className="p-3 rounded-xl bg-white/10 border border-white/10">
+                  <span className="text-sky-300 block text-[10px] uppercase font-bold">Har Bir Til</span>
+                  <span className="font-extrabold text-sm text-white">7 Oydan</span>
+                </div>
+              </div>
+              <div className="p-3.5 rounded-xl bg-white/10 border border-white/10 flex items-center justify-between text-xs">
+                <span className="text-sky-200">Manzil:</span>
+                <span className="font-bold text-white">Qarshi Shahar</span>
+              </div>
             </div>
           </div>
         </div>

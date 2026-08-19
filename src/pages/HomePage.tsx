@@ -5,6 +5,7 @@ import { useModal } from '../context/ModalContext';
 import { combinationsData } from '../data/combinationsData';
 import { coursesData } from '../data/coursesData';
 import { teachersData, testimonialsData, faqData } from '../data/mockData';
+import { BannerCombinationsBoard } from '../components/common/BannerCombinationsBoard';
 import { CombinationCard } from '../components/common/CombinationCard';
 import { CourseCard } from '../components/common/CourseCard';
 import { 
@@ -20,7 +21,9 @@ import {
   Phone, 
   Star, 
   ChevronDown,
-  Layers
+  Layers,
+  UserCheck,
+  Building2
 } from 'lucide-react';
 
 export const HomePage: React.FC = () => {
@@ -29,10 +32,10 @@ export const HomePage: React.FC = () => {
   const [openFaq, setOpenFaq] = React.useState<string | null>(faqData[0].id);
 
   return (
-    <div className="space-y-20 md:space-y-28 pb-20">
+    <div className="space-y-16 md:space-y-24 pb-20">
       
       {/* 1. HERO SECTION */}
-      <section className="relative pt-8 pb-12 md:pt-16 md:pb-24 overflow-hidden bg-hero-glow">
+      <section className="relative pt-6 pb-8 md:pt-12 md:pb-16 overflow-hidden bg-hero-glow">
         {/* Subtle grid background */}
         <div className="absolute inset-0 bg-pattern-grid pointer-events-none" />
 
@@ -40,7 +43,7 @@ export const HomePage: React.FC = () => {
         <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-sky-200/50 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-3xl mx-auto space-y-6">
+          <div className="text-center max-w-3xl mx-auto space-y-5 mb-10 md:mb-14">
             
             {/* Top Motto Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 shadow-md shadow-sky-500/10 border border-sky-200 text-sky-800 text-xs md:text-sm font-bold animate-float">
@@ -77,56 +80,17 @@ export const HomePage: React.FC = () => {
 
               <Link
                 to="/combinations"
-                className="w-full sm:w-auto px-7 py-4 rounded-2xl bg-white hover:bg-sky-50 text-sky-900 font-bold text-sm md:text-base border border-sky-200 shadow-sm transition-all hover:border-sky-400 flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full sm:w-auto px-7 py-4 rounded-2xl bg-sky-50 hover:bg-sky-100 text-sky-900 font-bold text-sm md:text-base border border-sky-200 shadow-xs transition-all hover:border-sky-300 flex items-center justify-center gap-2 cursor-pointer"
               >
                 <Layers className="w-4 h-4 text-sky-600" />
                 <span>{t.hero.exploreCombinations}</span>
               </Link>
             </div>
-
-            {/* Trust highlights */}
-            <div className="pt-6 flex flex-wrap items-center justify-center gap-4 text-xs font-semibold text-slate-600">
-              <span className="flex items-center gap-1.5 bg-white/80 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-xs">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                28 Oylik Ta'lim Tizimi
-              </span>
-              <span className="flex items-center gap-1.5 bg-white/80 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-xs">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                Har Bir Til 7 Oydan
-              </span>
-              <span className="flex items-center gap-1.5 bg-white/80 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-xs">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                Ish Bilan Ta'minlanadi
-              </span>
-            </div>
           </div>
 
-          {/* Banner Photo Card */}
-          <div className="mt-12 max-w-4xl mx-auto">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white group">
-              <img
-                src="/images/banner.jpg"
-                alt="Al-Hakim At-Termeziy 28 Oylik Ta'lim Kombinatsiyalari"
-                className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.01]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex items-end p-6 md:p-8">
-                <div className="text-white flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full">
-                  <div>
-                    <span className="text-xs font-bold text-sky-300 uppercase tracking-widest block">
-                      Al-Hakim At-Termeziy O'quv Markazi
-                    </span>
-                    <h3 className="text-lg md:text-xl font-bold font-heading">
-                      28 Oylik Ta'lim Kombinatsiyalariga Mos 4 Ta Tilga Muvofiq Tafakkur
-                    </h3>
-                  </div>
-                  <div className="shrink-0">
-                    <span className="px-4 py-2 rounded-xl bg-emerald-500 text-white font-bold text-xs shadow-lg inline-block">
-                      ✓ Ish Bilan Ta'minlanadi
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
+          {/* 2. THE CENTRAL 4-COMBINATIONS BOARD (Exact interactive replicate of the 3rd Banner) */}
+          <div className="mt-4 max-w-6xl mx-auto">
+            <BannerCombinationsBoard />
           </div>
 
           {/* Quick Stats Grid */}
@@ -137,7 +101,7 @@ export const HomePage: React.FC = () => {
               { num: "100%", label: t.hero.statJobGuarantee, icon: Briefcase, color: "text-emerald-600", bg: "bg-emerald-50" },
               { num: "500+", label: t.hero.statStudents, icon: Users, color: "text-amber-600", bg: "bg-amber-50" }
             ].map((stat, idx) => (
-              <div key={idx} className="bg-white/90 p-5 rounded-2xl border border-sky-100 shadow-sm flex items-center gap-3.5">
+              <div key={idx} className="bg-white p-5 rounded-2xl border border-sky-100 shadow-sm flex items-center gap-3.5">
                 <div className={`w-12 h-12 rounded-xl ${stat.bg} ${stat.color} flex items-center justify-center shrink-0`}>
                   <stat.icon className="w-6 h-6" />
                 </div>
@@ -156,7 +120,7 @@ export const HomePage: React.FC = () => {
       </section>
 
 
-      {/* 2. MOTTO & DISCIPLINE PHILOSOPHY */}
+      {/* 3. MOTTO & DISCIPLINE PHILOSOPHY */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-gradient-to-br from-sky-900 via-sky-800 to-blue-900 rounded-3xl p-8 md:p-14 text-white relative overflow-hidden shadow-2xl">
           {/* Decorative glow */}
@@ -207,7 +171,7 @@ export const HomePage: React.FC = () => {
       </section>
 
 
-      {/* 3. 28-MONTH COMBINATIONS (MAIN SHOWCASE) */}
+      {/* 4. 28-MONTH COMBINATIONS (DETAILED CARDS) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
           <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5">
@@ -222,7 +186,7 @@ export const HomePage: React.FC = () => {
           </p>
         </div>
 
-        {/* Combinations Cards Grid (4 Unique Combinations) */}
+        {/* Combinations Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {combinationsData.map((combo) => (
             <CombinationCard key={combo.id} combination={combo} />
@@ -255,7 +219,7 @@ export const HomePage: React.FC = () => {
       </section>
 
 
-      {/* 4. INDIVIDUAL LANGUAGES OVERVIEW */}
+      {/* 5. INDIVIDUAL LANGUAGES OVERVIEW */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
           <div>
@@ -283,7 +247,7 @@ export const HomePage: React.FC = () => {
       </section>
 
 
-      {/* 5. CAMPUS & ENVIRONMENT IN QARSHI */}
+      {/* 6. CAMPUS & ENVIRONMENT IN QARSHI (Pure UI Card Design without external photo) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-3xl p-8 md:p-12 border border-slate-200 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-6 space-y-5">
@@ -323,16 +287,24 @@ export const HomePage: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-6">
-            <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-slate-100">
-              <img
-                src="/images/banner.jpg"
-                alt="Al-Hakim At-Termeziy Qarshi Filiali"
-                className="w-full h-80 object-cover"
-              />
-              <div className="p-4 bg-sky-900 text-white text-xs flex items-center justify-between">
-                <span className="font-semibold">Al-Hakim At-Termeziy O'quv Markazi</span>
-                <span className="text-sky-300 font-mono">+998 91 951 73 35</span>
+          <div className="lg:col-span-6 space-y-4">
+            <div className="p-6 rounded-3xl bg-gradient-to-br from-sky-900 to-blue-900 text-white shadow-xl space-y-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Building2 className="w-5 h-5 text-sky-300" />
+                  <span className="text-xs font-bold uppercase tracking-wider text-sky-200">Qarshi Shahri Bosh Filiali</span>
+                </div>
+                <span className="px-2.5 py-1 rounded-full bg-emerald-500 text-white text-[10px] font-bold">Ochiq</span>
+              </div>
+              <h3 className="text-xl font-bold font-heading">
+                Al-Hakim At-Termeziy O'quv Markazi
+              </h3>
+              <p className="text-xs text-sky-100 leading-relaxed">
+                Manzil: Qashqadaryo viloyati, Qarshi shahri, Mustaqillik shoh ko'chasi. Dushanba - Shanba kunlari soat 08:00 dan 20:00 gacha xizmatingizdamiz.
+              </p>
+              <div className="p-3 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-between text-xs">
+                <span className="text-sky-200">Qabul bo'limi:</span>
+                <span className="font-mono font-bold text-white">+998 91 951 73 35</span>
               </div>
             </div>
           </div>
@@ -340,7 +312,7 @@ export const HomePage: React.FC = () => {
       </section>
 
 
-      {/* 6. EXPERT TEACHERS & POLYGLOTS */}
+      {/* 7. EXPERT TEACHERS & POLYGLOTS (Clean Card Design) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
           <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider inline-block">
@@ -362,8 +334,8 @@ export const HomePage: React.FC = () => {
 
             return (
               <div key={teacher.id} className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-lg transition-all text-center group">
-                <div className="w-24 h-24 mx-auto rounded-2xl overflow-hidden mb-4 border-2 border-sky-200 group-hover:scale-105 transition-transform">
-                  <img src={teacher.image} alt={teacher.name} className="w-full h-full object-cover" />
+                <div className="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-tr from-sky-500 to-blue-600 text-white font-black text-xl flex items-center justify-center mb-4 shadow-md group-hover:scale-105 transition-transform">
+                  <UserCheck className="w-8 h-8" />
                 </div>
                 <h3 className="text-base font-bold text-slate-900 font-heading">
                   {teacher.name}
@@ -389,7 +361,7 @@ export const HomePage: React.FC = () => {
       </section>
 
 
-      {/* 7. TESTIMONIALS & SUCCESS STORIES */}
+      {/* 8. TESTIMONIALS & SUCCESS STORIES */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
           <span className="px-3.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider inline-block">
@@ -419,7 +391,9 @@ export const HomePage: React.FC = () => {
                 </div>
 
                 <div className="flex items-center gap-3 pt-4 border-t border-slate-100">
-                  <img src={item.avatar} alt={item.name} className="w-11 h-11 rounded-full object-cover border border-sky-200" />
+                  <div className="w-10 h-10 rounded-full bg-sky-100 text-sky-800 font-bold flex items-center justify-center text-xs">
+                    {item.name.slice(0, 2).toUpperCase()}
+                  </div>
                   <div>
                     <h4 className="text-xs font-bold text-slate-900">{item.name}</h4>
                     <span className="text-[11px] text-sky-600 font-medium block">{role}</span>
@@ -433,7 +407,7 @@ export const HomePage: React.FC = () => {
       </section>
 
 
-      {/* 8. FAQ ACCORDION */}
+      {/* 9. FAQ ACCORDION */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 space-y-2">
           <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider inline-block">
@@ -474,7 +448,7 @@ export const HomePage: React.FC = () => {
       </section>
 
 
-      {/* 9. BOTTOM REGISTRATION CTA */}
+      {/* 10. BOTTOM REGISTRATION CTA */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-gradient-to-r from-sky-600 via-sky-500 to-blue-600 rounded-3xl p-8 md:p-14 text-white shadow-2xl text-center max-w-4xl mx-auto space-y-6">
           <span className="px-3.5 py-1 rounded-full bg-white/20 text-white text-xs font-bold uppercase tracking-wider inline-block">
