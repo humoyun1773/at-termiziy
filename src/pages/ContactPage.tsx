@@ -11,6 +11,7 @@ import {
   BookOpen
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { LocationSection } from '../components/common/LocationSection';
 
 export const ContactPage: React.FC = () => {
   const { t } = useLanguage();
@@ -297,6 +298,11 @@ export const ContactPage: React.FC = () => {
           </div>
         </div>
       </motion.section>
+
+      {/* Interactive Location & Navigation Section */}
+      <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+        <LocationSection />
+      </section>
 
     </div>
   );
