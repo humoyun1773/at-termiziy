@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { useModal } from '../../context/ModalContext';
+import { TELEGRAM_URL } from '../../data/siteConfig';
 import { 
   Phone, 
   MapPin, 
   Calendar, 
-  ArrowRight,
   ShieldCheck,
-  ChevronDown
+  ChevronDown,
+  Send
 } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
@@ -25,7 +25,6 @@ interface BannerColumn {
 }
 
 export const BannerCombinationsBoard: React.FC = () => {
-  const { openModal } = useModal();
   const [activeCombo, setActiveCombo] = useState<number>(1);
 
   const combinations: BannerColumn[] = [
@@ -139,20 +138,24 @@ export const BannerCombinationsBoard: React.FC = () => {
                 </div>
               </div>
 
-              {/* Column Bottom Action */}
+              {/* Column Bottom Action (Direct Telegram Link) */}
               <div className="mt-5 pt-3 border-t border-slate-200/70 dark:border-slate-800">
                 <Button
-                  type="button"
+                  asChild
                   variant={isActive ? "default" : "outline"}
                   size="sm"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    openModal({ combinationId: combo.id });
-                  }}
                   className="w-full font-bold text-xs"
                 >
-                  <span>Qabulga Yozilish</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <a 
+                    href={TELEGRAM_URL} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="flex items-center justify-center gap-1.5"
+                  >
+                    <span>Telegramda Yozilish</span>
+                    <Send className="w-3.5 h-3.5" />
+                  </a>
                 </Button>
               </div>
             </div>

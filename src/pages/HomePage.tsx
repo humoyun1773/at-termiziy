@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
-import { useModal } from '../context/ModalContext';
+import { TELEGRAM_URL } from '../data/siteConfig';
 import { combinationsData } from '../data/combinationsData';
 import { teachersData, testimonialsData, faqData } from '../data/mockData';
 import { BannerCombinationsBoard } from '../components/common/BannerCombinationsBoard';
@@ -27,12 +27,12 @@ import {
   Star, 
   UserCheck, 
   Building2, 
-  ShieldCheck 
+  ShieldCheck,
+  Send
 } from 'lucide-react';
 
 export const HomePage: React.FC = () => {
   const { t, language } = useLanguage();
-  const { openModal } = useModal();
 
   return (
     <div className="space-y-16 md:space-y-20 pb-20">
@@ -43,28 +43,35 @@ export const HomePage: React.FC = () => {
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-8 md:mb-12">
             
             {/* Main Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight font-heading">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight font-heading">
               {t.hero.titleStart}{' '}
-              <span className="text-sky-600 inline">
+              <span className="text-sky-600 dark:text-sky-400 inline">
                 {t.hero.titleHighlight}
               </span>{' '}
               {t.hero.titleEnd}
             </h1>
 
             {/* Subtitle */}
-            <p className="text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed font-normal max-w-2xl mx-auto">
+            <p className="text-xs sm:text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal max-w-2xl mx-auto">
               {t.hero.subheading}
             </p>
 
             {/* Action Buttons */}
             <div className="flex items-center justify-center pt-2">
               <Button
-                onClick={() => openModal()}
+                asChild
                 size="lg"
                 className="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs sm:text-sm shadow-md shadow-sky-600/20"
               >
-                <span>{t.hero.freeConsultation}</span>
-                <ArrowRight className="w-4 h-4" />
+                <a 
+                  href={TELEGRAM_URL} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
+                  <span>{t.hero.freeConsultation}</span>
+                  <Send className="w-4 h-4" />
+                </a>
               </Button>
             </div>
           </div>
@@ -187,10 +194,18 @@ export const HomePage: React.FC = () => {
           </div>
 
           <Button
-            onClick={() => openModal()}
+            asChild
             className="px-5 py-2.5 rounded-xl bg-white hover:bg-sky-50 text-sky-900 font-bold text-xs whitespace-nowrap transition-colors shrink-0"
           >
-            Hozir Ro'yxatdan O'tish →
+            <a 
+              href={TELEGRAM_URL} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5"
+            >
+              <span>Hozir Ro'yxatdan O'tish</span>
+              <Send className="w-3.5 h-3.5" />
+            </a>
           </Button>
         </div>
       </section>
@@ -401,11 +416,19 @@ export const HomePage: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
             <Button
-              onClick={() => openModal()}
+              asChild
               size="lg"
               className="w-full sm:w-auto px-7 py-3 rounded-xl bg-white text-sky-900 font-bold text-xs sm:text-sm hover:bg-sky-50"
             >
-              Ariza Qoldirish (Bepul)
+              <a 
+                href={TELEGRAM_URL} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                <span>Telegram orqali Ariza Qoldirish</span>
+                <Send className="w-3.5 h-3.5" />
+              </a>
             </Button>
             <Button
               variant="outline"

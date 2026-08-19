@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
-import { useModal } from '../../context/ModalContext';
+import { TELEGRAM_URL } from '../../data/siteConfig';
 import { 
   GraduationCap, 
   Phone, 
@@ -12,10 +12,10 @@ import {
   ShieldCheck, 
   ChevronRight
 } from 'lucide-react';
+import { Button } from '../ui/button';
 
 export const Footer: React.FC = () => {
   const { t } = useLanguage();
-  const { openModal } = useModal();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -152,13 +152,20 @@ export const Footer: React.FC = () => {
             </div>
 
             <div className="pt-2">
-              <button
-                onClick={() => openModal()}
+              <Button
+                asChild
                 className="w-full py-2.5 px-4 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-xs transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-md"
               >
-                <span>{t.nav.applyBtn}</span>
-                <Send className="w-3.5 h-3.5" />
-              </button>
+                <a 
+                  href={TELEGRAM_URL} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2"
+                >
+                  <span>{t.nav.applyBtn} (Telegram)</span>
+                  <Send className="w-3.5 h-3.5" />
+                </a>
+              </Button>
             </div>
           </div>
         </div>

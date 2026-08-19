@@ -1,18 +1,19 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { useModal } from '../context/ModalContext';
+import { TELEGRAM_URL } from '../data/siteConfig';
 import { 
   GraduationCap, 
   Compass, 
   Target, 
   MapPin, 
-  Phone,
-  Clock
+  Phone, 
+  Clock,
+  Send
 } from 'lucide-react';
+import { Button } from '../components/ui/button';
 
 export const AboutPage: React.FC = () => {
   const { t } = useLanguage();
-  const { openModal } = useModal();
 
   return (
     <div className="py-12 md:py-20 space-y-16">
@@ -135,12 +136,20 @@ export const AboutPage: React.FC = () => {
               </div>
 
               <div className="pt-3">
-                <button
-                  onClick={() => openModal()}
+                <Button
+                  asChild
                   className="px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs transition-all shadow-md cursor-pointer"
                 >
-                  Qabulga Oldindan Yozilish
-                </button>
+                  <a 
+                    href={TELEGRAM_URL} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2"
+                  >
+                    <span>Telegramda Qabulga Yozilish</span>
+                    <Send className="w-3.5 h-3.5" />
+                  </a>
+                </Button>
               </div>
             </div>
 
