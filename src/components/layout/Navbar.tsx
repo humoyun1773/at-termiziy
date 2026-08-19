@@ -2,11 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
 import { LanguageSwitcher } from '../common/LanguageSwitcher';
-import { 
-  GraduationCap, 
-  Menu, 
-  X
-} from 'lucide-react';
+import { ThemeToggle } from '../common/ThemeToggle';
+import { GraduationCap, Menu, X } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
   const { t } = useLanguage();
@@ -49,7 +46,7 @@ export const Navbar: React.FC = () => {
   return (
     <>
       {/* Main Sticky Navbar */}
-      <header className={`sticky top-0 z-40 bg-white transition-all duration-200 border-b border-slate-200 ${
+      <header className={`sticky top-0 z-40 bg-white dark:bg-slate-900 transition-all duration-200 border-b border-slate-200 dark:border-slate-800 ${
         isScrolled 
           ? 'shadow-md py-3' 
           : 'shadow-2xs py-4'
@@ -65,7 +62,7 @@ export const Navbar: React.FC = () => {
               <div className="w-10 h-10 md:w-11 md:h-11 rounded-2xl bg-gradient-to-tr from-sky-600 via-sky-500 to-blue-600 flex items-center justify-center text-white shadow-md shadow-sky-500/25 group-hover:scale-105 transition-transform">
                 <GraduationCap className="w-6 h-6" />
               </div>
-              <span className="text-lg md:text-xl font-extrabold tracking-tight text-slate-900 font-heading leading-tight group-hover:text-sky-600 transition-colors whitespace-nowrap">
+              <span className="text-lg md:text-xl font-extrabold tracking-tight text-slate-900 dark:text-white font-heading leading-tight group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors whitespace-nowrap">
                 {t.brand.name}
               </span>
             </Link>
@@ -78,14 +75,13 @@ export const Navbar: React.FC = () => {
                   <Link
                     key={link.path}
                     to={link.path}
-                    className={`group relative py-2.5 text-xs xl:text-sm font-semibold tracking-normal transition-colors duration-200 whitespace-nowrap cursor-pointer ${
-                      isActive
-                        ? 'text-sky-600 font-bold'
-                        : 'text-slate-700 hover:text-sky-600'
+                    className={`relative py-2 text-xs md:text-sm tracking-tight font-bold transition-all duration-200 group flex items-center gap-1.5 cursor-pointer select-none ${
+                      isActive 
+                        ? 'text-sky-600 dark:text-sky-400 font-extrabold' 
+                        : 'text-slate-700 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400'
                     }`}
                   >
                     <span>{link.label}</span>
-                    {/* Premium Animated Border Bottom */}
                     <span 
                       className={`absolute bottom-0 left-0 w-full h-[2.5px] rounded-full bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 transition-all duration-300 origin-left ${
                         isActive 
@@ -98,17 +94,18 @@ export const Navbar: React.FC = () => {
               })}
             </nav>
 
-            {/* Right actions: Language Switcher & Mobile Menu Toggle */}
-            <div className="flex items-center gap-3 shrink-0">
+            {/* Right actions: ThemeToggle, Language Switcher & Mobile Menu Toggle */}
+            <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+              <ThemeToggle />
               <LanguageSwitcher />
 
               {/* Mobile Menu Toggle Button */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden p-2 rounded-xl text-slate-700 hover:bg-sky-50 hover:text-sky-700 transition-colors border border-slate-200 cursor-pointer"
+                className="lg:hidden p-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-slate-200 dark:border-slate-700 cursor-pointer"
                 aria-label="Toggle Menu"
               >
-                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5 text-slate-900" />}
+                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
             </div>
           </div>
@@ -119,9 +116,9 @@ export const Navbar: React.FC = () => {
           <>
             <div 
               onClick={() => setMobileMenuOpen(false)}
-              className="lg:hidden fixed inset-0 bg-slate-900/40 backdrop-blur-xs z-40 top-[65px]"
+              className="lg:hidden fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-40 top-[65px]"
             />
-            <div className="lg:hidden fixed inset-x-0 top-[65px] bg-white border-b border-slate-200 shadow-2xl p-5 z-50 animate-in slide-in-from-top-2 duration-200">
+            <div className="lg:hidden fixed inset-x-0 top-[65px] bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-2xl p-5 z-50 animate-in slide-in-from-top-2 duration-200">
               <div className="space-y-1.5 mb-4">
                 {navLinks.map((link) => {
                   const isActive = location.pathname === link.path;
@@ -133,7 +130,7 @@ export const Navbar: React.FC = () => {
                       className={`block px-4 py-3 rounded-xl text-sm font-bold transition-colors ${
                         isActive
                           ? 'bg-sky-600 text-white'
-                          : 'text-slate-800 hover:bg-slate-50'
+                          : 'text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800'
                       }`}
                     >
                       {link.label}
@@ -142,11 +139,11 @@ export const Navbar: React.FC = () => {
                 })}
               </div>
 
-              <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-medium">
+              <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 font-medium">
                 <span>Qarshi shahar</span>
                 <a 
                   href="tel:+998919517335" 
-                  className="font-mono font-bold text-sky-700 hover:underline"
+                  className="font-mono font-bold text-sky-600 dark:text-sky-400 hover:underline"
                 >
                   +998 91 951 73 35
                 </a>
