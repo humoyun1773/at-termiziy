@@ -122,17 +122,9 @@ export const Navbar: React.FC = () => {
               })}
             </nav>
 
-            {/* Right actions: Language Switcher & Call to action */}
+            {/* Right actions: Language Switcher & Mobile Menu Toggle */}
             <div className="flex items-center gap-2.5">
               <LanguageSwitcher />
-
-              <button
-                onClick={() => openModal()}
-                className="hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-500 hover:to-blue-500 text-white text-xs md:text-sm font-bold shadow-md shadow-sky-600/20 transition-all active:scale-95 cursor-pointer"
-              >
-                <span>{t.nav.applyBtn}</span>
-                <ChevronRight className="w-4 h-4" />
-              </button>
 
               {/* Mobile Menu Toggle Button */}
               <button
