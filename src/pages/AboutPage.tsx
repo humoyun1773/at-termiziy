@@ -3,7 +3,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { useModal } from '../context/ModalContext';
 import { 
   GraduationCap, 
-  Sparkles, 
+  Compass, 
   Target, 
   MapPin, 
   Phone,
@@ -65,7 +65,7 @@ export const AboutPage: React.FC = () => {
 
           <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-4">
             <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
-              <Sparkles className="w-6 h-6" />
+              <Compass className="w-6 h-6" />
             </div>
             <h3 className="text-xl font-bold text-slate-900 font-heading">
               {t.aboutPage.visionTitle}

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useModal } from '../../context/ModalContext';
 import { 
-  Sparkles, 
   Phone, 
   MapPin, 
   GraduationCap, 
@@ -79,19 +78,10 @@ export const BannerCombinationsBoard: React.FC = () => {
       <div className="absolute -top-16 -right-16 w-56 h-56 bg-blue-200/40 rounded-full blur-2xl pointer-events-none" />
 
       {/* Top Header of the Board */}
-      <div className="relative text-center max-w-3xl mx-auto mb-8 sm:mb-12 space-y-3">
+      <div className="relative text-center max-w-3xl mx-auto mb-6 sm:mb-10">
         <h2 className="text-xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-wider font-heading uppercase">
           AT-TERMEZIY O'QUV MARKAZI
         </h2>
-
-        {/* Ribbon Motto */}
-        <div className="inline-block">
-          <div className="px-6 py-2 rounded-full bg-gradient-to-r from-sky-900 via-sky-800 to-blue-900 text-white font-extrabold text-xs sm:text-sm tracking-widest uppercase shadow-md shadow-sky-950/20 border border-sky-600/30 flex items-center justify-center gap-2">
-            <Sparkles className="w-4 h-4 text-amber-300" />
-            <span>INTIZOMNI SEVUVCHILAR UCHUN</span>
-            <Sparkles className="w-4 h-4 text-amber-300" />
-          </div>
-        </div>
       </div>
 
       {/* 4 Columns (Combinations) Board */}

@@ -9,7 +9,6 @@ import { BannerCombinationsBoard } from '../components/common/BannerCombinations
 import { CombinationCard } from '../components/common/CombinationCard';
 import { CourseCard } from '../components/common/CourseCard';
 import { 
-  Sparkles, 
   ArrowRight, 
   CheckCircle2, 
   Award, 
@@ -45,14 +44,6 @@ export const HomePage: React.FC = () => {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto space-y-5 mb-10 md:mb-14">
             
-            {/* Top Motto Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 shadow-md shadow-sky-500/10 border border-sky-200 text-sky-800 text-xs md:text-sm font-bold animate-float">
-              <span className="flex h-2 w-2 rounded-full bg-sky-500 animate-ping" />
-              <span>{t.brand.motto}</span>
-              <span className="text-slate-300">•</span>
-              <span className="text-sky-600 font-extrabold">{t.brand.city}</span>
-            </div>
-
             {/* Main Headline */}
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.15] font-heading">
               {t.hero.titleStart}{' '}
@@ -73,7 +64,6 @@ export const HomePage: React.FC = () => {
                 onClick={() => openModal()}
                 className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-sky-600 via-sky-500 to-blue-600 hover:from-sky-500 hover:to-blue-500 text-white font-bold text-sm md:text-base shadow-xl shadow-sky-500/25 transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2.5 cursor-pointer"
               >
-                <Sparkles className="w-5 h-5 text-amber-300" />
                 <span>{t.hero.freeConsultation}</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
@@ -128,8 +118,7 @@ export const HomePage: React.FC = () => {
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
             <div className="lg:col-span-6 space-y-4">
-              <span className="px-3.5 py-1 rounded-full bg-white/10 text-sky-200 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+              <span className="px-3.5 py-1 rounded-full bg-white/10 text-sky-200 text-xs font-bold uppercase tracking-wider inline-block">
                 {t.mottoSection.tag}
               </span>
               <h2 className="text-2xl sm:text-4xl font-extrabold font-heading text-white tracking-tight">

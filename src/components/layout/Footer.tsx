@@ -10,7 +10,6 @@ import {
   Send, 
   ArrowUp, 
   ShieldCheck, 
-  Sparkles,
   ChevronRight
 } from 'lucide-react';
 
@@ -50,11 +49,6 @@ export const Footer: React.FC = () => {
             <p className="text-xs text-slate-400 leading-relaxed">
               {t.footer.desc}
             </p>
-
-            <div className="p-3 rounded-2xl bg-sky-950/60 border border-sky-800/60 text-sky-200 text-xs flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-amber-300 shrink-0" />
-              <span className="font-semibold">{t.brand.motto}</span>
-            </div>
           </div>
 
           {/* Column 2: 28 Month Combinations */}
