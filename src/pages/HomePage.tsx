@@ -3,11 +3,9 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { useModal } from '../context/ModalContext';
 import { combinationsData } from '../data/combinationsData';
-import { coursesData } from '../data/coursesData';
 import { teachersData, testimonialsData, faqData } from '../data/mockData';
 import { BannerCombinationsBoard } from '../components/common/BannerCombinationsBoard';
 import { CombinationCard } from '../components/common/CombinationCard';
-import { CourseCard } from '../components/common/CourseCard';
 import { Button } from '../components/ui/button';
 import { Badge } from '../components/ui/badge';
 import { Card, CardContent } from '../components/ui/card';
@@ -27,7 +25,6 @@ import {
   MapPin, 
   Phone, 
   Star, 
-  Layers, 
   UserCheck, 
   Building2, 
   ShieldCheck 
@@ -60,26 +57,14 @@ export const HomePage: React.FC = () => {
             </p>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+            <div className="flex items-center justify-center pt-2">
               <Button
                 onClick={() => openModal()}
                 size="lg"
-                className="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs sm:text-sm shadow-md shadow-sky-600/20"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs sm:text-sm shadow-md shadow-sky-600/20"
               >
                 <span>{t.hero.freeConsultation}</span>
                 <ArrowRight className="w-4 h-4" />
-              </Button>
-
-              <Button
-                variant="secondary"
-                size="lg"
-                asChild
-                className="w-full sm:w-auto px-6 py-3.5 rounded-2xl border-sky-200 text-sky-800 font-bold text-xs sm:text-sm"
-              >
-                <Link to="/combinations" className="flex items-center gap-2">
-                  <Layers className="w-4 h-4 text-sky-600" />
-                  <span>{t.hero.exploreCombinations}</span>
-                </Link>
               </Button>
             </div>
           </div>
@@ -207,34 +192,6 @@ export const HomePage: React.FC = () => {
           >
             Hozir Ro'yxatdan O'tish →
           </Button>
-        </div>
-      </section>
-
-
-      {/* 5. INDIVIDUAL LANGUAGES OVERVIEW */}
-      <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-8">
-          <div>
-            <Badge variant="secondary" className="px-3 py-1 mb-1.5">
-              {t.coursesPage.tag}
-            </Badge>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
-              {t.coursesPage.title}
-            </h2>
-          </div>
-          <Link
-            to="/courses"
-            className="text-xs font-bold text-sky-600 hover:text-sky-800 flex items-center gap-1 shrink-0"
-          >
-            <span>Barcha kurslarni ko'rish</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-          {coursesData.slice(0, 6).map((course) => (
-            <CourseCard key={course.id} course={course} />
-          ))}
         </div>
       </section>
 
