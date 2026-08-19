@@ -22,10 +22,21 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on route change
+  // Close mobile menu on route change & lock body scroll when open
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
+
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
 
   const navLinks = [
     { path: '/', label: t.nav.home },
