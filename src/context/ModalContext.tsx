@@ -10,21 +10,21 @@ interface ModalContextType {
 const ModalContext = createContext<ModalContextType | undefined>(undefined);
 
 export const ModalProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(false);
   const [modalPreset, setModalPreset] = useState<{ combinationId?: number | string; languageName?: string } | null>(null);
 
   const openModal = (preset?: { combinationId?: number | string; languageName?: string }) => {
     setModalPreset(preset || null);
-    setIsOpen(true);
+    if (window.location.pathname !== '/contact') {
+      window.location.href = '/contact';
+    }
   };
 
   const closeModal = () => {
-    setIsOpen(false);
     setModalPreset(null);
   };
 
   return (
-    <ModalContext.Provider value={{ isOpen, openModal, closeModal, modalPreset }}>
+    <ModalContext.Provider value={{ isOpen: false, openModal, closeModal, modalPreset }}>
       {children}
     </ModalContext.Provider>
   );

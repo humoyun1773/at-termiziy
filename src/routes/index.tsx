@@ -3,7 +3,6 @@ import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import { Navbar } from '../components/layout/Navbar';
 import { Footer } from '../components/layout/Footer';
 import { ScrollToTop } from '../components/layout/ScrollToTop';
-import { LeadModal } from '../components/common/LeadModal';
 
 // Pages
 import { HomePage } from '../pages/HomePage';
@@ -16,7 +15,7 @@ import { NotFoundPage } from '../pages/NotFoundPage';
 
 /**
  * Root Layout Component containing global layout shell:
- * Navbar, Outlet, Footer, Global Modals, Floating Actions, and ScrollToTop
+ * Navbar, Outlet, Footer, Floating Actions, and ScrollToTop
  */
 const RootLayout: React.FC = () => {
   return (
@@ -27,7 +26,6 @@ const RootLayout: React.FC = () => {
         <Outlet />
       </main>
       <Footer />
-      <LeadModal />
     </div>
   );
 };
