@@ -67,7 +67,7 @@ export const CombinationCard: React.FC<Props> = ({ combination }) => {
             {combination.modules.map((module) => (
               <div
                 key={module.id}
-                className="relative p-3 rounded-2xl bg-slate-50/70 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700/80 hover:border-sky-300 transition-all flex items-center gap-3 shadow-2xs"
+                className="relative p-3 rounded-2xl bg-slate-50/70 dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800 hover:border-sky-300 transition-all flex items-center gap-3 shadow-2xs"
               >
                 <div className="w-10 h-10 rounded-xl bg-white dark:bg-slate-900 shadow-2xs border border-slate-200 dark:border-slate-800 flex items-center justify-center text-xl shrink-0">
                   {module.flag}

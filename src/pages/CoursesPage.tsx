@@ -75,21 +75,21 @@ export const CoursesPage: React.FC = () => {
             Har Bir Til Kursida Qanday Yondashuv Qo'llaniladi?
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-            <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700/80 shadow-2xs">
+            <div className="bg-white dark:bg-slate-850 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xs">
               <span className="text-2xl font-black text-sky-600 dark:text-sky-400 block mb-2 font-heading">01</span>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1">To'liq Sho'ng'ish (Immersion)</h4>
               <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
                 Darslarda 100% o'rganilayotgan tildan foydalaniladi, bu esa nutq to'sig'ini tezda yengishga yordam beradi.
               </p>
             </div>
-            <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700/80 shadow-2xs">
+            <div className="bg-white dark:bg-slate-850 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xs">
               <span className="text-2xl font-black text-sky-600 dark:text-sky-400 block mb-2 font-heading">02</span>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1">Kunlik Lug'at & Monitoring</h4>
               <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
                 Har kuni yangi so'zlar maxsus algoritmlar asosida takrorlanadi va qat'iy nazorat qilinadi.
               </p>
             </div>
-            <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700/80 shadow-2xs">
+            <div className="bg-white dark:bg-slate-850 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xs">
               <span className="text-2xl font-black text-sky-600 dark:text-sky-400 block mb-2 font-heading">03</span>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1">Xalqaro Standartlar</h4>
               <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">

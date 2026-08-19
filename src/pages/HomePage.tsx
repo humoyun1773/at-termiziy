@@ -136,7 +136,7 @@ export const HomePage: React.FC = () => {
 
             <div className="lg:col-span-6 space-y-3">
               {t.mottoSection.points.map((pt, idx) => (
-                <div key={idx} className="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700/80 flex items-start gap-3.5 shadow-2xs">
+                <div key={idx} className="bg-white dark:bg-slate-850 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-start gap-3.5 shadow-2xs">
                   <div className="w-7 h-7 rounded-lg bg-sky-50 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 font-bold flex items-center justify-center shrink-0 text-xs">
                     0{idx + 1}
                   </div>

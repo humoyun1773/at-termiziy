@@ -4,10 +4,10 @@ import {
   Phone, 
   MapPin, 
   Calendar, 
-  ShieldCheck, 
-  ChevronDown, 
-  Send, 
-  Sparkles 
+  ShieldCheck,
+  ChevronDown,
+  Send,
+  Sparkles
 } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
@@ -22,7 +22,6 @@ interface LanguageStep {
 interface BannerColumn {
   id: number;
   title: string;
-  badge?: string;
   steps: LanguageStep[];
 }
 
@@ -33,7 +32,6 @@ export const BannerCombinationsBoard: React.FC = () => {
     {
       id: 1,
       title: "KOMBINATSIYA 1",
-      badge: "Mashhur",
       steps: [
         { name: "Ingliz Tili", duration: "7 Oy", code: "EN" },
         { name: "Fors Tili", duration: "7 Oy", code: "FA" },
@@ -44,7 +42,6 @@ export const BannerCombinationsBoard: React.FC = () => {
     {
       id: 2,
       title: "KOMBINATSIYA 2",
-      badge: "Sharq & G'arb",
       steps: [
         { name: "Ingliz Tili", duration: "7 Oy", code: "EN" },
         { name: "Koreys Tili", duration: "7 Oy", code: "KO" },
@@ -55,7 +52,6 @@ export const BannerCombinationsBoard: React.FC = () => {
     {
       id: 3,
       title: "KOMBINATSIYA 3",
-      badge: "Biznes & Diplomatiya",
       steps: [
         { name: "Rus Tili", duration: "7 Oy", code: "RU" },
         { name: "Ingliz Tili", duration: "7 Oy", code: "EN" },
@@ -66,7 +62,6 @@ export const BannerCombinationsBoard: React.FC = () => {
     {
       id: 4,
       title: "KOMBINATSIYA 4",
-      badge: "Global Muloqot",
       steps: [
         { name: "Ingliz Tili", duration: "7 Oy", code: "EN" },
         { name: "Rus Tili", duration: "7 Oy", code: "RU" },
@@ -77,13 +72,13 @@ export const BannerCombinationsBoard: React.FC = () => {
   ];
 
   return (
-    <Card className="w-full bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-8 border-slate-200 dark:border-slate-800 shadow-xl transition-colors">
+    <Card className="w-full bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-8 border-slate-200 dark:border-slate-800 shadow-lg">
       
       {/* Board Top Header */}
       <div className="text-center mb-8">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 dark:bg-sky-950/60 border border-sky-200 dark:border-sky-800 text-sky-700 dark:text-sky-300 text-xs font-bold uppercase tracking-wider mb-2">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 dark:bg-slate-800 border border-sky-100 dark:border-slate-700 text-sky-700 dark:text-sky-400 text-xs font-bold uppercase tracking-wider mb-2">
           <Sparkles className="w-3.5 h-3.5" />
-          <span>Eksklyuziv 28 Oylik Ta'lim Tizimi</span>
+          <span>28 Oylik Ta'lim Tizimi</span>
         </div>
         <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight font-heading uppercase">
           AL-HAKIM AT-TERMIZIY O'QUV MARKAZI
@@ -102,34 +97,22 @@ export const BannerCombinationsBoard: React.FC = () => {
             <div
               key={combo.id}
               onClick={() => setActiveCombo(combo.id)}
-              className={`rounded-2xl p-5 transition-all duration-300 flex flex-col justify-between cursor-pointer group relative ${
+              className={`rounded-2xl p-4 sm:p-5 transition-all duration-200 flex flex-col justify-between cursor-pointer ${
                 isActive
-                  ? 'bg-sky-50/80 dark:bg-slate-800 border-2 border-sky-500 dark:border-sky-500 shadow-xl shadow-sky-500/15 ring-2 ring-sky-300/40 dark:ring-sky-500/30 -translate-y-1'
-                  : 'bg-slate-50/70 hover:bg-white dark:bg-slate-800/40 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700/80 hover:border-sky-400 dark:hover:border-sky-500/70 hover:shadow-lg hover:-translate-y-1'
+                  ? 'bg-sky-50 dark:bg-slate-800 border-2 border-sky-400 dark:border-sky-600 shadow-md'
+                  : 'bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-sm'
               }`}
             >
               <div>
                 {/* Column Header */}
-                <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-200/80 dark:border-slate-700">
-                  <div>
-                    <span className={`text-xs font-black tracking-wider uppercase font-heading block ${
-                      isActive 
-                        ? 'text-sky-600 dark:text-sky-400' 
-                        : 'text-slate-800 dark:text-slate-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors'
-                    }`}>
-                      {combo.title}
-                    </span>
-                    {combo.badge && (
-                      <span className="text-[10px] font-semibold text-slate-500 dark:text-slate-400 block mt-0.5">
-                        {combo.badge}
-                      </span>
-                    )}
-                  </div>
-                  
-                  <span className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                    isActive 
-                      ? 'bg-sky-500 ring-4 ring-sky-400/30 shadow-xs' 
-                      : 'bg-slate-300 dark:bg-slate-600 group-hover:bg-sky-400'
+                <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-200 dark:border-slate-700">
+                  <span className={`text-xs font-extrabold tracking-wider uppercase font-heading ${
+                    isActive ? 'text-sky-600 dark:text-sky-400' : 'text-slate-700 dark:text-slate-300'
+                  }`}>
+                    {combo.title}
+                  </span>
+                  <span className={`w-2 h-2 rounded-full ${
+                    isActive ? 'bg-sky-500' : 'bg-slate-300 dark:bg-slate-600'
                   }`} />
                 </div>
 
@@ -137,22 +120,18 @@ export const BannerCombinationsBoard: React.FC = () => {
                 <div className="space-y-2">
                   {combo.steps.map((step, sIdx) => (
                     <React.Fragment key={sIdx}>
-                      <div className={`p-2.5 rounded-xl transition-all duration-200 flex items-center justify-between gap-2 shadow-2xs ${
-                        isActive
-                          ? 'bg-white dark:bg-slate-900 border border-sky-200 dark:border-slate-700'
-                          : 'bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-700/70 group-hover:border-sky-200 dark:group-hover:border-slate-600'
-                      }`}>
+                      <div className="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-2xs flex items-center justify-between gap-2">
                         <div className="flex items-center gap-2.5 min-w-0">
-                          <span className="w-7 h-7 rounded-lg bg-sky-100/70 dark:bg-sky-950 text-sky-700 dark:text-sky-300 font-extrabold text-[10px] flex items-center justify-center shrink-0 border border-sky-200/60 dark:border-sky-800 font-heading">
+                          <span className="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-extrabold text-[10px] flex items-center justify-center shrink-0 font-heading">
                             {step.code}
                           </span>
-                          <span className="text-xs font-bold text-slate-900 dark:text-white tracking-tight font-heading truncate">
+                          <span className="text-xs font-bold text-slate-800 dark:text-slate-200 tracking-tight font-heading truncate">
                             {step.name}
                           </span>
                         </div>
                         <Badge 
                           variant="secondary" 
-                          className="text-[10px] px-2 py-0.5 rounded-md font-extrabold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-none shrink-0"
+                          className="text-[10px] px-1.5 py-0.5 rounded-md font-extrabold shrink-0"
                         >
                           {step.duration}
                         </Badge>
@@ -161,9 +140,7 @@ export const BannerCombinationsBoard: React.FC = () => {
                       {/* Direction flow connector */}
                       {sIdx < combo.steps.length - 1 && (
                         <div className="flex items-center justify-center py-0.5">
-                          <ChevronDown className={`w-3.5 h-3.5 transition-colors ${
-                            isActive ? 'text-sky-500' : 'text-slate-300 dark:text-slate-600 group-hover:text-sky-400'
-                          }`} />
+                          <ChevronDown className="w-3.5 h-3.5 text-slate-300 dark:text-slate-600" />
                         </div>
                       )}
                     </React.Fragment>
@@ -172,16 +149,12 @@ export const BannerCombinationsBoard: React.FC = () => {
               </div>
 
               {/* Column Bottom Action (Direct Telegram Link) */}
-              <div className="mt-5 pt-3 border-t border-slate-200/80 dark:border-slate-700">
+              <div className="mt-5 pt-3 border-t border-slate-200 dark:border-slate-700">
                 <Button
                   asChild
                   variant={isActive ? "default" : "outline"}
                   size="sm"
-                  className={`w-full font-bold text-xs transition-all duration-200 ${
-                    isActive
-                      ? 'bg-sky-600 hover:bg-sky-700 text-white shadow-md shadow-sky-600/25'
-                      : 'bg-white hover:bg-sky-600 text-slate-800 hover:text-white dark:bg-slate-900 dark:hover:bg-sky-600 dark:text-slate-200 dark:hover:text-white border-slate-200 dark:border-slate-700 hover:border-sky-600 dark:hover:border-sky-600'
-                  }`}
+                  className="w-full font-bold text-xs"
                 >
                   <a 
                     href={TELEGRAM_URL} 
@@ -201,15 +174,10 @@ export const BannerCombinationsBoard: React.FC = () => {
       </div>
 
       {/* Bottom Info Ribbon Bar */}
-      <div className="rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+      <div className="rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
         
         {/* Left: Phone */}
-        <Button 
-          variant="outline" 
-          size="sm" 
-          asChild 
-          className="rounded-xl font-mono font-bold text-xs sm:text-sm bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-900 dark:text-white"
-        >
+        <Button variant="outline" size="sm" asChild className="rounded-xl font-mono font-bold text-xs sm:text-sm">
           <a href="tel:+998919517335" className="flex items-center gap-2">
             <Phone className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
             <span>+998 91 951 73 35</span>
@@ -217,7 +185,7 @@ export const BannerCombinationsBoard: React.FC = () => {
         </Button>
 
         {/* Center: Guarantee & Details */}
-        <div className="space-y-1 text-xs text-slate-600 dark:text-slate-300">
+        <div className="space-y-1 text-xs text-slate-600 dark:text-slate-400">
           <div className="flex flex-wrap items-center justify-center gap-2 font-bold text-slate-800 dark:text-slate-200 text-[11px] sm:text-xs">
             <span className="flex items-center gap-1 text-sky-600 dark:text-sky-400">
               <Calendar className="w-3.5 h-3.5" />
@@ -227,13 +195,13 @@ export const BannerCombinationsBoard: React.FC = () => {
             <span>4 Ta Tilga Muvofiq Tafakkur</span>
           </div>
           <div className="flex items-center justify-center gap-1.5 text-emerald-700 dark:text-emerald-400 font-bold text-[11px] sm:text-xs">
-            <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+            <ShieldCheck className="w-4 h-4" />
             <span>Kursni Muvaffaqiyatli Tugatgan Talabalar Ish Bilan Ta'minlanadi</span>
           </div>
         </div>
 
         {/* Right: Location */}
-        <Badge variant="outline" className="px-3 py-1.5 gap-1.5 font-bold text-slate-800 dark:text-slate-200 bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700">
+        <Badge variant="outline" className="px-3 py-1.5 gap-1.5 font-bold">
           <MapPin className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
           <span>Qarshi Shahar</span>
         </Badge>
