@@ -1,61 +1,136 @@
-export type CourseCategory = 'all' | 'it' | 'languages' | 'science' | 'kids';
+export type Language = 'uz' | 'ru' | 'en';
 
-export interface Course {
+export interface LanguageModule {
   id: string;
-  title: string;
-  category: 'it' | 'languages' | 'science' | 'kids';
-  description: string;
-  duration: string;
-  lessonsPerWeek: number;
-  lessonDuration: string;
-  level: string;
-  price: number;
-  discountPrice?: number;
-  popular?: boolean;
-  features: string[];
-  iconName: string;
-  technologies?: string[];
+  nameKey: string;
+  durationMonths: number;
+  flag: string;
+  color: string;
+  bgGradient: string;
+  targetLevel: string;
+  descriptionKey: string;
+  skills: string[];
+}
+
+export interface Combination {
+  id: number;
+  titleKey: string;
+  subtitleKey: string;
+  totalMonths: number;
+  modules: LanguageModule[];
+  careerProspectsKey: string[];
+  recommendedForKey: string;
+  badgeKey?: string;
+  isPopular?: boolean;
+}
+
+export interface CourseDetail {
+  id: string;
+  name: {
+    uz: string;
+    ru: string;
+    en: string;
+  };
+  nativeName: string;
+  flag: string;
+  duration: {
+    uz: string;
+    ru: string;
+    en: string;
+  };
+  intensity: {
+    uz: string;
+    ru: string;
+    en: string;
+  };
+  levels: string[];
+  certificate: string;
+  color: string;
+  tagline: {
+    uz: string;
+    ru: string;
+    en: string;
+  };
+  description: {
+    uz: string;
+    ru: string;
+    en: string;
+  };
+  features: {
+    uz: string[];
+    ru: string[];
+    en: string[];
+  };
+  careerOpportunities: {
+    uz: string[];
+    ru: string[];
+    en: string[];
+  };
 }
 
 export interface Teacher {
   id: string;
   name: string;
-  role: string;
-  experience: string;
-  bio: string;
-  avatar: string;
-  specialties: string[];
-  achievements: string[];
+  role: {
+    uz: string;
+    ru: string;
+    en: string;
+  };
+  languages: string[];
+  experience: {
+    uz: string;
+    ru: string;
+    en: string;
+  };
+  certificate: string;
+  image: string;
+  bio: {
+    uz: string;
+    ru: string;
+    en: string;
+  };
 }
 
 export interface Testimonial {
   id: string;
   name: string;
-  course: string;
-  result: string;
-  feedback: string;
+  combinationId: number;
+  currentRole: {
+    uz: string;
+    ru: string;
+    en: string;
+  };
+  company: string;
+  quote: {
+    uz: string;
+    ru: string;
+    en: string;
+  };
+  languagesLearned: string[];
   avatar: string;
   rating: number;
 }
 
 export interface FAQItem {
   id: string;
-  question: string;
-  answer: string;
-  category?: string;
+  question: {
+    uz: string;
+    ru: string;
+    en: string;
+  };
+  answer: {
+    uz: string;
+    ru: string;
+    en: string;
+  };
+  category: 'general' | 'combination' | 'career' | 'discipline';
 }
 
 export interface LeadFormData {
-  name: string;
+  fullName: string;
   phone: string;
-  course: string;
-  timePreference: 'morning' | 'afternoon' | 'evening';
-  message?: string;
-}
-
-export interface StatItem {
-  number: string;
-  label: string;
-  description: string;
-  icon: string;
+  selectedCombination?: number | string;
+  selectedLanguage?: string;
+  studyTime?: string;
+  notes?: string;
 }
