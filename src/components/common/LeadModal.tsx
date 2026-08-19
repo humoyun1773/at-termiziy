@@ -85,14 +85,14 @@ export const LeadModal: React.FC = () => {
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-in fade-in duration-200"
     >
       <div 
-        className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl border border-sky-100 overflow-hidden"
+        className="relative w-full max-w-lg max-h-[90vh] bg-white rounded-3xl shadow-2xl border border-sky-100 overflow-hidden flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header decoration */}
-        <div className="bg-gradient-to-r from-sky-600 to-blue-700 p-6 text-white relative">
+        <div className="bg-gradient-to-r from-sky-600 to-blue-700 p-5 sm:p-6 text-white relative shrink-0">
           <button
             onClick={handleClose}
-            className="absolute top-5 right-5 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
+            className="absolute top-4 right-4 sm:top-5 sm:right-5 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
             aria-label="Close"
           >
             <X className="w-5 h-5" />
@@ -105,16 +105,16 @@ export const LeadModal: React.FC = () => {
               {t.brand.name}
             </span>
           </div>
-          <h3 className="text-xl font-bold font-heading text-white">
+          <h3 className="text-lg sm:text-xl font-bold font-heading text-white">
             {t.contactPage.formTitle}
           </h3>
-          <p className="text-xs text-sky-100 mt-1">
+          <p className="text-xs text-sky-100 mt-0.5">
             {t.contactPage.formSubtitle}
           </p>
         </div>
 
         {/* Body content */}
-        <div className="p-6 md:p-8">
+        <div className="p-5 sm:p-8 overflow-y-auto flex-1">
           {isSuccess ? (
             <div className="py-8 text-center space-y-4 animate-in zoom-in-95 duration-200">
               <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto shadow-inner">
