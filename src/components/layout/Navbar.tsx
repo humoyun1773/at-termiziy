@@ -46,7 +46,7 @@ export const Navbar: React.FC = () => {
     <>
       {/* Top micro banner */}
       <div className="bg-gradient-to-r from-sky-900 via-sky-800 to-blue-900 text-white text-[11px] py-1.5 px-4 hidden md:block border-b border-sky-700/50">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+        <div className="max-w-5xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1 text-sky-200 font-semibold">
               <Sparkles className="w-3 h-3 text-amber-300" />
@@ -81,7 +81,7 @@ export const Navbar: React.FC = () => {
           ? 'glass-panel shadow-md py-3' 
           : 'bg-white/95 backdrop-blur-md py-4 border-b border-slate-100'
       }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between gap-4">
             
             {/* Brand Logo */}

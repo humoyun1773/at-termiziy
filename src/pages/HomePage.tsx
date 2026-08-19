@@ -42,7 +42,7 @@ export const HomePage: React.FC = () => {
         {/* Ambient light blue circles */}
         <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-sky-200/50 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto space-y-5 mb-10 md:mb-14">
             
             {/* Top Motto Badge */}
@@ -121,7 +121,7 @@ export const HomePage: React.FC = () => {
 
 
       {/* 3. MOTTO & DISCIPLINE PHILOSOPHY */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="bg-gradient-to-br from-sky-900 via-sky-800 to-blue-900 rounded-3xl p-8 md:p-14 text-white relative overflow-hidden shadow-2xl">
           {/* Decorative glow */}
           <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-sky-400/20 rounded-full blur-3xl" />
@@ -172,7 +172,7 @@ export const HomePage: React.FC = () => {
 
 
       {/* 4. 28-MONTH COMBINATIONS (DETAILED CARDS) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
           <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5">
             <Layers className="w-3.5 h-3.5 text-sky-600" />
@@ -220,7 +220,7 @@ export const HomePage: React.FC = () => {
 
 
       {/* 5. INDIVIDUAL LANGUAGES OVERVIEW */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
           <div>
             <span className="px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider inline-block mb-2">
@@ -248,7 +248,7 @@ export const HomePage: React.FC = () => {
 
 
       {/* 6. CAMPUS & ENVIRONMENT IN QARSHI (Pure UI Card Design without external photo) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="bg-white rounded-3xl p-8 md:p-12 border border-slate-200 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-6 space-y-5">
             <span className="px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5">
@@ -313,7 +313,7 @@ export const HomePage: React.FC = () => {
 
 
       {/* 7. EXPERT TEACHERS & POLYGLOTS (Clean Card Design) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
           <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider inline-block">
             Bizning Ustozlarimiz
@@ -362,7 +362,7 @@ export const HomePage: React.FC = () => {
 
 
       {/* 8. TESTIMONIALS & SUCCESS STORIES */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
           <span className="px-3.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider inline-block">
             Muvaffaqiyat Tarixlari
@@ -449,7 +449,7 @@ export const HomePage: React.FC = () => {
 
 
       {/* 10. BOTTOM REGISTRATION CTA */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="bg-gradient-to-r from-sky-600 via-sky-500 to-blue-600 rounded-3xl p-8 md:p-14 text-white shadow-2xl text-center max-w-4xl mx-auto space-y-6">
           <span className="px-3.5 py-1 rounded-full bg-white/20 text-white text-xs font-bold uppercase tracking-wider inline-block">
             Qabulga Yozilish Ochiq
