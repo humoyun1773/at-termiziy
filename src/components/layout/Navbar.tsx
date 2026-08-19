@@ -37,10 +37,10 @@ export const Navbar: React.FC = () => {
 
   const navLinks = [
     { path: '/', label: t.nav.home },
+    { path: '/about', label: t.nav.about },
     { path: '/combinations', label: t.nav.combinations },
     { path: '/courses', label: t.nav.courses },
-    { path: '/career', label: t.nav.career },
-    { path: '/about', label: t.nav.about }
+    { path: '/career', label: t.nav.career }
   ];
 
   return (
