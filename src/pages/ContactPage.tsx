@@ -45,7 +45,7 @@ export const ContactPage: React.FC = () => {
     <div className="py-12 md:py-20 space-y-16">
       
       {/* Header */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 text-center max-w-3xl">
         <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4">
           <Phone className="w-3.5 h-3.5 text-sky-600" />
           {t.contactPage.tag}
@@ -59,7 +59,7 @@ export const ContactPage: React.FC = () => {
       </section>
 
       {/* Main Grid: Form + Info */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           
           {/* Left: Contact Info & Campus Details */}

@@ -144,9 +144,9 @@ export const testimonialsData: Testimonial[] = [
     rating: 5,
     avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=200",
     quote: {
-      uz: "Al-Hakim At-Termeziy markazida intizom haqiqatan ham birinchi o'rinda. Dars qoldirish yo'q, natija esa 100% kafolatlangan. Hozirda 4 tilda erkin tarjima qila olaman.",
-      ru: "В центре Аль-Хаким Ат-Термезий дисциплина действительно на первом месте. Пропусков нет, результат на 100% гарантирован. Сейчас свободно перевожу на 4 языках.",
-      en: "Discipline is truly paramount at Al-Hakim At-Termeziy. Zero missed classes, rigorous accountability, and 100% results. I now interpret effortlessly across 4 global languages."
+      uz: "At-Termeziy markazida intizom haqiqatan ham birinchi o'rinda. Dars qoldirish yo'q, natija esa 100% kafolatlangan. Hozirda 4 tilda erkin tarjima qila olaman.",
+      ru: "В центре Ат-Термезий дисциплина действительно на первом месте. Пропусков нет, результат на 100% гарантирован. Сейчас свободно перевожу на 4 языках.",
+      en: "Discipline is truly paramount at At-Termeziy. Zero missed classes, rigorous accountability, and 100% results. I now interpret effortlessly across 4 global languages."
     }
   }
 ];

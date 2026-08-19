@@ -1,7 +1,7 @@
 export const translations = {
   uz: {
     brand: {
-      name: "AL-HAKIM AT-TERMEZIY",
+      name: "AT-TERMEZIY",
       type: "O'quv Markazi",
       motto: "INTIZOMNI SEVUVCHILAR UCHUN",
       city: "QARSHI SHAHAR",
@@ -25,7 +25,7 @@ export const translations = {
       titleStart: "Ko'p Tilli Mutaxassis Bo'ling:",
       titleHighlight: "4 Ta Tilga Muvofiq",
       titleEnd: "Keng Tafakkur",
-      subheading: "Al-Hakim At-Termeziy o'quv markazida qat'iy intizom va maxsus 28 oylik metodika orqali 4 ta chet tilini mukammal o'rganing. Bitiruvchilar kafolatlangan xalqaro ish o'rni bilan ta'minlanadi!",
+      subheading: "At-Termeziy o'quv markazida qat'iy intizom va maxsus 28 oylik metodika orqali 4 ta chet tilini mukammal o'rganing. Bitiruvchilar kafolatlangan xalqaro ish o'rni bilan ta'minlanadi!",
       exploreCombinations: "Kombinatsiyalarni Tanlash",
       freeConsultation: "Bepul Konsultatsiya",
       statStudents: "Muvaffaqiyatli Talabalar",
@@ -112,8 +112,8 @@ export const translations = {
     },
     aboutPage: {
       tag: "Markazimiz Tarixi & Qadriyatlari",
-      title: "Al-Hakim At-Termeziy O'quv Markazi",
-      intro: "Markazimiz buyuk alloma Al-Hakim At-Termeziyning chuqur ilm, yuksak ma'rifat va qat'iy intizom tamoyillariga asoslanib tashkil etilgan.",
+      title: "At-Termeziy O'quv Markazi",
+      intro: "Markazimiz buyuk alloma At-Termeziyning chuqur ilm, yuksak ma'rifat va qat'iy intizom tamoyillariga asoslanib tashkil etilgan.",
       missionTitle: "Bizning Missiyamiz",
       missionText: "Qashqadaryo va butun O'zbekiston yoshlariga dunyo standartlaridagi ko'p tilli ta'limni taqdim etish, ularni global maydonda raqobatbardosh, mustaqil fikrli yetakchi mutaxassis qilib tarbiyalash.",
       visionTitle: "Bizning Qarashimiz",
@@ -183,7 +183,7 @@ export const translations = {
       callDirectly: "To'g'ridan-to'g'ri Qo'ng'iroq Qilish"
     },
     footer: {
-      desc: "Al-Hakim At-Termeziy o'quv markazi — Qarshi shahrida 28 oylik noyob kombinatsiya dasturi asosida 4 ta tilga muvofiq tafakkur shakllantiruvchi yetakchi ta'lim maskani.",
+      desc: "At-Termeziy o'quv markazi — Qarshi shahrida 28 oylik noyob kombinatsiya dasturi asosida 4 ta tilga muvofiq tafakkur shakllantiruvchi yetakchi ta'lim maskani.",
       quickLinks: "Tezkor Havolalar",
       programs: "Dasturlar",
       contactInfo: "Aloqa Ma'lumotlari",
@@ -193,7 +193,7 @@ export const translations = {
   },
   ru: {
     brand: {
-      name: "AL-HAKIM AT-TERMEZIY",
+      name: "AT-TERMEZIY",
       type: "Учебный Центр",
       motto: "ДЛЯ ТЕХ, КТО ЦЕНИТ ДИСЦИПЛИНУ",
       city: "ГОРОД КАРШИ",
@@ -217,7 +217,7 @@ export const translations = {
       titleStart: "Станьте Полиглотом:",
       titleHighlight: "Мышление на 4 Языках",
       titleEnd: "Без Границ",
-      subheading: "В учебном центре Аль-Хаким Ат-Термезий благодаря строгой дисциплине и специальной 28-месячной методике вы в совершенстве освоите 4 иностранных языка. Выпускники гарантированно трудоустраиваются!",
+      subheading: "В учебном центре Ат-Термезий благодаря строгой дисциплине и специальной 28-месячной методике вы в совершенстве освоите 4 иностранных языка. Выпускники гарантированно трудоустраиваются!",
       exploreCombinations: "Выбрать Комбинацию",
       freeConsultation: "Бесплатная Консультация",
       statStudents: "Успешных Студентов",
@@ -304,8 +304,8 @@ export const translations = {
     },
     aboutPage: {
       tag: "История & Ценности Центра",
-      title: "Учебный Центр Аль-Хаким Ат-Термезий",
-      intro: "Наш центр основан на принципах глубоких знаний, высокого просвещения и железной дисциплины великого мыслителя Аль-Хакима Ат-Термезий.",
+      title: "Учебный Центр Ат-Термезий",
+      intro: "Наш центр основан на принципах глубоких знаний, высокого просвещения и железной дисциплины великого мыслителя Ат-Термезий.",
       missionTitle: "Наша Миссия",
       missionText: "Предоставить молодежи Кашкадарьи и всего Узбекистана полиглотное образование мирового уровня, воспитав конкурентоспособных лидеров для глобальной арены.",
       visionTitle: "Наше Видение",
@@ -375,7 +375,7 @@ export const translations = {
       callDirectly: "Позвонить Напрямую"
     },
     footer: {
-      desc: "Учебный центр Аль-Хаким Ат-Термезий — ведущий образовательный центр в г. Карши, формирующий полиглотное мышление на 4 языках по 28-месячной методике.",
+      desc: "Учебный центр Ат-Термезий — ведущий образовательный центр в г. Карши, формирующий полиглотное мышление на 4 языках по 28-месячной методике.",
       quickLinks: "Быстрые Ссылки",
       programs: "Программы",
       contactInfo: "Контакты",
@@ -385,7 +385,7 @@ export const translations = {
   },
   en: {
     brand: {
-      name: "AL-HAKIM AT-TERMEZIY",
+      name: "AT-TERMEZIY",
       type: "Academy & Learning Center",
       motto: "FOR THOSE WHO LOVE DISCIPLINE",
       city: "QARSHI CITY",
@@ -409,7 +409,7 @@ export const translations = {
       titleStart: "Become a Polyglot:",
       titleHighlight: "Thinking in 4 Languages",
       titleEnd: "With High Discipline",
-      subheading: "Master 4 foreign languages fluently at Al-Hakim At-Termeziy Academy through strict discipline and our specialized 28-month system. Graduates receive guaranteed job placement!",
+      subheading: "Master 4 foreign languages fluently at At-Termeziy Academy through strict discipline and our specialized 28-month system. Graduates receive guaranteed job placement!",
       exploreCombinations: "Explore Combinations",
       freeConsultation: "Free Consultation",
       statStudents: "Successful Students",
@@ -496,8 +496,8 @@ export const translations = {
     },
     aboutPage: {
       tag: "Heritage & Educational Values",
-      title: "Al-Hakim At-Termeziy Academy",
-      intro: "Our institution is built upon the timeless philosophy of deep intellect, refined manners, and unwavering discipline of the great scholar Al-Hakim At-Termeziy.",
+      title: "At-Termeziy Academy",
+      intro: "Our institution is built upon the timeless philosophy of deep intellect, refined manners, and unwavering discipline of the great scholar At-Termeziy.",
       missionTitle: "Our Mission",
       missionText: "To empower youth across Kashkadarya and Uzbekistan with world-class polyglot education, raising visionary leaders capable of competing on the global stage.",
       visionTitle: "Our Vision",
@@ -567,7 +567,7 @@ export const translations = {
       callDirectly: "Call Us Now"
     },
     footer: {
-      desc: "Al-Hakim At-Termeziy Academy — The premier polyglot education center in Qarshi city, shaping 4-language cognition through our proven 28-month discipline curriculum.",
+      desc: "At-Termeziy Academy — The premier polyglot education center in Qarshi city, shaping 4-language cognition through our proven 28-month discipline curriculum.",
       quickLinks: "Quick Links",
       programs: "Programs",
       contactInfo: "Contact Details",

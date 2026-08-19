@@ -14,7 +14,7 @@ export const CareerPage: React.FC = () => {
     <div className="py-12 md:py-20 space-y-16">
       
       {/* Header */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 text-center max-w-3xl">
         <span className="px-3.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4">
           <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
           {t.jobGuarantee.tag}
@@ -28,7 +28,7 @@ export const CareerPage: React.FC = () => {
       </section>
 
       {/* Salary & Opportunity Metrics */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-3xl p-8 text-white shadow-lg">
             <span className="text-xs font-bold text-emerald-200 uppercase tracking-wider block mb-1">
@@ -69,7 +69,7 @@ export const CareerPage: React.FC = () => {
       </section>
 
       {/* 4 Steps to Employment */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="bg-white rounded-3xl p-8 md:p-12 border border-slate-200 shadow-sm">
           <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
             <span className="text-xs font-bold text-sky-600 uppercase tracking-wider">
@@ -101,7 +101,7 @@ export const CareerPage: React.FC = () => {
       </section>
 
       {/* Target Industries */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
           <span className="text-xs font-bold text-sky-600 uppercase tracking-wider">
             Sohalar
@@ -129,13 +129,13 @@ export const CareerPage: React.FC = () => {
       </section>
 
       {/* CTA Box */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="bg-gradient-to-r from-sky-600 to-blue-700 text-white rounded-3xl p-8 md:p-12 text-center max-w-4xl mx-auto space-y-4 shadow-xl">
           <h3 className="text-2xl font-bold font-heading">
             Xalqaro Karyerangizni Bugundan Rejalashtiring
           </h3>
           <p className="text-xs sm:text-sm text-sky-100 max-w-md mx-auto">
-            Qarshi shahridagi "Al-Hakim At-Termeziy" o'quv markaziga ariza qoldiring va 4 til bo'yicha orzuingizdagi kasb sari qadam tashlang.
+            Qarshi shahridagi "At-Termeziy" o'quv markaziga ariza qoldiring va 4 til bo'yicha orzuingizdagi kasb sari qadam tashlang.
           </p>
           <div className="pt-2">
             <button

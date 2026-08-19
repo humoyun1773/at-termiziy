@@ -2,7 +2,6 @@ import React from 'react';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import { Navbar } from '../components/layout/Navbar';
 import { Footer } from '../components/layout/Footer';
-import { FloatingContact } from '../components/layout/FloatingContact';
 import { ScrollToTop } from '../components/layout/ScrollToTop';
 import { LeadModal } from '../components/common/LeadModal';
 
@@ -28,7 +27,6 @@ const RootLayout: React.FC = () => {
         <Outlet />
       </main>
       <Footer />
-      <FloatingContact />
       <LeadModal />
     </div>
   );
