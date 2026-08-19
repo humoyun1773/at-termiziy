@@ -25,7 +25,6 @@ import {
   MapPin, 
   Phone, 
   Star, 
-  Layers, 
   UserCheck, 
   Building2, 
   ShieldCheck 
@@ -58,26 +57,14 @@ export const HomePage: React.FC = () => {
             </p>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+            <div className="flex items-center justify-center pt-2">
               <Button
                 onClick={() => openModal()}
                 size="lg"
-                className="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs sm:text-sm shadow-md shadow-sky-600/20"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs sm:text-sm shadow-md shadow-sky-600/20"
               >
                 <span>{t.hero.freeConsultation}</span>
                 <ArrowRight className="w-4 h-4" />
-              </Button>
-
-              <Button
-                variant="secondary"
-                size="lg"
-                asChild
-                className="w-full sm:w-auto px-6 py-3.5 rounded-2xl border-sky-200 text-sky-800 font-bold text-xs sm:text-sm"
-              >
-                <Link to="/combinations" className="flex items-center gap-2">
-                  <Layers className="w-4 h-4 text-sky-600" />
-                  <span>{t.hero.exploreCombinations}</span>
-                </Link>
               </Button>
             </div>
           </div>
