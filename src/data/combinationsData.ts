@@ -184,7 +184,7 @@ export const combinationsData: Combination[] = [
   {
     id: 4,
     titleKey: 'Kombinatsiya 4',
-    subtitleKey: 'Klassik Poliglot & Ko\'p Qirrali Xalqaro Boshqaruv',
+    subtitleKey: 'Klassik Ko\'p Tilli & Xalqaro Boshqaruv',
     totalMonths: 28,
     isPopular: true,
     badgeKey: 'Eng Keng Qamrovli',

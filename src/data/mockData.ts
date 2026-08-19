@@ -5,7 +5,7 @@ export const teachersData: Teacher[] = [
     id: 't1',
     name: "Dr. Muzaffar Rahimov",
     role: {
-      uz: "Bosh Metodist & Poliglot (5 ta til)",
+      uz: "Bosh Metodist & Ko'p Tilli Mutaxassis (5 ta til)",
       ru: "Главный методист & Полиглот (5 языков)",
       en: "Chief Methodologist & Polyglot (5 languages)"
     },
@@ -18,7 +18,7 @@ export const teachersData: Teacher[] = [
     certificate: "IELTS 8.5 / Goethe C2 / HSK 6",
     image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400",
     bio: {
-      uz: "Oksford va Shanxay universitetlarida malaka oshirgan, 28 oylik poliglota ta'lim metodikasi muallifi.",
+      uz: "Oksford va Shanxay universitetlarida malaka oshirgan, 28 oylik ko'p tilli ta'lim metodikasi muallifi.",
       ru: "Стажировался в Оксфорде и Шанхае, автор 28-месячной методики полиглотного обучения.",
       en: "Trained at Oxford & Shanghai Universities, architect of the 28-month polyglot pedagogy."
     }

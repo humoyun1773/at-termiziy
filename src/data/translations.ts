@@ -22,7 +22,7 @@ export const translations = {
     },
     hero: {
       badge: "⭐ 28 Oylik Eksklyuziv Ta'lim Dasturi",
-      titleStart: "Kelajak Poligloti Bo'ling:",
+      titleStart: "Ko'p Tilli Mutaxassis Bo'ling:",
       titleHighlight: "4 Ta Tilga Muvofiq",
       titleEnd: "Keng Tafakkur",
       subheading: "Al-Hakim At-Termeziy o'quv markazida qat'iy intizom va maxsus 28 oylik metodika orqali 4 ta chet tilini mukammal o'rganing. Bitiruvchilar kafolatlangan xalqaro ish o'rni bilan ta'minlanadi!",
@@ -32,12 +32,12 @@ export const translations = {
       statMonths: "28 Oylik Kompleks Dastur",
       statLanguages: "4 Ta Tilni O'zlashtirish",
       statJobGuarantee: "100% Ishga Joylashish Kafolati",
-      locationBadge: "📍 Qarshi shahrida yagona pologlotlar akademiyasi"
+      locationBadge: "📍 Qarshi shahrida yagona ko'p tilli ta'lim akademiyasi"
     },
     mottoSection: {
       tag: "Bizning Asosiy Tamoyilimiz",
       title: "INTIZOMNI SEVUVCHILAR UCHUN",
-      description: "Biz shunchaki til o'rgatmaymiz — biz kuchli xarakter, qat'iy kun tartibi va global miqyosda fikrlaydigan poliglota shaxslarni tarbiyalaymiz. Intizom bor joyda albatta yuksak natija bo'ladi.",
+      description: "Biz shunchaki til o'rgatmaymiz — biz kuchli xarakter, qat'iy kun tartibi va global miqyosda fikrlaydigan ko'p tilli mutaxassislarni tarbiyalaymiz. Intizom bor joyda albatta yuksak natija bo'ladi.",
       points: [
         {
           title: "Qat'iy Nazorat va Monitoring",
@@ -115,7 +115,7 @@ export const translations = {
       title: "Al-Hakim At-Termeziy O'quv Markazi",
       intro: "Markazimiz buyuk alloma Al-Hakim At-Termeziyning chuqur ilm, yuksak ma'rifat va qat'iy intizom tamoyillariga asoslanib tashkil etilgan.",
       missionTitle: "Bizning Missiyamiz",
-      missionText: "Qashqadaryo va butun O'zbekiston yoshlariga dunyo standartlaridagi ko'p tilli (polyglot) ta'limni taqdim etish, ularni global maydonda raqobatbardosh, mustaqil fikrli yetakchi mutaxassis qilib tarbiyalash.",
+      missionText: "Qashqadaryo va butun O'zbekiston yoshlariga dunyo standartlaridagi ko'p tilli ta'limni taqdim etish, ularni global maydonda raqobatbardosh, mustaqil fikrli yetakchi mutaxassis qilib tarbiyalash.",
       visionTitle: "Bizning Qarashimiz",
       visionText: "Intizom, sifat va individual yondashuv orqali har bir talabaning 28 oy ichida 4 ta til egasi bo'lishini ta'minlash.",
       rulesTitle: "Markazimizning Oltin Qoidalari:",

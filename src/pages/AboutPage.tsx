@@ -113,7 +113,7 @@ export const AboutPage: React.FC = () => {
                 Qarshi Shahridagi Manzilimiz
               </span>
               <h3 className="text-2xl font-bold text-slate-900 font-heading">
-                Kelajak Poliglotlari Shu Yerda Tarbiyalanadi
+                Kelajakning Ko'p Tilli Mutaxassislari Shu Yerda Tarbiyalanadi
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Markazimizga bevosita tashrif buyurib, o'quv xonalari, kutubxona va dars jarayonlari bilan shaxsan tanishishingiz mumkin.

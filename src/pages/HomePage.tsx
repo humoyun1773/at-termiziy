@@ -292,7 +292,7 @@ export const HomePage: React.FC = () => {
               Qarshi Shahar Bosh Binomiz
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading leading-tight">
-              Zamonaviy Sharoitlar va Haqiqiy Poliglot Muhiti
+              Zamonaviy Sharoitlar va Haqiqiy Ko'p Tilli Muhit
             </h2>
             <p className="text-xs md:text-sm text-slate-600 leading-relaxed">
               Markazimiz Qarshi shahrining eng qulay joyida joylashgan bo'lib, har bir xona interaktiv texnologiyalar, audio tizimlar va speaking zonalar bilan jihozlangan. Darslarda har bir talabaning 100% faol ishtiroki ta'minlanadi.
@@ -340,14 +340,14 @@ export const HomePage: React.FC = () => {
       </section>
 
 
-      {/* 6. EXPERT TEACHERS & POLYGLOTS */}
+      {/* 6. EXPERT TEACHERS & MULTILINGUAL SPECIALISTS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
           <span className="px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider inline-block">
             Bizning Ustozlarimiz
           </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
-            Xalqaro Sertifikatlarga Ega Poliglot Mentorlar
+            Xalqaro Sertifikatlarga Ega Ko'p Tilli Mentorlar
           </h2>
           <p className="text-xs sm:text-sm text-slate-600">
             Darslarni o'z sohasining eng yuqori darajadagi (C1/C2, IELTS 8.0+, HSK 6, TOPIK 6) mutaxassislari olib boradilar.
