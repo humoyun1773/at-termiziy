@@ -36,8 +36,7 @@ export const Navbar: React.FC = () => {
     { path: '/about', label: t.nav.about },
     { path: '/career', label: t.nav.career },
     { path: '/combinations', label: t.nav.combinations },
-    { path: '/courses', label: t.nav.courses },
-    { path: '/location', label: t.nav.location }
+    { path: '/courses', label: t.nav.courses }
   ];
 
   return (
