@@ -253,20 +253,20 @@ export const HomePage: React.FC = () => {
         transition={{ duration: 0.5 }}
         className="max-w-[1600px] w-full mx-auto px-4 sm:px-6"
       >
-        <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
-          <Badge variant="secondary" className="px-3 py-1">
+        <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
+          <Badge variant="secondary" className="px-3.5 py-1 text-xs font-bold uppercase tracking-wider">
             {t.combinationsSection.tag}
           </Badge>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-heading">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-heading tracking-tight" style={{ lineHeight: 1.4 }}>
             {t.combinationsSection.title}
           </h2>
-          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-2xl mx-auto" style={{ lineHeight: 1.65 }}>
             {t.combinationsSection.subtitle}
           </p>
         </div>
 
-        {/* Combinations Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {/* Combinations Cards Grid (Responsive Grid) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-5">
           {combinationsData.map((combo) => (
             <CombinationCard key={combo.id} combination={combo} />
           ))}
