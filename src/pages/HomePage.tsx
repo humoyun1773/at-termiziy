@@ -45,11 +45,11 @@ export const HomePage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="text-center max-w-3xl mx-auto space-y-4 mb-8 md:mb-12"
+            className="text-center max-w-4xl mx-auto space-y-5 mb-8 md:mb-12"
           >
             
             {/* Main Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight font-heading">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-black text-slate-900 dark:text-white tracking-tight leading-[1.3] sm:leading-[1.35] md:leading-[1.38] font-heading py-2">
               {t.hero.titleStart}{' '}
               <span className="text-sky-600 dark:text-sky-400 inline">
                 {t.hero.titleHighlight}
@@ -260,8 +260,8 @@ export const HomePage: React.FC = () => {
               <MapPin className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
               Qarshi Shahar Bosh Binomiz
             </Badge>
-            <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white font-heading leading-tight">
-              Zamonaviy Sharoitlar va Haqiqiy Poliglot Muhiti
+            <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white font-heading leading-snug md:leading-normal">
+              Zamonaviy Sharoitlar va Haqiqiy Ko'p Tilli Muhit
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
               Markazimiz Qarshi shahrining eng qulay joyida joylashgan bo'lib, har bir xona interaktiv texnologiyalar va speaking zonalar bilan jihozlangan.
