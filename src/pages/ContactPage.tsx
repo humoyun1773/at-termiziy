@@ -279,7 +279,7 @@ export const ContactPage: React.FC = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-500 hover:to-blue-500 text-white font-bold text-sm shadow-lg shadow-sky-500/25 transition-all flex items-center justify-center gap-2 active:scale-98 cursor-pointer disabled:opacity-70"
+                      className="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-500 hover:to-blue-500 text-white font-bold text-sm shadow-lg shadow-sky-500/25 transition-all flex items-center justify-center gap-2 hover:scale-102 active:scale-98 cursor-pointer disabled:opacity-70 animate-glow"
                     >
                       {isSubmitting ? (
                         <span>{t.contactPage.submitting}</span>
@@ -290,7 +290,7 @@ export const ContactPage: React.FC = () => {
                         </>
                       )}
                     </button>
-                    </div>
+                  </div>
                   </motion.form>
                 )}
               </AnimatePresence>

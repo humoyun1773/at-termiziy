@@ -98,7 +98,7 @@ export const CareerPage: React.FC = () => {
         transition={{ duration: 0.5 }}
         className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8"
       >
-        <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 md:p-12 border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 md:p-12 border border-slate-200 dark:border-slate-800 shadow-md">
           <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
             <span className="text-xs font-bold text-sky-600 dark:text-sky-400 uppercase tracking-wider">
               Bosqichma-bosqich Jarayon
@@ -112,8 +112,12 @@ export const CareerPage: React.FC = () => {
             {t.careerPage.steps.map((st, idx) => (
               <motion.div 
                 key={idx} 
-                whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                className="bg-slate-50 dark:bg-slate-800/80 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 relative flex flex-col justify-between"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.2 } }}
+                className="bg-slate-50 dark:bg-slate-800/80 p-6 rounded-2xl border border-slate-200 dark:border-slate-700/80 relative flex flex-col justify-between hover:border-sky-300 dark:hover:border-sky-600 transition-all shadow-2xs hover:shadow-lg"
               >
                 <div>
                   <span className="text-2xl font-black text-sky-600 dark:text-sky-400 font-heading block mb-3">

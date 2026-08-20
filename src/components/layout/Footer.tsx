@@ -22,13 +22,13 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-slate-900 text-white relative overflow-hidden pt-16 pb-12 border-t border-slate-800">
+    <footer className="bg-[#050b18] text-white relative overflow-hidden pt-16 pb-12 border-t border-[#121e38]">
       {/* Background glow circle */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-[1600px] w-full mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-slate-800">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-[#121e38]">
           
           {/* Column 1: Brand & Philosophy */}
           <div className="space-y-4">
@@ -118,11 +118,6 @@ export const Footer: React.FC = () => {
               <li>
                 <Link to="/courses" className="hover:text-white transition-colors">
                   {t.nav.courses}
-                </Link>
-              </li>
-              <li>
-                <Link to="/location" className="hover:text-white transition-colors">
-                  {t.nav.location}
                 </Link>
               </li>
               <li>

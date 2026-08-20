@@ -4,6 +4,7 @@ import { useLanguage } from '../../context/LanguageContext';
 import { LanguageSwitcher } from '../common/LanguageSwitcher';
 import { ThemeToggle } from '../common/ThemeToggle';
 import { GraduationCap, Menu, X } from 'lucide-react';
+import { Button } from '../ui/button';
 
 export const Navbar: React.FC = () => {
   const { t } = useLanguage();
@@ -36,14 +37,13 @@ export const Navbar: React.FC = () => {
     { path: '/about', label: t.nav.about },
     { path: '/career', label: t.nav.career },
     { path: '/combinations', label: t.nav.combinations },
-    { path: '/courses', label: t.nav.courses },
-    { path: '/location', label: t.nav.location }
+    { path: '/courses', label: t.nav.courses }
   ];
 
   return (
     <>
       {/* Main Sticky Navbar */}
-      <header className={`sticky top-0 z-40 bg-white dark:bg-slate-900 transition-all duration-200 border-b border-slate-200 dark:border-slate-800 ${
+      <header className={`sticky top-0 z-40 bg-white/95 dark:bg-[#081024]/95 backdrop-blur-md transition-all duration-200 border-b border-slate-200 dark:border-[#1a2b4c] ${
         isScrolled 
           ? 'shadow-md py-3' 
           : 'shadow-2xs py-4'
@@ -64,60 +64,77 @@ export const Navbar: React.FC = () => {
               </span>
             </Link>
 
-            {/* Desktop Navigation Links (Strictly Single-Line & Premium Underline on Hover) */}
-            <nav className="hidden lg:flex items-center gap-3 lg:gap-4 xl:gap-7 whitespace-nowrap">
+            {/* Desktop Navigation Links */}
+            <nav className="hidden lg:flex items-center gap-4 xl:gap-8 whitespace-nowrap">
               {navLinks.map((link) => {
                 const isActive = location.pathname === link.path;
                 return (
                   <Link
                     key={link.path}
                     to={link.path}
-                    className={`relative py-2 text-xs md:text-sm tracking-tight font-bold transition-all duration-200 group flex items-center gap-1.5 cursor-pointer select-none ${
+                    className={`relative text-xs xl:text-sm font-bold tracking-tight transition-all duration-200 py-1 cursor-pointer ${
                       isActive 
-                        ? 'text-sky-600 dark:text-sky-400 font-extrabold' 
-                        : 'text-slate-700 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400'
+                        ? 'text-sky-600 dark:text-sky-400' 
+                        : 'text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400'
                     }`}
                   >
                     <span>{link.label}</span>
-                    <span 
-                      className={`absolute bottom-0 left-0 w-full h-[2.5px] rounded-full bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 transition-all duration-300 origin-left ${
-                        isActive 
-                          ? 'scale-x-100 opacity-100 shadow-xs' 
-                          : 'scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100'
-                      }`}
-                    />
+                    {isActive && (
+                      <span className="absolute bottom-0 left-0 w-full h-[2.5px] bg-sky-600 dark:bg-sky-400 rounded-full animate-in fade-in zoom-in-75 duration-200" />
+                    )}
                   </Link>
                 );
               })}
             </nav>
 
-            {/* Right actions: Desktop ThemeToggle & LanguageSwitcher + Mobile Menu Toggle */}
-            <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-              <div className="hidden lg:flex items-center gap-2 sm:gap-3">
-                <ThemeToggle />
-                <LanguageSwitcher />
-              </div>
+            {/* Right Controls: Language, Theme & Contact CTA */}
+            <div className="hidden lg:flex items-center gap-2.5">
+              <ThemeToggle />
+              <LanguageSwitcher />
 
-              {/* Mobile Menu Toggle Button */}
-              <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden p-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-slate-200 dark:border-slate-700 cursor-pointer"
-                aria-label="Toggle Menu"
+              <Button
+                asChild
+                size="sm"
+                className="ml-1 px-4 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs shadow-2xs hover:scale-102 transition-transform cursor-pointer"
               >
-                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                <Link to="/contact">
+                  <span>{t.nav.applyBtn}</span>
+                </Link>
+              </Button>
+            </div>
+
+            {/* Mobile Navigation Toggle Button */}
+            <div className="flex lg:hidden items-center gap-2">
+              <ThemeToggle />
+              <button
+                type="button"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="p-2 rounded-xl border border-slate-200 dark:border-[#1a2b4c] text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-[#0e1c3a] transition-colors cursor-pointer"
+                aria-label="Toggle navigation menu"
+              >
+                {mobileMenuOpen ? (
+                  <X className="w-5 h-5" />
+                ) : (
+                  <Menu className="w-5 h-5" />
+                )}
               </button>
             </div>
+
           </div>
         </div>
 
-        {/* Mobile Navigation Drawer & Backdrop */}
+        {/* Mobile Dropdown Menu Container with Fixed Height & Scroll */}
         {mobileMenuOpen && (
           <>
+            {/* Mobile Menu Backdrop */}
             <div 
+              className="lg:hidden fixed inset-0 top-[65px] bg-slate-950/60 backdrop-blur-xs z-30 animate-in fade-in duration-200"
               onClick={() => setMobileMenuOpen(false)}
-              className="lg:hidden fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-40 top-[65px]"
             />
-            <div className="lg:hidden fixed inset-x-0 top-[65px] bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-2xl p-5 z-50 animate-in slide-in-from-top-2 duration-200">
+            
+            <div 
+              className="lg:hidden relative z-40 bg-white dark:bg-[#0c172e] border-b border-slate-200 dark:border-[#1a2b4c] px-4 py-5 shadow-xl max-h-[calc(100vh-70px)] overflow-y-auto animate-in slide-in-from-top-2 duration-200"
+            >
               <div className="space-y-1.5 mb-4">
                 {navLinks.map((link) => {
                   const isActive = location.pathname === link.path;
@@ -129,7 +146,7 @@ export const Navbar: React.FC = () => {
                       className={`block px-4 py-3 rounded-xl text-sm font-bold transition-colors ${
                         isActive
                           ? 'bg-sky-600 text-white'
-                          : 'text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-sky-600 dark:hover:text-sky-400'
+                          : 'text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-[#112040] hover:text-sky-600 dark:hover:text-sky-400'
                       }`}
                     >
                       {link.label}

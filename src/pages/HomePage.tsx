@@ -39,14 +39,68 @@ export const HomePage: React.FC = () => {
     <div className="space-y-16 md:space-y-20 pb-20 overflow-hidden">
       
       {/* 1. HERO SECTION */}
-      <section className="relative pt-6 pb-4 md:pt-10 md:pb-8 bg-mesh-subtle">
+      <section className="relative pt-6 pb-4 md:pt-10 md:pb-8 bg-mesh-subtle overflow-hidden">
+        {/* Animated Background Glowing Orbs */}
+        <div className="absolute top-10 left-1/4 w-72 h-72 bg-sky-400/15 dark:bg-sky-500/10 rounded-full blur-3xl pointer-events-none animate-blob" />
+        <div className="absolute top-32 right-1/4 w-80 h-80 bg-blue-500/15 dark:bg-blue-600/10 rounded-full blur-3xl pointer-events-none animate-blob [animation-delay:4s]" />
+        
         <div className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 relative z-10">
+          
+          {/* Floating Language Badges (Desktop decoration) */}
+          <div className="hidden xl:block pointer-events-none">
+            <motion.div 
+              animate={{ y: [0, -12, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute left-6 top-16 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-3.5 py-1.5 rounded-2xl shadow-lg border border-slate-200/80 dark:border-slate-800 flex items-center gap-2"
+            >
+              <span className="text-lg">🇬🇧</span>
+              <span className="text-xs font-bold text-slate-800 dark:text-slate-200">IELTS 7.5+</span>
+            </motion.div>
+
+            <motion.div 
+              animate={{ y: [0, 14, 0] }}
+              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              className="absolute right-8 top-12 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-3.5 py-1.5 rounded-2xl shadow-lg border border-slate-200/80 dark:border-slate-800 flex items-center gap-2"
+            >
+              <span className="text-lg">🇩🇪</span>
+              <span className="text-xs font-bold text-slate-800 dark:text-slate-200">Goethe B2</span>
+            </motion.div>
+
+            <motion.div 
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+              className="absolute left-10 bottom-24 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-3.5 py-1.5 rounded-2xl shadow-lg border border-slate-200/80 dark:border-slate-800 flex items-center gap-2"
+            >
+              <span className="text-lg">🇨🇳</span>
+              <span className="text-xs font-bold text-slate-800 dark:text-slate-200">HSK 5</span>
+            </motion.div>
+
+            <motion.div 
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+              className="absolute right-12 bottom-28 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-3.5 py-1.5 rounded-2xl shadow-lg border border-slate-200/80 dark:border-slate-800 flex items-center gap-2"
+            >
+              <span className="text-lg">🇰🇷</span>
+              <span className="text-xs font-bold text-slate-800 dark:text-slate-200">TOPIK 5</span>
+            </motion.div>
+          </div>
+
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="text-center max-w-4xl mx-auto space-y-5 mb-8 md:mb-12"
           >
+            {/* Top Motto pill */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4 }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-100/90 dark:bg-sky-950/80 text-sky-800 dark:text-sky-300 text-xs font-extrabold tracking-wide uppercase shadow-2xs border border-sky-200 dark:border-sky-800"
+            >
+              <span className="w-2 h-2 rounded-full bg-sky-500 animate-ping" />
+              <span>{t.brand.motto}</span>
+            </motion.div>
             
             {/* Main Headline */}
             <h1 
@@ -54,7 +108,7 @@ export const HomePage: React.FC = () => {
               style={{ lineHeight: 1.55 }}
             >
               <span className="block mb-2 md:mb-3">{t.hero.titleStart}</span>
-              <span className="text-sky-600 dark:text-sky-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-blue-600 to-sky-500 animate-gradient-x inline">
                 {t.hero.titleHighlight}
               </span>{' '}
               <span>{t.hero.titleEnd}</span>
@@ -73,7 +127,7 @@ export const HomePage: React.FC = () => {
               <Button
                 asChild
                 size="lg"
-                className="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs sm:text-sm shadow-md shadow-sky-600/20 hover:scale-105 active:scale-95 transition-transform"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-500 hover:to-blue-500 text-white font-bold text-xs sm:text-sm shadow-lg shadow-sky-600/25 hover:scale-105 active:scale-95 transition-all cursor-pointer animate-glow"
               >
                 <a 
                   href={TELEGRAM_URL} 
@@ -111,11 +165,11 @@ export const HomePage: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.2 + idx * 0.08 }}
-                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                whileHover={{ y: -5, scale: 1.02, transition: { duration: 0.2 } }}
               >
-                <Card className="rounded-2xl border-slate-200 dark:border-slate-800 dark:bg-slate-900 shadow-2xs h-full transition-shadow hover:shadow-md">
+                <Card className="rounded-2xl border-slate-200 dark:border-slate-800 dark:bg-slate-900 shadow-2xs h-full transition-all hover:shadow-lg hover:border-sky-300 dark:hover:border-sky-700">
                   <CardContent className="p-4 flex items-center gap-3">
-                    <div className={`w-10 h-10 rounded-xl ${stat.bg} ${stat.color} flex items-center justify-center shrink-0`}>
+                    <div className={`w-10 h-10 rounded-xl ${stat.bg} ${stat.color} flex items-center justify-center shrink-0 shadow-2xs`}>
                       <stat.icon className="w-5 h-5" />
                     </div>
                     <div>
@@ -457,31 +511,54 @@ export const HomePage: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-40px" }}
         transition={{ duration: 0.5 }}
-        className="max-w-3xl mx-auto px-4 sm:px-6"
+        className="max-w-3xl mx-auto px-4 sm:px-6 relative"
       >
-        <div className="text-center mb-8 space-y-1.5">
-          <Badge variant="secondary" className="px-3 py-1">
-            Savollar & Javoblar
-          </Badge>
-          <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white font-heading">
+        {/* Background glow orb */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-sky-500/10 dark:bg-sky-500/5 rounded-full blur-3xl pointer-events-none animate-blob" />
+
+        <div className="text-center mb-8 space-y-2 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.3 }}
+            className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-sky-100 dark:bg-sky-950/80 text-sky-800 dark:text-sky-300 text-xs font-bold uppercase tracking-wider border border-sky-200 dark:border-sky-800"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-sky-500 animate-ping" />
+            <span>Savollar & Javoblar</span>
+          </motion.div>
+          
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-heading">
             Ko'p Beriladigan Savollar
           </h2>
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-md mx-auto">
+            Markazimiz, 28 oylik dastur va o'qish tartibi haqidagi eng asosiy savollarga javoblar.
+          </p>
         </div>
 
-        <Accordion type="single" collapsible defaultValue="faq-1" className="space-y-2.5">
-          {faqData.map((faq) => {
+        <Accordion type="single" collapsible defaultValue="faq-1" className="space-y-3 relative z-10">
+          {faqData.map((faq, idx) => {
             const question = faq.question[language] || faq.question.uz;
             const answer = faq.answer[language] || faq.answer.uz;
 
             return (
-              <AccordionItem key={faq.id} value={faq.id}>
-                <AccordionTrigger>
-                  <span>{question}</span>
-                </AccordionTrigger>
-                <AccordionContent>
-                  {answer}
-                </AccordionContent>
-              </AccordionItem>
+              <motion.div
+                key={faq.id}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: idx * 0.08 }}
+                whileHover={{ y: -3, transition: { duration: 0.2 } }}
+              >
+                <AccordionItem value={faq.id}>
+                  <AccordionTrigger>
+                    <span>{question}</span>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    {answer}
+                  </AccordionContent>
+                </AccordionItem>
+              </motion.div>
             );
           })}
         </Accordion>

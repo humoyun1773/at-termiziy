@@ -60,7 +60,7 @@ export const CombinationCard: React.FC<Props> = ({ combination }) => {
         </div>
 
         {/* Recommended for */}
-        <p className="text-xs text-slate-600 dark:text-slate-300 mb-6 bg-slate-50 dark:bg-slate-800/80 p-3 rounded-2xl border border-slate-100 dark:border-slate-800 leading-relaxed">
+        <p className="text-xs text-slate-600 dark:text-slate-300 mb-6 bg-slate-50 dark:bg-[#101e3b] p-3 rounded-2xl border border-slate-100 dark:border-[#1d2f54] leading-relaxed">
           <strong className="text-sky-900 dark:text-sky-300 block mb-0.5">🎯 Maqsadli Yo'nalish:</strong>
           {combination.recommendedForKey}
         </p>
@@ -76,9 +76,9 @@ export const CombinationCard: React.FC<Props> = ({ combination }) => {
             {combination.modules.map((module) => (
               <div
                 key={module.id}
-                className="relative p-3 rounded-2xl bg-slate-50/70 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-800 hover:border-sky-300 transition-all flex items-center gap-3 shadow-2xs"
+                className="relative p-3 rounded-2xl bg-slate-50/70 dark:bg-[#101e3b] border border-slate-200/80 dark:border-[#1d2f54] hover:border-sky-300 dark:hover:border-sky-500 transition-all flex items-center gap-3 shadow-2xs"
               >
-                <div className="w-10 h-10 rounded-xl bg-white dark:bg-slate-900 shadow-2xs border border-slate-200 dark:border-slate-800 flex items-center justify-center text-xl shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-white dark:bg-[#091226] shadow-2xs border border-slate-200 dark:border-[#1d2f54] flex items-center justify-center text-xl shrink-0">
                   {module.flag}
                 </div>
                 <div className="min-w-0 flex-1">
