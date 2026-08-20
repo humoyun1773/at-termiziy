@@ -49,16 +49,22 @@ export const HomePage: React.FC = () => {
           >
             
             {/* Main Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-black text-slate-900 dark:text-white tracking-tight leading-[1.3] sm:leading-[1.35] md:leading-[1.38] font-heading py-2">
-              {t.hero.titleStart}{' '}
-              <span className="text-sky-600 dark:text-sky-400 inline">
+            <h1 
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-black text-slate-900 dark:text-white tracking-tight font-heading max-w-4xl mx-auto py-3"
+              style={{ lineHeight: 1.55 }}
+            >
+              <span className="block mb-2 md:mb-3">{t.hero.titleStart}</span>
+              <span className="text-sky-600 dark:text-sky-400">
                 {t.hero.titleHighlight}
               </span>{' '}
-              {t.hero.titleEnd}
+              <span>{t.hero.titleEnd}</span>
             </h1>
 
             {/* Subtitle */}
-            <p className="text-xs sm:text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal max-w-2xl mx-auto">
+            <p 
+              className="text-sm sm:text-base md:text-lg text-slate-600 dark:text-slate-300 font-normal max-w-2xl mx-auto pt-2"
+              style={{ lineHeight: 1.7 }}
+            >
               {t.hero.subheading}
             </p>
 
