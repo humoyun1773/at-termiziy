@@ -3,10 +3,8 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { TELEGRAM_URL } from '../data/siteConfig';
-import { combinationsData } from '../data/combinationsData';
 import { teachersData, testimonialsData, faqData } from '../data/mockData';
 import { BannerCombinationsBoard } from '../components/common/BannerCombinationsBoard';
-import { CombinationCard } from '../components/common/CombinationCard';
 import { Button } from '../components/ui/button';
 import { Badge } from '../components/ui/badge';
 import { Card, CardContent } from '../components/ui/card';
@@ -28,7 +26,6 @@ import {
   Star, 
   UserCheck, 
   Building2, 
-  ShieldCheck,
   Send
 } from 'lucide-react';
 
@@ -243,68 +240,6 @@ export const HomePage: React.FC = () => {
           </div>
         </div>
       </motion.section>
-
-
-      {/* 4. 28-MONTH COMBINATIONS (DETAILED CARDS) */}
-      <motion.section 
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-40px" }}
-        transition={{ duration: 0.5 }}
-        className="max-w-[1600px] w-full mx-auto px-4 sm:px-6"
-      >
-        <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
-          <Badge variant="secondary" className="px-3.5 py-1 text-xs font-bold uppercase tracking-wider">
-            {t.combinationsSection.tag}
-          </Badge>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-heading tracking-tight" style={{ lineHeight: 1.4 }}>
-            {t.combinationsSection.title}
-          </h2>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-2xl mx-auto" style={{ lineHeight: 1.65 }}>
-            {t.combinationsSection.subtitle}
-          </p>
-        </div>
-
-        {/* Combinations Cards Grid (Responsive Grid) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-5">
-          {combinationsData.map((combo) => (
-            <CombinationCard key={combo.id} combination={combo} />
-          ))}
-        </div>
-
-        {/* Guaranteed Job Placement Announcement Bar */}
-        <div className="mt-8 p-5 sm:p-6 rounded-2xl bg-sky-900 text-white shadow-md flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3.5">
-            <div className="w-11 h-11 rounded-xl bg-white/15 flex items-center justify-center text-white shrink-0">
-              <ShieldCheck className="w-6 h-6 text-emerald-400" />
-            </div>
-            <div>
-              <h3 className="text-sm sm:text-base font-bold font-heading">
-                {t.combinationsSection.guaranteeBanner}
-              </h3>
-              <p className="text-xs text-sky-200 mt-0.5">
-                {t.combinationsSection.guaranteeSub}
-              </p>
-            </div>
-          </div>
-
-          <Button
-            asChild
-            className="px-5 py-2.5 rounded-xl bg-white hover:bg-sky-50 text-sky-900 font-bold text-xs whitespace-nowrap transition-transform hover:scale-105 active:scale-95 shrink-0"
-          >
-            <a 
-              href={TELEGRAM_URL} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5"
-            >
-              <span>Hozir Ro'yxatdan O'tish</span>
-              <Send className="w-3.5 h-3.5" />
-            </a>
-          </Button>
-        </div>
-      </motion.section>
-
 
       {/* 6. CAMPUS & ENVIRONMENT IN QARSHI */}
       <motion.section 
