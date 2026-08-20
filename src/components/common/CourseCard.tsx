@@ -33,7 +33,7 @@ export const CourseCard: React.FC<Props> = ({ course }) => {
         {/* Flag and certificate header */}
         <div className="flex items-center justify-between gap-2 mb-4">
           <div className="flex items-center gap-3">
-            <span className="w-12 h-12 rounded-2xl bg-sky-50 dark:bg-sky-950/50 border border-sky-100 dark:border-sky-800 flex items-center justify-center text-2xl shadow-2xs group-hover:scale-105 transition-transform">
+            <span className="w-12 h-12 rounded-2xl bg-sky-50 dark:bg-[#0c1834] border border-sky-100 dark:border-[#1d2f54] flex items-center justify-center text-2xl shadow-2xs group-hover:scale-105 transition-transform">
               {course.flag}
             </span>
             <div>
@@ -53,14 +53,14 @@ export const CourseCard: React.FC<Props> = ({ course }) => {
 
         {/* Badges */}
         <div className="grid grid-cols-2 gap-2 mb-4">
-          <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-100 dark:border-slate-800 flex items-center gap-2">
+          <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-[#101e3b] border border-slate-100 dark:border-[#1d2f54] flex items-center gap-2">
             <Clock className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400 shrink-0" />
             <div className="min-w-0">
               <span className="text-[10px] text-slate-400 block uppercase font-bold">{t.coursesPage.duration}</span>
               <span className="text-xs font-semibold text-slate-800 dark:text-slate-200 truncate block">{duration}</span>
             </div>
           </div>
-          <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-100 dark:border-slate-800 flex items-center gap-2">
+          <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-[#101e3b] border border-slate-100 dark:border-[#1d2f54] flex items-center gap-2">
             <Award className="w-3.5 h-3.5 text-amber-500 shrink-0" />
             <div className="min-w-0">
               <span className="text-[10px] text-slate-400 block uppercase font-bold">{t.coursesPage.certificate}</span>

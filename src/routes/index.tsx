@@ -23,7 +23,7 @@ const RootLayout: React.FC = () => {
   const location = useLocation();
 
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 selection:bg-sky-500 selection:text-white transition-colors duration-200">
+    <div className="min-h-screen flex flex-col bg-white dark:bg-[#081024] text-slate-900 dark:text-slate-100 selection:bg-sky-500 selection:text-white transition-colors duration-200">
       <ScrollToTop />
       <Navbar />
       <main className="flex-1">
