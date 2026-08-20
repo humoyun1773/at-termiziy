@@ -231,14 +231,15 @@ export const ContactPage: React.FC = () => {
                     >
                       <option value="" className="dark:bg-slate-900">{t.contactPage.selectOptionDefault}</option>
                       <optgroup label="28 Oylik Kombinatsiyalar" className="dark:bg-slate-900">
-                        <option value="Kombinatsiya 1">Kombinatsiya 1: Ingliz, Fors, Nemis, Xitoy</option>
-                        <option value="Kombinatsiya 2">Kombinatsiya 2: Ingliz, Koreys, Nemis, Yapon</option>
-                        <option value="Kombinatsiya 3">Kombinatsiya 3: Rus, Ingliz, Xitoy, Yapon</option>
-                        <option value="Kombinatsiya 4">Kombinatsiya 4: Ingliz, Rus, Fors, Nemis</option>
+                        <option value="Kombinatsiya 1">Kombinatsiya 1: Ingliz, Nemis, Turk, Xitoy</option>
+                        <option value="Kombinatsiya 2">Kombinatsiya 2: Nemis, Rus, Ingliz, Yapon</option>
+                        <option value="Kombinatsiya 3">Kombinatsiya 3: Turk, Ingliz, Yapon, Koreys</option>
+                        <option value="Kombinatsiya 4">Kombinatsiya 4: Koreys, Yapon, Rus, Ingliz</option>
                       </optgroup>
                       <optgroup label="Alohida Tillar" className="dark:bg-slate-900">
                         <option value="Ingliz Tili">Ingliz Tili (IELTS / CEFR)</option>
                         <option value="Nemis Tili">Nemis Tili (Goethe / TestDaF)</option>
+                        <option value="Turk Tili">Turk Tili (TÖMER / Yunus Emre)</option>
                         <option value="Xitoy Tili">Xitoy Tili (HSK / HSKK)</option>
                         <option value="Koreys Tili">Koreys Tili (TOPIK)</option>
                         <option value="Yapon Tili">Yapon Tili (JLPT)</option>

@@ -60,25 +60,25 @@ export const Footer: React.FC = () => {
               <li>
                 <Link to="/combinations#kombinatsiya-1" className="hover:text-sky-300 transition-colors flex items-center gap-1.5">
                   <ChevronRight className="w-3.5 h-3.5 text-sky-500" />
-                  Kombinatsiya 1: Ingliz, Fors, Nemis, Xitoy
+                  Kombinatsiya 1: Ingliz, Nemis, Turk, Xitoy
                 </Link>
               </li>
               <li>
                 <Link to="/combinations#kombinatsiya-2" className="hover:text-sky-300 transition-colors flex items-center gap-1.5">
                   <ChevronRight className="w-3.5 h-3.5 text-sky-500" />
-                  Kombinatsiya 2: Ingliz, Koreys, Nemis, Yapon
+                  Kombinatsiya 2: Nemis, Rus, Ingliz, Yapon
                 </Link>
               </li>
               <li>
                 <Link to="/combinations#kombinatsiya-3" className="hover:text-sky-300 transition-colors flex items-center gap-1.5">
                   <ChevronRight className="w-3.5 h-3.5 text-sky-500" />
-                  Kombinatsiya 3: Rus, Ingliz, Xitoy, Yapon
+                  Kombinatsiya 3: Turk, Ingliz, Yapon, Koreys
                 </Link>
               </li>
               <li>
                 <Link to="/combinations#kombinatsiya-4" className="hover:text-sky-300 transition-colors flex items-center gap-1.5">
                   <ChevronRight className="w-3.5 h-3.5 text-sky-500" />
-                  Kombinatsiya 4: Ingliz, Rus, Fors, Nemis
+                  Kombinatsiya 4: Koreys, Yapon, Rus, Ingliz
                 </Link>
               </li>
               <li className="pt-2">

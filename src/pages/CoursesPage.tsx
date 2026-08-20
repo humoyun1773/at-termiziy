@@ -15,14 +15,14 @@ export const CoursesPage: React.FC = () => {
     all: t.coursesPage.filterAll,
     western: language === 'ru' ? 'Западные Языки' : language === 'en' ? 'Western' : "G'arbiy Tillar",
     eastern: language === 'ru' ? 'Восточная Азия' : language === 'en' ? 'East Asia' : 'Sharqiy Osiyo',
-    regional: language === 'ru' ? 'Русский & Фарси' : language === 'en' ? 'Russian & Persian' : 'Rus & Fors'
+    regional: language === 'ru' ? 'Турецкий & Региональные' : language === 'en' ? 'Turkish & Regional' : 'Turk & Mintaqaviy'
   };
 
   const filteredCourses = coursesData.filter(course => {
     if (activeFilter === 'all') return true;
-    if (activeFilter === 'western') return ['c-en', 'c-de'].includes(course.id);
-    if (activeFilter === 'eastern') return ['c-zh', 'c-ko', 'c-ja'].includes(course.id);
-    if (activeFilter === 'regional') return ['c-ru', 'c-fa'].includes(course.id);
+    if (activeFilter === 'western') return ['english', 'german', 'c-en', 'c-de'].includes(course.id);
+    if (activeFilter === 'eastern') return ['chinese', 'korean', 'japanese', 'c-zh', 'c-ko', 'c-ja'].includes(course.id);
+    if (activeFilter === 'regional') return ['turkish', 'russian', 'persian', 'c-ru', 'c-fa'].includes(course.id);
     return true;
   });
 

@@ -39,8 +39,8 @@ export const BannerCombinationsBoard: React.FC = () => {
       title: `${comboPrefix} 1`,
       steps: [
         { name: t.languages.english, duration: durationStr, code: "EN" },
-        { name: t.languages.persian, duration: durationStr, code: "FA" },
         { name: t.languages.german, duration: durationStr, code: "DE" },
+        { name: t.languages.turkish, duration: durationStr, code: "TR" },
         { name: t.languages.chinese, duration: durationStr, code: "ZH" }
       ]
     },
@@ -48,9 +48,9 @@ export const BannerCombinationsBoard: React.FC = () => {
       id: 2,
       title: `${comboPrefix} 2`,
       steps: [
-        { name: t.languages.english, duration: durationStr, code: "EN" },
-        { name: t.languages.korean, duration: durationStr, code: "KO" },
         { name: t.languages.german, duration: durationStr, code: "DE" },
+        { name: t.languages.russian, duration: durationStr, code: "RU" },
+        { name: t.languages.english, duration: durationStr, code: "EN" },
         { name: t.languages.japanese, duration: durationStr, code: "JA" }
       ]
     },
@@ -58,20 +58,20 @@ export const BannerCombinationsBoard: React.FC = () => {
       id: 3,
       title: `${comboPrefix} 3`,
       steps: [
-        { name: t.languages.russian, duration: durationStr, code: "RU" },
+        { name: t.languages.turkish, duration: durationStr, code: "TR" },
         { name: t.languages.english, duration: durationStr, code: "EN" },
-        { name: t.languages.chinese, duration: durationStr, code: "ZH" },
-        { name: t.languages.japanese, duration: durationStr, code: "JA" }
+        { name: t.languages.japanese, duration: durationStr, code: "JA" },
+        { name: t.languages.korean, duration: durationStr, code: "KO" }
       ]
     },
     {
       id: 4,
       title: `${comboPrefix} 4`,
       steps: [
-        { name: t.languages.english, duration: durationStr, code: "EN" },
+        { name: t.languages.korean, duration: durationStr, code: "KO" },
+        { name: t.languages.japanese, duration: durationStr, code: "JA" },
         { name: t.languages.russian, duration: durationStr, code: "RU" },
-        { name: t.languages.persian, duration: durationStr, code: "FA" },
-        { name: t.languages.german, duration: durationStr, code: "DE" }
+        { name: t.languages.english, duration: durationStr, code: "EN" }
       ]
     }
   ];

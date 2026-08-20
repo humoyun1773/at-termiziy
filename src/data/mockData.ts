@@ -102,13 +102,13 @@ export const testimonialsData: Testimonial[] = [
       en: "International Trade Operations Coordinator"
     },
     company: "Silk Road Logistics GmbH (Germaniya & O'zbekiston)",
-    languagesLearned: ["Ingliz", "Fors", "Nemis", "Xitoy"],
+    languagesLearned: ["Ingliz", "Nemis", "Turk", "Xitoy"],
     rating: 5,
     avatar: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=200",
     quote: {
-      uz: "28 oylik dastur hayotimni butunlay o'zgartirdi. Ingliz, Fors, Nemis va Xitoy tillarini o'zlashtirganim uchun to'g'ridan-to'g'ri Germaniya kompaniyasiga ishga qabul qilindim!",
-      ru: "28-месячная программа полностью изменила мою жизнь. Благодаря знанию английского, фарси, немецкого и китайского меня сразу взяли в немецкую логистическую компанию!",
-      en: "The 28-month program completely transformed my career. Mastering English, Persian, German, and Chinese opened direct doors to a top German logistics corporation!"
+      uz: "28 oylik dastur hayotimni butunlay o'zgartirdi. Ingliz, Nemis, Turk va Xitoy tillarini o'zlashtirganim uchun to'g'ridan-to'g'ri xalqaro kompaniyaga ishga qabul qilindim!",
+      ru: "28-месячная программа полностью изменила мою жизнь. Благодаря знанию английского, немецкого, турецкого и китайского меня сразу взяли в международную компанию!",
+      en: "The 28-month program completely transformed my career. Mastering English, German, Turkish, and Chinese opened direct doors to a top international corporation!"
     }
   },
   {
@@ -121,13 +121,13 @@ export const testimonialsData: Testimonial[] = [
       en: "GKS Scholar & Tech Analyst"
     },
     company: "KAIST (Janubiy Koreya)",
-    languagesLearned: ["Ingliz", "Koreys", "Nemis", "Yapon"],
+    languagesLearned: ["Nemis", "Rus", "Ingliz", "Yapon"],
     rating: 5,
     avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=200",
     quote: {
-      uz: "Markazdagi qat'iy intizom va 7 oylik tizim orqali Koreys tili TOPIK 5 va Nemis tili B2 darajani oldim. Hozirda Koreyada 100% to'liq grantda o'qiyapman.",
-      ru: "Строгая дисциплина центра и 7-месячные блоки помогли мне получить TOPIK 5 и Goethe B2. Сейчас учусь в Корее на 100% правительственном гранте.",
-      en: "Strict discipline and modular 7-month milestones enabled me to secure TOPIK 5 and Goethe B2. I am now pursuing my degree in South Korea on a 100% government scholarship."
+      uz: "Markazdagi qat'iy intizom va 7 oylik tizim orqali Nemis tili B2 va Rus tili C1 darajani oldim. Hozirda xalqaro IT loyihalarida faoliyat olib boryapman.",
+      ru: "Строгая дисциплина центра и 7-месячные блоки помогли мне получить Goethe B2 и TORFL C1. Сейчас работаю в международных IT-проектах.",
+      en: "Strict discipline and modular 7-month milestones enabled me to secure Goethe B2 and C1 proficiency, opening international tech career paths."
     }
   },
   {
@@ -140,7 +140,7 @@ export const testimonialsData: Testimonial[] = [
       en: "Simultaneous Interpreter & Protocol Officer"
     },
     company: "Xalqaro Savdo Forumi",
-    languagesLearned: ["Rus", "Ingliz", "Xitoy", "Yapon"],
+    languagesLearned: ["Turk", "Ingliz", "Yapon", "Koreys"],
     rating: 5,
     avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=200",
     quote: {

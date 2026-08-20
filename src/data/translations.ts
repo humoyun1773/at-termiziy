@@ -98,6 +98,7 @@ export const translations = {
       korean: "Koreys Tili",
       japanese: "Yapon Tili",
       russian: "Rus Tili",
+      turkish: "Turk Tili",
       persian: "Fors Tili"
     },
     coursesPage: {
@@ -291,6 +292,7 @@ export const translations = {
       korean: "Корейский Язык",
       japanese: "Японский Язык",
       russian: "Русский Язык",
+      turkish: "Турецкий Язык",
       persian: "Персидский (Фарси)"
     },
     coursesPage: {
@@ -484,6 +486,7 @@ export const translations = {
       korean: "Korean",
       japanese: "Japanese",
       russian: "Russian",
+      turkish: "Turkish",
       persian: "Persian (Farsi)"
     },
     coursesPage: {
