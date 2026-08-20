@@ -101,41 +101,49 @@ export const BannerCombinationsBoard: React.FC = () => {
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
               animate={isActive ? { scale: 1.02 } : { scale: 1 }}
               transition={{ duration: 0.25 }}
-              className={`rounded-2xl p-4 sm:p-5 transition-colors duration-200 flex flex-col justify-between cursor-pointer ${
+              className={`rounded-2xl p-4 sm:p-5 transition-all duration-200 flex flex-col justify-between cursor-pointer ${
                 isActive
-                  ? 'bg-sky-50 dark:bg-slate-800 border-2 border-sky-400 dark:border-sky-600 shadow-md ring-2 ring-sky-400/20'
-                  : 'bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-sm'
+                  ? 'bg-sky-50/90 dark:bg-slate-800/95 border-2 border-sky-500 dark:border-sky-400 shadow-lg shadow-sky-500/10 ring-4 ring-sky-500/15'
+                  : 'bg-white dark:bg-slate-800/50 border border-slate-200/90 dark:border-slate-700/80 hover:border-sky-400 dark:hover:border-sky-500/70 hover:shadow-md'
               }`}
             >
               <div>
                 {/* Column Header */}
-                <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-200 dark:border-slate-700">
+                <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-200/80 dark:border-slate-700/80">
                   <span className={`text-xs font-extrabold tracking-wider uppercase font-heading ${
-                    isActive ? 'text-sky-600 dark:text-sky-400' : 'text-slate-700 dark:text-slate-300'
+                    isActive ? 'text-sky-600 dark:text-sky-400' : 'text-slate-800 dark:text-slate-200'
                   }`}>
                     {combo.title}
                   </span>
-                  <span className={`w-2 h-2 rounded-full transition-all ${
+                  <span className={`w-2.5 h-2.5 rounded-full transition-all ${
                     isActive ? 'bg-sky-500 scale-125 shadow-xs shadow-sky-500' : 'bg-slate-300 dark:bg-slate-600'
                   }`} />
                 </div>
 
                 {/* 4 Language Steps */}
-                <div className="space-y-2">
+                <div className="space-y-2.5">
                   {combo.steps.map((step, sIdx) => (
                     <React.Fragment key={sIdx}>
-                      <div className="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-2xs flex items-center justify-between gap-2 hover:border-sky-300 dark:hover:border-sky-700 transition-colors">
+                      <div className={`p-2.5 rounded-xl border shadow-2xs flex items-center justify-between gap-2 transition-all ${
+                        isActive 
+                          ? 'bg-white dark:bg-slate-900 border-sky-200 dark:border-slate-700 hover:border-sky-400' 
+                          : 'bg-slate-50/80 dark:bg-slate-900/70 border-slate-200/80 dark:border-slate-700/60 hover:border-sky-300 dark:hover:border-sky-600'
+                      }`}>
                         <div className="flex items-center gap-2.5 min-w-0">
-                          <span className="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-extrabold text-[10px] flex items-center justify-center shrink-0 font-heading">
+                          <span className={`w-7 h-7 rounded-lg font-extrabold text-[10px] flex items-center justify-center shrink-0 font-heading border ${
+                            isActive
+                              ? 'bg-sky-100 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300 border-sky-200 dark:border-sky-800'
+                              : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700'
+                          }`}>
                             {step.code}
                           </span>
-                          <span className="text-xs font-bold text-slate-800 dark:text-slate-200 tracking-tight font-heading truncate">
+                          <span className="text-xs font-bold text-slate-900 dark:text-slate-100 tracking-tight font-heading truncate">
                             {step.name}
                           </span>
                         </div>
                         <Badge 
                           variant="secondary" 
-                          className="text-[10px] px-1.5 py-0.5 rounded-md font-extrabold shrink-0"
+                          className="text-[10px] px-2 py-0.5 rounded-md font-extrabold shrink-0 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700"
                         >
                           {step.duration}
                         </Badge>
@@ -144,7 +152,7 @@ export const BannerCombinationsBoard: React.FC = () => {
                       {/* Direction flow connector */}
                       {sIdx < combo.steps.length - 1 && (
                         <div className="flex items-center justify-center py-0.5">
-                          <ChevronDown className="w-3.5 h-3.5 text-slate-300 dark:text-slate-600" />
+                          <ChevronDown className="w-3.5 h-3.5 text-slate-300 dark:text-slate-500" />
                         </div>
                       )}
                     </React.Fragment>
@@ -153,12 +161,15 @@ export const BannerCombinationsBoard: React.FC = () => {
               </div>
 
               {/* Column Bottom Action (Direct Telegram Link) */}
-              <div className="mt-5 pt-3 border-t border-slate-200 dark:border-slate-700">
+              <div className="mt-5 pt-3 border-t border-slate-200/80 dark:border-slate-700/80">
                 <Button
                   asChild
-                  variant={isActive ? "default" : "outline"}
                   size="sm"
-                  className="w-full font-bold text-xs hover:scale-102 active:scale-98 transition-transform"
+                  className={`w-full font-bold text-xs hover:scale-102 active:scale-98 transition-all cursor-pointer ${
+                    isActive
+                      ? 'bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-500 hover:to-blue-500 text-white shadow-md shadow-sky-600/25 border-0'
+                      : 'bg-slate-100 dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:border-sky-400 dark:hover:border-sky-500'
+                  }`}
                 >
                   <a 
                     href={TELEGRAM_URL} 

@@ -153,12 +153,12 @@ export const HomePage: React.FC = () => {
           </motion.div>
 
           {/* Quick Stats Grid */}
-          <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-[1600px] w-full mx-auto">
+          <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5 max-w-[1600px] w-full mx-auto">
             {[
-              { num: "28 OY", label: t.hero.statMonths, icon: Clock, color: "text-sky-600 dark:text-sky-400", bg: "bg-sky-50 dark:bg-sky-950/50" },
-              { num: "4 TA", label: t.hero.statLanguages, icon: GraduationCap, color: "text-blue-600 dark:text-blue-400", bg: "bg-blue-50 dark:bg-blue-950/50" },
-              { num: "100%", label: t.hero.statJobGuarantee, icon: Briefcase, color: "text-emerald-600 dark:text-emerald-400", bg: "bg-emerald-50 dark:bg-emerald-950/50" },
-              { num: "500+", label: t.hero.statStudents, icon: Users, color: "text-amber-600 dark:text-amber-400", bg: "bg-amber-50 dark:bg-amber-950/50" }
+              { num: "28 OY", label: t.hero.statMonths, icon: Clock, color: "text-sky-600 dark:text-sky-400", bg: "bg-sky-500/10 dark:bg-sky-500/15 border-sky-500/20" },
+              { num: "4 TA", label: t.hero.statLanguages, icon: GraduationCap, color: "text-blue-600 dark:text-blue-400", bg: "bg-blue-500/10 dark:bg-blue-500/15 border-blue-500/20" },
+              { num: "100%", label: t.hero.statJobGuarantee, icon: Briefcase, color: "text-emerald-600 dark:text-emerald-400", bg: "bg-emerald-500/10 dark:bg-emerald-500/15 border-emerald-500/20" },
+              { num: "500+", label: t.hero.statStudents, icon: Users, color: "text-amber-600 dark:text-amber-400", bg: "bg-amber-500/10 dark:bg-amber-500/15 border-amber-500/20" }
             ].map((stat, idx) => (
               <motion.div
                 key={idx}
@@ -167,16 +167,16 @@ export const HomePage: React.FC = () => {
                 transition={{ duration: 0.4, delay: 0.2 + idx * 0.08 }}
                 whileHover={{ y: -5, scale: 1.02, transition: { duration: 0.2 } }}
               >
-                <Card className="rounded-2xl border-slate-200 dark:border-slate-800 dark:bg-slate-900 shadow-2xs h-full transition-all hover:shadow-lg hover:border-sky-300 dark:hover:border-sky-700">
-                  <CardContent className="p-4 flex items-center gap-3">
-                    <div className={`w-10 h-10 rounded-xl ${stat.bg} ${stat.color} flex items-center justify-center shrink-0 shadow-2xs`}>
-                      <stat.icon className="w-5 h-5" />
+                <Card className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900/90 shadow-sm h-full transition-all duration-200 hover:shadow-xl hover:border-sky-400 dark:hover:border-sky-500">
+                  <CardContent className="p-4 sm:p-5 flex items-center gap-3.5">
+                    <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-2xl border ${stat.bg} ${stat.color} flex items-center justify-center shrink-0 shadow-xs`}>
+                      <stat.icon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
                     <div>
-                      <span className="text-lg font-extrabold text-slate-900 dark:text-white font-heading block leading-none mb-1">
+                      <span className="text-lg sm:text-xl font-black text-slate-900 dark:text-white font-heading block leading-none mb-1">
                         {stat.num}
                       </span>
-                      <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium leading-tight block">
+                      <span className="text-xs text-slate-600 dark:text-slate-300 font-semibold leading-tight block">
                         {stat.label}
                       </span>
                     </div>
