@@ -1,0 +1,12 @@
+services:
+  at-termiziy-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: at_termiziy_landing
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "5173:80"
+    environment:
+      - NODE_ENV=production
