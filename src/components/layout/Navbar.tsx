@@ -4,7 +4,6 @@ import { useLanguage } from '../../context/LanguageContext';
 import { LanguageSwitcher } from '../common/LanguageSwitcher';
 import { ThemeToggle } from '../common/ThemeToggle';
 import { GraduationCap, Menu, X } from 'lucide-react';
-import { Button } from '../ui/button';
 
 export const Navbar: React.FC = () => {
   const { t } = useLanguage();
@@ -87,20 +86,10 @@ export const Navbar: React.FC = () => {
               })}
             </nav>
 
-            {/* Right Controls: Language, Theme & Contact CTA */}
+            {/* Right Controls: Language & Theme */}
             <div className="hidden lg:flex items-center gap-2.5">
               <ThemeToggle />
               <LanguageSwitcher />
-
-              <Button
-                asChild
-                size="sm"
-                className="ml-1 px-4 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs shadow-2xs hover:scale-102 transition-transform cursor-pointer"
-              >
-                <Link to="/contact">
-                  <span>{t.nav.applyBtn}</span>
-                </Link>
-              </Button>
             </div>
 
             {/* Mobile Navigation Toggle Button */}
