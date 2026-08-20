@@ -511,31 +511,54 @@ export const HomePage: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-40px" }}
         transition={{ duration: 0.5 }}
-        className="max-w-3xl mx-auto px-4 sm:px-6"
+        className="max-w-3xl mx-auto px-4 sm:px-6 relative"
       >
-        <div className="text-center mb-8 space-y-1.5">
-          <Badge variant="secondary" className="px-3 py-1">
-            Savollar & Javoblar
-          </Badge>
-          <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white font-heading">
+        {/* Background glow orb */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-sky-500/10 dark:bg-sky-500/5 rounded-full blur-3xl pointer-events-none animate-blob" />
+
+        <div className="text-center mb-8 space-y-2 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.3 }}
+            className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-sky-100 dark:bg-sky-950/80 text-sky-800 dark:text-sky-300 text-xs font-bold uppercase tracking-wider border border-sky-200 dark:border-sky-800"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-sky-500 animate-ping" />
+            <span>Savollar & Javoblar</span>
+          </motion.div>
+          
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-heading">
             Ko'p Beriladigan Savollar
           </h2>
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-md mx-auto">
+            Markazimiz, 28 oylik dastur va o'qish tartibi haqidagi eng asosiy savollarga javoblar.
+          </p>
         </div>
 
-        <Accordion type="single" collapsible defaultValue="faq-1" className="space-y-2.5">
-          {faqData.map((faq) => {
+        <Accordion type="single" collapsible defaultValue="faq-1" className="space-y-3 relative z-10">
+          {faqData.map((faq, idx) => {
             const question = faq.question[language] || faq.question.uz;
             const answer = faq.answer[language] || faq.answer.uz;
 
             return (
-              <AccordionItem key={faq.id} value={faq.id}>
-                <AccordionTrigger>
-                  <span>{question}</span>
-                </AccordionTrigger>
-                <AccordionContent>
-                  {answer}
-                </AccordionContent>
-              </AccordionItem>
+              <motion.div
+                key={faq.id}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: idx * 0.08 }}
+                whileHover={{ y: -3, transition: { duration: 0.2 } }}
+              >
+                <AccordionItem value={faq.id}>
+                  <AccordionTrigger>
+                    <span>{question}</span>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    {answer}
+                  </AccordionContent>
+                </AccordionItem>
+              </motion.div>
             );
           })}
         </Accordion>
