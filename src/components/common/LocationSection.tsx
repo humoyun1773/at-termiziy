@@ -128,11 +128,11 @@ export const LocationSection: React.FC<Props> = ({ className = '' }) => {
           Qarshi Shahridagi Markazimizni Qidiring va Toping
         </h2>
         <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-          Istalgan joy, bekat yoki ko'chani qidiring � xarita siz qidirgan manzilga darhol moslashadi.
+          Istalgan joy, bekat yoki ko'chani qidiring — xarita siz qidirgan manzilga darhol moslashadi.
         </p>
       </div>
 
-      {/* ?? Search Input Bar & GPS Button */}
+      {/* 🔍 Search Input Bar & GPS Button */}
       <div className="max-w-3xl mx-auto">
         <Card className="p-3 sm:p-4 rounded-3xl bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 shadow-md">
           <form onSubmit={handleSearch} className="flex flex-col sm:flex-row items-center gap-2">
@@ -199,7 +199,7 @@ export const LocationSection: React.FC<Props> = ({ className = '' }) => {
           >
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center font-bold text-sm shrink-0">
-                ??
+                📍
               </div>
               <div className="text-xs sm:text-sm">
                 <strong className="block font-extrabold text-sm sm:text-base">

@@ -14,7 +14,8 @@ import {
 import { Button } from '../components/ui/button';
 
 export const CombinationsPage: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const monthSuffix = language === 'ru' ? 'МЕС' : language === 'en' ? 'MON' : 'OY';
 
   return (
     <div className="py-12 md:py-20 space-y-16 overflow-hidden">
@@ -31,10 +32,10 @@ export const CombinationsPage: React.FC = () => {
           {t.combinationsSection.tag}
         </span>
         <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white font-heading mb-4">
-          28 Oylik Eksklyuziv Ta'lim Kombinatsiyalari
+          {t.combinationsSection.title}
         </h1>
         <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-          4 ta tilga muvofiq chuqur va keng tafakkurga ega bo'ling. Har bir til 7 oydan o'rgatiladi va yakunda bitiruvchilar nufuzli tashkilotlarga ish bilan ta'minlanadi.
+          {t.combinationsSection.subtitle}
         </p>
       </motion.section>
 
@@ -59,7 +60,7 @@ export const CombinationsPage: React.FC = () => {
                   </span>
                   <span className="text-xs font-bold text-slate-500 dark:text-slate-400 flex items-center gap-1">
                     <Clock className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
-                    Jami 28 Oy (4 × 7 Oy)
+                    {t.combinationsSection.totalBadge}
                   </span>
                   {combo.badgeKey && (
                     <span className="px-2.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300 text-[10px] font-bold">
@@ -82,7 +83,7 @@ export const CombinationsPage: React.FC = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2"
                 >
-                  <span>Telegramda Yozilish</span>
+                  <span>{t.combinationsSection.selectBtn}</span>
                   <Send className="w-4 h-4" />
                 </a>
               </Button>
@@ -90,14 +91,14 @@ export const CombinationsPage: React.FC = () => {
 
             {/* Target profile */}
             <div className="my-6 p-4 rounded-2xl bg-sky-50/60 dark:bg-slate-800/80 border border-sky-100 dark:border-slate-800 text-xs md:text-sm text-slate-700 dark:text-slate-300">
-              <strong className="text-sky-900 dark:text-sky-300 block mb-1 font-bold">🎯 Kimlar Uchun Tavsiya Qilinadi:</strong>
+              <strong className="text-sky-900 dark:text-sky-300 block mb-1 font-bold">🎯 {t.jobGuarantee.tag}:</strong>
               {combo.recommendedForKey}
             </div>
 
             {/* 4 Sequential 7-Month Stages (Timeline) */}
             <div className="space-y-4 my-8">
               <h3 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">
-                O'quv Rejasi Bosqichlari (Har bir til 7 oydan):
+                {t.combinationsSection.modulesTitle}
               </h3>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -112,7 +113,7 @@ export const CombinationsPage: React.FC = () => {
                           0{idx + 1}
                         </span>
                         <span className="text-xs font-extrabold px-2 py-0.5 rounded bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-300">
-                          {mod.durationMonths} OY
+                          {mod.durationMonths} {monthSuffix}
                         </span>
                       </div>
 
@@ -152,7 +153,7 @@ export const CombinationsPage: React.FC = () => {
               <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-800">
                 <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider mb-2 flex items-center gap-1.5">
                   <Briefcase className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
-                  Karyera Imkoniyatlari:
+                  {t.combinationsSection.outcomesTitle}
                 </h4>
                 <ul className="space-y-1.5 text-xs text-slate-600 dark:text-slate-300">
                   {combo.careerProspectsKey.map((cp, cIdx) => (
@@ -168,10 +169,10 @@ export const CombinationsPage: React.FC = () => {
                 <ShieldCheck className="w-8 h-8 text-emerald-600 dark:text-emerald-400 shrink-0" />
                 <div className="text-xs">
                   <strong className="block font-bold text-emerald-900 dark:text-emerald-200 text-sm">
-                    Kafolatlangan Ish Bilan Ta'minlash
+                    {t.combinationsSection.guaranteeBanner}
                   </strong>
                   <span className="text-emerald-800 dark:text-emerald-300 leading-relaxed block mt-0.5">
-                    Ushbu kombinatsiyani muvaffaqiyatli tamomlagan bitiruvchilarimizga to'g'ridan-to'g'ri nufuzli kompaniyalarda ish o'rni kafolatlanadi.
+                    {t.combinationsSection.guaranteeSub}
                   </span>
                 </div>
               </div>
@@ -190,10 +191,10 @@ export const CombinationsPage: React.FC = () => {
       >
         <div className="bg-sky-900 text-white rounded-3xl p-8 md:p-12 text-center max-w-4xl mx-auto space-y-4">
           <h3 className="text-2xl font-bold font-heading">
-            Qaysi Kombinatsiya Sizga Mos Kelishini Bilmayapsizmi?
+            {t.hero.subheading}
           </h3>
           <p className="text-xs sm:text-sm text-sky-200 max-w-lg mx-auto">
-            Markazimiz mutaxassislari sizning qiziqishingiz, bilim darajangiz va kelajak rejalaringizni bepul tahlil qilib, eng optimal kombinatsiyani tavsiya etishadi.
+            {t.hero.locationBadge}
           </p>
           <div className="pt-2">
             <Button
@@ -206,7 +207,7 @@ export const CombinationsPage: React.FC = () => {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2"
               >
-                <span>Telegramda Bepul Diagnostika & Konsultatsiya</span>
+                <span>{t.hero.freeConsultation}</span>
                 <Send className="w-4 h-4" />
               </a>
             </Button>
