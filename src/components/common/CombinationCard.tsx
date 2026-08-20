@@ -14,7 +14,8 @@ interface Props {
 }
 
 export const CombinationCard: React.FC<Props> = ({ combination }) => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const monthSuffix = language === 'ru' ? 'МЕС' : language === 'en' ? 'MON' : 'OY';
 
   return (
     <motion.div
@@ -49,7 +50,7 @@ export const CombinationCard: React.FC<Props> = ({ combination }) => {
               </Badge>
               <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 flex items-center gap-1">
                 <Clock className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
-                28 Oylik Ta'lim
+                {t.combinationsSection.totalBadge}
               </span>
             </div>
             <h3 className="text-xl font-bold text-slate-900 dark:text-white font-heading">
@@ -67,8 +68,8 @@ export const CombinationCard: React.FC<Props> = ({ combination }) => {
         {/* 4 Language Stages */}
         <div className="space-y-2.5 mb-6">
           <div className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider flex items-center justify-between">
-            <span>4 Ta Til Ketma-ketligi</span>
-            <span className="text-sky-600 dark:text-sky-400 font-bold">Har biri 7 Oydan</span>
+            <span>{t.combinationsSection.modulesTitle}</span>
+            <span className="text-sky-600 dark:text-sky-400 font-bold">{t.combinationsSection.monthsBadge}</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -86,7 +87,7 @@ export const CombinationCard: React.FC<Props> = ({ combination }) => {
                       {module.nameKey}
                     </h4>
                     <Badge variant="secondary" className="text-[10px] px-1.5 py-0.5">
-                      {module.durationMonths} OY
+                      {module.durationMonths} {monthSuffix}
                     </Badge>
                   </div>
                   <p className="text-[11px] font-medium text-slate-500 dark:text-slate-400 truncate mt-0.5">
@@ -103,10 +104,10 @@ export const CombinationCard: React.FC<Props> = ({ combination }) => {
           <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
           <div className="text-xs">
             <strong className="block font-bold text-emerald-900 dark:text-emerald-200">
-              Ish Bilan Ta'minlanadi
+              {t.combinationsSection.guaranteeBanner}
             </strong>
             <span className="text-emerald-700 dark:text-emerald-400 text-[11px]">
-              Dasturni muvaffaqiyatli tugatgan barcha talabalar ishga joylashtiriladi.
+              {t.combinationsSection.guaranteeSub}
             </span>
           </div>
         </div>

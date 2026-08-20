@@ -56,14 +56,14 @@ export const CourseCard: React.FC<Props> = ({ course }) => {
           <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-100 dark:border-slate-800 flex items-center gap-2">
             <Clock className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400 shrink-0" />
             <div className="min-w-0">
-              <span className="text-[10px] text-slate-400 block uppercase font-bold">Davomiyligi</span>
+              <span className="text-[10px] text-slate-400 block uppercase font-bold">{t.coursesPage.duration}</span>
               <span className="text-xs font-semibold text-slate-800 dark:text-slate-200 truncate block">{duration}</span>
             </div>
           </div>
           <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-100 dark:border-slate-800 flex items-center gap-2">
             <Award className="w-3.5 h-3.5 text-amber-500 shrink-0" />
             <div className="min-w-0">
-              <span className="text-[10px] text-slate-400 block uppercase font-bold">Sertifikat</span>
+              <span className="text-[10px] text-slate-400 block uppercase font-bold">{t.coursesPage.certificate}</span>
               <span className="text-xs font-semibold text-slate-800 dark:text-slate-200 truncate block">{course.certificate}</span>
             </div>
           </div>

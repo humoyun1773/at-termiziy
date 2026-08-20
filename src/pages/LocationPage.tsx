@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 import { TELEGRAM_URL } from '../data/siteConfig';
 import { LocationSection } from '../components/common/LocationSection';
 import { 
@@ -16,6 +17,8 @@ import { Button } from '../components/ui/button';
 import { Card } from '../components/ui/card';
 
 export const LocationPage: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="py-12 md:py-20 space-y-16 overflow-hidden">
       
@@ -28,13 +31,13 @@ export const LocationPage: React.FC = () => {
       >
         <span className="px-3.5 py-1 rounded-full bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-300 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4">
           <MapPin className="w-3.5 h-3.5 text-sky-600" />
-          <span>Qarshi Shahridagi Bosh Bino</span>
+          <span>{t.contactPage.title}</span>
         </span>
         <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white font-heading mb-4">
-          Markazimiz Joylashuvi & Lokatsiya
+          {t.nav.location}
         </h1>
         <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto">
-          "Al-Hakim At-Termiziy" o'quv markazi Qarshi shahrining eng markaziy va qulay hududida joylashgan. Qat'iy intizom va xalqaro metodika bilan ta'lim olishingiz uchun barcha sharoitlar yaratilgan.
+          {t.hero.subheading}
         </p>
       </motion.section>
 

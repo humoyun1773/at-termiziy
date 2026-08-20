@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { TELEGRAM_URL } from '../../data/siteConfig';
+import { useLanguage } from '../../context/LanguageContext';
 import { 
   Phone, 
   MapPin, 
@@ -26,47 +27,51 @@ interface BannerColumn {
 }
 
 export const BannerCombinationsBoard: React.FC = () => {
+  const { t, language } = useLanguage();
   const [activeCombo, setActiveCombo] = useState<number>(1);
+
+  const durationStr = language === 'ru' ? '7 Мес' : language === 'en' ? '7 Mon' : '7 Oy';
+  const comboPrefix = language === 'ru' ? 'КОМБИНАЦИЯ' : language === 'en' ? 'COMBINATION' : 'KOMBINATSIYA';
 
   const combinations: BannerColumn[] = [
     {
       id: 1,
-      title: "KOMBINATSIYA 1",
+      title: `${comboPrefix} 1`,
       steps: [
-        { name: "Ingliz Tili", duration: "7 Oy", code: "EN" },
-        { name: "Fors Tili", duration: "7 Oy", code: "FA" },
-        { name: "Nemis Tili", duration: "7 Oy", code: "DE" },
-        { name: "Xitoy Tili", duration: "7 Oy", code: "ZH" }
+        { name: t.languages.english, duration: durationStr, code: "EN" },
+        { name: t.languages.persian, duration: durationStr, code: "FA" },
+        { name: t.languages.german, duration: durationStr, code: "DE" },
+        { name: t.languages.chinese, duration: durationStr, code: "ZH" }
       ]
     },
     {
       id: 2,
-      title: "KOMBINATSIYA 2",
+      title: `${comboPrefix} 2`,
       steps: [
-        { name: "Ingliz Tili", duration: "7 Oy", code: "EN" },
-        { name: "Koreys Tili", duration: "7 Oy", code: "KO" },
-        { name: "Nemis Tili", duration: "7 Oy", code: "DE" },
-        { name: "Yapon Tili", duration: "7 Oy", code: "JA" }
+        { name: t.languages.english, duration: durationStr, code: "EN" },
+        { name: t.languages.korean, duration: durationStr, code: "KO" },
+        { name: t.languages.german, duration: durationStr, code: "DE" },
+        { name: t.languages.japanese, duration: durationStr, code: "JA" }
       ]
     },
     {
       id: 3,
-      title: "KOMBINATSIYA 3",
+      title: `${comboPrefix} 3`,
       steps: [
-        { name: "Rus Tili", duration: "7 Oy", code: "RU" },
-        { name: "Ingliz Tili", duration: "7 Oy", code: "EN" },
-        { name: "Xitoy Tili", duration: "7 Oy", code: "ZH" },
-        { name: "Yapon Tili", duration: "7 Oy", code: "JA" }
+        { name: t.languages.russian, duration: durationStr, code: "RU" },
+        { name: t.languages.english, duration: durationStr, code: "EN" },
+        { name: t.languages.chinese, duration: durationStr, code: "ZH" },
+        { name: t.languages.japanese, duration: durationStr, code: "JA" }
       ]
     },
     {
       id: 4,
-      title: "KOMBINATSIYA 4",
+      title: `${comboPrefix} 4`,
       steps: [
-        { name: "Ingliz Tili", duration: "7 Oy", code: "EN" },
-        { name: "Rus Tili", duration: "7 Oy", code: "RU" },
-        { name: "Fors Tili", duration: "7 Oy", code: "FA" },
-        { name: "Nemis Tili", duration: "7 Oy", code: "DE" }
+        { name: t.languages.english, duration: durationStr, code: "EN" },
+        { name: t.languages.russian, duration: durationStr, code: "RU" },
+        { name: t.languages.persian, duration: durationStr, code: "FA" },
+        { name: t.languages.german, duration: durationStr, code: "DE" }
       ]
     }
   ];
@@ -77,10 +82,10 @@ export const BannerCombinationsBoard: React.FC = () => {
       {/* Board Top Header */}
       <div className="text-center mb-8">
         <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight font-heading uppercase">
-          AL-HAKIM AT-TERMIZIY O'QUV MARKAZI
+          {t.brand.name}
         </h2>
         <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium mt-1">
-          4 ta tilga muvofiq chuqur va keng tafakkurga ega bo'ling
+          {t.hero.titleHighlight} — {t.hero.titleEnd}
         </p>
       </div>
 
@@ -188,21 +193,21 @@ export const BannerCombinationsBoard: React.FC = () => {
           <div className="flex flex-wrap items-center justify-center gap-2 font-bold text-slate-800 dark:text-slate-200 text-[11px] sm:text-xs">
             <span className="flex items-center gap-1 text-sky-600 dark:text-sky-400">
               <Calendar className="w-3.5 h-3.5" />
-              28 Oylik Kompleks Dastur
+              {t.hero.statMonths}
             </span>
             <span className="text-slate-300 dark:text-slate-600">•</span>
-            <span>4 Ta Tilga Muvofiq Tafakkur</span>
+            <span>{t.hero.titleHighlight}</span>
           </div>
           <div className="flex items-center justify-center gap-1.5 text-emerald-700 dark:text-emerald-400 font-bold text-[11px] sm:text-xs">
             <ShieldCheck className="w-4 h-4" />
-            <span>Kursni Muvaffaqiyatli Tugatgan Talabalar Ish Bilan Ta'minlanadi</span>
+            <span>{t.combinationsSection.guaranteeBanner}</span>
           </div>
         </div>
 
         {/* Right: Location */}
         <Badge variant="outline" className="px-3 py-1.5 gap-1.5 font-bold">
           <MapPin className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
-          <span>Qarshi Shahar</span>
+          <span>{t.brand.city}</span>
         </Badge>
 
       </div>

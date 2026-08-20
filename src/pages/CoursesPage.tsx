@@ -8,8 +8,15 @@ import { Badge } from '../components/ui/badge';
 import { Tabs, TabsList, TabsTrigger } from '../components/ui/tabs';
 
 export const CoursesPage: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [activeFilter, setActiveFilter] = useState<'all' | 'western' | 'eastern' | 'regional'>('all');
+
+  const tabLabels = {
+    all: t.coursesPage.filterAll,
+    western: language === 'ru' ? 'Западные Языки' : language === 'en' ? 'Western' : "G'arbiy Tillar",
+    eastern: language === 'ru' ? 'Восточная Азия' : language === 'en' ? 'East Asia' : 'Sharqiy Osiyo',
+    regional: language === 'ru' ? 'Русский & Фарси' : language === 'en' ? 'Russian & Persian' : 'Rus & Fors'
+  };
 
   const filteredCourses = coursesData.filter(course => {
     if (activeFilter === 'all') return true;
@@ -51,16 +58,16 @@ export const CoursesPage: React.FC = () => {
           >
             <TabsList className="grid grid-cols-2 sm:grid-cols-4 h-auto p-1.5 gap-1 bg-slate-100/80 dark:bg-slate-800/90 rounded-2xl border border-slate-200 dark:border-slate-700">
               <TabsTrigger value="all" className="rounded-xl py-2 text-xs font-bold text-slate-700 dark:text-slate-300 data-[state=active]:bg-white dark:data-[state=active]:bg-slate-900 dark:data-[state=active]:text-white">
-                Barcha Tillar
+                {tabLabels.all}
               </TabsTrigger>
               <TabsTrigger value="western" className="rounded-xl py-2 text-xs font-bold text-slate-700 dark:text-slate-300 data-[state=active]:bg-white dark:data-[state=active]:bg-slate-900 dark:data-[state=active]:text-white">
-                G'arbiy Tillar
+                {tabLabels.western}
               </TabsTrigger>
               <TabsTrigger value="eastern" className="rounded-xl py-2 text-xs font-bold text-slate-700 dark:text-slate-300 data-[state=active]:bg-white dark:data-[state=active]:bg-slate-900 dark:data-[state=active]:text-white">
-                Sharqiy Osiyo
+                {tabLabels.eastern}
               </TabsTrigger>
               <TabsTrigger value="regional" className="rounded-xl py-2 text-xs font-bold text-slate-700 dark:text-slate-300 data-[state=active]:bg-white dark:data-[state=active]:bg-slate-900 dark:data-[state=active]:text-white">
-                Rus & Fors
+                {tabLabels.regional}
               </TabsTrigger>
             </TabsList>
           </Tabs>

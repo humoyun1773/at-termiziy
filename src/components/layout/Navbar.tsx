@@ -19,11 +19,7 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on route change & lock body scroll when open
-  useEffect(() => {
-    setMobileMenuOpen(false);
-  }, [location.pathname]);
-
+  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = 'hidden';
