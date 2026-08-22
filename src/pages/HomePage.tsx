@@ -5,8 +5,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { TELEGRAM_URL } from '../data/siteConfig';
 import { teachersData, testimonialsData, faqData } from '../data/mockData';
 import { BannerCombinationsBoard } from '../components/common/BannerCombinationsBoard';
-import { AlHakimTermiziySection } from '../components/common/AlHakimTermiziySection';
-import { IslamicGirihPattern } from '../components/common/OrientalPatterns';
+import { IslamicGirihPattern, CornerArabesque } from '../components/common/OrientalPatterns';
 import { Button } from '../components/ui/button';
 import { Badge } from '../components/ui/badge';
 import { Card, CardContent } from '../components/ui/card';
@@ -200,23 +199,27 @@ export const HomePage: React.FC = () => {
         transition={{ duration: 0.5 }}
         className="max-w-[1600px] w-full mx-auto px-4 sm:px-6"
       >
-        <div className="bg-slate-50 dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200 dark:border-slate-800">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="relative bg-gradient-to-r from-sky-50/80 via-white to-amber-50/60 rounded-3xl p-6 sm:p-10 border border-sky-100 shadow-sm overflow-hidden">
+          <IslamicGirihPattern opacity={0.04} className="text-sky-900" />
+          <CornerArabesque position="top-right" className="text-amber-500/20" />
+          <CornerArabesque position="bottom-left" className="text-sky-500/20" />
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             <div className="lg:col-span-6 space-y-3">
-              <Badge variant="secondary" className="px-3 py-1">
+              <Badge variant="secondary" className="px-3 py-1 bg-amber-100 text-amber-900 border border-amber-200">
                 {t.mottoSection.tag}
               </Badge>
-              <h2 className="text-xl sm:text-3xl font-extrabold font-heading text-slate-900 dark:text-white tracking-tight">
+              <h2 className="text-xl sm:text-3xl font-extrabold font-heading text-slate-900 tracking-tight">
                 {t.mottoSection.title}
               </h2>
-              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 {t.mottoSection.description}
               </p>
               <div className="pt-2">
-                <Button variant="outline" size="sm" asChild className="rounded-xl font-bold">
+                <Button variant="outline" size="sm" asChild className="rounded-xl font-bold border-sky-200 hover:bg-sky-50 text-sky-900">
                   <Link to="/about" className="flex items-center gap-1.5">
                     <span>Markaz Nizomi & Qoidalari</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
+                    <ArrowRight className="w-3.5 h-3.5 text-sky-600" />
                   </Link>
                 </Button>
               </div>
@@ -227,16 +230,16 @@ export const HomePage: React.FC = () => {
                 <motion.div 
                   key={idx} 
                   whileHover={{ x: 4, transition: { duration: 0.2 } }}
-                  className="bg-white dark:bg-slate-800/90 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 flex items-start gap-3.5 shadow-2xs"
+                  className="bg-white/95 backdrop-blur-xs p-4 rounded-2xl border border-sky-100 flex items-start gap-3.5 shadow-2xs hover:border-sky-300 transition-colors"
                 >
-                  <div className="w-7 h-7 rounded-lg bg-sky-50 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 font-bold flex items-center justify-center shrink-0 text-xs">
+                  <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-sky-500 to-blue-600 text-white font-bold flex items-center justify-center shrink-0 text-xs shadow-2xs">
                     0{idx + 1}
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-slate-900 dark:text-white font-heading">
+                    <h4 className="text-xs font-bold text-slate-900 font-heading">
                       {pt.title}
                     </h4>
-                    <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 leading-relaxed">
+                    <p className="text-[11px] text-slate-500 mt-0.5 leading-relaxed">
                       {pt.desc}
                     </p>
                   </div>
@@ -247,17 +250,6 @@ export const HomePage: React.FC = () => {
         </div>
       </motion.section>
 
-      {/* 4. AL-HAKIM AT-TERMIZIY HISTORICAL HERITAGE & NAQSHLAR */}
-      <motion.section
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-40px" }}
-        transition={{ duration: 0.5 }}
-        className="max-w-[1600px] w-full mx-auto px-4 sm:px-6"
-      >
-        <AlHakimTermiziySection />
-      </motion.section>
-
       {/* 6. CAMPUS & ENVIRONMENT IN QARSHI */}
       <motion.section 
         initial={{ opacity: 0, y: 30 }}
@@ -266,16 +258,20 @@ export const HomePage: React.FC = () => {
         transition={{ duration: 0.5 }}
         className="max-w-[1600px] w-full mx-auto px-4 sm:px-6"
       >
-        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200 dark:border-slate-800 shadow-2xs grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div className="lg:col-span-6 space-y-4">
-            <Badge variant="secondary" className="px-3 py-1 gap-1.5">
-              <MapPin className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
+        <div className="relative bg-white rounded-3xl p-6 sm:p-10 border border-sky-100 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-center overflow-hidden">
+          <IslamicGirihPattern opacity={0.03} className="text-sky-950" />
+          <CornerArabesque position="top-right" className="text-sky-500/20" />
+          <CornerArabesque position="bottom-left" className="text-amber-500/20" />
+
+          <div className="lg:col-span-6 space-y-4 relative z-10">
+            <Badge variant="secondary" className="px-3 py-1 gap-1.5 bg-sky-50 text-sky-800 border border-sky-200">
+              <MapPin className="w-3.5 h-3.5 text-sky-600" />
               Qarshi Shahar Bosh Binomiz
             </Badge>
-            <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white font-heading leading-snug md:leading-normal">
+            <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 font-heading leading-snug md:leading-normal">
               Zamonaviy Sharoitlar va Haqiqiy Ko'p Tilli Muhit
             </h2>
-            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
               Markazimiz Qarshi shahrining eng qulay joyida joylashgan bo'lib, har bir xona interaktiv texnologiyalar va speaking zonalar bilan jihozlangan.
             </p>
 
@@ -286,15 +282,15 @@ export const HomePage: React.FC = () => {
                 "Katta kutubxona: 7 tildagi nodir adabiyotlar va qo'llanmalar",
                 "Individual mentorlik va kunlik monitoring xonasi"
               ].map((feat, idx) => (
-                <div key={idx} className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 font-medium">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400 shrink-0" />
+                <div key={idx} className="flex items-center gap-2 text-xs text-slate-700 font-medium">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-sky-600 shrink-0" />
                   <span>{feat}</span>
                 </div>
               ))}
             </div>
 
             <div className="pt-2">
-              <Button asChild className="rounded-xl font-bold text-xs hover:scale-105 active:scale-95 transition-transform">
+              <Button asChild className="rounded-xl font-bold text-xs hover:scale-105 active:scale-95 transition-transform bg-sky-600 hover:bg-sky-700 text-white">
                 <a href="tel:+998919517335" className="flex items-center gap-2">
                   <Phone className="w-3.5 h-3.5" />
                   <span>Markazga Tashrif: +998 91 951 73 35</span>
@@ -303,11 +299,12 @@ export const HomePage: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-6">
-            <div className="p-6 rounded-2xl bg-slate-900 text-white shadow-md space-y-4 border border-slate-800">
+          <div className="lg:col-span-6 relative z-10">
+            <div className="relative p-6 rounded-2xl bg-gradient-to-br from-sky-950 via-slate-900 to-sky-900 text-white shadow-md space-y-4 border border-sky-800 overflow-hidden">
+              <IslamicGirihPattern opacity={0.08} className="text-white" />
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <Building2 className="w-4 h-4 text-sky-400" />
+                  <Building2 className="w-4 h-4 text-amber-400" />
                   <span className="text-xs font-bold uppercase tracking-wider text-sky-200">Qarshi Filiali</span>
                 </div>
                 <Badge variant="success" className="text-[10px]">Ochiq</Badge>

@@ -10,9 +10,11 @@ import {
   Send, 
   ArrowUp, 
   ShieldCheck, 
-  ChevronRight
+  ChevronRight,
+  Sparkles
 } from 'lucide-react';
 import { Button } from '../ui/button';
+import { IslamicGirihPattern, CornerArabesque } from '../common/OrientalPatterns';
 
 export const Footer: React.FC = () => {
   const { t } = useLanguage();
@@ -23,6 +25,11 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="bg-[#050b18] text-white relative overflow-hidden pt-16 pb-12 border-t border-[#121e38]">
+      {/* Background Oriental Girih Pattern Watermark */}
+      <IslamicGirihPattern opacity={0.06} className="text-white" />
+      <CornerArabesque position="top-right" className="text-amber-400/20" />
+      <CornerArabesque position="top-left" className="text-sky-400/20" />
+
       {/* Background glow circle */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
@@ -37,9 +44,12 @@ export const Footer: React.FC = () => {
                 <GraduationCap className="w-6 h-6" />
               </div>
               <div>
-                <span className="text-base font-extrabold tracking-tight text-white font-heading block">
-                  {t.brand.name}
-                </span>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-base font-extrabold tracking-tight text-white font-heading block">
+                    {t.brand.name}
+                  </span>
+                  <Sparkles className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
+                </div>
                 <span className="text-[10px] font-bold text-sky-400 uppercase tracking-widest block">
                   {t.brand.type} • {t.brand.city}
                 </span>
