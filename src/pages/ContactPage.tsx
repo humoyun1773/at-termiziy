@@ -12,6 +12,13 @@ import {
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { LocationSection } from '../components/common/LocationSection';
+import { 
+  IslamicGirihPattern, 
+  CornerArabesque, 
+  ArabesqueDivider, 
+  TermiziyEmblem,
+  TermiziyMandalaRing 
+} from '../components/common/OrientalPatterns';
 
 export const ContactPage: React.FC = () => {
   const { t } = useLanguage();
@@ -46,23 +53,35 @@ export const ContactPage: React.FC = () => {
   return (
     <div className="py-12 md:py-20 space-y-16 overflow-hidden">
       
-      {/* Header */}
+      {/* Header with Termiziy Emblem & Naqshlar */}
       <motion.section 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative"
       >
-        <span className="px-3.5 py-1 rounded-full bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-300 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4">
-          <Phone className="w-3.5 h-3.5 text-sky-600" />
+        <IslamicGirihPattern opacity={0.12} color="#0284c7" />
+        <div className="absolute -top-12 -left-12 pointer-events-none opacity-30">
+          <TermiziyMandalaRing size={280} opacity={0.3} />
+        </div>
+        <div className="absolute -bottom-12 -right-12 pointer-events-none opacity-30">
+          <TermiziyMandalaRing size={280} opacity={0.3} />
+        </div>
+
+        <div className="flex justify-center mb-3 relative z-10">
+          <TermiziyEmblem size={68} className="drop-shadow-md hover:scale-105 transition-transform" />
+        </div>
+        <span className="px-4 py-1.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4 shadow-2xs relative z-10">
+          <Phone className="w-3.5 h-3.5 text-amber-600" />
           {t.contactPage.tag}
         </span>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white font-heading mb-4">
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 font-heading mb-4 relative z-10">
           {t.contactPage.title}
         </h1>
-        <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+        <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto relative z-10">
           {t.contactPage.subtitle}
         </p>
+        <ArabesqueDivider className="relative z-10" />
       </motion.section>
 
       {/* Main Grid: Form + Info */}
@@ -77,44 +96,48 @@ export const ContactPage: React.FC = () => {
           
           {/* Left: Contact Info & Campus Details */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white font-heading">
+            <div className="relative bg-white rounded-3xl p-8 border-2 border-sky-200 shadow-xl space-y-6 overflow-hidden ring-4 ring-sky-500/10">
+              <IslamicGirihPattern opacity={0.12} color="#0284c7" />
+              <CornerArabesque position="top-right" size={60} className="text-amber-500/35" />
+              <CornerArabesque position="bottom-left" size={60} className="text-sky-500/35" />
+
+              <h3 className="text-xl font-bold text-slate-900 font-heading relative z-10">
                 Aloqa Ma'lumotlari
               </h3>
 
-              <div className="space-y-4 text-xs sm:text-sm">
-                <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-100 dark:border-slate-800">
-                  <Phone className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+              <div className="space-y-4 text-xs sm:text-sm relative z-10">
+                <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
+                  <Phone className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                   <div>
                     <span className="text-slate-400 text-[10px] uppercase font-bold block">Telefon Raqam</span>
-                    <a href="tel:+998919517335" className="font-mono font-bold text-slate-900 dark:text-white hover:text-sky-600 dark:hover:text-sky-400 transition-colors text-sm">
+                    <a href="tel:+998919517335" className="font-mono font-bold text-slate-900 hover:text-sky-600 transition-colors text-sm">
                       +998 91 951 73 35
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-100 dark:border-slate-800">
-                  <MapPin className="w-5 h-5 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" />
+                <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
+                  <MapPin className="w-5 h-5 text-sky-600 shrink-0 mt-0.5" />
                   <div>
                     <span className="text-slate-400 text-[10px] uppercase font-bold block">Manzil</span>
-                    <span className="font-semibold text-slate-800 dark:text-slate-200">
+                    <span className="font-semibold text-slate-800">
                       Qashqadaryo viloyati, Qarshi shahri, Mustaqillik shoh ko'chasi
                     </span>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-100 dark:border-slate-800">
+                <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
                   <Clock className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
                   <div>
                     <span className="text-slate-400 text-[10px] uppercase font-bold block">Ish Vaqti</span>
-                    <span className="font-semibold text-slate-800 dark:text-slate-200">
+                    <span className="font-semibold text-slate-800">
                       Dushanba – Shanba: 08:00 – 20:00
                     </span>
                   </div>
                 </div>
               </div>
 
-              <div className="pt-2">
+              <div className="pt-2 relative z-10">
                 <a
                   href="tel:+998919517335"
                   className="w-full py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md transition-colors"
@@ -126,11 +149,13 @@ export const ContactPage: React.FC = () => {
             </div>
 
             {/* Banner preview widget */}
-            <div className="bg-sky-900 rounded-3xl p-6 text-white text-xs space-y-3 border border-sky-800">
-              <span className="font-bold text-sky-300 uppercase tracking-wider block">
+            <div className="relative bg-gradient-to-r from-sky-900 to-blue-950 rounded-3xl p-6 text-white text-xs space-y-3 border-2 border-sky-700/50 shadow-lg overflow-hidden">
+              <IslamicGirihPattern opacity={0.12} color="#38bdf8" />
+              <CornerArabesque position="top-right" size={50} className="text-amber-400/40" />
+              <span className="font-bold text-amber-300 uppercase tracking-wider block relative z-10">
                 {t.brand.motto}
               </span>
-              <p className="text-sky-100 leading-relaxed">
+              <p className="text-sky-100 leading-relaxed relative z-10">
                 28 oylik ta'lim kombinatsiyalariga mos 4 ta tilga muvofiq tafakkur. Kursni muvaffaqiyatli tugatgan talabalar ish bilan ta'minlanadi!
               </p>
             </div>
@@ -138,7 +163,12 @@ export const ContactPage: React.FC = () => {
 
           {/* Right: Registration Form */}
           <div className="lg:col-span-7">
-            <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 md:p-10 border border-slate-200 dark:border-slate-800 shadow-lg">
+            <div className="relative bg-white rounded-3xl p-8 md:p-10 border-2 border-sky-200 shadow-2xl overflow-hidden ring-4 ring-sky-500/10">
+              <IslamicGirihPattern opacity={0.12} color="#0284c7" />
+              <CornerArabesque position="top-right" size={64} className="text-amber-500/35" />
+              <CornerArabesque position="bottom-left" size={64} className="text-sky-500/35" />
+              <CornerArabesque position="top-left" size={64} className="text-sky-500/35" />
+              <CornerArabesque position="bottom-right" size={64} className="text-amber-500/35" />
               <AnimatePresence mode="wait">
                 {isSuccess ? (
                   <motion.div 

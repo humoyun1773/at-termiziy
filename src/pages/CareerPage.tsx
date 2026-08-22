@@ -8,7 +8,13 @@ import {
   Sparkles
 } from 'lucide-react';
 import { Button } from '../components/ui/button';
-import { IslamicGirihPattern, CornerArabesque, ArabesqueDivider, TermiziyEmblem } from '../components/common/OrientalPatterns';
+import { 
+  IslamicGirihPattern, 
+  CornerArabesque, 
+  ArabesqueDivider, 
+  TermiziyEmblem,
+  TermiziyMandalaRing 
+} from '../components/common/OrientalPatterns';
 
 export const CareerPage: React.FC = () => {
   const { t } = useLanguage();
@@ -23,20 +29,28 @@ export const CareerPage: React.FC = () => {
         transition={{ duration: 0.5 }}
         className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative"
       >
-        <div className="flex justify-center mb-3">
-          <TermiziyEmblem size={60} className="drop-shadow-sm hover:scale-105 transition-transform" />
+        <IslamicGirihPattern opacity={0.12} color="#059669" />
+        <div className="absolute -top-12 -left-12 pointer-events-none opacity-30">
+          <TermiziyMandalaRing size={280} opacity={0.3} />
         </div>
-        <span className="px-3.5 py-1 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-300 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4 shadow-2xs">
+        <div className="absolute -bottom-12 -right-12 pointer-events-none opacity-30">
+          <TermiziyMandalaRing size={280} opacity={0.3} />
+        </div>
+
+        <div className="flex justify-center mb-3 relative z-10">
+          <TermiziyEmblem size={68} className="drop-shadow-md hover:scale-105 transition-transform" />
+        </div>
+        <span className="px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-300 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4 shadow-2xs relative z-10">
           <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
           {t.jobGuarantee.tag}
         </span>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 font-heading mb-4">
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 font-heading mb-4 relative z-10">
           {t.jobGuarantee.title}
         </h1>
-        <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+        <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto relative z-10">
           {t.jobGuarantee.desc}
         </p>
-        <ArabesqueDivider color="#10b981" />
+        <ArabesqueDivider color="#10b981" className="relative z-10" />
       </motion.section>
 
       {/* Salary & Opportunity Metrics */}
@@ -50,10 +64,11 @@ export const CareerPage: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <motion.div 
             whileHover={{ y: -6, transition: { duration: 0.2 } }}
-            className="relative bg-gradient-to-br from-emerald-700 to-teal-800 rounded-3xl p-8 text-white shadow-lg overflow-hidden"
+            className="relative bg-gradient-to-br from-emerald-700 to-teal-800 rounded-3xl p-8 text-white shadow-xl overflow-hidden border-2 border-emerald-500/40 ring-4 ring-emerald-500/10"
           >
-            <IslamicGirihPattern opacity={0.06} className="text-white" />
-            <CornerArabesque position="top-right" className="text-emerald-300/30" />
+            <IslamicGirihPattern opacity={0.14} color="#a7f3d0" />
+            <CornerArabesque position="top-right" size={60} className="text-amber-300/40" />
+            <CornerArabesque position="bottom-left" size={60} className="text-emerald-300/40" />
             
             <div className="relative z-10">
               <span className="text-xs font-bold text-emerald-200 uppercase tracking-wider block mb-1">
@@ -70,32 +85,44 @@ export const CareerPage: React.FC = () => {
 
           <motion.div 
             whileHover={{ y: -6, transition: { duration: 0.2 } }}
-            className="bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-800 shadow-sm"
+            className="relative bg-white rounded-3xl p-8 border-2 border-sky-200 shadow-lg hover:shadow-2xl hover:border-sky-400 transition-all overflow-hidden ring-2 ring-sky-400/10"
           >
-            <span className="text-xs font-bold text-sky-600 dark:text-sky-400 uppercase tracking-wider block mb-1">
-              Hamkor Tashkilotlar
-            </span>
-            <div className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-heading mb-2">
-              30+ Kompaniya
+            <IslamicGirihPattern opacity={0.12} color="#0284c7" />
+            <CornerArabesque position="top-right" size={56} className="text-sky-500/35" />
+            <CornerArabesque position="bottom-left" size={56} className="text-amber-500/35" />
+
+            <div className="relative z-10">
+              <span className="text-xs font-bold text-sky-600 uppercase tracking-wider block mb-1">
+                Hamkor Tashkilotlar
+              </span>
+              <div className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading mb-2">
+                30+ Kompaniya
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                O'zbekiston, Germaniya, Xitoy, Koreya va Yaqin Sharqdagi rasmiy shartnomaga ega hamkorlarimiz.
+              </p>
             </div>
-            <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-              O'zbekiston, Germaniya, Xitoy, Koreya va Yaqin Sharqdagi rasmiy shartnomaga ega hamkorlarimiz.
-            </p>
           </motion.div>
 
           <motion.div 
             whileHover={{ y: -6, transition: { duration: 0.2 } }}
-            className="bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-800 shadow-sm"
+            className="relative bg-white rounded-3xl p-8 border-2 border-blue-200 shadow-lg hover:shadow-2xl hover:border-blue-400 transition-all overflow-hidden ring-2 ring-blue-400/10"
           >
-            <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider block mb-1">
-              Ishga Joylashish Kafolati
-            </span>
-            <div className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-heading mb-2">
-              100% Shartnoma
+            <IslamicGirihPattern opacity={0.12} color="#2563eb" />
+            <CornerArabesque position="top-right" size={56} className="text-blue-500/35" />
+            <CornerArabesque position="bottom-left" size={56} className="text-amber-500/35" />
+
+            <div className="relative z-10">
+              <span className="text-xs font-bold text-blue-600 uppercase tracking-wider block mb-1">
+                Ishga Joylashish Kafolati
+              </span>
+              <div className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading mb-2">
+                100% Shartnoma
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                28 oylik dasturni to'liq muvaffaqiyat bilan yakunlagan barcha talabalarga rasmiy kafolat beriladi.
+              </p>
             </div>
-            <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-              28 oylik dasturni to'liq muvaffaqiyat bilan yakunlagan barcha talabalarga rasmiy kafolat beriladi.
-            </p>
           </motion.div>
         </div>
       </motion.section>

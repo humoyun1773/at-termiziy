@@ -5,7 +5,12 @@ import { coursesData } from '../data/coursesData';
 import { CourseCard } from '../components/common/CourseCard';
 import { Sparkles } from 'lucide-react';
 import { Tabs, TabsList, TabsTrigger } from '../components/ui/tabs';
-import { IslamicGirihPattern, ArabesqueDivider, TermiziyEmblem } from '../components/common/OrientalPatterns';
+import { 
+  IslamicGirihPattern, 
+  ArabesqueDivider, 
+  TermiziyEmblem,
+  TermiziyMandalaRing 
+} from '../components/common/OrientalPatterns';
 
 export const CoursesPage: React.FC = () => {
   const { t, language } = useLanguage();
@@ -36,21 +41,28 @@ export const CoursesPage: React.FC = () => {
         transition={{ duration: 0.5 }}
         className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative"
       >
-        <IslamicGirihPattern opacity={0.035} className="text-sky-950" />
-        <div className="flex justify-center mb-3">
-          <TermiziyEmblem size={60} className="drop-shadow-sm hover:scale-105 transition-transform" />
+        <IslamicGirihPattern opacity={0.12} color="#0284c7" />
+        <div className="absolute -top-12 -left-12 pointer-events-none opacity-30">
+          <TermiziyMandalaRing size={280} opacity={0.3} />
         </div>
-        <span className="px-3.5 py-1 rounded-full bg-amber-100 text-amber-900 border border-amber-300 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4 shadow-2xs">
-          <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+        <div className="absolute -bottom-12 -right-12 pointer-events-none opacity-30">
+          <TermiziyMandalaRing size={280} opacity={0.3} />
+        </div>
+
+        <div className="flex justify-center mb-3 relative z-10">
+          <TermiziyEmblem size={68} className="drop-shadow-md hover:scale-105 transition-transform" />
+        </div>
+        <span className="px-4 py-1.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4 shadow-2xs relative z-10">
+          <Sparkles className="w-3.5 h-3.5 text-amber-600 fill-amber-400" />
           {t.coursesPage.tag}
         </span>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 font-heading mb-4">
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 font-heading mb-4 relative z-10">
           {t.coursesPage.title}
         </h1>
-        <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+        <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto relative z-10">
           {t.coursesPage.desc}
         </p>
-        <ArabesqueDivider />
+        <ArabesqueDivider className="relative z-10" />
       </motion.section>
 
       {/* Filter Tabs using shadcn Tabs */}
