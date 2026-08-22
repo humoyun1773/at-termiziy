@@ -4,14 +4,15 @@ import { useLanguage } from '../context/LanguageContext';
 import { TELEGRAM_URL } from '../data/siteConfig';
 import { combinationsData } from '../data/combinationsData';
 import { 
-  Layers, 
   Clock, 
   Briefcase, 
   CheckCircle2, 
   ShieldCheck,
-  Send
+  Send,
+  Sparkles
 } from 'lucide-react';
 import { Button } from '../components/ui/button';
+import { IslamicGirihPattern, CornerArabesque, ArabesqueDivider, TermiziyEmblem } from '../components/common/OrientalPatterns';
 
 export const CombinationsPage: React.FC = () => {
   const { t, language } = useLanguage();
@@ -20,23 +21,27 @@ export const CombinationsPage: React.FC = () => {
   return (
     <div className="py-12 md:py-20 space-y-16 overflow-hidden">
       
-      {/* Header */}
+      {/* Header with Termiziy Emblem & Naqshlar */}
       <motion.section 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative"
       >
-        <span className="px-3.5 py-1 rounded-full bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-300 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4">
-          <Layers className="w-3.5 h-3.5 text-sky-600" />
+        <div className="flex justify-center mb-3">
+          <TermiziyEmblem size={60} className="drop-shadow-sm hover:scale-105 transition-transform" />
+        </div>
+        <span className="px-3.5 py-1 rounded-full bg-amber-100 text-amber-900 border border-amber-300 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4 shadow-2xs">
+          <Sparkles className="w-3.5 h-3.5 text-amber-600" />
           {t.combinationsSection.tag}
         </span>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white font-heading mb-4">
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 font-heading mb-4">
           {t.combinationsSection.title}
         </h1>
-        <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+        <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
           {t.combinationsSection.subtitle}
         </p>
+        <ArabesqueDivider />
       </motion.section>
 
       {/* 4 Detailed Combinations Sections */}
@@ -49,13 +54,17 @@ export const CombinationsPage: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.5, delay: idx * 0.1 }}
-            className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200 dark:border-slate-800 shadow-md hover:shadow-xl transition-all"
+            className="relative bg-white rounded-3xl p-6 sm:p-10 border border-sky-100 shadow-md hover:shadow-xl transition-all overflow-hidden"
           >
+            <IslamicGirihPattern opacity={0.035} className="text-sky-950" />
+            <CornerArabesque position="top-right" className="text-sky-500/20" />
+            <CornerArabesque position="bottom-left" className="text-amber-500/20" />
+
             {/* Header info */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-100 dark:border-slate-800">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-sky-100 relative z-10">
               <div>
                 <div className="flex items-center gap-2 mb-1.5">
-                  <span className="px-3 py-1 rounded-lg bg-sky-600 text-white font-extrabold text-xs uppercase tracking-wider">
+                  <span className="px-3 py-1 rounded-lg bg-sky-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-2xs">
                     {combo.titleKey}
                   </span>
                   <span className="text-xs font-bold text-slate-500 dark:text-slate-400 flex items-center gap-1">

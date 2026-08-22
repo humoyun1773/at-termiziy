@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { Card } from '../ui/card';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
+import { CornerArabesque } from './OrientalPatterns';
 
 interface Props {
   combination: Combination;
@@ -39,11 +40,12 @@ export const CombinationCard: React.FC<Props> = ({ combination }) => {
       whileHover={{ y: -4, transition: { duration: 0.2 } }}
       className="h-full"
     >
-      <Card className={`relative rounded-2xl p-5 sm:p-6 flex flex-col justify-between h-full transition-all duration-200 ${
+      <Card className={`relative rounded-3xl p-5 sm:p-6 flex flex-col justify-between h-full transition-all duration-200 overflow-hidden ${
         combination.isPopular 
-          ? 'border-2 border-sky-400 dark:border-sky-500/80 bg-white dark:bg-slate-900 shadow-lg shadow-sky-500/10 ring-2 ring-sky-400/20' 
-          : 'border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900/90 shadow-sm hover:shadow-lg hover:border-sky-300 dark:hover:border-sky-600'
+          ? 'border-2 border-sky-400 bg-white shadow-lg shadow-sky-500/10 ring-2 ring-sky-400/20' 
+          : 'border border-sky-100 bg-white shadow-sm hover:shadow-lg hover:border-sky-300'
       }`}>
+        <CornerArabesque position="top-right" className="text-sky-400/20" />
         {/* Popular Badge */}
         {combination.isPopular && (
           <div className="absolute -top-3 right-5">

@@ -3,9 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { coursesData } from '../data/coursesData';
 import { CourseCard } from '../components/common/CourseCard';
-import { BookOpen } from 'lucide-react';
-import { Badge } from '../components/ui/badge';
+import { Sparkles } from 'lucide-react';
 import { Tabs, TabsList, TabsTrigger } from '../components/ui/tabs';
+import { IslamicGirihPattern, ArabesqueDivider, TermiziyEmblem } from '../components/common/OrientalPatterns';
 
 export const CoursesPage: React.FC = () => {
   const { t, language } = useLanguage();
@@ -29,23 +29,28 @@ export const CoursesPage: React.FC = () => {
   return (
     <div className="py-12 md:py-20 space-y-16 overflow-hidden">
       
-      {/* Header */}
+      {/* Header with Termiziy Emblem & Naqshlar */}
       <motion.section 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 text-center max-w-3xl"
+        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative"
       >
-        <Badge variant="secondary" className="px-3.5 py-1 gap-1.5 mb-4">
-          <BookOpen className="w-3.5 h-3.5 text-sky-600" />
+        <IslamicGirihPattern opacity={0.035} className="text-sky-950" />
+        <div className="flex justify-center mb-3">
+          <TermiziyEmblem size={60} className="drop-shadow-sm hover:scale-105 transition-transform" />
+        </div>
+        <span className="px-3.5 py-1 rounded-full bg-amber-100 text-amber-900 border border-amber-300 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4 shadow-2xs">
+          <Sparkles className="w-3.5 h-3.5 text-amber-600" />
           {t.coursesPage.tag}
-        </Badge>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white font-heading mb-4">
+        </span>
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 font-heading mb-4">
           {t.coursesPage.title}
         </h1>
-        <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+        <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
           {t.coursesPage.desc}
         </p>
+        <ArabesqueDivider />
       </motion.section>
 
       {/* Filter Tabs using shadcn Tabs */}

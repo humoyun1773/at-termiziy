@@ -11,10 +11,12 @@ import {
   Navigation, 
   Car, 
   Bus, 
-  Compass
+  Compass,
+  Sparkles
 } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card } from '../components/ui/card';
+import { IslamicGirihPattern, CornerArabesque, ArabesqueDivider, TermiziyEmblem } from '../components/common/OrientalPatterns';
 
 export const LocationPage: React.FC = () => {
   const { t } = useLanguage();
@@ -22,26 +24,31 @@ export const LocationPage: React.FC = () => {
   return (
     <div className="py-12 md:py-20 space-y-16 overflow-hidden">
       
-      {/* Header Banner */}
+      {/* Header Banner with Termiziy Emblem & Naqshlar */}
       <motion.section 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative"
       >
-        <span className="px-3.5 py-1 rounded-full bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-300 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4">
-          <MapPin className="w-3.5 h-3.5 text-sky-600" />
+        <IslamicGirihPattern opacity={0.035} className="text-sky-950" />
+        <div className="flex justify-center mb-3">
+          <TermiziyEmblem size={60} className="drop-shadow-sm hover:scale-105 transition-transform" />
+        </div>
+        <span className="px-3.5 py-1 rounded-full bg-amber-100 text-amber-900 border border-amber-300 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4 shadow-2xs">
+          <Sparkles className="w-3.5 h-3.5 text-amber-600" />
           <span>{t.contactPage.title}</span>
         </span>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white font-heading mb-4">
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 font-heading mb-4">
           {t.nav.location}
         </h1>
-        <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto">
+        <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
           {t.hero.subheading}
         </p>
+        <ArabesqueDivider />
       </motion.section>
 
-      {/* Quick Location Snapshot Cards */}
+      {/* Quick Location Snapshot Cards with Naqshlar */}
       <motion.section 
         initial={{ opacity: 0, y: 25 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -50,9 +57,10 @@ export const LocationPage: React.FC = () => {
         className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8"
       >
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-6">
-          <Card className="p-6 rounded-3xl bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-2xl bg-sky-50 dark:bg-sky-950/60 text-sky-600 dark:text-sky-400 flex items-center justify-center">
+          <Card className="relative p-6 rounded-3xl bg-white border-sky-100 shadow-sm flex flex-col justify-between overflow-hidden">
+            <CornerArabesque position="top-right" className="text-sky-400/20" />
+            <div className="flex items-center gap-3 mb-3 relative z-10">
+              <div className="w-10 h-10 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center">
                 <MapPin className="w-5 h-5" />
               </div>
               <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Manzil</span>

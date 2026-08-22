@@ -3,11 +3,12 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { TELEGRAM_URL } from '../data/siteConfig';
 import { 
-  ShieldCheck, 
   Globe,
-  Send
+  Send,
+  Sparkles
 } from 'lucide-react';
 import { Button } from '../components/ui/button';
+import { IslamicGirihPattern, CornerArabesque, ArabesqueDivider, TermiziyEmblem } from '../components/common/OrientalPatterns';
 
 export const CareerPage: React.FC = () => {
   const { t } = useLanguage();
@@ -15,23 +16,27 @@ export const CareerPage: React.FC = () => {
   return (
     <div className="py-12 md:py-20 space-y-16 overflow-hidden">
       
-      {/* Header */}
+      {/* Header with Termiziy Emblem & Naqshlar */}
       <motion.section 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative"
       >
-        <span className="px-3.5 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4">
-          <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+        <div className="flex justify-center mb-3">
+          <TermiziyEmblem size={60} className="drop-shadow-sm hover:scale-105 transition-transform" />
+        </div>
+        <span className="px-3.5 py-1 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-300 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4 shadow-2xs">
+          <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
           {t.jobGuarantee.tag}
         </span>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white font-heading mb-4">
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 font-heading mb-4">
           {t.jobGuarantee.title}
         </h1>
-        <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+        <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
           {t.jobGuarantee.desc}
         </p>
+        <ArabesqueDivider color="#10b981" />
       </motion.section>
 
       {/* Salary & Opportunity Metrics */}
@@ -45,17 +50,22 @@ export const CareerPage: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <motion.div 
             whileHover={{ y: -6, transition: { duration: 0.2 } }}
-            className="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-3xl p-8 text-white shadow-lg"
+            className="relative bg-gradient-to-br from-emerald-700 to-teal-800 rounded-3xl p-8 text-white shadow-lg overflow-hidden"
           >
-            <span className="text-xs font-bold text-emerald-200 uppercase tracking-wider block mb-1">
-              Boshlang'ich Maosh Prognozi
-            </span>
-            <div className="text-3xl sm:text-4xl font-extrabold font-heading mb-2">
-              $800 – $3,500+
+            <IslamicGirihPattern opacity={0.06} className="text-white" />
+            <CornerArabesque position="top-right" className="text-emerald-300/30" />
+            
+            <div className="relative z-10">
+              <span className="text-xs font-bold text-emerald-200 uppercase tracking-wider block mb-1">
+                Boshlang'ich Maosh Prognozi
+              </span>
+              <div className="text-3xl sm:text-4xl font-extrabold font-heading mb-2">
+                $800 – $3,500+
+              </div>
+              <p className="text-xs text-emerald-100 leading-relaxed">
+                4 ta xorijiy tilni puxta biladigan mutaxassislarga xalqaro kompaniyalarda to'lanadigan o'rtacha oylik maosh.
+              </p>
             </div>
-            <p className="text-xs text-emerald-100 leading-relaxed">
-              4 ta xorijiy tilni puxta biladigan mutaxassislarga xalqaro kompaniyalarda to'lanadigan o'rtacha oylik maosh.
-            </p>
           </motion.div>
 
           <motion.div 

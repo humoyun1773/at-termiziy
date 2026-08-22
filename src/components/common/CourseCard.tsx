@@ -6,6 +6,7 @@ import { TELEGRAM_URL } from '../../data/siteConfig';
 import { Award, Clock, Send, CheckCircle2 } from 'lucide-react';
 import { Card } from '../ui/card';
 import { Button } from '../ui/button';
+import { CornerArabesque } from './OrientalPatterns';
 
 interface Props {
   course: CourseDetail;
@@ -28,7 +29,8 @@ export const CourseCard: React.FC<Props> = ({ course }) => {
       whileHover={{ y: -6, transition: { duration: 0.2 } }}
       className="h-full"
     >
-      <Card className="rounded-3xl p-6 md:p-8 border-slate-200 dark:border-slate-800 shadow-2xs hover:shadow-xl hover:border-sky-300 dark:hover:border-sky-700 transition-all flex flex-col justify-between group h-full">
+      <Card className="relative rounded-3xl p-6 md:p-8 border-sky-100 shadow-2xs hover:shadow-xl hover:border-sky-300 transition-all flex flex-col justify-between group h-full bg-white overflow-hidden">
+        <CornerArabesque position="top-right" className="text-sky-400/20" />
       <div>
         {/* Flag and certificate header */}
         <div className="flex items-center justify-between gap-2 mb-4">
