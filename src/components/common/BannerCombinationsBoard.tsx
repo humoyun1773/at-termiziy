@@ -14,7 +14,7 @@ import {
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { Card } from '../ui/card';
-import { IslamicGirihPattern, CornerArabesque } from './OrientalPatterns';
+import { IslamicGirihPattern, CornerArabesque, TermiziyMandalaRing } from './OrientalPatterns';
 
 interface LanguageStep {
   name: string;
@@ -22,7 +22,7 @@ interface LanguageStep {
   code: string;
 }
 
-interface BannerColumn {
+interface CombinationPlan {
   id: number;
   title: string;
   steps: LanguageStep[];
@@ -32,13 +32,13 @@ export const BannerCombinationsBoard: React.FC = () => {
   const { t, language } = useLanguage();
   const [activeCombo, setActiveCombo] = useState<number>(1);
 
-  const durationStr = language === 'ru' ? '7 Мес' : language === 'en' ? '7 Mon' : '7 Oy';
-  const comboPrefix = language === 'ru' ? 'КОМБИНАЦИЯ' : language === 'en' ? 'COMBINATION' : 'KOMBINATSIYA';
+  const durationStr = language === 'ru' ? '7 месяцев' : language === 'en' ? '7 months' : '7 oy';
 
-  const combinations: BannerColumn[] = [
+  // EXACT CURRICULUM APPROVED COMBINATIONS
+  const combinations: CombinationPlan[] = [
     {
       id: 1,
-      title: `${comboPrefix} 1`,
+      title: language === 'ru' ? 'Комбинация 1' : language === 'en' ? 'Combination 1' : 'Kombinatsiya 1',
       steps: [
         { name: t.languages.english, duration: durationStr, code: "EN" },
         { name: t.languages.german, duration: durationStr, code: "DE" },
@@ -48,7 +48,7 @@ export const BannerCombinationsBoard: React.FC = () => {
     },
     {
       id: 2,
-      title: `${comboPrefix} 2`,
+      title: language === 'ru' ? 'Комбинация 2' : language === 'en' ? 'Combination 2' : 'Kombinatsiya 2',
       steps: [
         { name: t.languages.german, duration: durationStr, code: "DE" },
         { name: t.languages.russian, duration: durationStr, code: "RU" },
@@ -58,7 +58,7 @@ export const BannerCombinationsBoard: React.FC = () => {
     },
     {
       id: 3,
-      title: `${comboPrefix} 3`,
+      title: language === 'ru' ? 'Комбинация 3' : language === 'en' ? 'Combination 3' : 'Kombinatsiya 3',
       steps: [
         { name: t.languages.turkish, duration: durationStr, code: "TR" },
         { name: t.languages.english, duration: durationStr, code: "EN" },
@@ -68,7 +68,7 @@ export const BannerCombinationsBoard: React.FC = () => {
     },
     {
       id: 4,
-      title: `${comboPrefix} 4`,
+      title: language === 'ru' ? 'Комбинация 4' : language === 'en' ? 'Combination 4' : 'Kombinatsiya 4',
       steps: [
         { name: t.languages.korean, duration: durationStr, code: "KO" },
         { name: t.languages.japanese, duration: durationStr, code: "JA" },
@@ -79,21 +79,27 @@ export const BannerCombinationsBoard: React.FC = () => {
   ];
 
   return (
-    <Card className="relative w-full bg-white rounded-3xl p-5 sm:p-8 border-sky-100 shadow-xl overflow-hidden">
-      <IslamicGirihPattern opacity={0.04} className="text-sky-950" />
-      <CornerArabesque position="top-right" className="text-sky-400/20" />
-      <CornerArabesque position="bottom-left" className="text-sky-400/20" />
+    <Card className="relative w-full bg-white rounded-3xl p-5 sm:p-8 border-2 border-sky-200/80 shadow-2xl overflow-hidden ring-4 ring-sky-500/10">
+      {/* Prominent Oriental Naqshlar & Mandala */}
+      <IslamicGirihPattern opacity={0.14} color="#0284c7" />
+      <div className="absolute -top-20 -right-20 pointer-events-none opacity-40">
+        <TermiziyMandalaRing size={260} opacity={0.35} />
+      </div>
+      <CornerArabesque position="top-right" size={64} className="text-amber-500/35" />
+      <CornerArabesque position="bottom-left" size={64} className="text-sky-500/35" />
+      <CornerArabesque position="top-left" size={64} className="text-sky-500/35" />
+      <CornerArabesque position="bottom-right" size={64} className="text-amber-500/35" />
       
       {/* Board Top Header with Oriental Touch */}
       <div className="text-center mb-8 relative z-10">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-[11px] font-extrabold uppercase tracking-wider mb-2">
-          <Sparkles className="w-3 h-3 text-amber-600" />
-          <span>At-Termiziy Ilmiy Metodikasi</span>
+        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-amber-100/90 border border-amber-300 text-amber-900 text-[11px] font-extrabold uppercase tracking-wider mb-2 shadow-2xs">
+          <Sparkles className="w-3.5 h-3.5 text-amber-600 fill-amber-400" />
+          <span>At-Termiziy Ilmiy Metodikasi • 28 Oylik Dastur</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-heading uppercase">
+        <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-heading uppercase">
           {t.brand.name}
         </h2>
-        <p className="text-xs sm:text-sm text-slate-500 font-medium mt-1">
+        <p className="text-xs sm:text-sm text-slate-600 font-semibold mt-1">
           {t.hero.titleHighlight} — {t.hero.titleEnd}
         </p>
       </div>

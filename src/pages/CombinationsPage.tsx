@@ -56,9 +56,11 @@ export const CombinationsPage: React.FC = () => {
             transition={{ duration: 0.5, delay: idx * 0.1 }}
             className="relative bg-white rounded-3xl p-6 sm:p-10 border border-sky-100 shadow-md hover:shadow-xl transition-all overflow-hidden"
           >
-            <IslamicGirihPattern opacity={0.035} className="text-sky-950" />
-            <CornerArabesque position="top-right" className="text-sky-500/20" />
-            <CornerArabesque position="bottom-left" className="text-amber-500/20" />
+            <IslamicGirihPattern opacity={0.12} color="#0284c7" />
+            <CornerArabesque position="top-right" size={60} className="text-amber-500/35" />
+            <CornerArabesque position="bottom-left" size={60} className="text-sky-500/35" />
+            <CornerArabesque position="top-left" size={60} className="text-sky-500/35" />
+            <CornerArabesque position="bottom-right" size={60} className="text-amber-500/35" />
 
             {/* Header info */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-sky-100 relative z-10">

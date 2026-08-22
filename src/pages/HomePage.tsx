@@ -5,7 +5,13 @@ import { useLanguage } from '../context/LanguageContext';
 import { TELEGRAM_URL } from '../data/siteConfig';
 import { teachersData, testimonialsData, faqData } from '../data/mockData';
 import { BannerCombinationsBoard } from '../components/common/BannerCombinationsBoard';
-import { IslamicGirihPattern, CornerArabesque } from '../components/common/OrientalPatterns';
+import { 
+  IslamicGirihPattern, 
+  CornerArabesque, 
+  TermiziyMandalaRing, 
+  ArabesqueDivider,
+  TermiziyEmblem 
+} from '../components/common/OrientalPatterns';
 import { Button } from '../components/ui/button';
 import { Badge } from '../components/ui/badge';
 import { Card, CardContent } from '../components/ui/card';
@@ -35,16 +41,24 @@ export const HomePage: React.FC = () => {
   const { t, language } = useLanguage();
 
   return (
-    <div className="space-y-16 md:space-y-20 pb-20 overflow-hidden">
+    <div className="space-y-16 md:space-y-24 pb-20 overflow-hidden">
       
-      {/* 1. HERO SECTION */}
-      <section className="relative pt-6 pb-4 md:pt-10 md:pb-8 bg-mesh-subtle overflow-hidden">
-        {/* Subtle Islamic Girih Geometric Watermark */}
-        <IslamicGirihPattern opacity={0.035} className="text-sky-950" />
+      {/* 1. HERO SECTION WITH PROMINENT ORIENTAL NAQSHLAR */}
+      <section className="relative pt-6 pb-6 md:pt-12 md:pb-12 bg-mesh-subtle overflow-hidden border-b border-sky-100">
+        {/* Prominent Islamic Girih Geometric Watermark */}
+        <IslamicGirihPattern opacity={0.12} color="#0284c7" />
         
+        {/* Animated Rotating Islamic Rosette / Mandala Rings */}
+        <div className="absolute -top-16 -left-16 pointer-events-none opacity-40">
+          <TermiziyMandalaRing size={380} opacity={0.3} />
+        </div>
+        <div className="absolute -bottom-20 -right-16 pointer-events-none opacity-40">
+          <TermiziyMandalaRing size={420} opacity={0.25} />
+        </div>
+
         {/* Animated Background Glowing Orbs */}
-        <div className="absolute top-10 left-1/4 w-72 h-72 bg-sky-400/15 rounded-full blur-3xl pointer-events-none animate-blob" />
-        <div className="absolute top-32 right-1/4 w-80 h-80 bg-blue-500/15 rounded-full blur-3xl pointer-events-none animate-blob [animation-delay:4s]" />
+        <div className="absolute top-10 left-1/4 w-80 h-80 bg-sky-400/20 rounded-full blur-3xl pointer-events-none animate-blob" />
+        <div className="absolute top-32 right-1/4 w-96 h-96 bg-amber-400/15 rounded-full blur-3xl pointer-events-none animate-blob [animation-delay:3s]" />
         
         <div className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 relative z-10">
           
@@ -91,8 +105,13 @@ export const HomePage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="text-center max-w-4xl mx-auto space-y-5 mb-8 md:mb-12"
+            className="text-center max-w-4xl mx-auto space-y-4 mb-8 md:mb-12"
           >
+            {/* Top Termiziy Crest Emblem */}
+            <div className="flex justify-center mb-1">
+              <TermiziyEmblem size={64} className="hover:scale-110 transition-transform duration-300 drop-shadow-md" />
+            </div>
+
             {/* Top Motto pill */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.9 }}
@@ -106,7 +125,7 @@ export const HomePage: React.FC = () => {
             
             {/* Main Headline */}
             <h1 
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-black text-slate-900 dark:text-white tracking-tight font-heading max-w-4xl mx-auto py-3"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-black text-slate-900 dark:text-white tracking-tight font-heading max-w-4xl mx-auto py-2"
               style={{ lineHeight: 1.55 }}
             >
               <span className="block mb-2 md:mb-3">{t.hero.titleStart}</span>
@@ -118,11 +137,13 @@ export const HomePage: React.FC = () => {
 
             {/* Subtitle */}
             <p 
-              className="text-sm sm:text-base md:text-lg text-slate-600 dark:text-slate-300 font-normal max-w-2xl mx-auto pt-2"
+              className="text-sm sm:text-base md:text-lg text-slate-600 font-normal max-w-2xl mx-auto pt-2"
               style={{ lineHeight: 1.7 }}
             >
               {t.hero.subheading}
             </p>
+
+            <ArabesqueDivider />
 
             {/* Action Buttons */}
             <div className="flex items-center justify-center pt-2">

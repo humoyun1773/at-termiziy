@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
 import { LanguageSwitcher } from '../common/LanguageSwitcher';
 import { GraduationCap, Menu, X, Sparkles } from 'lucide-react';
+import { OrientalTopBorderBand } from '../common/OrientalPatterns';
 
 export const Navbar: React.FC = () => {
   const { t } = useLanguage();
@@ -40,6 +41,7 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
+      <OrientalTopBorderBand />
       {/* Main Sticky Navbar */}
       <header className={`sticky top-0 z-40 bg-white/95 backdrop-blur-md transition-all duration-200 border-b border-sky-100/80 shadow-xs ${
         isScrolled 
