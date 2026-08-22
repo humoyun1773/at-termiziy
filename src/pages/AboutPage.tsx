@@ -2,11 +2,18 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { 
-  GraduationCap, 
   Compass, 
-  Target
+  Target,
+  Sparkles
 } from 'lucide-react';
 import { LocationSection } from '../components/common/LocationSection';
+import { AlHakimTermiziySection } from '../components/common/AlHakimTermiziySection';
+import { 
+  IslamicGirihPattern, 
+  ArabesqueDivider, 
+  TermiziyEmblem,
+  CornerArabesque
+} from '../components/common/OrientalPatterns';
 
 export const AboutPage: React.FC = () => {
   const { t } = useLanguage();
@@ -14,24 +21,33 @@ export const AboutPage: React.FC = () => {
   return (
     <div className="py-12 md:py-20 space-y-16 overflow-hidden">
       
-      {/* Header */}
+      {/* Header with Termiziy Emblem */}
       <motion.section 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative"
       >
-        <span className="px-3.5 py-1 rounded-full bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-300 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4">
-          <GraduationCap className="w-3.5 h-3.5 text-sky-600" />
+        <div className="flex justify-center mb-3">
+          <TermiziyEmblem size={60} className="drop-shadow-sm hover:scale-105 transition-transform" />
+        </div>
+        <span className="px-3.5 py-1 rounded-full bg-amber-100 text-amber-900 border border-amber-300 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4 shadow-2xs">
+          <Sparkles className="w-3.5 h-3.5 text-amber-600" />
           {t.aboutPage.tag}
         </span>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white font-heading mb-4">
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 font-heading mb-4">
           {t.aboutPage.title}
         </h1>
-        <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+        <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
           {t.aboutPage.intro}
         </p>
+        <ArabesqueDivider />
       </motion.section>
+
+      {/* Historical Heritage Section */}
+      <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8">
+        <AlHakimTermiziySection />
+      </section>
 
       {/* Philosophy Banner */}
       <motion.section 
@@ -41,10 +57,10 @@ export const AboutPage: React.FC = () => {
         transition={{ duration: 0.5 }}
         className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8"
       >
-        <div className="bg-gradient-to-r from-sky-800 via-sky-700 to-blue-900 rounded-3xl p-8 md:p-14 text-white shadow-xl relative overflow-hidden">
-          {/* Animated decorative glow orb */}
-          <div className="absolute -right-10 -bottom-10 w-80 h-80 bg-sky-400/20 rounded-full blur-3xl animate-blob pointer-events-none" />
-          <div className="absolute left-1/3 -top-10 w-64 h-64 bg-blue-400/20 rounded-full blur-3xl animate-blob [animation-delay:3s] pointer-events-none" />
+        <div className="bg-gradient-to-r from-sky-900 via-sky-800 to-blue-950 rounded-3xl p-8 md:p-14 text-white shadow-xl relative overflow-hidden">
+          <IslamicGirihPattern opacity={0.06} className="text-white" />
+          <CornerArabesque position="top-right" className="text-amber-400/30" />
+          <CornerArabesque position="bottom-left" className="text-amber-400/30" />
 
           <div className="max-w-3xl space-y-4 relative z-10">
             <span className="text-xs font-bold text-amber-300 uppercase tracking-wider inline-flex items-center gap-2">

@@ -5,6 +5,8 @@ import { useLanguage } from '../context/LanguageContext';
 import { TELEGRAM_URL } from '../data/siteConfig';
 import { teachersData, testimonialsData, faqData } from '../data/mockData';
 import { BannerCombinationsBoard } from '../components/common/BannerCombinationsBoard';
+import { AlHakimTermiziySection } from '../components/common/AlHakimTermiziySection';
+import { IslamicGirihPattern } from '../components/common/OrientalPatterns';
 import { Button } from '../components/ui/button';
 import { Badge } from '../components/ui/badge';
 import { Card, CardContent } from '../components/ui/card';
@@ -26,7 +28,8 @@ import {
   Star, 
   UserCheck, 
   Building2, 
-  Send
+  Send,
+  Sparkles
 } from 'lucide-react';
 
 export const HomePage: React.FC = () => {
@@ -37,9 +40,12 @@ export const HomePage: React.FC = () => {
       
       {/* 1. HERO SECTION */}
       <section className="relative pt-6 pb-4 md:pt-10 md:pb-8 bg-mesh-subtle overflow-hidden">
+        {/* Subtle Islamic Girih Geometric Watermark */}
+        <IslamicGirihPattern opacity={0.035} className="text-sky-950" />
+        
         {/* Animated Background Glowing Orbs */}
-        <div className="absolute top-10 left-1/4 w-72 h-72 bg-sky-400/15 dark:bg-sky-500/10 rounded-full blur-3xl pointer-events-none animate-blob" />
-        <div className="absolute top-32 right-1/4 w-80 h-80 bg-blue-500/15 dark:bg-blue-600/10 rounded-full blur-3xl pointer-events-none animate-blob [animation-delay:4s]" />
+        <div className="absolute top-10 left-1/4 w-72 h-72 bg-sky-400/15 rounded-full blur-3xl pointer-events-none animate-blob" />
+        <div className="absolute top-32 right-1/4 w-80 h-80 bg-blue-500/15 rounded-full blur-3xl pointer-events-none animate-blob [animation-delay:4s]" />
         
         <div className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 relative z-10">
           
@@ -93,9 +99,9 @@ export const HomePage: React.FC = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-100/90 dark:bg-sky-950/80 text-sky-800 dark:text-sky-300 text-xs font-extrabold tracking-wide uppercase shadow-2xs border border-sky-200 dark:border-sky-800"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 text-amber-900 text-xs font-extrabold tracking-wide uppercase shadow-2xs border border-amber-200"
             >
-              <span className="w-2 h-2 rounded-full bg-sky-500 animate-ping" />
+              <Sparkles className="w-3.5 h-3.5 text-amber-600 fill-amber-400" />
               <span>{t.brand.motto}</span>
             </motion.div>
             
@@ -239,6 +245,17 @@ export const HomePage: React.FC = () => {
             </div>
           </div>
         </div>
+      </motion.section>
+
+      {/* 4. AL-HAKIM AT-TERMIZIY HISTORICAL HERITAGE & NAQSHLAR */}
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.5 }}
+        className="max-w-[1600px] w-full mx-auto px-4 sm:px-6"
+      >
+        <AlHakimTermiziySection />
       </motion.section>
 
       {/* 6. CAMPUS & ENVIRONMENT IN QARSHI */}

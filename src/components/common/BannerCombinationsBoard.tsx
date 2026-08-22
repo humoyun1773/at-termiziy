@@ -8,11 +8,13 @@ import {
   Calendar, 
   ShieldCheck,
   ChevronDown,
-  Send
+  Send,
+  Sparkles
 } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { Card } from '../ui/card';
+import { IslamicGirihPattern, CornerArabesque } from './OrientalPatterns';
 
 interface LanguageStep {
   name: string;
@@ -77,14 +79,21 @@ export const BannerCombinationsBoard: React.FC = () => {
   ];
 
   return (
-    <Card className="w-full bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-8 border-slate-200 dark:border-slate-800 shadow-lg">
+    <Card className="relative w-full bg-white rounded-3xl p-5 sm:p-8 border-sky-100 shadow-xl overflow-hidden">
+      <IslamicGirihPattern opacity={0.04} className="text-sky-950" />
+      <CornerArabesque position="top-right" className="text-sky-400/20" />
+      <CornerArabesque position="bottom-left" className="text-sky-400/20" />
       
-      {/* Board Top Header */}
-      <div className="text-center mb-8">
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight font-heading uppercase">
+      {/* Board Top Header with Oriental Touch */}
+      <div className="text-center mb-8 relative z-10">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-[11px] font-extrabold uppercase tracking-wider mb-2">
+          <Sparkles className="w-3 h-3 text-amber-600" />
+          <span>At-Termiziy Ilmiy Metodikasi</span>
+        </div>
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-heading uppercase">
           {t.brand.name}
         </h2>
-        <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium mt-1">
+        <p className="text-xs sm:text-sm text-slate-500 font-medium mt-1">
           {t.hero.titleHighlight} — {t.hero.titleEnd}
         </p>
       </div>
