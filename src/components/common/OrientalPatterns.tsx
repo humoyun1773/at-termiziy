@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 
 /**
  * Islamic Girih Geometric Background Pattern (Rich & Crisp Multi-Layer SVG Vector)
@@ -248,6 +248,19 @@ export const OrientalTopBorderBand: React.FC<{ className?: string }> = ({ classN
   return (
     <div className={`w-full h-2.5 bg-gradient-to-r from-sky-600 via-amber-400 to-sky-600 relative overflow-hidden shadow-xs ${className}`}>
       <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1.5px,transparent_1.5px)] [background-size:12px_12px] opacity-60" />
+    </div>
+  );
+};
+
+/**
+ * Vertical Oriental Border Pillars for Screen Edges
+ */
+export const OrientalSideBorder: React.FC<{ side: 'left' | 'right' }> = ({ side }) => {
+  const positionClass = side === 'left' ? 'left-0' : 'right-0';
+  return (
+    <div className={`fixed top-0 bottom-0 ${positionClass} w-2.5 sm:w-3.5 z-30 pointer-events-none hidden md:block overflow-hidden`}>
+      <div className="w-full h-full bg-gradient-to-b from-sky-600 via-amber-400 to-blue-700 opacity-70 shadow-lg" />
+      <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1.5px,transparent_1.5px)] [background-size:10px_10px] opacity-50" />
     </div>
   );
 };

@@ -14,6 +14,8 @@ import { CareerPage } from '../pages/CareerPage';
 import { ContactPage } from '../pages/ContactPage';
 import { NotFoundPage } from '../pages/NotFoundPage';
 
+import { IslamicGirihPattern, OrientalSideBorder } from '../components/common/OrientalPatterns';
+
 /**
  * Root Layout Component containing global layout shell:
  * Navbar, Outlet, Footer, Floating Actions, and ScrollToTop
@@ -22,23 +24,32 @@ const RootLayout: React.FC = () => {
   const location = useLocation();
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-slate-900 selection:bg-sky-500 selection:text-white">
+    <div className="min-h-screen flex flex-col bg-white text-slate-900 selection:bg-sky-500 selection:text-white relative">
+      {/* Global Oriental Background Pattern Across ALL Pages */}
+      <IslamicGirihPattern opacity={0.09} color="#0284c7" className="fixed inset-0 pointer-events-none z-0" />
+      
+      {/* Global Left & Right Oriental Border Pillars */}
+      <OrientalSideBorder side="left" />
+      <OrientalSideBorder side="right" />
+
       <ScrollToTop />
-      <Navbar />
-      <main className="flex-1">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={location.pathname}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
-          >
-            <Outlet />
-          </motion.div>
-        </AnimatePresence>
-      </main>
-      <Footer />
+      <div className="relative z-10 flex flex-col flex-1">
+        <Navbar />
+        <main className="flex-1">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={location.pathname}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+            >
+              <Outlet />
+            </motion.div>
+          </AnimatePresence>
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 };
