@@ -52,25 +52,25 @@ export const AboutPage: React.FC = () => {
         transition={{ duration: 0.5 }}
         className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8"
       >
-        <div className="bg-gradient-to-r from-sky-900 via-sky-800 to-blue-950 rounded-3xl p-8 md:p-14 text-white shadow-2xl relative overflow-hidden border border-sky-700/40 ring-4 ring-sky-500/10">
-          {/* Background Language Students collaborating */}
-          <div className="absolute inset-0 pointer-events-none opacity-20">
+        <div className="bg-white/95 backdrop-blur-md rounded-3xl p-8 md:p-14 text-slate-900 shadow-xl relative overflow-hidden border border-sky-100">
+          <div className="relative h-48 sm:h-64 -mx-8 -mt-8 md:-mx-14 md:-mt-14 mb-8 overflow-hidden">
             <img 
               src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1920" 
               alt="Talabalar akademiyasi" 
               className="w-full h-full object-cover"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-white via-white/30 to-transparent" />
           </div>
 
           <div className="max-w-3xl space-y-4 relative z-10">
-            <span className="text-xs font-bold text-amber-300 uppercase tracking-wider inline-flex items-center gap-2 bg-amber-500/20 px-3 py-1 rounded-full border border-amber-400/30">
-              <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+            <span className="text-xs font-bold text-sky-900 uppercase tracking-wider inline-flex items-center gap-2 bg-sky-100 px-3.5 py-1 rounded-full border border-sky-200">
+              <span className="w-2 h-2 rounded-full bg-sky-600 animate-pulse" />
               {t.brand.motto}
             </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold font-heading">
+            <h2 className="text-2xl sm:text-4xl font-extrabold font-heading text-slate-900">
               {t.mottoSection.title}
             </h2>
-            <p className="text-xs sm:text-sm md:text-base text-sky-100 leading-relaxed">
+            <p className="text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed">
               {t.mottoSection.description}
             </p>
           </div>
@@ -88,7 +88,7 @@ export const AboutPage: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <motion.div 
             whileHover={{ y: -6, scale: 1.01, transition: { duration: 0.2 } }}
-            className="relative bg-white rounded-3xl p-0 border border-sky-100 shadow-lg hover:shadow-2xl hover:border-sky-300 transition-all overflow-hidden flex flex-col"
+            className="relative bg-white/95 backdrop-blur-md rounded-3xl p-0 border border-sky-100 shadow-lg hover:shadow-2xl hover:border-sky-300 transition-all overflow-hidden flex flex-col"
           >
             <div className="h-48 w-full overflow-hidden relative">
               <img 
@@ -116,7 +116,7 @@ export const AboutPage: React.FC = () => {
 
           <motion.div 
             whileHover={{ y: -6, scale: 1.01, transition: { duration: 0.2 } }}
-            className="relative bg-white rounded-3xl p-0 border border-emerald-100 shadow-lg hover:shadow-2xl hover:border-emerald-300 transition-all overflow-hidden flex flex-col"
+            className="relative bg-white/95 backdrop-blur-md rounded-3xl p-0 border border-emerald-100 shadow-lg hover:shadow-2xl hover:border-emerald-300 transition-all overflow-hidden flex flex-col"
           >
             <div className="h-48 w-full overflow-hidden relative">
               <img 
@@ -208,13 +208,13 @@ export const AboutPage: React.FC = () => {
         transition={{ duration: 0.5 }}
         className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8"
       >
-        <div className="relative bg-gradient-to-br from-slate-900 via-sky-950 to-slate-900 rounded-3xl p-8 md:p-12 text-white shadow-2xl border border-sky-800 overflow-hidden">
+        <div className="relative bg-white/95 backdrop-blur-md rounded-3xl p-8 md:p-12 text-slate-900 shadow-xl border border-sky-100 overflow-hidden">
           <div className="max-w-3xl mx-auto text-center space-y-3 mb-10 relative z-10">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400/30 text-amber-300 text-xs font-bold uppercase tracking-wider">
-              <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-amber-100 border border-amber-300 text-amber-900 text-xs font-bold uppercase tracking-wider">
+              <ShieldCheck className="w-3.5 h-3.5 text-amber-600" />
               <span>Qat'iy Intizom Tamoyillari</span>
             </div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-white">
+            <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-slate-900">
               {t.aboutPage.rulesTitle}
             </h3>
           </div>
@@ -228,12 +228,12 @@ export const AboutPage: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.35, delay: idx * 0.08 }}
                 whileHover={{ scale: 1.03, y: -2, transition: { duration: 0.2 } }}
-                className="bg-white/10 backdrop-blur-xs p-5 rounded-2xl border border-white/10 flex items-start gap-3.5 hover:border-amber-400/50 transition-all shadow-2xs hover:shadow-md"
+                className="bg-slate-50 p-5 rounded-2xl border border-slate-100 flex items-start gap-3.5 hover:border-sky-300 transition-all shadow-2xs hover:shadow-md"
               >
-                <span className="w-7 h-7 rounded-lg bg-amber-400/20 text-amber-300 font-bold flex items-center justify-center text-xs shrink-0">
+                <span className="w-7 h-7 rounded-lg bg-sky-600 text-white font-bold flex items-center justify-center text-xs shrink-0">
                   {idx + 1}
                 </span>
-                <span className="text-xs md:text-sm font-semibold text-slate-100 leading-relaxed">
+                <span className="text-xs md:text-sm font-semibold text-slate-800 leading-relaxed">
                   {rule}
                 </span>
               </motion.div>
