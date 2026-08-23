@@ -32,16 +32,16 @@ const RootLayout: React.FC = () => {
   const currentBg = pageBackgroundImages[location.pathname] || pageBackgroundImages['/'];
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-100/60 text-slate-900 selection:bg-sky-500 selection:text-white relative">
-      {/* Full Page Photographic Background Across ALL Pages */}
+    <div className="min-h-screen flex flex-col bg-slate-900 text-slate-900 selection:bg-sky-500 selection:text-white relative">
+      {/* Full Page Photographic Background Across ALL Pages (100% Full Opacity & High Visibility) */}
       <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
         <img 
           key={currentBg}
           src={currentBg} 
           alt="Sahifa fon rasmi" 
-          className="w-full h-full object-cover object-center scale-105 transition-all duration-700 opacity-30"
+          className="w-full h-full object-cover object-center scale-100 transition-all duration-500 opacity-100"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-sky-50/75 to-white/90 backdrop-blur-[0.5px]" />
+        <div className="absolute inset-0 bg-white/75 backdrop-blur-[1px]" />
       </div>
 
       <ScrollToTop />
