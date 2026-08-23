@@ -24,7 +24,6 @@ import {
   MapPin, 
   Phone, 
   Star, 
-  UserCheck, 
   Building2, 
   Send,
   Sparkles
@@ -340,7 +339,7 @@ export const HomePage: React.FC = () => {
       </motion.section>
 
 
-      {/* 7. EXPERT TEACHERS & POLYGLOTS */}
+      {/* 7. PHOTO GALLERY: REAL CAMPUS & STUDENT LIFE */}
       <motion.section 
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -349,18 +348,80 @@ export const HomePage: React.FC = () => {
         className="max-w-[1600px] w-full mx-auto px-4 sm:px-6"
       >
         <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
-          <Badge variant="secondary" className="px-3 py-1">
-            Bizning Ustozlarimiz
+          <Badge variant="secondary" className="px-3.5 py-1 bg-sky-100 text-sky-900 border border-sky-200">
+            Jonli Jarayonlar
           </Badge>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-heading">
-            Xalqaro Sertifikatlarga Ega Mentorlar
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
+            Akademiyamizdagi Dars va Talabalar Hayoti
           </h2>
-          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
-            Darslarni o'z sohasining eng yuqori darajadagi mutaxassislari olib boradilar.
+          <p className="text-xs sm:text-sm text-slate-600">
+            Haqiqiy xalqaro muhit, qizg'in bahslar, speaking clublar va zamonaviy ta'lim jihozlari.
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {[
+            {
+              img: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800",
+              title: "Interaktiv Guruh Darslari",
+              desc: "4 ta tilni parallel o'rganish amaliyoti"
+            },
+            {
+              img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=800",
+              title: "Xalqaro Mentorlar Seminari",
+              desc: "Native speakerlar va C1-C2 darajali ustozlar"
+            },
+            {
+              img: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=800",
+              title: "Kovorking & Speaking Club",
+              desc: "Jonli muloqot va keyslar tahlili"
+            },
+            {
+              img: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=800",
+              title: "Bitiruv & Xalqaro Sertifikatlar",
+              desc: "IELTS, Goethe, TOPIK, HSK imtihon natijalari"
+            }
+          ].map((item, idx) => (
+            <motion.div
+              key={idx}
+              whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.2 } }}
+              className="relative rounded-3xl overflow-hidden shadow-lg group h-64 border border-sky-100"
+            >
+              <img 
+                src={item.img} 
+                alt={item.title} 
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent flex flex-col justify-end p-5 text-white">
+                <h3 className="font-bold text-base font-heading text-white">{item.title}</h3>
+                <p className="text-xs text-sky-200 mt-1">{item.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
+
+      {/* 8. EXPERT TEACHERS & POLYGLOTS WITH REAL PORTRAITS */}
+      <motion.section 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.5 }}
+        className="max-w-[1600px] w-full mx-auto px-4 sm:px-6"
+      >
+        <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
+          <Badge variant="secondary" className="px-3 py-1 bg-amber-100 text-amber-900 border border-amber-200">
+            Bizning Ustozlarimiz
+          </Badge>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
+            Xalqaro Sertifikatlarga Ega Mentorlar
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-600">
+            Darslarni o'z sohasining eng yuqori darajadagi mutaxassislari olib boradilar.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {teachersData.map((teacher, idx) => {
             const role = teacher.role[language] || teacher.role.uz;
             const exp = teacher.experience[language] || teacher.experience.uz;
@@ -375,26 +436,33 @@ export const HomePage: React.FC = () => {
                 transition={{ duration: 0.4, delay: idx * 0.08 }}
                 whileHover={{ y: -6, transition: { duration: 0.2 } }}
               >
-                <Card className="rounded-2xl border-slate-200 dark:border-slate-800 dark:bg-slate-900 shadow-2xs hover:border-sky-300 dark:hover:border-sky-700 transition-all text-center h-full">
-                  <CardContent className="p-5">
-                    <div className="w-12 h-12 mx-auto rounded-xl bg-sky-50 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 flex items-center justify-center mb-3">
-                      <UserCheck className="w-6 h-6" />
+                <Card className="rounded-3xl border-sky-100 shadow-md hover:shadow-2xl hover:border-sky-300 transition-all text-center h-full overflow-hidden bg-white">
+                  <div className="h-44 w-full overflow-hidden relative">
+                    <img 
+                      src={teacher.image} 
+                      alt={teacher.name}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute bottom-2 left-3 right-3">
+                      <span className="text-[11px] font-bold text-sky-200 bg-sky-950/80 backdrop-blur-xs px-2.5 py-0.5 rounded-full inline-block">
+                        {teacher.certificate}
+                      </span>
                     </div>
-                    <h3 className="text-sm font-bold text-slate-900 dark:text-white font-heading">
+                  </div>
+                  <CardContent className="p-5">
+                    <h3 className="text-base font-bold text-slate-900 font-heading">
                       {teacher.name}
                     </h3>
-                    <span className="text-[11px] text-sky-700 dark:text-sky-400 font-medium block mt-0.5">
+                    <span className="text-xs text-sky-600 font-medium block mt-0.5">
                       {role}
                     </span>
-                    <div className="flex items-center justify-center gap-1.5 my-2">
-                      <Badge variant="secondary" className="text-[10px] px-2 py-0.5">
-                        {teacher.certificate}
-                      </Badge>
-                      <Badge variant="outline" className="text-[10px] px-2 py-0.5">
+                    <div className="flex items-center justify-center gap-1.5 my-2.5">
+                      <Badge variant="outline" className="text-[10px] px-2.5 py-0.5 border-sky-200 text-sky-800 bg-sky-50">
                         {exp}
                       </Badge>
                     </div>
-                    <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed">
+                    <p className="text-[11px] text-slate-500 line-clamp-2 leading-relaxed">
                       {bio}
                     </p>
                   </CardContent>
@@ -405,8 +473,7 @@ export const HomePage: React.FC = () => {
         </div>
       </motion.section>
 
-
-      {/* 8. TESTIMONIALS */}
+      {/* 9. TESTIMONIALS WITH REAL STUDENT AVATARS */}
       <motion.section 
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -415,15 +482,15 @@ export const HomePage: React.FC = () => {
         className="max-w-[1600px] w-full mx-auto px-4 sm:px-6"
       >
         <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
-          <Badge variant="success" className="px-3 py-1">
+          <Badge variant="success" className="px-3.5 py-1 bg-emerald-100 text-emerald-900 border border-emerald-200">
             Muvaffaqiyat Tarixlari
           </Badge>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-heading">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
             28 Oylik Kurs Bitiruvchilarining Natijalari
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {testimonialsData.map((item, idx) => {
             const role = item.currentRole[language] || item.currentRole.uz;
             const quote = item.quote[language] || item.quote.uz;
@@ -437,26 +504,28 @@ export const HomePage: React.FC = () => {
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
                 whileHover={{ y: -6, transition: { duration: 0.2 } }}
               >
-                <Card className="rounded-2xl border-slate-200 dark:border-slate-800 dark:bg-slate-900 shadow-2xs flex flex-col justify-between h-full">
-                  <CardContent className="p-5 sm:p-6">
+                <Card className="rounded-3xl border-sky-100 shadow-md hover:shadow-xl hover:border-sky-300 transition-all flex flex-col justify-between h-full bg-white">
+                  <CardContent className="p-6">
                     <div>
                       <div className="flex items-center gap-1 text-amber-400 mb-3">
                         {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                          <Star key={i} className="w-4 h-4 fill-current" />
                         ))}
                       </div>
-                      <p className="text-xs text-slate-700 dark:text-slate-300 italic leading-relaxed mb-5">
+                      <p className="text-xs text-slate-700 italic leading-relaxed mb-5">
                         "{quote}"
                       </p>
                     </div>
 
-                    <div className="flex items-center gap-3 pt-3 border-t border-slate-100 dark:border-slate-800">
-                      <div className="w-8 h-8 rounded-full bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-300 font-bold flex items-center justify-center text-[11px]">
-                        {item.name.slice(0, 2).toUpperCase()}
-                      </div>
+                    <div className="flex items-center gap-3.5 pt-4 border-t border-slate-100">
+                      <img 
+                        src={item.avatar} 
+                        alt={item.name} 
+                        className="w-12 h-12 rounded-full object-cover shadow-sm border-2 border-sky-400 shrink-0" 
+                      />
                       <div>
-                        <h4 className="text-xs font-bold text-slate-900 dark:text-white">{item.name}</h4>
-                        <span className="text-[10px] text-sky-600 dark:text-sky-400 font-medium block">{role}</span>
+                        <h4 className="text-xs font-bold text-slate-900">{item.name}</h4>
+                        <span className="text-[11px] text-sky-600 font-medium block">{role}</span>
                         <span className="text-[10px] text-slate-400 block">{item.company}</span>
                       </div>
                     </div>

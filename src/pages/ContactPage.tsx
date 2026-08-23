@@ -135,14 +135,21 @@ export const ContactPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Banner preview widget */}
-            <div className="relative bg-gradient-to-r from-sky-900 to-blue-950 rounded-3xl p-6 text-white text-xs space-y-3 border border-sky-800 shadow-lg overflow-hidden">
-              <span className="font-bold text-amber-300 uppercase tracking-wider block relative z-10">
-                {t.brand.motto}
-              </span>
-              <p className="text-sky-100 leading-relaxed relative z-10">
-                28 oylik ta'lim kombinatsiyalariga mos 4 ta tilga muvofiq tafakkur. Kursni muvaffaqiyatli tugatgan talabalar ish bilan ta'minlanadi!
-              </p>
+            {/* Banner preview widget with Campus Reception Photo */}
+            <div className="relative rounded-3xl overflow-hidden shadow-lg border border-sky-100 h-48 group">
+              <img 
+                src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800" 
+                alt="Qabul va konsultatsiya" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent p-5 flex flex-col justify-end text-white text-xs space-y-1.5">
+                <span className="font-bold text-amber-300 uppercase tracking-wider block">
+                  {t.brand.motto}
+                </span>
+                <p className="text-sky-100 leading-relaxed text-[11px]">
+                  28 oylik ta'lim kombinatsiyalariga mos 4 ta tilga muvofiq tafakkur. Kursni muvaffaqiyatli tugatgan talabalar ish bilan ta'minlanadi!
+                </p>
+              </div>
             </div>
           </div>
 

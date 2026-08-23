@@ -77,7 +77,7 @@ export const AboutPage: React.FC = () => {
         </div>
       </motion.section>
 
-      {/* Mission & Vision Cards */}
+      {/* Mission & Vision Cards with Real Photo Accents */}
       <motion.section 
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -88,33 +88,115 @@ export const AboutPage: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <motion.div 
             whileHover={{ y: -6, scale: 1.01, transition: { duration: 0.2 } }}
-            className="relative bg-white rounded-3xl p-8 border border-sky-100 shadow-lg hover:shadow-2xl hover:border-sky-300 transition-all space-y-4 overflow-hidden"
+            className="relative bg-white rounded-3xl p-0 border border-sky-100 shadow-lg hover:shadow-2xl hover:border-sky-300 transition-all overflow-hidden flex flex-col"
           >
-            <div className="w-12 h-12 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center shadow-2xs relative z-10">
-              <Target className="w-6 h-6" />
+            <div className="h-48 w-full overflow-hidden relative">
+              <img 
+                src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=800" 
+                alt="Bizning Missiya" 
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-5">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-white/90 backdrop-blur-md text-sky-600 flex items-center justify-center shadow-md">
+                    <Target className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white font-heading">
+                    {t.aboutPage.missionTitle}
+                  </h3>
+                </div>
+              </div>
             </div>
-            <h3 className="text-xl font-bold text-slate-900 font-heading relative z-10">
-              {t.aboutPage.missionTitle}
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed relative z-10">
-              {t.aboutPage.missionText}
-            </p>
+            <div className="p-6 sm:p-8">
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                {t.aboutPage.missionText}
+              </p>
+            </div>
           </motion.div>
 
           <motion.div 
             whileHover={{ y: -6, scale: 1.01, transition: { duration: 0.2 } }}
-            className="relative bg-white rounded-3xl p-8 border border-emerald-100 shadow-lg hover:shadow-2xl hover:border-emerald-300 transition-all space-y-4 overflow-hidden"
+            className="relative bg-white rounded-3xl p-0 border border-emerald-100 shadow-lg hover:shadow-2xl hover:border-emerald-300 transition-all overflow-hidden flex flex-col"
           >
-            <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center shadow-2xs relative z-10">
-              <Compass className="w-6 h-6" />
+            <div className="h-48 w-full overflow-hidden relative">
+              <img 
+                src="https://images.unsplash.com/photo-1531497865144-0464ef8fb9a9?auto=format&fit=crop&q=80&w=800" 
+                alt="Bizning Kelajak" 
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-5">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-white/90 backdrop-blur-md text-emerald-600 flex items-center justify-center shadow-md">
+                    <Compass className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white font-heading">
+                    {t.aboutPage.visionTitle}
+                  </h3>
+                </div>
+              </div>
             </div>
-            <h3 className="text-xl font-bold text-slate-900 font-heading relative z-10">
-              {t.aboutPage.visionTitle}
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed relative z-10">
-              {t.aboutPage.visionText}
-            </p>
+            <div className="p-6 sm:p-8">
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                {t.aboutPage.visionText}
+              </p>
+            </div>
           </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Academy Life Photo Showcase */}
+      <motion.section 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.5 }}
+        className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8"
+      >
+        <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
+          <span className="px-3 py-1 rounded-full bg-sky-100 text-sky-900 border border-sky-200 text-xs font-bold uppercase tracking-wider inline-block">
+            Akademiya Hayoti
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
+            Zamonaviy Auditoriyalar va Amaliy Muhit
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+          <div className="rounded-3xl overflow-hidden shadow-md group h-72 relative">
+            <img 
+              src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800" 
+              alt="Interaktiv darslar" 
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-5 flex flex-col justify-end text-white">
+              <h4 className="font-bold text-base">Poliglotlar Debat Klubi</h4>
+              <p className="text-xs text-sky-200 mt-1">Har hafta xorijiy tillarda erkin muloqot mashg'ulotlari</p>
+            </div>
+          </div>
+
+          <div className="rounded-3xl overflow-hidden shadow-md group h-72 relative">
+            <img 
+              src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=800" 
+              alt="Kutubxona va kovorking" 
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-5 flex flex-col justify-end text-white">
+              <h4 className="font-bold text-base">Media Kutubxona</h4>
+              <p className="text-xs text-sky-200 mt-1">Minglab xalqaro darsliklar va audio-video resurslar bazasi</p>
+            </div>
+          </div>
+
+          <div className="rounded-3xl overflow-hidden shadow-md group h-72 relative">
+            <img 
+              src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=800" 
+              alt="Sertifikat topshirish" 
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-5 flex flex-col justify-end text-white">
+              <h4 className="font-bold text-base">Xalqaro Sertifikatsiya</h4>
+              <p className="text-xs text-sky-200 mt-1">IELTS, Goethe, HSK va TOPIK imtihonlariga rasmiy tayyorgarlik</p>
+            </div>
+          </div>
         </div>
       </motion.section>
 

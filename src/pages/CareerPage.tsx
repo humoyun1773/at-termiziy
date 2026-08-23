@@ -169,23 +169,47 @@ export const CareerPage: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {t.jobGuarantee.features.map((feat, idx) => (
-            <motion.div 
-              key={idx} 
-              whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              className="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-sky-300 transition-all"
-            >
-              <div className="w-10 h-10 rounded-xl bg-sky-50 dark:bg-sky-950/50 text-sky-600 dark:text-sky-400 flex items-center justify-center mb-4">
-                <Globe className="w-5 h-5" />
-              </div>
-              <h3 className="text-base font-bold text-slate-900 dark:text-white font-heading mb-2">
-                {feat.title}
-              </h3>
-              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-                {feat.desc}
-              </p>
-            </motion.div>
-          ))}
+          {t.jobGuarantee.features.map((feat, idx) => {
+            const industryImages = [
+              "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=600",
+              "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=600",
+              "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600",
+              "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=600"
+            ];
+            const indImg = industryImages[idx % industryImages.length];
+
+            return (
+              <motion.div 
+                key={idx} 
+                whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.2 } }}
+                className="bg-white p-0 rounded-3xl border border-sky-100 shadow-md hover:shadow-2xl transition-all overflow-hidden flex flex-col"
+              >
+                <div className="h-40 w-full overflow-hidden relative">
+                  <img 
+                    src={indImg} 
+                    alt={feat.title}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
+                    <div className="w-8 h-8 rounded-lg bg-white/90 backdrop-blur-xs text-sky-600 flex items-center justify-center shadow-md">
+                      <Globe className="w-4 h-4" />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-5 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-base font-bold text-slate-900 font-heading mb-2">
+                      {feat.title}
+                    </h3>
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      {feat.desc}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </motion.section>
 

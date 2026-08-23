@@ -51,63 +51,81 @@ export const CombinationsPage: React.FC = () => {
 
       {/* 4 Detailed Combinations Sections */}
       <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        {combinationsData.map((combo, idx) => (
-          <motion.div
-            key={combo.id}
-            id={`kombinatsiya-${combo.id}`}
-            initial={{ opacity: 0, y: 35 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.5, delay: idx * 0.1 }}
-            className="relative bg-white rounded-3xl p-6 sm:p-10 border border-sky-100 shadow-md hover:shadow-xl transition-all overflow-hidden"
-          >
+        {combinationsData.map((combo, idx) => {
+          const comboImages: Record<number, string> = {
+            1: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1200",
+            2: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1200",
+            3: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=1200",
+            4: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&q=80&w=1200"
+          };
+          const comboImg = comboImages[combo.id] || "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1200";
 
-            {/* Header info */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-sky-100 relative z-10">
-              <div>
-                <div className="flex items-center gap-2 mb-1.5">
-                  <span className="px-3 py-1 rounded-lg bg-sky-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-2xs">
-                    {combo.titleKey}
-                  </span>
-                  <span className="text-xs font-bold text-slate-500 dark:text-slate-400 flex items-center gap-1">
-                    <Clock className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
-                    {t.combinationsSection.totalBadge}
-                  </span>
-                  {combo.badgeKey && (
-                    <span className="px-2.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300 text-[10px] font-bold">
-                      {combo.badgeKey}
-                    </span>
-                  )}
+          return (
+            <motion.div
+              key={combo.id}
+              id={`kombinatsiya-${combo.id}`}
+              initial={{ opacity: 0, y: 35 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              className="relative bg-white rounded-3xl border border-sky-100 shadow-md hover:shadow-2xl transition-all overflow-hidden"
+            >
+              {/* Photo Banner Header for Each Combination */}
+              <div className="relative h-48 sm:h-56 w-full overflow-hidden">
+                <img 
+                  src={comboImg} 
+                  alt={combo.subtitleKey}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent flex items-end p-6 sm:p-8">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full text-white">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="px-3 py-1 rounded-lg bg-sky-500 text-white font-extrabold text-xs uppercase tracking-wider shadow-md">
+                          {combo.titleKey}
+                        </span>
+                        <span className="text-xs font-bold text-sky-200 flex items-center gap-1 bg-black/40 backdrop-blur-xs px-2.5 py-0.5 rounded-full">
+                          <Clock className="w-3.5 h-3.5 text-sky-400" />
+                          {t.combinationsSection.totalBadge}
+                        </span>
+                        {combo.badgeKey && (
+                          <span className="px-2.5 py-0.5 rounded-full bg-amber-400 text-slate-950 text-[10px] font-extrabold">
+                            {combo.badgeKey}
+                          </span>
+                        )}
+                      </div>
+                      <h2 className="text-xl sm:text-2xl font-extrabold text-white font-heading">
+                        {combo.subtitleKey}
+                      </h2>
+                    </div>
+
+                    <Button
+                      asChild
+                      className="px-6 py-3 rounded-xl bg-sky-500 hover:bg-sky-400 text-white font-bold text-xs md:text-sm shadow-md transition-all active:scale-95 cursor-pointer shrink-0"
+                    >
+                      <a 
+                        href={TELEGRAM_URL} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2"
+                      >
+                        <span>{t.combinationsSection.selectBtn}</span>
+                        <Send className="w-4 h-4" />
+                      </a>
+                    </Button>
+                  </div>
                 </div>
-                <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white font-heading">
-                  {combo.subtitleKey}
-                </h2>
               </div>
 
-              <Button
-                asChild
-                className="px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs md:text-sm shadow-md transition-all active:scale-95 cursor-pointer shrink-0"
-              >
-                <a 
-                  href={TELEGRAM_URL} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2"
-                >
-                  <span>{t.combinationsSection.selectBtn}</span>
-                  <Send className="w-4 h-4" />
-                </a>
-              </Button>
-            </div>
+              <div className="p-6 sm:p-10">
+                {/* Target profile */}
+                <div className="mb-6 p-4 rounded-2xl bg-sky-50/80 border border-sky-100 text-xs md:text-sm text-slate-700">
+                  <strong className="text-sky-900 block mb-1 font-bold">🎯 {t.jobGuarantee.tag}:</strong>
+                  {combo.recommendedForKey}
+                </div>
 
-            {/* Target profile */}
-            <div className="my-6 p-4 rounded-2xl bg-sky-50/60 dark:bg-slate-800/80 border border-sky-100 dark:border-slate-800 text-xs md:text-sm text-slate-700 dark:text-slate-300">
-              <strong className="text-sky-900 dark:text-sky-300 block mb-1 font-bold">🎯 {t.jobGuarantee.tag}:</strong>
-              {combo.recommendedForKey}
-            </div>
-
-            {/* 4 Sequential 7-Month Stages (Timeline) */}
-            <div className="space-y-4 my-8">
+                {/* 4 Sequential 7-Month Stages (Timeline) */}
+                <div className="space-y-4 my-8">
               <h3 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">
                 {t.combinationsSection.modulesTitle}
               </h3>
@@ -188,8 +206,10 @@ export const CombinationsPage: React.FC = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
-        ))}
+          </div>
+        </motion.div>
+          );
+        })}
       </section>
 
       {/* Bottom Consultation Banner */}
