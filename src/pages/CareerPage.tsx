@@ -22,13 +22,23 @@ export const CareerPage: React.FC = () => {
   return (
     <div className="py-12 md:py-20 space-y-16 overflow-hidden">
       
-      {/* Header with Termiziy Emblem & Naqshlar */}
+      {/* Header with Graduates, Career & Oriental Naqshlar */}
       <motion.section 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative"
+        className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative py-10 rounded-3xl overflow-hidden border border-emerald-100 shadow-sm"
       >
+        {/* Real Career Professionals & Graduates Background Image */}
+        <div className="absolute inset-0 pointer-events-none">
+          <img 
+            src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=1920" 
+            alt="Muvaffaqiyatli bitiruvchilar va mutaxassislar" 
+            className="w-full h-full object-cover object-center opacity-[0.08]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-emerald-50/70 to-white/95" />
+        </div>
+
         <IslamicGirihPattern opacity={0.12} color="#059669" />
         <div className="absolute -top-12 -left-12 pointer-events-none opacity-30">
           <TermiziyMandalaRing size={280} opacity={0.3} />

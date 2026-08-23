@@ -22,13 +22,23 @@ export const AboutPage: React.FC = () => {
   return (
     <div className="py-12 md:py-20 space-y-16 overflow-hidden">
       
-      {/* Header with Termiziy Emblem, Mandala Ring & Naqshlar */}
+      {/* Header with Teachers & Students Background, Termiziy Emblem & Naqshlar */}
       <motion.section 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative"
+        className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative py-10 rounded-3xl overflow-hidden border border-sky-100 shadow-sm"
       >
+        {/* Real Teacher Instructing Students Background Image */}
+        <div className="absolute inset-0 pointer-events-none">
+          <img 
+            src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1920" 
+            alt="Ustoz va o'quvchilar darsi" 
+            className="w-full h-full object-cover object-center opacity-[0.08]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-sky-50/80 to-white/95" />
+        </div>
+
         <IslamicGirihPattern opacity={0.12} color="#0284c7" />
         <div className="absolute -top-12 -left-12 pointer-events-none opacity-30">
           <TermiziyMandalaRing size={280} opacity={0.3} />

@@ -43,8 +43,18 @@ export const HomePage: React.FC = () => {
   return (
     <div className="space-y-16 md:space-y-24 pb-20 overflow-hidden">
       
-      {/* 1. HERO SECTION WITH PROMINENT ORIENTAL NAQSHLAR */}
-      <section className="relative pt-6 pb-6 md:pt-12 md:pb-12 bg-mesh-subtle overflow-hidden border-b border-sky-100">
+      {/* 1. HERO SECTION WITH TEACHERS & STUDENTS BACKGROUND & ORIENTAL NAQSHLAR */}
+      <section className="relative pt-6 pb-6 md:pt-12 md:pb-12 overflow-hidden border-b border-sky-100">
+        {/* Real Teachers & Students Classroom Background Image */}
+        <div className="absolute inset-0 pointer-events-none">
+          <img 
+            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1920" 
+            alt="O'qituvchilar va talabalar" 
+            className="w-full h-full object-cover object-center opacity-[0.09]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-sky-50/80 to-white/95" />
+        </div>
+
         {/* Prominent Islamic Girih Geometric Watermark */}
         <IslamicGirihPattern opacity={0.12} color="#0284c7" />
         
