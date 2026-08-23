@@ -14,7 +14,6 @@ import {
   Sparkles
 } from 'lucide-react';
 import { Button } from '../ui/button';
-import { IslamicGirihPattern, CornerArabesque, TermiziyMandalaRing, ArabesqueDivider } from '../common/OrientalPatterns';
 
 export const Footer: React.FC = () => {
   const { t } = useLanguage();
@@ -24,18 +23,10 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-[#050b18] text-white relative overflow-hidden pt-16 pb-12 border-t-2 border-sky-500/30">
-      {/* Background Oriental Girih Pattern Watermark */}
-      <IslamicGirihPattern opacity={0.10} color="#38bdf8" />
-      <div className="absolute -bottom-24 -right-24 pointer-events-none opacity-30">
-        <TermiziyMandalaRing size={350} opacity={0.3} />
-      </div>
-      <CornerArabesque position="top-right" size={64} className="text-amber-400/30" />
-      <CornerArabesque position="top-left" size={64} className="text-sky-400/30" />
-
-      {/* Background glow circle */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-sky-500/15 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+    <footer className="bg-[#050b18] text-white relative overflow-hidden pt-16 pb-12 border-t border-slate-800">
+      {/* Background glow circles */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-[1600px] w-full mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-[#121e38]">
@@ -183,11 +174,8 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Oriental Arabesque Divider in Footer */}
-        <ArabesqueDivider className="my-8 opacity-80" color="#38bdf8" />
-
         {/* Bottom bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 border-t border-slate-800/80">
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-sky-500" />
             <span>© {new Date().getFullYear()} {t.brand.name}. {t.footer.allRights}</span>

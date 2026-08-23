@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 import { Card } from '../ui/card';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
-import { CornerArabesque } from './OrientalPatterns';
 
 interface Props {
   combination: Combination;
@@ -45,7 +44,6 @@ export const CombinationCard: React.FC<Props> = ({ combination }) => {
           ? 'border-2 border-sky-400 bg-white shadow-lg shadow-sky-500/10 ring-2 ring-sky-400/20' 
           : 'border border-sky-100 bg-white shadow-sm hover:shadow-lg hover:border-sky-300'
       }`}>
-        <CornerArabesque position="top-right" className="text-sky-400/20" />
         {/* Popular Badge */}
         {combination.isPopular && (
           <div className="absolute -top-3 right-5">

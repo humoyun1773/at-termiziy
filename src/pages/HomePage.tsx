@@ -5,13 +5,6 @@ import { useLanguage } from '../context/LanguageContext';
 import { TELEGRAM_URL } from '../data/siteConfig';
 import { teachersData, testimonialsData, faqData } from '../data/mockData';
 import { BannerCombinationsBoard } from '../components/common/BannerCombinationsBoard';
-import { 
-  IslamicGirihPattern, 
-  CornerArabesque, 
-  TermiziyMandalaRing, 
-  ArabesqueDivider,
-  TermiziyEmblem 
-} from '../components/common/OrientalPatterns';
 import { Button } from '../components/ui/button';
 import { Badge } from '../components/ui/badge';
 import { Card, CardContent } from '../components/ui/card';
@@ -43,32 +36,21 @@ export const HomePage: React.FC = () => {
   return (
     <div className="space-y-16 md:space-y-24 pb-20 overflow-hidden">
       
-      {/* 1. HERO SECTION WITH TEACHERS & STUDENTS BACKGROUND & ORIENTAL NAQSHLAR */}
-      <section className="relative pt-6 pb-6 md:pt-12 md:pb-12 overflow-hidden border-b border-sky-100">
+      {/* 1. HERO SECTION WITH VIBRANT TEACHERS & STUDENTS BACKGROUND */}
+      <section className="relative pt-8 pb-10 md:pt-16 md:pb-16 overflow-hidden border-b border-sky-100/80 bg-gradient-to-b from-sky-50/40 via-white to-white">
         {/* Real Teachers & Students Classroom Background Image */}
-        <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <img 
             src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1920" 
             alt="O'qituvchilar va talabalar" 
-            className="w-full h-full object-cover object-center opacity-[0.09]"
+            className="w-full h-full object-cover object-center opacity-15 scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-sky-50/80 to-white/95" />
-        </div>
-
-        {/* Prominent Islamic Girih Geometric Watermark */}
-        <IslamicGirihPattern opacity={0.12} color="#0284c7" />
-        
-        {/* Animated Rotating Islamic Rosette / Mandala Rings */}
-        <div className="absolute -top-16 -left-16 pointer-events-none opacity-40">
-          <TermiziyMandalaRing size={380} opacity={0.3} />
-        </div>
-        <div className="absolute -bottom-20 -right-16 pointer-events-none opacity-40">
-          <TermiziyMandalaRing size={420} opacity={0.25} />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-sky-50/70 to-white/95" />
         </div>
 
         {/* Animated Background Glowing Orbs */}
         <div className="absolute top-10 left-1/4 w-80 h-80 bg-sky-400/20 rounded-full blur-3xl pointer-events-none animate-blob" />
-        <div className="absolute top-32 right-1/4 w-96 h-96 bg-amber-400/15 rounded-full blur-3xl pointer-events-none animate-blob [animation-delay:3s]" />
+        <div className="absolute top-32 right-1/4 w-96 h-96 bg-blue-400/15 rounded-full blur-3xl pointer-events-none animate-blob [animation-delay:3s]" />
         
         <div className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 relative z-10">
           
@@ -77,37 +59,37 @@ export const HomePage: React.FC = () => {
             <motion.div 
               animate={{ y: [0, -12, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute left-6 top-16 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-3.5 py-1.5 rounded-2xl shadow-lg border border-slate-200/80 dark:border-slate-800 flex items-center gap-2"
+              className="absolute left-6 top-16 bg-white/95 backdrop-blur-md px-4 py-2 rounded-2xl shadow-lg border border-slate-200/80 flex items-center gap-2"
             >
               <span className="text-lg">🇬🇧</span>
-              <span className="text-xs font-bold text-slate-800 dark:text-slate-200">IELTS 7.5+</span>
+              <span className="text-xs font-bold text-slate-800">IELTS 7.5+</span>
             </motion.div>
 
             <motion.div 
               animate={{ y: [0, 14, 0] }}
               transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute right-8 top-12 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-3.5 py-1.5 rounded-2xl shadow-lg border border-slate-200/80 dark:border-slate-800 flex items-center gap-2"
+              className="absolute right-8 top-12 bg-white/95 backdrop-blur-md px-4 py-2 rounded-2xl shadow-lg border border-slate-200/80 flex items-center gap-2"
             >
               <span className="text-lg">🇩🇪</span>
-              <span className="text-xs font-bold text-slate-800 dark:text-slate-200">Goethe B2</span>
+              <span className="text-xs font-bold text-slate-800">Goethe B2</span>
             </motion.div>
 
             <motion.div 
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-              className="absolute left-10 bottom-24 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-3.5 py-1.5 rounded-2xl shadow-lg border border-slate-200/80 dark:border-slate-800 flex items-center gap-2"
+              className="absolute left-10 bottom-24 bg-white/95 backdrop-blur-md px-4 py-2 rounded-2xl shadow-lg border border-slate-200/80 flex items-center gap-2"
             >
               <span className="text-lg">🇨🇳</span>
-              <span className="text-xs font-bold text-slate-800 dark:text-slate-200">HSK 5</span>
+              <span className="text-xs font-bold text-slate-800">HSK 5</span>
             </motion.div>
 
             <motion.div 
               animate={{ y: [0, 12, 0] }}
               transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-              className="absolute right-12 bottom-28 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-3.5 py-1.5 rounded-2xl shadow-lg border border-slate-200/80 dark:border-slate-800 flex items-center gap-2"
+              className="absolute right-12 bottom-28 bg-white/95 backdrop-blur-md px-4 py-2 rounded-2xl shadow-lg border border-slate-200/80 flex items-center gap-2"
             >
               <span className="text-lg">🇰🇷</span>
-              <span className="text-xs font-bold text-slate-800 dark:text-slate-200">TOPIK 5</span>
+              <span className="text-xs font-bold text-slate-800">TOPIK 5</span>
             </motion.div>
           </div>
 
@@ -117,25 +99,20 @@ export const HomePage: React.FC = () => {
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="text-center max-w-4xl mx-auto space-y-4 mb-8 md:mb-12"
           >
-            {/* Top Termiziy Crest Emblem */}
-            <div className="flex justify-center mb-1">
-              <TermiziyEmblem size={64} className="hover:scale-110 transition-transform duration-300 drop-shadow-md" />
-            </div>
-
             {/* Top Motto pill */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 text-amber-900 text-xs font-extrabold tracking-wide uppercase shadow-2xs border border-amber-200"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-100/80 text-sky-900 text-xs font-extrabold tracking-wide uppercase shadow-2xs border border-sky-200"
             >
-              <Sparkles className="w-3.5 h-3.5 text-amber-600 fill-amber-400" />
+              <Sparkles className="w-3.5 h-3.5 text-sky-600 fill-sky-400" />
               <span>{t.brand.motto}</span>
             </motion.div>
             
             {/* Main Headline */}
             <h1 
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-black text-slate-900 dark:text-white tracking-tight font-heading max-w-4xl mx-auto py-2"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-black text-slate-900 tracking-tight font-heading max-w-4xl mx-auto py-2"
               style={{ lineHeight: 1.55 }}
             >
               <span className="block mb-2 md:mb-3">{t.hero.titleStart}</span>
@@ -152,8 +129,6 @@ export const HomePage: React.FC = () => {
             >
               {t.hero.subheading}
             </p>
-
-            <ArabesqueDivider />
 
             {/* Action Buttons */}
             <div className="flex items-center justify-center pt-2">
@@ -231,9 +206,14 @@ export const HomePage: React.FC = () => {
         className="max-w-[1600px] w-full mx-auto px-4 sm:px-6"
       >
         <div className="relative bg-gradient-to-r from-sky-50/80 via-white to-amber-50/60 rounded-3xl p-6 sm:p-10 border border-sky-100 shadow-sm overflow-hidden">
-          <IslamicGirihPattern opacity={0.04} className="text-sky-900" />
-          <CornerArabesque position="top-right" className="text-amber-500/20" />
-          <CornerArabesque position="bottom-left" className="text-sky-500/20" />
+          {/* Subtle Classroom Background */}
+          <div className="absolute inset-0 pointer-events-none opacity-10">
+            <img 
+              src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1200" 
+              alt="Dars jarayoni" 
+              className="w-full h-full object-cover"
+            />
+          </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             <div className="lg:col-span-6 space-y-3">
@@ -290,9 +270,14 @@ export const HomePage: React.FC = () => {
         className="max-w-[1600px] w-full mx-auto px-4 sm:px-6"
       >
         <div className="relative bg-white rounded-3xl p-6 sm:p-10 border border-sky-100 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-center overflow-hidden">
-          <IslamicGirihPattern opacity={0.03} className="text-sky-950" />
-          <CornerArabesque position="top-right" className="text-sky-500/20" />
-          <CornerArabesque position="bottom-left" className="text-amber-500/20" />
+          {/* Campus Background Image */}
+          <div className="absolute inset-0 pointer-events-none opacity-10">
+            <img 
+              src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=1200" 
+              alt="Akademiya binosi" 
+              className="w-full h-full object-cover"
+            />
+          </div>
 
           <div className="lg:col-span-6 space-y-4 relative z-10">
             <Badge variant="secondary" className="px-3 py-1 gap-1.5 bg-sky-50 text-sky-800 border border-sky-200">
@@ -332,7 +317,6 @@ export const HomePage: React.FC = () => {
 
           <div className="lg:col-span-6 relative z-10">
             <div className="relative p-6 rounded-2xl bg-gradient-to-br from-sky-950 via-slate-900 to-sky-900 text-white shadow-md space-y-4 border border-sky-800 overflow-hidden">
-              <IslamicGirihPattern opacity={0.08} className="text-white" />
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <Building2 className="w-4 h-4 text-amber-400" />

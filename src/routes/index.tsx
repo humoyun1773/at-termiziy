@@ -14,8 +14,6 @@ import { CareerPage } from '../pages/CareerPage';
 import { ContactPage } from '../pages/ContactPage';
 import { NotFoundPage } from '../pages/NotFoundPage';
 
-import { IslamicGirihPattern } from '../components/common/OrientalPatterns';
-
 /**
  * Root Layout Component containing global layout shell:
  * Navbar, Outlet, Footer, Floating Actions, and ScrollToTop
@@ -24,10 +22,7 @@ const RootLayout: React.FC = () => {
   const location = useLocation();
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-slate-900 selection:bg-sky-500 selection:text-white relative">
-      {/* Global Oriental Background Pattern Across ALL Pages */}
-      <IslamicGirihPattern opacity={0.09} color="#0284c7" className="fixed inset-0 pointer-events-none z-0" />
-
+    <div className="min-h-screen flex flex-col bg-slate-50/50 text-slate-900 selection:bg-sky-500 selection:text-white relative">
       <ScrollToTop />
       <div className="relative z-10 flex flex-col flex-1">
         <Navbar />

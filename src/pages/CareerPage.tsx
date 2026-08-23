@@ -8,48 +8,29 @@ import {
   Sparkles
 } from 'lucide-react';
 import { Button } from '../components/ui/button';
-import { 
-  IslamicGirihPattern, 
-  CornerArabesque, 
-  ArabesqueDivider, 
-  TermiziyEmblem,
-  TermiziyMandalaRing 
-} from '../components/common/OrientalPatterns';
-
 export const CareerPage: React.FC = () => {
   const { t } = useLanguage();
 
   return (
     <div className="py-12 md:py-20 space-y-16 overflow-hidden">
       
-      {/* Header with Graduates, Career & Oriental Naqshlar */}
+      {/* Header with Graduates, Career & Photo Background */}
       <motion.section 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative py-10 rounded-3xl overflow-hidden border border-emerald-100 shadow-sm"
+        className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative py-12 rounded-3xl overflow-hidden border border-emerald-100 shadow-sm"
       >
         {/* Real Career Professionals & Graduates Background Image */}
         <div className="absolute inset-0 pointer-events-none">
           <img 
             src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=1920" 
             alt="Muvaffaqiyatli bitiruvchilar va mutaxassislar" 
-            className="w-full h-full object-cover object-center opacity-[0.08]"
+            className="w-full h-full object-cover object-center opacity-15 scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-emerald-50/70 to-white/95" />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-emerald-50/70 to-white/95" />
         </div>
 
-        <IslamicGirihPattern opacity={0.12} color="#059669" />
-        <div className="absolute -top-12 -left-12 pointer-events-none opacity-30">
-          <TermiziyMandalaRing size={280} opacity={0.3} />
-        </div>
-        <div className="absolute -bottom-12 -right-12 pointer-events-none opacity-30">
-          <TermiziyMandalaRing size={280} opacity={0.3} />
-        </div>
-
-        <div className="flex justify-center mb-3 relative z-10">
-          <TermiziyEmblem size={68} className="drop-shadow-md hover:scale-105 transition-transform" />
-        </div>
         <span className="px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-300 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4 shadow-2xs relative z-10">
           <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
           {t.jobGuarantee.tag}
@@ -60,7 +41,6 @@ export const CareerPage: React.FC = () => {
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto relative z-10">
           {t.jobGuarantee.desc}
         </p>
-        <ArabesqueDivider color="#10b981" className="relative z-10" />
       </motion.section>
 
       {/* Salary & Opportunity Metrics */}
@@ -74,12 +54,8 @@ export const CareerPage: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <motion.div 
             whileHover={{ y: -6, transition: { duration: 0.2 } }}
-            className="relative bg-gradient-to-br from-emerald-700 to-teal-800 rounded-3xl p-8 text-white shadow-xl overflow-hidden border-2 border-emerald-500/40 ring-4 ring-emerald-500/10"
+            className="relative bg-gradient-to-br from-emerald-700 to-teal-800 rounded-3xl p-8 text-white shadow-xl overflow-hidden border border-emerald-500/40"
           >
-            <IslamicGirihPattern opacity={0.14} color="#a7f3d0" />
-            <CornerArabesque position="top-right" size={60} className="text-amber-300/40" />
-            <CornerArabesque position="bottom-left" size={60} className="text-emerald-300/40" />
-            
             <div className="relative z-10">
               <span className="text-xs font-bold text-emerald-200 uppercase tracking-wider block mb-1">
                 Boshlang'ich Maosh Prognozi
@@ -95,12 +71,8 @@ export const CareerPage: React.FC = () => {
 
           <motion.div 
             whileHover={{ y: -6, transition: { duration: 0.2 } }}
-            className="relative bg-white rounded-3xl p-8 border-2 border-sky-200 shadow-lg hover:shadow-2xl hover:border-sky-400 transition-all overflow-hidden ring-2 ring-sky-400/10"
+            className="relative bg-white rounded-3xl p-8 border border-sky-100 shadow-lg hover:shadow-2xl hover:border-sky-300 transition-all overflow-hidden"
           >
-            <IslamicGirihPattern opacity={0.12} color="#0284c7" />
-            <CornerArabesque position="top-right" size={56} className="text-sky-500/35" />
-            <CornerArabesque position="bottom-left" size={56} className="text-amber-500/35" />
-
             <div className="relative z-10">
               <span className="text-xs font-bold text-sky-600 uppercase tracking-wider block mb-1">
                 Hamkor Tashkilotlar
@@ -116,12 +88,8 @@ export const CareerPage: React.FC = () => {
 
           <motion.div 
             whileHover={{ y: -6, transition: { duration: 0.2 } }}
-            className="relative bg-white rounded-3xl p-8 border-2 border-blue-200 shadow-lg hover:shadow-2xl hover:border-blue-400 transition-all overflow-hidden ring-2 ring-blue-400/10"
+            className="relative bg-white rounded-3xl p-8 border border-blue-100 shadow-lg hover:shadow-2xl hover:border-blue-300 transition-all overflow-hidden"
           >
-            <IslamicGirihPattern opacity={0.12} color="#2563eb" />
-            <CornerArabesque position="top-right" size={56} className="text-blue-500/35" />
-            <CornerArabesque position="bottom-left" size={56} className="text-amber-500/35" />
-
             <div className="relative z-10">
               <span className="text-xs font-bold text-blue-600 uppercase tracking-wider block mb-1">
                 Ishga Joylashish Kafolati

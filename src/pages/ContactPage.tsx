@@ -12,13 +12,6 @@ import {
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { LocationSection } from '../components/common/LocationSection';
-import { 
-  IslamicGirihPattern, 
-  CornerArabesque, 
-  ArabesqueDivider, 
-  TermiziyEmblem,
-  TermiziyMandalaRing 
-} from '../components/common/OrientalPatterns';
 
 export const ContactPage: React.FC = () => {
   const { t } = useLanguage();
@@ -53,36 +46,25 @@ export const ContactPage: React.FC = () => {
   return (
     <div className="py-12 md:py-20 space-y-16 overflow-hidden">
       
-      {/* Header with Campus Reception, Students & Oriental Naqshlar */}
+      {/* Header with Campus Reception, Students Background */}
       <motion.section 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative py-10 rounded-3xl overflow-hidden border border-sky-100 shadow-sm"
+        className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative py-12 rounded-3xl overflow-hidden border border-sky-100 shadow-sm"
       >
         {/* Real Campus Admissions & Student Consultation Background Image */}
         <div className="absolute inset-0 pointer-events-none">
           <img 
             src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1920" 
             alt="Qabul bo'limi va talabalar maslahati" 
-            className="w-full h-full object-cover object-center opacity-[0.08]"
+            className="w-full h-full object-cover object-center opacity-15 scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-sky-50/80 to-white/95" />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-sky-50/70 to-white/95" />
         </div>
 
-        <IslamicGirihPattern opacity={0.12} color="#0284c7" />
-        <div className="absolute -top-12 -left-12 pointer-events-none opacity-30">
-          <TermiziyMandalaRing size={280} opacity={0.3} />
-        </div>
-        <div className="absolute -bottom-12 -right-12 pointer-events-none opacity-30">
-          <TermiziyMandalaRing size={280} opacity={0.3} />
-        </div>
-
-        <div className="flex justify-center mb-3 relative z-10">
-          <TermiziyEmblem size={68} className="drop-shadow-md hover:scale-105 transition-transform" />
-        </div>
-        <span className="px-4 py-1.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4 shadow-2xs relative z-10">
-          <Phone className="w-3.5 h-3.5 text-amber-600" />
+        <span className="px-4 py-1.5 rounded-full bg-sky-100 text-sky-900 border border-sky-200 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4 shadow-2xs relative z-10">
+          <Phone className="w-3.5 h-3.5 text-sky-600" />
           {t.contactPage.tag}
         </span>
         <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 font-heading mb-4 relative z-10">
@@ -91,7 +73,6 @@ export const ContactPage: React.FC = () => {
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto relative z-10">
           {t.contactPage.subtitle}
         </p>
-        <ArabesqueDivider className="relative z-10" />
       </motion.section>
 
       {/* Main Grid: Form + Info */}
@@ -106,11 +87,7 @@ export const ContactPage: React.FC = () => {
           
           {/* Left: Contact Info & Campus Details */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="relative bg-white rounded-3xl p-8 border-2 border-sky-200 shadow-xl space-y-6 overflow-hidden ring-4 ring-sky-500/10">
-              <IslamicGirihPattern opacity={0.12} color="#0284c7" />
-              <CornerArabesque position="top-right" size={60} className="text-amber-500/35" />
-              <CornerArabesque position="bottom-left" size={60} className="text-sky-500/35" />
-
+            <div className="relative bg-white rounded-3xl p-8 border border-sky-100 shadow-xl space-y-6 overflow-hidden">
               <h3 className="text-xl font-bold text-slate-900 font-heading relative z-10">
                 Aloqa Ma'lumotlari
               </h3>
@@ -159,9 +136,7 @@ export const ContactPage: React.FC = () => {
             </div>
 
             {/* Banner preview widget */}
-            <div className="relative bg-gradient-to-r from-sky-900 to-blue-950 rounded-3xl p-6 text-white text-xs space-y-3 border-2 border-sky-700/50 shadow-lg overflow-hidden">
-              <IslamicGirihPattern opacity={0.12} color="#38bdf8" />
-              <CornerArabesque position="top-right" size={50} className="text-amber-400/40" />
+            <div className="relative bg-gradient-to-r from-sky-900 to-blue-950 rounded-3xl p-6 text-white text-xs space-y-3 border border-sky-800 shadow-lg overflow-hidden">
               <span className="font-bold text-amber-300 uppercase tracking-wider block relative z-10">
                 {t.brand.motto}
               </span>
@@ -173,12 +148,7 @@ export const ContactPage: React.FC = () => {
 
           {/* Right: Registration Form */}
           <div className="lg:col-span-7">
-            <div className="relative bg-white rounded-3xl p-8 md:p-10 border-2 border-sky-200 shadow-2xl overflow-hidden ring-4 ring-sky-500/10">
-              <IslamicGirihPattern opacity={0.12} color="#0284c7" />
-              <CornerArabesque position="top-right" size={64} className="text-amber-500/35" />
-              <CornerArabesque position="bottom-left" size={64} className="text-sky-500/35" />
-              <CornerArabesque position="top-left" size={64} className="text-sky-500/35" />
-              <CornerArabesque position="bottom-right" size={64} className="text-amber-500/35" />
+            <div className="relative bg-white rounded-3xl p-8 md:p-10 border border-sky-100 shadow-2xl overflow-hidden">
               <AnimatePresence mode="wait">
                 {isSuccess ? (
                   <motion.div 

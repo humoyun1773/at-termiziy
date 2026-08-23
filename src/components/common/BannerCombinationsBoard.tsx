@@ -14,7 +14,6 @@ import {
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { Card } from '../ui/card';
-import { IslamicGirihPattern, CornerArabesque, TermiziyMandalaRing } from './OrientalPatterns';
 
 interface LanguageStep {
   name: string;
@@ -79,18 +78,8 @@ export const BannerCombinationsBoard: React.FC = () => {
   ];
 
   return (
-    <Card className="relative w-full bg-white rounded-3xl p-5 sm:p-8 border-2 border-sky-200/80 shadow-2xl overflow-hidden ring-4 ring-sky-500/10">
-      {/* Prominent Oriental Naqshlar & Mandala */}
-      <IslamicGirihPattern opacity={0.14} color="#0284c7" />
-      <div className="absolute -top-20 -right-20 pointer-events-none opacity-40">
-        <TermiziyMandalaRing size={260} opacity={0.35} />
-      </div>
-      <CornerArabesque position="top-right" size={64} className="text-amber-500/35" />
-      <CornerArabesque position="bottom-left" size={64} className="text-sky-500/35" />
-      <CornerArabesque position="top-left" size={64} className="text-sky-500/35" />
-      <CornerArabesque position="bottom-right" size={64} className="text-amber-500/35" />
-      
-      {/* Board Top Header with Oriental Touch */}
+    <Card className="relative w-full bg-white/95 backdrop-blur-md rounded-3xl p-5 sm:p-8 border-2 border-sky-100 shadow-2xl overflow-hidden ring-4 ring-sky-500/5">
+      {/* Board Top Header */}
       <div className="text-center mb-8 relative z-10">
         <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-amber-100/90 border border-amber-300 text-amber-900 text-[11px] font-extrabold uppercase tracking-wider mb-2 shadow-2xs">
           <Sparkles className="w-3.5 h-3.5 text-amber-600 fill-amber-400" />

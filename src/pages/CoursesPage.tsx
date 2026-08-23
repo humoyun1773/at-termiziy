@@ -5,12 +5,6 @@ import { coursesData } from '../data/coursesData';
 import { CourseCard } from '../components/common/CourseCard';
 import { Sparkles } from 'lucide-react';
 import { Tabs, TabsList, TabsTrigger } from '../components/ui/tabs';
-import { 
-  IslamicGirihPattern, 
-  ArabesqueDivider, 
-  TermiziyEmblem,
-  TermiziyMandalaRing 
-} from '../components/common/OrientalPatterns';
 
 export const CoursesPage: React.FC = () => {
   const { t, language } = useLanguage();
@@ -34,36 +28,25 @@ export const CoursesPage: React.FC = () => {
   return (
     <div className="py-12 md:py-20 space-y-16 overflow-hidden">
       
-      {/* Header with Language Students, Teachers & Oriental Naqshlar */}
+      {/* Header with Language Students & Teachers Background */}
       <motion.section 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative py-10 rounded-3xl overflow-hidden border border-sky-100 shadow-sm"
+        className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative py-12 rounded-3xl overflow-hidden border border-sky-100 shadow-sm"
       >
         {/* Real Language Students & Teacher Background Image */}
         <div className="absolute inset-0 pointer-events-none">
           <img 
             src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1920" 
             alt="Xorijiy tillarni o'rganayotgan talabalar" 
-            className="w-full h-full object-cover object-center opacity-[0.08]"
+            className="w-full h-full object-cover object-center opacity-15 scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-sky-50/80 to-white/95" />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-sky-50/70 to-white/95" />
         </div>
 
-        <IslamicGirihPattern opacity={0.12} color="#0284c7" />
-        <div className="absolute -top-12 -left-12 pointer-events-none opacity-30">
-          <TermiziyMandalaRing size={280} opacity={0.3} />
-        </div>
-        <div className="absolute -bottom-12 -right-12 pointer-events-none opacity-30">
-          <TermiziyMandalaRing size={280} opacity={0.3} />
-        </div>
-
-        <div className="flex justify-center mb-3 relative z-10">
-          <TermiziyEmblem size={68} className="drop-shadow-md hover:scale-105 transition-transform" />
-        </div>
-        <span className="px-4 py-1.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4 shadow-2xs relative z-10">
-          <Sparkles className="w-3.5 h-3.5 text-amber-600 fill-amber-400" />
+        <span className="px-4 py-1.5 rounded-full bg-sky-100 text-sky-900 border border-sky-200 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4 shadow-2xs relative z-10">
+          <Sparkles className="w-3.5 h-3.5 text-sky-600 fill-sky-400" />
           {t.coursesPage.tag}
         </span>
         <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 font-heading mb-4 relative z-10">
@@ -72,7 +55,6 @@ export const CoursesPage: React.FC = () => {
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto relative z-10">
           {t.coursesPage.desc}
         </p>
-        <ArabesqueDivider className="relative z-10" />
       </motion.section>
 
       {/* Filter Tabs using shadcn Tabs */}
