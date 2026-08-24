@@ -401,38 +401,38 @@ export const HomePage: React.FC = () => {
         </div>
       </motion.section>
 
-      {/* 9. FAQ ACCORDION WITH SHADCN */}
+      {/* 9. FAQ ACCORDION WITH SHADCN (ENLARGED & EXPANDED) */}
       <motion.section 
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-40px" }}
         transition={{ duration: 0.5 }}
-        className="max-w-3xl mx-auto px-4 sm:px-6 relative"
+        className="max-w-5xl mx-auto px-4 sm:px-6 relative"
       >
         {/* Background glow orb */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-sky-500/10 dark:bg-sky-500/5 rounded-full blur-3xl pointer-events-none animate-blob" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-sky-500/15 dark:bg-sky-500/5 rounded-full blur-3xl pointer-events-none animate-blob" />
 
-        <div className="text-center mb-8 space-y-2 relative z-10">
+        <div className="text-center mb-12 space-y-3 relative z-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.3 }}
-            className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-sky-100 dark:bg-sky-950/80 text-sky-800 dark:text-sky-300 text-xs font-bold uppercase tracking-wider border border-sky-200 dark:border-sky-800"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-100 dark:bg-sky-950/80 text-sky-800 dark:text-sky-300 text-xs sm:text-sm font-extrabold uppercase tracking-wider border border-sky-200 dark:border-sky-800 shadow-xs"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-sky-500 animate-ping" />
+            <span className="w-2 h-2 rounded-full bg-sky-500 animate-ping" />
             <span>Savollar & Javoblar</span>
           </motion.div>
           
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-heading">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 dark:text-white font-heading tracking-tight">
             Ko'p Beriladigan Savollar
           </h2>
-          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-md mx-auto">
-            Markazimiz, 28 oylik dastur va o'qish tartibi haqidagi eng asosiy savollarga javoblar.
+          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-xl mx-auto leading-relaxed">
+            Markazimiz, 28 oylik dastur va o'qish tartibi haqidagi eng asosiy savollarga batafsil javoblar.
           </p>
         </div>
 
-        <Accordion type="single" collapsible defaultValue="faq-1" className="space-y-3 relative z-10">
+        <Accordion type="single" collapsible defaultValue="faq-1" className="space-y-4 relative z-10">
           {faqData.map((faq, idx) => {
             const question = faq.question[language] || faq.question.uz;
             const answer = faq.answer[language] || faq.answer.uz;
@@ -444,7 +444,7 @@ export const HomePage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.35, delay: idx * 0.08 }}
-                whileHover={{ y: -3, transition: { duration: 0.2 } }}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
               >
                 <AccordionItem value={faq.id}>
                   <AccordionTrigger>
@@ -461,45 +461,55 @@ export const HomePage: React.FC = () => {
       </motion.section>
 
 
-      {/* 10. BOTTOM REGISTRATION CTA */}
+      {/* 10. BOTTOM REGISTRATION CTA (ENLARGED & EXPANDED) */}
       <motion.section 
         initial={{ opacity: 0, scale: 0.96 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, margin: "-40px" }}
         transition={{ duration: 0.5 }}
-        className="max-w-[1600px] w-full mx-auto px-4 sm:px-6"
+        className="max-w-5xl w-full mx-auto px-4 sm:px-6"
       >
-        <div className="bg-sky-900 text-white rounded-3xl p-6 sm:p-10 text-center max-w-3xl mx-auto space-y-4 shadow-lg border border-sky-800">
-          <h2 className="text-xl sm:text-3xl font-extrabold font-heading text-white">
-            Kelajagingizni 4 Ta Til Bilan Boshlang!
-          </h2>
-          <p className="text-xs sm:text-sm text-sky-200 max-w-lg mx-auto leading-relaxed">
-            Qarshi shahridagi eng intizomli va natijador o'quv markazimizda bepul konsultatsiyaga yoziling.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+        <div className="bg-gradient-to-r from-sky-950 via-sky-900 to-blue-950 text-white rounded-3xl p-8 sm:p-14 md:p-16 text-center mx-auto space-y-6 shadow-2xl border border-sky-800 relative overflow-hidden">
+          {/* Subtle background glow */}
+          <div className="absolute top-0 right-0 w-80 h-80 bg-sky-500/20 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="relative z-10 space-y-3">
+            <span className="px-4 py-1.5 rounded-full bg-amber-400 text-slate-950 text-xs font-black uppercase tracking-wider inline-block shadow-md">
+              Kafolatlangan Ta'lim
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading text-white tracking-tight">
+              Kelajagingizni 4 Ta Til Bilan Boshlang!
+            </h2>
+            <p className="text-sm sm:text-base md:text-lg text-sky-100 max-w-2xl mx-auto leading-relaxed">
+              Qarshi shahridagi eng intizomli va natijador o'quv markazimizda bepul konsultatsiyaga yoziling.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 relative z-10">
             <Button
               asChild
               size="lg"
-              className="w-full sm:w-auto px-7 py-3 rounded-xl bg-white text-sky-900 font-bold text-xs sm:text-sm hover:bg-sky-50 hover:scale-105 active:scale-95 transition-transform"
+              className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white text-sky-950 hover:bg-sky-50 font-black text-sm sm:text-base shadow-xl hover:scale-105 active:scale-95 transition-all cursor-pointer"
             >
               <a 
                 href={TELEGRAM_URL} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center gap-2"
+                className="flex items-center justify-center gap-2"
               >
                 <span>Telegram orqali Ariza Qoldirish</span>
-                <Send className="w-3.5 h-3.5" />
+                <Send className="w-4 h-4" />
               </a>
             </Button>
             <Button
               variant="outline"
               size="lg"
               asChild
-              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-sky-800 text-white font-bold text-xs sm:text-sm border-sky-700 hover:bg-sky-700 hover:text-white hover:scale-105 active:scale-95 transition-transform"
+              className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-sky-800/80 text-white font-bold text-sm sm:text-base border-sky-600 hover:bg-sky-700 hover:text-white hover:scale-105 active:scale-95 transition-all cursor-pointer backdrop-blur-xs"
             >
-              <a href="tel:+998919517335" className="flex items-center gap-2">
-                <Phone className="w-3.5 h-3.5" />
+              <a href="tel:+998919517335" className="flex items-center justify-center gap-2">
+                <Phone className="w-4 h-4 text-emerald-400" />
                 <span>+998 91 951 73 35</span>
               </a>
             </Button>
