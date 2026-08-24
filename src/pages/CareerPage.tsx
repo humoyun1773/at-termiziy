@@ -50,11 +50,11 @@ export const CareerPage: React.FC = () => {
               <span className="text-xs font-black text-emerald-300 uppercase tracking-wider block mb-1">
                 Boshlang'ich Maosh Prognozi
               </span>
-              <div className="text-3xl sm:text-4xl font-black font-heading mb-2 text-white">
-                $800 – $3,500+
+              <div className="text-2xl sm:text-3xl font-black font-heading mb-2 text-white">
+                {t.careerPage.salaryRange}
               </div>
               <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed font-medium">
-                4 ta xorijiy tilni puxta biladigan mutaxassislarga xalqaro kompaniyalarda to'lanadigan o'rtacha oylik maosh.
+                4 ta xorijiy tilni puxta biladigan mutaxassislarga to'lanadigan o'rtacha oylik daromad.
               </p>
             </div>
           </motion.div>
