@@ -9,7 +9,8 @@ import {
   CheckCircle2, 
   ShieldCheck,
   Send,
-  Sparkles
+  Sparkles,
+  Phone
 } from 'lucide-react';
 import { Button } from '../components/ui/button';
 
@@ -71,7 +72,7 @@ export const CombinationsPage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="relative bg-white rounded-3xl border border-sky-100 shadow-md hover:shadow-2xl transition-all overflow-hidden"
+              className="relative bg-slate-950/75 backdrop-blur-md rounded-3xl border border-white/15 shadow-2xl text-white overflow-hidden"
             >
               {/* Photo Banner Header for Each Combination */}
               <div className="relative h-48 sm:h-56 w-full overflow-hidden">
@@ -80,7 +81,7 @@ export const CombinationsPage: React.FC = () => {
                   alt={combo.subtitleKey}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent flex items-end p-6 sm:p-8">
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex items-end p-6 sm:p-8">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full text-white">
                     <div>
                       <div className="flex items-center gap-2 mb-2">
@@ -122,95 +123,95 @@ export const CombinationsPage: React.FC = () => {
 
               <div className="p-6 sm:p-10">
                 {/* Target profile */}
-                <div className="mb-6 p-4 rounded-2xl bg-sky-50/80 border border-sky-100 text-xs md:text-sm text-slate-700">
-                  <strong className="text-sky-900 block mb-1 font-bold">🎯 {t.jobGuarantee.tag}:</strong>
+                <div className="mb-6 p-4 rounded-2xl bg-slate-900/80 border border-white/10 text-xs md:text-sm text-sky-100 font-medium">
+                  <strong className="text-sky-300 block mb-1 font-bold">🎯 {t.jobGuarantee.tag}:</strong>
                   {combo.recommendedForKey}
                 </div>
 
                 {/* 4 Sequential 7-Month Stages (Timeline) */}
                 <div className="space-y-4 my-8">
-              <h3 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">
-                {t.combinationsSection.modulesTitle}
-              </h3>
+                  <h3 className="text-xs font-bold text-white uppercase tracking-wider">
+                    {t.combinationsSection.modulesTitle}
+                  </h3>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                {combo.modules.map((mod, idx) => (
-                  <div
-                    key={mod.id}
-                    className="relative bg-slate-50 dark:bg-slate-800/80 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 flex flex-col justify-between"
-                  >
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between">
-                        <span className="w-8 h-8 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-xs font-black text-sky-700 dark:text-sky-400 shadow-xs">
-                          0{idx + 1}
-                        </span>
-                        <span className="text-xs font-extrabold px-2 py-0.5 rounded bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-300">
-                          {mod.durationMonths} {monthSuffix}
-                        </span>
-                      </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    {combo.modules.map((mod, mIdx) => (
+                      <div
+                        key={mod.id}
+                        className="relative bg-slate-900/70 rounded-2xl p-5 border border-white/10 flex flex-col justify-between"
+                      >
+                        <div className="space-y-3">
+                          <div className="flex items-center justify-between">
+                            <span className="w-8 h-8 rounded-lg bg-sky-500 border border-sky-400 flex items-center justify-center text-xs font-black text-white shadow-xs">
+                              0{mIdx + 1}
+                            </span>
+                            <span className="text-xs font-extrabold px-2 py-0.5 rounded bg-sky-950 text-sky-300 border border-sky-800">
+                              {mod.durationMonths} {monthSuffix}
+                            </span>
+                          </div>
 
-                      <div className="flex items-center gap-2.5">
-                        <span className="text-2xl">{mod.flag}</span>
-                        <div>
-                          <h4 className="text-sm font-bold text-slate-900 dark:text-white font-heading">
-                            {mod.nameKey}
-                          </h4>
-                          <span className="text-[10px] font-semibold text-sky-600 dark:text-sky-400 block">
-                            {mod.targetLevel}
-                          </span>
+                          <div className="flex items-center gap-2.5">
+                            <span className="text-2xl">{mod.flag}</span>
+                            <div>
+                              <h4 className="text-sm font-bold text-white font-heading">
+                                {mod.nameKey}
+                              </h4>
+                              <span className="text-[10px] font-semibold text-sky-400 block">
+                                {mod.targetLevel}
+                              </span>
+                            </div>
+                          </div>
+
+                          <p className="text-[11px] text-sky-100/80 leading-relaxed font-medium">
+                            {mod.descriptionKey}
+                          </p>
+                        </div>
+
+                        <div className="mt-4 pt-3 border-t border-white/10">
+                          <div className="flex flex-wrap gap-1">
+                            {mod.skills.map((skill, sIdx) => (
+                              <span key={sIdx} className="text-[9px] font-medium bg-slate-800 px-2 py-0.5 rounded border border-white/10 text-sky-200">
+                                {skill}
+                              </span>
+                            ))}
+                          </div>
                         </div>
                       </div>
+                    ))}
+                  </div>
+                </div>
 
-                      <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
-                        {mod.descriptionKey}
-                      </p>
-                    </div>
+                {/* Career Outcomes & Guarantee */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 pt-4 border-t border-white/10">
+                  <div className="p-4 rounded-2xl bg-slate-900/70 border border-white/10">
+                    <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                      <Briefcase className="w-3.5 h-3.5 text-sky-400" />
+                      {t.combinationsSection.outcomesTitle}
+                    </h4>
+                    <ul className="space-y-1.5 text-xs text-sky-100 font-medium">
+                      {combo.careerProspectsKey.map((cp, cIdx) => (
+                        <li key={cIdx} className="flex items-start gap-2">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                          <span>{cp}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
-                    <div className="mt-4 pt-3 border-t border-slate-200/80 dark:border-slate-800">
-                      <div className="flex flex-wrap gap-1">
-                        {mod.skills.map((skill, sIdx) => (
-                          <span key={sIdx} className="text-[9px] font-medium bg-white dark:bg-slate-900 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300">
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
+                  <div className="p-4 rounded-2xl bg-emerald-950/60 border border-emerald-500/30 text-white flex items-center gap-3">
+                    <ShieldCheck className="w-8 h-8 text-emerald-400 shrink-0" />
+                    <div className="text-xs">
+                      <strong className="block font-bold text-emerald-200 text-sm">
+                        {t.combinationsSection.guaranteeBanner}
+                      </strong>
+                      <span className="text-emerald-100 leading-relaxed block mt-0.5">
+                        {t.combinationsSection.guaranteeSub}
+                      </span>
                     </div>
                   </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Career Outcomes & Guarantee */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 pt-4 border-t border-slate-100 dark:border-slate-800">
-              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-800">
-                <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                  <Briefcase className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
-                  {t.combinationsSection.outcomesTitle}
-                </h4>
-                <ul className="space-y-1.5 text-xs text-slate-600 dark:text-slate-300">
-                  {combo.careerProspectsKey.map((cp, cIdx) => (
-                    <li key={cIdx} className="flex items-start gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
-                      <span>{cp}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-emerald-950 dark:text-emerald-300 flex items-center gap-3">
-                <ShieldCheck className="w-8 h-8 text-emerald-600 dark:text-emerald-400 shrink-0" />
-                <div className="text-xs">
-                  <strong className="block font-bold text-emerald-900 dark:text-emerald-200 text-sm">
-                    {t.combinationsSection.guaranteeBanner}
-                  </strong>
-                  <span className="text-emerald-800 dark:text-emerald-300 leading-relaxed block mt-0.5">
-                    {t.combinationsSection.guaranteeSub}
-                  </span>
                 </div>
               </div>
-            </div>
-          </div>
-        </motion.div>
+            </motion.div>
           );
         })}
       </section>
@@ -223,28 +224,31 @@ export const CombinationsPage: React.FC = () => {
         transition={{ duration: 0.5 }}
         className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8"
       >
-        <div className="bg-sky-900 text-white rounded-3xl p-8 md:p-12 text-center max-w-4xl mx-auto space-y-4">
-          <h3 className="text-2xl font-bold font-heading">
-            {t.hero.subheading}
-          </h3>
-          <p className="text-xs sm:text-sm text-sky-200 max-w-lg mx-auto">
-            {t.hero.locationBadge}
-          </p>
-          <div className="pt-2">
-            <Button
-              asChild
-              className="px-8 py-3.5 rounded-xl bg-sky-400 hover:bg-sky-300 text-slate-950 font-bold text-xs md:text-sm shadow-lg transition-all hover:scale-105 active:scale-95 cursor-pointer"
-            >
-              <a 
-                href={TELEGRAM_URL} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-2"
-              >
-                <span>{t.hero.freeConsultation}</span>
-                <Send className="w-4 h-4" />
-              </a>
-            </Button>
+        <div className="bg-slate-950/80 backdrop-blur-md rounded-3xl p-8 sm:p-14 text-white text-center shadow-2xl border border-white/15 relative overflow-hidden">
+          <div className="max-w-2xl mx-auto space-y-4 relative z-10">
+            <span className="px-4 py-1.5 rounded-full bg-sky-500 text-white text-xs font-black uppercase tracking-wider inline-block shadow-md">
+              {t.combinationsSection.tag}
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-black font-heading text-white tracking-tight">
+              {t.hero.subheading}
+            </h2>
+            <p className="text-xs sm:text-sm text-sky-100 leading-relaxed max-w-xl mx-auto">
+              {t.hero.locationBadge}
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4">
+              <Button asChild size="lg" className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-white font-bold text-xs sm:text-sm shadow-lg shadow-sky-600/30 hover:scale-105 active:scale-95 transition-all cursor-pointer">
+                <a href={TELEGRAM_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                  <span>{t.hero.freeConsultation}</span>
+                  <Send className="w-4 h-4" />
+                </a>
+              </Button>
+              <Button variant="outline" size="lg" asChild className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-slate-900 text-white font-bold text-xs sm:text-sm border-white/20 hover:bg-sky-600 hover:text-white hover:scale-105 active:scale-95 transition-all cursor-pointer">
+                <a href="tel:+998919517335" className="flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-emerald-400" />
+                  <span>+998 91 951 73 35</span>
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
       </motion.section>

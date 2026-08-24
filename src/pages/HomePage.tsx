@@ -7,7 +7,6 @@ import { faqData } from '../data/mockData';
 import { BannerCombinationsBoard } from '../components/common/BannerCombinationsBoard';
 import { Button } from '../components/ui/button';
 import { Badge } from '../components/ui/badge';
-import { Card, CardContent } from '../components/ui/card';
 import {
   Accordion,
   AccordionContent,
@@ -162,10 +161,10 @@ export const HomePage: React.FC = () => {
           {/* Quick Stats Grid */}
           <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5 max-w-[1600px] w-full mx-auto">
             {[
-              { num: "28 OY", label: t.hero.statMonths, icon: Clock, color: "text-sky-600 dark:text-sky-400", bg: "bg-sky-500/10 dark:bg-sky-500/15 border-sky-500/20" },
-              { num: "4 TA", label: t.hero.statLanguages, icon: GraduationCap, color: "text-blue-600 dark:text-blue-400", bg: "bg-blue-500/10 dark:bg-blue-500/15 border-blue-500/20" },
-              { num: "100%", label: t.hero.statJobGuarantee, icon: Briefcase, color: "text-emerald-600 dark:text-emerald-400", bg: "bg-emerald-500/10 dark:bg-emerald-500/15 border-emerald-500/20" },
-              { num: "500+", label: t.hero.statStudents, icon: Users, color: "text-amber-600 dark:text-amber-400", bg: "bg-amber-500/10 dark:bg-amber-500/15 border-amber-500/20" }
+              { num: "28 OY", label: t.hero.statMonths, icon: Clock, color: "text-sky-400", bg: "bg-sky-500/20 border-sky-400/30" },
+              { num: "4 TA", label: t.hero.statLanguages, icon: GraduationCap, color: "text-blue-400", bg: "bg-blue-500/20 border-blue-400/30" },
+              { num: "100%", label: t.hero.statJobGuarantee, icon: Briefcase, color: "text-emerald-400", bg: "bg-emerald-500/20 border-emerald-400/30" },
+              { num: "500+", label: t.hero.statStudents, icon: Users, color: "text-amber-400", bg: "bg-amber-500/20 border-amber-400/30" }
             ].map((stat, idx) => (
               <motion.div
                 key={idx}
@@ -173,22 +172,19 @@ export const HomePage: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.2 + idx * 0.08 }}
                 whileHover={{ y: -5, scale: 1.02, transition: { duration: 0.2 } }}
+                className="rounded-3xl border border-white/15 bg-slate-950/70 backdrop-blur-md shadow-xl p-4 sm:p-5 flex items-center gap-3.5 transition-all hover:border-sky-400 hover:bg-slate-950/85"
               >
-                <Card className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900/90 shadow-sm h-full transition-all duration-200 hover:shadow-xl hover:border-sky-400 dark:hover:border-sky-500">
-                  <CardContent className="p-4 sm:p-5 flex items-center gap-3.5">
-                    <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-2xl border ${stat.bg} ${stat.color} flex items-center justify-center shrink-0 shadow-xs`}>
-                      <stat.icon className="w-5 h-5 sm:w-6 sm:h-6" />
-                    </div>
-                    <div>
-                      <span className="text-lg sm:text-xl font-black text-slate-900 dark:text-white font-heading block leading-none mb-1">
-                        {stat.num}
-                      </span>
-                      <span className="text-xs text-slate-600 dark:text-slate-300 font-semibold leading-tight block">
-                        {stat.label}
-                      </span>
-                    </div>
-                  </CardContent>
-                </Card>
+                <div className={`w-12 h-12 rounded-2xl border ${stat.bg} ${stat.color} flex items-center justify-center shrink-0 shadow-xs`}>
+                  <stat.icon className="w-6 h-6" />
+                </div>
+                <div>
+                  <span className="text-xl sm:text-2xl font-black text-white font-heading block leading-none mb-1">
+                    {stat.num}
+                  </span>
+                  <span className="text-xs text-sky-100 font-medium leading-tight block">
+                    {stat.label}
+                  </span>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -204,9 +200,9 @@ export const HomePage: React.FC = () => {
         transition={{ duration: 0.5 }}
         className="max-w-[1600px] w-full mx-auto px-4 sm:px-6"
       >
-        <div className="relative rounded-3xl p-6 sm:p-10 border border-sky-100 shadow-sm overflow-hidden">
-          {/* Subtle Classroom Background (100% Pure Raw Photo) */}
-          <div className="absolute inset-0 pointer-events-none">
+        <div className="relative rounded-3xl p-6 sm:p-12 border border-white/15 bg-slate-950/75 backdrop-blur-md shadow-2xl text-white overflow-hidden">
+          {/* Background Photo with Scrim */}
+          <div className="absolute inset-0 pointer-events-none opacity-40">
             <img 
               src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=100&w=2560" 
               alt="Dars jarayoni" 
@@ -215,21 +211,21 @@ export const HomePage: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-            <div className="lg:col-span-6 space-y-3">
-              <Badge variant="secondary" className="px-3 py-1 bg-amber-100 text-amber-900 border border-amber-200">
+            <div className="lg:col-span-6 space-y-4">
+              <Badge variant="secondary" className="px-3.5 py-1.5 bg-amber-400 text-slate-950 font-black border-0 uppercase text-xs">
                 {t.mottoSection.tag}
               </Badge>
-              <h2 className="text-xl sm:text-3xl font-extrabold font-heading text-slate-900 tracking-tight">
+              <h2 className="text-2xl sm:text-4xl font-black font-heading text-white tracking-tight">
                 {t.mottoSection.title}
               </h2>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              <p className="text-sm sm:text-base text-sky-100 leading-relaxed font-medium">
                 {t.mottoSection.description}
               </p>
               <div className="pt-2">
-                <Button variant="outline" size="sm" asChild className="rounded-xl font-bold border-sky-200 hover:bg-sky-50 text-sky-900">
+                <Button variant="outline" size="sm" asChild className="rounded-xl font-bold border-white/20 hover:bg-sky-600 text-white bg-slate-900/80">
                   <Link to="/about" className="flex items-center gap-1.5">
                     <span>Markaz Nizomi & Qoidalari</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-sky-600" />
+                    <ArrowRight className="w-3.5 h-3.5 text-sky-400" />
                   </Link>
                 </Button>
               </div>
@@ -240,16 +236,16 @@ export const HomePage: React.FC = () => {
                 <motion.div 
                   key={idx} 
                   whileHover={{ x: 4, transition: { duration: 0.2 } }}
-                  className="bg-white/95 backdrop-blur-xs p-4 rounded-2xl border border-sky-100 flex items-start gap-3.5 shadow-2xs hover:border-sky-300 transition-colors"
+                  className="bg-slate-900/70 backdrop-blur-md p-4 rounded-2xl border border-white/10 flex items-start gap-3.5 shadow-md hover:border-sky-400 transition-colors"
                 >
-                  <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-sky-500 to-blue-600 text-white font-bold flex items-center justify-center shrink-0 text-xs shadow-2xs">
+                  <div className="w-8 h-8 rounded-xl bg-sky-500 text-white font-black flex items-center justify-center shrink-0 text-xs shadow-md">
                     0{idx + 1}
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-slate-900 font-heading">
+                    <h4 className="text-sm font-bold text-white font-heading">
                       {pt.title}
                     </h4>
-                    <p className="text-[11px] text-slate-500 mt-0.5 leading-relaxed">
+                    <p className="text-xs text-sky-100/80 mt-0.5 leading-relaxed">
                       {pt.desc}
                     </p>
                   </div>
@@ -268,9 +264,9 @@ export const HomePage: React.FC = () => {
         transition={{ duration: 0.5 }}
         className="max-w-[1600px] w-full mx-auto px-4 sm:px-6"
       >
-        <div className="relative rounded-3xl p-6 sm:p-10 border border-sky-100 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-center overflow-hidden">
-          {/* Campus Background Image (100% Pure Raw Photo) */}
-          <div className="absolute inset-0 pointer-events-none">
+        <div className="relative rounded-3xl p-6 sm:p-12 border border-white/15 bg-slate-950/75 backdrop-blur-md shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center overflow-hidden text-white">
+          {/* Campus Background Image */}
+          <div className="absolute inset-0 pointer-events-none opacity-40">
             <img 
               src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=100&w=2560" 
               alt="Akademiya binosi" 
@@ -279,35 +275,35 @@ export const HomePage: React.FC = () => {
           </div>
 
           <div className="lg:col-span-6 space-y-4 relative z-10">
-            <Badge variant="secondary" className="px-3 py-1 gap-1.5 bg-sky-50 text-sky-800 border border-sky-200">
-              <MapPin className="w-3.5 h-3.5 text-sky-600" />
+            <Badge variant="secondary" className="px-3.5 py-1.5 gap-1.5 bg-sky-500 text-white border-0 font-bold text-xs uppercase">
+              <MapPin className="w-3.5 h-3.5 text-amber-300" />
               Qarshi Shahar Bosh Binomiz
             </Badge>
-            <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 font-heading leading-snug md:leading-normal">
+            <h2 className="text-2xl sm:text-4xl font-black text-white font-heading leading-snug md:leading-normal">
               Zamonaviy Sharoitlar va Haqiqiy Ko'p Tilli Muhit
             </h2>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            <p className="text-sm sm:text-base text-sky-100 leading-relaxed font-medium">
               Markazimiz Qarshi shahrining eng qulay joyida joylashgan bo'lib, har bir xona interaktiv texnologiyalar va speaking zonalar bilan jihozlangan.
             </p>
 
-            <div className="space-y-2 pt-1">
+            <div className="space-y-2.5 pt-1">
               {[
                 "Interaktiv aqlli doskalar va multimedia xonalari",
                 "Maxsus Language Lab va xalqaro speaking klublar",
                 "Katta kutubxona: 7 tildagi nodir adabiyotlar va qo'llanmalar",
                 "Individual mentorlik va kunlik monitoring xonasi"
               ].map((feat, idx) => (
-                <div key={idx} className="flex items-center gap-2 text-xs text-slate-700 font-medium">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-sky-600 shrink-0" />
+                <div key={idx} className="flex items-center gap-2.5 text-xs sm:text-sm text-sky-100 font-medium">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                   <span>{feat}</span>
                 </div>
               ))}
             </div>
 
             <div className="pt-2">
-              <Button asChild className="rounded-xl font-bold text-xs hover:scale-105 active:scale-95 transition-transform bg-sky-600 hover:bg-sky-700 text-white">
+              <Button asChild className="rounded-2xl font-bold text-sm hover:scale-105 active:scale-95 transition-transform bg-sky-500 hover:bg-sky-400 text-white shadow-lg shadow-sky-500/25 px-6 py-3.5">
                 <a href="tel:+998919517335" className="flex items-center gap-2">
-                  <Phone className="w-3.5 h-3.5" />
+                  <Phone className="w-4 h-4" />
                   <span>Markazga Tashrif: +998 91 951 73 35</span>
                 </a>
               </Button>
@@ -315,23 +311,23 @@ export const HomePage: React.FC = () => {
           </div>
 
           <div className="lg:col-span-6 relative z-10">
-            <div className="relative p-6 rounded-2xl bg-gradient-to-br from-sky-950 via-slate-900 to-sky-900 text-white shadow-md space-y-4 border border-sky-800 overflow-hidden">
+            <div className="relative p-6 sm:p-8 rounded-3xl bg-slate-900/80 backdrop-blur-md text-white shadow-xl space-y-4 border border-white/15 overflow-hidden">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <Building2 className="w-4 h-4 text-amber-400" />
-                  <span className="text-xs font-bold uppercase tracking-wider text-sky-200">Qarshi Filiali</span>
+                  <Building2 className="w-5 h-5 text-amber-400" />
+                  <span className="text-xs font-bold uppercase tracking-wider text-sky-300">Qarshi Filiali</span>
                 </div>
-                <Badge variant="success" className="text-[10px]">Ochiq</Badge>
+                <Badge variant="success" className="text-[10px] bg-emerald-500 text-white font-bold">Ochiq</Badge>
               </div>
-              <h3 className="text-lg font-bold font-heading text-white">
+              <h3 className="text-xl font-black font-heading text-white">
                 Al-Hakim At-Termiziy O'quv Markazi
               </h3>
-              <p className="text-xs text-slate-300 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                 Manzil: Qashqadaryo viloyati, Qarshi shahri, Mustaqillik shoh ko'chasi. Dushanba - Shanba kunlari soat 08:00 dan 20:00 gacha xizmatingizdamiz.
               </p>
-              <div className="p-3 rounded-xl bg-white/10 border border-white/10 flex items-center justify-between text-xs">
-                <span className="text-slate-300">Qabul bo'limi:</span>
-                <span className="font-mono font-bold text-white">+998 91 951 73 35</span>
+              <div className="p-3.5 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-between text-xs sm:text-sm">
+                <span className="text-slate-300 font-medium">Qabul bo'limi:</span>
+                <span className="font-mono font-bold text-white text-sm sm:text-base">+998 91 951 73 35</span>
               </div>
             </div>
           </div>

@@ -90,37 +90,37 @@ export const ContactPage: React.FC = () => {
           
           {/* Left: Contact Info & Campus Details */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="relative bg-white rounded-3xl p-8 border border-sky-100 shadow-xl space-y-6 overflow-hidden">
-              <h3 className="text-xl font-bold text-slate-900 font-heading relative z-10">
+            <div className="relative bg-slate-950/75 backdrop-blur-md rounded-3xl p-8 border border-white/15 shadow-2xl space-y-6 overflow-hidden text-white">
+              <h3 className="text-2xl font-black text-white font-heading relative z-10">
                 Aloqa Ma'lumotlari
               </h3>
 
               <div className="space-y-4 text-xs sm:text-sm relative z-10">
-                <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
-                  <Phone className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                <div className="flex items-start gap-3.5 p-4 rounded-2xl bg-slate-900/80 border border-white/10">
+                  <Phone className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
                   <div>
                     <span className="text-slate-400 text-[10px] uppercase font-bold block">Telefon Raqam</span>
-                    <a href="tel:+998919517335" className="font-mono font-bold text-slate-900 hover:text-sky-600 transition-colors text-sm">
+                    <a href="tel:+998919517335" className="font-mono font-bold text-white hover:text-sky-400 transition-colors text-sm sm:text-base">
                       +998 91 951 73 35
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
-                  <MapPin className="w-5 h-5 text-sky-600 shrink-0 mt-0.5" />
+                <div className="flex items-start gap-3.5 p-4 rounded-2xl bg-slate-900/80 border border-white/10">
+                  <MapPin className="w-5 h-5 text-sky-400 shrink-0 mt-0.5" />
                   <div>
                     <span className="text-slate-400 text-[10px] uppercase font-bold block">Manzil</span>
-                    <span className="font-semibold text-slate-800">
+                    <span className="font-semibold text-white leading-relaxed">
                       Qashqadaryo viloyati, Qarshi shahri, Mustaqillik shoh ko'chasi
                     </span>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
-                  <Clock className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+                <div className="flex items-start gap-3.5 p-4 rounded-2xl bg-slate-900/80 border border-white/10">
+                  <Clock className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
                   <div>
                     <span className="text-slate-400 text-[10px] uppercase font-bold block">Ish Vaqti</span>
-                    <span className="font-semibold text-slate-800">
+                    <span className="font-semibold text-white leading-relaxed">
                       Dushanba – Shanba: 08:00 – 20:00
                     </span>
                   </div>
@@ -130,7 +130,7 @@ export const ContactPage: React.FC = () => {
               <div className="pt-2 relative z-10">
                 <a
                   href="tel:+998919517335"
-                  className="w-full py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md transition-colors"
+                  className="w-full py-4 px-4 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg transition-all hover:scale-102 active:scale-98"
                 >
                   <Phone className="w-4 h-4" />
                   <span>{t.contactPage.callDirectly}</span>
@@ -139,17 +139,17 @@ export const ContactPage: React.FC = () => {
             </div>
 
             {/* Banner preview widget with Campus Reception Photo */}
-            <div className="relative rounded-3xl overflow-hidden shadow-lg border border-sky-100 h-48 group">
+            <div className="relative rounded-3xl overflow-hidden shadow-xl border border-white/15 h-48 group">
               <img 
                 src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800" 
                 alt="Qabul va konsultatsiya" 
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent p-5 flex flex-col justify-end text-white text-xs space-y-1.5">
-                <span className="font-bold text-amber-300 uppercase tracking-wider block">
+                <span className="font-black text-amber-300 uppercase tracking-wider block">
                   {t.brand.motto}
                 </span>
-                <p className="text-sky-100 leading-relaxed text-[11px]">
+                <p className="text-sky-100 leading-relaxed text-xs">
                   28 oylik ta'lim kombinatsiyalariga mos 4 ta tilga muvofiq tafakkur. Kursni muvaffaqiyatli tugatgan talabalar ish bilan ta'minlanadi!
                 </p>
               </div>
@@ -158,7 +158,7 @@ export const ContactPage: React.FC = () => {
 
           {/* Right: Registration Form */}
           <div className="lg:col-span-7">
-            <div className="relative bg-white rounded-3xl p-8 md:p-10 border border-sky-100 shadow-2xl overflow-hidden">
+            <div className="relative bg-slate-950/75 backdrop-blur-md rounded-3xl p-8 md:p-10 border border-white/15 shadow-2xl overflow-hidden text-white">
               <AnimatePresence mode="wait">
                 {isSuccess ? (
                   <motion.div 
@@ -169,13 +169,13 @@ export const ContactPage: React.FC = () => {
                     transition={{ duration: 0.3 }}
                     className="py-12 text-center space-y-4"
                   >
-                    <div className="w-16 h-16 bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 rounded-full flex items-center justify-center mx-auto animate-pulse-subtle">
+                    <div className="w-16 h-16 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto border border-emerald-400/40">
                       <CheckCircle2 className="w-10 h-10" />
                     </div>
-                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white font-heading">
+                    <h3 className="text-2xl font-bold text-white font-heading">
                       {t.contactPage.successTitle}
                     </h3>
-                    <p className="text-sm text-slate-600 dark:text-slate-300 max-w-sm mx-auto">
+                    <p className="text-sm text-sky-100 max-w-sm mx-auto">
                       {t.contactPage.successDesc}
                     </p>
                     <button
@@ -185,7 +185,7 @@ export const ContactPage: React.FC = () => {
                         setPhone('');
                         setSelectedTarget('');
                       }}
-                      className="px-6 py-2.5 rounded-xl bg-sky-600 text-white text-xs font-bold shadow-md hover:bg-sky-700 hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                      className="px-6 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-white text-xs font-bold shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer"
                     >
                       Yangi Ariza Qoldirish
                     </button>
@@ -201,17 +201,16 @@ export const ContactPage: React.FC = () => {
                     className="space-y-5"
                   >
                   <div>
-                    <h3 className="text-xl font-bold text-slate-900 dark:text-white font-heading mb-1">
+                    <h3 className="text-2xl font-black text-white font-heading mb-1">
                       {t.contactPage.formTitle}
                     </h3>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                    <p className="text-xs sm:text-sm text-sky-100/80">
                       {t.contactPage.formSubtitle}
                     </p>
                   </div>
-
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-                      <User className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
+                    <label className="block text-xs font-bold text-sky-200 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+                      <User className="w-3.5 h-3.5 text-sky-400" />
                       {t.contactPage.nameLabel} *
                     </label>
                     <input
@@ -220,13 +219,13 @@ export const ContactPage: React.FC = () => {
                       placeholder={t.contactPage.namePlaceholder}
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
-                      className="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 dark:border-slate-700 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-hidden transition-all bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-900"
+                      className="w-full px-4 py-3.5 text-sm rounded-xl border border-white/20 focus:border-sky-400 focus:ring-2 focus:ring-sky-400/20 outline-hidden transition-all bg-slate-900/90 text-white placeholder:text-slate-400"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-                      <Phone className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
+                    <label className="block text-xs font-bold text-sky-200 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+                      <Phone className="w-3.5 h-3.5 text-sky-400" />
                       {t.contactPage.phoneLabel} *
                     </label>
                     <input
@@ -235,28 +234,28 @@ export const ContactPage: React.FC = () => {
                       placeholder={t.contactPage.phonePlaceholder}
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      className="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 dark:border-slate-700 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-hidden transition-all bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-900 font-mono"
+                      className="w-full px-4 py-3.5 text-sm rounded-xl border border-white/20 focus:border-sky-400 focus:ring-2 focus:ring-sky-400/20 outline-hidden transition-all bg-slate-900/90 text-white placeholder:text-slate-400 font-mono"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-                      <BookOpen className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
+                    <label className="block text-xs font-bold text-sky-200 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+                      <BookOpen className="w-3.5 h-3.5 text-sky-400" />
                       {t.contactPage.combinationLabel}
                     </label>
                     <select
                       value={selectedTarget}
                       onChange={(e) => setSelectedTarget(e.target.value)}
-                      className="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 dark:border-slate-700 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-hidden transition-all bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-900 cursor-pointer"
+                      className="w-full px-4 py-3.5 text-sm rounded-xl border border-white/20 focus:border-sky-400 focus:ring-2 focus:ring-sky-400/20 outline-hidden transition-all bg-slate-900 text-white cursor-pointer"
                     >
-                      <option value="" className="dark:bg-slate-900">{t.contactPage.selectOptionDefault}</option>
-                      <optgroup label="28 Oylik Kombinatsiyalar" className="dark:bg-slate-900">
+                      <option value="" className="bg-slate-900 text-white">{t.contactPage.selectOptionDefault}</option>
+                      <optgroup label="28 Oylik Kombinatsiyalar" className="bg-slate-900 text-white">
                         <option value="Kombinatsiya 1">Kombinatsiya 1: Ingliz, Nemis, Turk, Xitoy</option>
                         <option value="Kombinatsiya 2">Kombinatsiya 2: Nemis, Rus, Ingliz, Yapon</option>
                         <option value="Kombinatsiya 3">Kombinatsiya 3: Turk, Ingliz, Yapon, Koreys</option>
                         <option value="Kombinatsiya 4">Kombinatsiya 4: Koreys, Yapon, Rus, Ingliz</option>
                       </optgroup>
-                      <optgroup label="Alohida Tillar" className="dark:bg-slate-900">
+                      <optgroup label="Alohida Tillar" className="bg-slate-900 text-white">
                         <option value="Ingliz Tili">Ingliz Tili (IELTS / CEFR)</option>
                         <option value="Nemis Tili">Nemis Tili (Goethe / TestDaF)</option>
                         <option value="Turk Tili">Turk Tili (TÖMER / Yunus Emre)</option>
@@ -270,8 +269,8 @@ export const ContactPage: React.FC = () => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-                      <Clock className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
+                    <label className="block text-xs font-bold text-sky-200 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+                      <Clock className="w-3.5 h-3.5 text-sky-400" />
                       {t.contactPage.timeLabel}
                     </label>
                     <div className="grid grid-cols-3 gap-2">
@@ -284,10 +283,10 @@ export const ContactPage: React.FC = () => {
                           type="button"
                           key={shift.id}
                           onClick={() => setShiftTime(shift.id)}
-                          className={`p-2.5 rounded-xl text-xs font-medium border text-center transition-all cursor-pointer ${
+                          className={`p-3 rounded-xl text-xs font-bold border text-center transition-all cursor-pointer ${
                             shiftTime === shift.id
-                              ? 'border-sky-500 bg-sky-50 dark:bg-sky-950 text-sky-700 dark:text-sky-300 font-bold'
-                              : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'
+                              ? 'border-sky-400 bg-sky-500 text-white shadow-md'
+                              : 'border-white/15 bg-slate-900/80 text-sky-100 hover:bg-slate-800'
                           }`}
                         >
                           {shift.label}
@@ -300,10 +299,10 @@ export const ContactPage: React.FC = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-500 hover:to-blue-500 text-white font-bold text-sm shadow-lg shadow-sky-500/25 transition-all flex items-center justify-center gap-2 hover:scale-102 active:scale-98 cursor-pointer disabled:opacity-70 animate-glow"
+                      className="w-full py-4 px-6 rounded-2xl bg-sky-500 hover:bg-sky-400 disabled:opacity-50 text-white font-black text-sm shadow-xl shadow-sky-600/30 hover:scale-102 active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer"
                     >
                       {isSubmitting ? (
-                        <span>{t.contactPage.submitting}</span>
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
                       ) : (
                         <>
                           <span>{t.contactPage.submitBtn}</span>

@@ -55,25 +55,25 @@ export const AboutPage: React.FC = () => {
         transition={{ duration: 0.5 }}
         className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8"
       >
-        <div className="bg-white/95 backdrop-blur-md rounded-3xl p-8 md:p-14 text-slate-900 shadow-xl relative overflow-hidden border border-sky-100">
+        <div className="bg-slate-950/75 backdrop-blur-md rounded-3xl p-8 md:p-14 text-white shadow-2xl relative overflow-hidden border border-white/15">
           <div className="relative h-48 sm:h-64 -mx-8 -mt-8 md:-mx-14 md:-mt-14 mb-8 overflow-hidden">
             <img 
               src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1920" 
               alt="Talabalar akademiyasi" 
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-white via-white/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
           </div>
 
           <div className="max-w-3xl space-y-4 relative z-10">
-            <span className="text-xs font-bold text-sky-900 uppercase tracking-wider inline-flex items-center gap-2 bg-sky-100 px-3.5 py-1 rounded-full border border-sky-200">
-              <span className="w-2 h-2 rounded-full bg-sky-600 animate-pulse" />
+            <span className="text-xs font-black text-slate-950 uppercase tracking-wider inline-flex items-center gap-2 bg-amber-400 px-4 py-1.5 rounded-full shadow-md">
+              <span className="w-2 h-2 rounded-full bg-slate-950 animate-pulse" />
               {t.brand.motto}
             </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold font-heading text-slate-900">
+            <h2 className="text-2xl sm:text-4xl font-black font-heading text-white tracking-tight">
               {t.mottoSection.title}
             </h2>
-            <p className="text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed">
+            <p className="text-sm sm:text-base text-sky-100 leading-relaxed font-medium">
               {t.mottoSection.description}
             </p>
           </div>
@@ -91,7 +91,7 @@ export const AboutPage: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <motion.div 
             whileHover={{ y: -6, scale: 1.01, transition: { duration: 0.2 } }}
-            className="relative bg-white/95 backdrop-blur-md rounded-3xl p-0 border border-sky-100 shadow-lg hover:shadow-2xl hover:border-sky-300 transition-all overflow-hidden flex flex-col"
+            className="relative bg-slate-950/75 backdrop-blur-md rounded-3xl p-0 border border-white/15 shadow-2xl hover:border-sky-400 transition-all overflow-hidden flex flex-col text-white"
           >
             <div className="h-48 w-full overflow-hidden relative">
               <img 
@@ -99,9 +99,9 @@ export const AboutPage: React.FC = () => {
                 alt="Bizning Missiya" 
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-5">
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex items-end p-5">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-white/90 backdrop-blur-md text-sky-600 flex items-center justify-center shadow-md">
+                  <div className="w-10 h-10 rounded-xl bg-sky-500 text-white flex items-center justify-center shadow-md">
                     <Target className="w-5 h-5" />
                   </div>
                   <h3 className="text-xl font-bold text-white font-heading">
@@ -111,7 +111,7 @@ export const AboutPage: React.FC = () => {
               </div>
             </div>
             <div className="p-6 sm:p-8">
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              <p className="text-sm text-sky-100 leading-relaxed font-medium">
                 {t.aboutPage.missionText}
               </p>
             </div>
@@ -119,7 +119,7 @@ export const AboutPage: React.FC = () => {
 
           <motion.div 
             whileHover={{ y: -6, scale: 1.01, transition: { duration: 0.2 } }}
-            className="relative bg-white/95 backdrop-blur-md rounded-3xl p-0 border border-emerald-100 shadow-lg hover:shadow-2xl hover:border-emerald-300 transition-all overflow-hidden flex flex-col"
+            className="relative bg-slate-950/75 backdrop-blur-md rounded-3xl p-0 border border-white/15 shadow-2xl hover:border-emerald-400 transition-all overflow-hidden flex flex-col text-white"
           >
             <div className="h-48 w-full overflow-hidden relative">
               <img 
@@ -127,9 +127,9 @@ export const AboutPage: React.FC = () => {
                 alt="Bizning Kelajak" 
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-5">
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex items-end p-5">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-white/90 backdrop-blur-md text-emerald-600 flex items-center justify-center shadow-md">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center shadow-md">
                     <Compass className="w-5 h-5" />
                   </div>
                   <h3 className="text-xl font-bold text-white font-heading">
@@ -139,7 +139,7 @@ export const AboutPage: React.FC = () => {
               </div>
             </div>
             <div className="p-6 sm:p-8">
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              <p className="text-sm text-sky-100 leading-relaxed font-medium">
                 {t.aboutPage.visionText}
               </p>
             </div>
@@ -156,46 +156,46 @@ export const AboutPage: React.FC = () => {
         className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8"
       >
         <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
-          <span className="px-3 py-1 rounded-full bg-sky-100 text-sky-900 border border-sky-200 text-xs font-bold uppercase tracking-wider inline-block">
+          <span className="px-4 py-1.5 rounded-full bg-sky-500 text-white text-xs font-black uppercase tracking-wider inline-block shadow-md">
             Akademiya Hayoti
           </span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
+          <h2 className="text-3xl sm:text-4xl font-black text-white font-heading tracking-tight drop-shadow-md">
             Zamonaviy Auditoriyalar va Amaliy Muhit
           </h2>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-          <div className="rounded-3xl overflow-hidden shadow-md group h-72 relative">
+          <div className="rounded-3xl overflow-hidden shadow-xl group h-72 relative border border-white/15">
             <img 
               src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800" 
               alt="Interaktiv darslar" 
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-5 flex flex-col justify-end text-white">
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent p-5 flex flex-col justify-end text-white">
               <h4 className="font-bold text-base">Poliglotlar Debat Klubi</h4>
               <p className="text-xs text-sky-200 mt-1">Har hafta xorijiy tillarda erkin muloqot mashg'ulotlari</p>
             </div>
           </div>
 
-          <div className="rounded-3xl overflow-hidden shadow-md group h-72 relative">
+          <div className="rounded-3xl overflow-hidden shadow-xl group h-72 relative border border-white/15">
             <img 
               src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=800" 
               alt="Kutubxona va kovorking" 
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-5 flex flex-col justify-end text-white">
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent p-5 flex flex-col justify-end text-white">
               <h4 className="font-bold text-base">Media Kutubxona</h4>
               <p className="text-xs text-sky-200 mt-1">Minglab xalqaro darsliklar va audio-video resurslar bazasi</p>
             </div>
           </div>
 
-          <div className="rounded-3xl overflow-hidden shadow-md group h-72 relative">
+          <div className="rounded-3xl overflow-hidden shadow-xl group h-72 relative border border-white/15">
             <img 
               src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=800" 
               alt="Sertifikat topshirish" 
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-5 flex flex-col justify-end text-white">
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent p-5 flex flex-col justify-end text-white">
               <h4 className="font-bold text-base">Xalqaro Sertifikatsiya</h4>
               <p className="text-xs text-sky-200 mt-1">IELTS, Goethe, HSK va TOPIK imtihonlariga rasmiy tayyorgarlik</p>
             </div>
@@ -211,13 +211,13 @@ export const AboutPage: React.FC = () => {
         transition={{ duration: 0.5 }}
         className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8"
       >
-        <div className="relative bg-white/95 backdrop-blur-md rounded-3xl p-8 md:p-12 text-slate-900 shadow-xl border border-sky-100 overflow-hidden">
+        <div className="relative bg-slate-950/75 backdrop-blur-md rounded-3xl p-8 md:p-12 text-white shadow-2xl border border-white/15 overflow-hidden">
           <div className="max-w-3xl mx-auto text-center space-y-3 mb-10 relative z-10">
-            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-amber-100 border border-amber-300 text-amber-900 text-xs font-bold uppercase tracking-wider">
-              <ShieldCheck className="w-3.5 h-3.5 text-amber-600" />
+            <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-amber-400 text-slate-950 text-xs font-black uppercase tracking-wider shadow-md">
+              <ShieldCheck className="w-4 h-4 fill-current" />
               <span>Qat'iy Intizom Tamoyillari</span>
             </div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-slate-900">
+            <h3 className="text-2xl sm:text-4xl font-black font-heading text-white tracking-tight">
               {t.aboutPage.rulesTitle}
             </h3>
           </div>
@@ -231,12 +231,12 @@ export const AboutPage: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.35, delay: idx * 0.08 }}
                 whileHover={{ scale: 1.03, y: -2, transition: { duration: 0.2 } }}
-                className="bg-slate-50 p-5 rounded-2xl border border-slate-100 flex items-start gap-3.5 hover:border-sky-300 transition-all shadow-2xs hover:shadow-md"
+                className="bg-slate-900/70 backdrop-blur-md p-5 rounded-2xl border border-white/10 flex items-start gap-3.5 hover:border-sky-400 transition-all shadow-md"
               >
-                <span className="w-7 h-7 rounded-lg bg-sky-600 text-white font-bold flex items-center justify-center text-xs shrink-0">
+                <span className="w-8 h-8 rounded-xl bg-sky-500 text-white font-black flex items-center justify-center text-xs shrink-0 shadow-md">
                   {idx + 1}
                 </span>
-                <span className="text-xs md:text-sm font-semibold text-slate-800 leading-relaxed">
+                <span className="text-xs md:text-sm font-medium text-sky-100 leading-relaxed">
                   {rule}
                 </span>
               </motion.div>

@@ -4,7 +4,6 @@ import type { CourseDetail } from '../../types';
 import { useLanguage } from '../../context/LanguageContext';
 import { TELEGRAM_URL } from '../../data/siteConfig';
 import { Award, Clock, Send, CheckCircle2 } from 'lucide-react';
-import { Card } from '../ui/card';
 import { Button } from '../ui/button';
 
 interface Props {
@@ -41,7 +40,7 @@ export const CourseCard: React.FC<Props> = ({ course }) => {
       whileHover={{ y: -6, transition: { duration: 0.2 } }}
       className="h-full"
     >
-      <Card className="relative rounded-3xl border-sky-100 shadow-md hover:shadow-2xl hover:border-sky-300 transition-all flex flex-col justify-between group h-full bg-white overflow-hidden p-0">
+      <div className="relative rounded-3xl border border-white/15 shadow-xl hover:shadow-2xl hover:border-sky-400 transition-all flex flex-col justify-between group h-full bg-slate-950/75 backdrop-blur-md text-white overflow-hidden p-0">
         <div>
           {/* Rich Course Photo Banner */}
           <div className="relative h-44 w-full overflow-hidden">
@@ -50,50 +49,50 @@ export const CourseCard: React.FC<Props> = ({ course }) => {
               alt={title}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
             <div className="absolute top-3 left-3 flex items-center gap-2">
-              <span className="w-10 h-10 rounded-xl bg-white/90 backdrop-blur-md flex items-center justify-center text-xl shadow-md">
+              <span className="w-10 h-10 rounded-xl bg-slate-900/90 backdrop-blur-md flex items-center justify-center text-xl shadow-md border border-white/20">
                 {course.flag}
               </span>
-              <span className="px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-md text-white text-[11px] font-bold uppercase tracking-wider">
+              <span className="px-2.5 py-1 rounded-lg bg-sky-500 text-white text-[11px] font-black uppercase tracking-wider shadow-md">
                 {course.nativeName}
               </span>
             </div>
             <div className="absolute bottom-3 left-4 right-4">
-              <h3 className="text-lg font-bold text-white font-heading drop-shadow-md">
+              <h3 className="text-lg font-black text-white font-heading drop-shadow-md">
                 {title}
               </h3>
             </div>
           </div>
 
           <div className="p-6 md:p-7 space-y-4">
-            <p className="text-xs text-slate-600 dark:text-slate-300 mb-4 line-clamp-2 leading-relaxed">
+            <p className="text-xs sm:text-sm text-sky-100/90 mb-4 line-clamp-2 leading-relaxed">
               {tagline}
             </p>
 
             {/* Badges */}
             <div className="grid grid-cols-2 gap-2 mb-4">
-              <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-[#101e3b] border border-slate-100 dark:border-[#1d2f54] flex items-center gap-2">
-                <Clock className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400 shrink-0" />
+              <div className="p-2.5 rounded-2xl bg-slate-900/80 border border-white/10 flex items-center gap-2">
+                <Clock className="w-4 h-4 text-sky-400 shrink-0" />
                 <div className="min-w-0">
                   <span className="text-[10px] text-slate-400 block uppercase font-bold">{t.coursesPage.duration}</span>
-                  <span className="text-xs font-semibold text-slate-800 dark:text-slate-200 truncate block">{duration}</span>
+                  <span className="text-xs font-bold text-white truncate block">{duration}</span>
                 </div>
               </div>
-              <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-[#101e3b] border border-slate-100 dark:border-[#1d2f54] flex items-center gap-2">
-                <Award className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+              <div className="p-2.5 rounded-2xl bg-slate-900/80 border border-white/10 flex items-center gap-2">
+                <Award className="w-4 h-4 text-amber-400 shrink-0" />
                 <div className="min-w-0">
                   <span className="text-[10px] text-slate-400 block uppercase font-bold">{t.coursesPage.certificate}</span>
-                  <span className="text-xs font-semibold text-slate-800 dark:text-slate-200 truncate block">{course.certificate}</span>
+                  <span className="text-xs font-bold text-white truncate block">{course.certificate}</span>
                 </div>
               </div>
             </div>
 
             {/* Feature bullets */}
-            <div className="space-y-1.5 mb-6">
+            <div className="space-y-2 mb-6">
               {features.slice(0, 3).map((feat, idx) => (
-                <div key={idx} className="flex items-start gap-2 text-xs text-slate-600 dark:text-slate-300">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-sky-500 shrink-0 mt-0.5" />
+                <div key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-sky-100 font-medium">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                   <span>{feat}</span>
                 </div>
               ))}
@@ -101,8 +100,7 @@ export const CourseCard: React.FC<Props> = ({ course }) => {
 
             <Button
               asChild
-              variant="secondary"
-              className="w-full font-bold text-xs hover:bg-sky-600 hover:text-white dark:hover:bg-sky-600"
+              className="w-full font-bold text-xs rounded-xl bg-sky-500 hover:bg-sky-400 text-white shadow-md shadow-sky-600/30 transition-all hover:scale-102 active:scale-98"
             >
               <a 
                 href={TELEGRAM_URL} 
@@ -116,7 +114,7 @@ export const CourseCard: React.FC<Props> = ({ course }) => {
             </Button>
           </div>
         </div>
-      </Card>
+      </div>
     </motion.div>
   );
 };

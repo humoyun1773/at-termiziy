@@ -13,7 +13,6 @@ import {
 } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
-import { Card } from '../ui/card';
 
 interface LanguageStep {
   name: string;
@@ -78,17 +77,17 @@ export const BannerCombinationsBoard: React.FC = () => {
   ];
 
   return (
-    <Card className="relative w-full bg-white/95 backdrop-blur-md rounded-3xl p-5 sm:p-8 border-2 border-sky-100 shadow-2xl overflow-hidden ring-4 ring-sky-500/5">
+    <div className="relative w-full py-4">
       {/* Board Top Header */}
       <div className="text-center mb-8 relative z-10">
-        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-amber-100/90 border border-amber-300 text-amber-900 text-[11px] font-extrabold uppercase tracking-wider mb-2 shadow-2xs">
-          <Sparkles className="w-3.5 h-3.5 text-amber-600 fill-amber-400" />
+        <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-amber-400 text-slate-950 text-xs font-black uppercase tracking-wider mb-3 shadow-lg">
+          <Sparkles className="w-3.5 h-3.5 fill-current" />
           <span>At-Termiziy Ilmiy Metodikasi • 28 Oylik Dastur</span>
         </div>
-        <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-heading uppercase">
+        <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight font-heading uppercase drop-shadow-lg">
           {t.brand.name}
         </h2>
-        <p className="text-xs sm:text-sm text-slate-600 font-semibold mt-1">
+        <p className="text-sm sm:text-base text-sky-100 font-medium mt-2 drop-shadow-md">
           {t.hero.titleHighlight} — {t.hero.titleEnd}
         </p>
       </div>
@@ -105,22 +104,22 @@ export const BannerCombinationsBoard: React.FC = () => {
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
               animate={isActive ? { scale: 1.02 } : { scale: 1 }}
               transition={{ duration: 0.25 }}
-              className={`rounded-2xl p-4 sm:p-5 transition-all duration-200 flex flex-col justify-between cursor-pointer ${
+              className={`rounded-3xl p-5 transition-all duration-200 flex flex-col justify-between cursor-pointer backdrop-blur-md shadow-xl ${
                 isActive
-                  ? 'bg-sky-50/90 dark:bg-slate-800/95 border-2 border-sky-500 dark:border-sky-400 shadow-lg shadow-sky-500/10 ring-4 ring-sky-500/15'
-                  : 'bg-white dark:bg-slate-800/50 border border-slate-200/90 dark:border-slate-700/80 hover:border-sky-400 dark:hover:border-sky-500/70 hover:shadow-md'
+                  ? 'bg-slate-950/90 border-2 border-sky-400 shadow-sky-500/20 ring-4 ring-sky-500/20'
+                  : 'bg-slate-950/60 border border-white/15 hover:border-sky-400/60 hover:bg-slate-950/80'
               }`}
             >
               <div>
                 {/* Column Header */}
-                <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-200/80 dark:border-slate-700/80">
+                <div className="flex items-center justify-between mb-4 pb-3 border-b border-white/15">
                   <span className={`text-xs font-extrabold tracking-wider uppercase font-heading ${
-                    isActive ? 'text-sky-600 dark:text-sky-400' : 'text-slate-800 dark:text-slate-200'
+                    isActive ? 'text-sky-300' : 'text-white'
                   }`}>
                     {combo.title}
                   </span>
                   <span className={`w-2.5 h-2.5 rounded-full transition-all ${
-                    isActive ? 'bg-sky-500 scale-125 shadow-xs shadow-sky-500' : 'bg-slate-300 dark:bg-slate-600'
+                    isActive ? 'bg-sky-400 scale-125 shadow-xs shadow-sky-400' : 'bg-slate-500'
                   }`} />
                 </div>
 
@@ -128,26 +127,26 @@ export const BannerCombinationsBoard: React.FC = () => {
                 <div className="space-y-2.5">
                   {combo.steps.map((step, sIdx) => (
                     <React.Fragment key={sIdx}>
-                      <div className={`p-2.5 rounded-xl border shadow-2xs flex items-center justify-between gap-2 transition-all ${
+                      <div className={`p-2.5 rounded-2xl border shadow-xs flex items-center justify-between gap-2 transition-all ${
                         isActive 
-                          ? 'bg-white dark:bg-slate-900 border-sky-200 dark:border-slate-700 hover:border-sky-400' 
-                          : 'bg-slate-50/80 dark:bg-slate-900/70 border-slate-200/80 dark:border-slate-700/60 hover:border-sky-300 dark:hover:border-sky-600'
+                          ? 'bg-sky-950/70 border-sky-400/50 hover:border-sky-300' 
+                          : 'bg-slate-900/60 border-white/10 hover:border-white/30'
                       }`}>
                         <div className="flex items-center gap-2.5 min-w-0">
-                          <span className={`w-7 h-7 rounded-lg font-extrabold text-[10px] flex items-center justify-center shrink-0 font-heading border ${
+                          <span className={`w-7 h-7 rounded-lg font-black text-[10px] flex items-center justify-center shrink-0 font-heading border ${
                             isActive
-                              ? 'bg-sky-100 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300 border-sky-200 dark:border-sky-800'
-                              : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700'
+                              ? 'bg-sky-500 text-white border-sky-300'
+                              : 'bg-slate-800 text-sky-200 border-white/10'
                           }`}>
                             {step.code}
                           </span>
-                          <span className="text-xs font-bold text-slate-900 dark:text-slate-100 tracking-tight font-heading truncate">
+                          <span className="text-xs font-bold text-white tracking-tight font-heading truncate">
                             {step.name}
                           </span>
                         </div>
                         <Badge 
                           variant="secondary" 
-                          className="text-[10px] px-2 py-0.5 rounded-md font-extrabold shrink-0 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700"
+                          className="text-[10px] px-2 py-0.5 rounded-md font-extrabold shrink-0 bg-slate-800 text-sky-200 border border-white/10"
                         >
                           {step.duration}
                         </Badge>
@@ -156,7 +155,7 @@ export const BannerCombinationsBoard: React.FC = () => {
                       {/* Direction flow connector */}
                       {sIdx < combo.steps.length - 1 && (
                         <div className="flex items-center justify-center py-0.5">
-                          <ChevronDown className="w-3.5 h-3.5 text-slate-300 dark:text-slate-500" />
+                          <ChevronDown className="w-3.5 h-3.5 text-sky-300/60" />
                         </div>
                       )}
                     </React.Fragment>
@@ -165,14 +164,14 @@ export const BannerCombinationsBoard: React.FC = () => {
               </div>
 
               {/* Column Bottom Action (Direct Telegram Link) */}
-              <div className="mt-5 pt-3 border-t border-slate-200/80 dark:border-slate-700/80">
+              <div className="mt-5 pt-3 border-t border-white/15">
                 <Button
                   asChild
                   size="sm"
-                  className={`w-full font-bold text-xs hover:scale-102 active:scale-98 transition-all cursor-pointer ${
+                  className={`w-full font-bold text-xs hover:scale-102 active:scale-98 transition-all cursor-pointer rounded-xl ${
                     isActive
-                      ? 'bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-500 hover:to-blue-500 text-white shadow-md shadow-sky-600/25 border-0'
-                      : 'bg-slate-100 dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:border-sky-400 dark:hover:border-sky-500'
+                      ? 'bg-sky-500 hover:bg-sky-400 text-white shadow-lg shadow-sky-600/30 border-0'
+                      : 'bg-slate-800/90 hover:bg-sky-600 text-white border border-white/15'
                   }`}
                 >
                   <a 
@@ -193,40 +192,40 @@ export const BannerCombinationsBoard: React.FC = () => {
       </div>
 
       {/* Bottom Info Ribbon Bar */}
-      <div className="rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+      <div className="rounded-3xl bg-slate-950/70 backdrop-blur-md border border-white/15 p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left text-white shadow-xl">
         
         {/* Left: Phone */}
-        <Button variant="outline" size="sm" asChild className="rounded-xl font-mono font-bold text-xs sm:text-sm">
+        <Button variant="outline" size="sm" asChild className="rounded-xl font-mono font-bold text-xs sm:text-sm bg-slate-900 text-white border-white/20 hover:bg-sky-600">
           <a href="tel:+998919517335" className="flex items-center gap-2">
-            <Phone className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+            <Phone className="w-4 h-4 text-emerald-400" />
             <span>+998 91 951 73 35</span>
           </a>
         </Button>
 
         {/* Center: Guarantee & Details */}
-        <div className="space-y-1 text-xs text-slate-600 dark:text-slate-400">
-          <div className="flex flex-wrap items-center justify-center gap-2 font-bold text-slate-800 dark:text-slate-200 text-[11px] sm:text-xs">
-            <span className="flex items-center gap-1 text-sky-600 dark:text-sky-400">
+        <div className="space-y-1 text-xs text-slate-300">
+          <div className="flex flex-wrap items-center justify-center gap-2 font-bold text-white text-[11px] sm:text-xs">
+            <span className="flex items-center gap-1 text-sky-300">
               <Calendar className="w-3.5 h-3.5" />
               {t.hero.statMonths}
             </span>
-            <span className="text-slate-300 dark:text-slate-600">•</span>
+            <span className="text-slate-500">•</span>
             <span>{t.hero.titleHighlight}</span>
           </div>
-          <div className="flex items-center justify-center gap-1.5 text-emerald-700 dark:text-emerald-400 font-bold text-[11px] sm:text-xs">
+          <div className="flex items-center justify-center gap-1.5 text-emerald-300 font-bold text-[11px] sm:text-xs">
             <ShieldCheck className="w-4 h-4" />
             <span>{t.combinationsSection.guaranteeBanner}</span>
           </div>
         </div>
 
         {/* Right: Location */}
-        <Badge variant="outline" className="px-3 py-1.5 gap-1.5 font-bold">
-          <MapPin className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
+        <Badge variant="outline" className="px-3 py-1.5 gap-1.5 font-bold bg-slate-900 text-white border-white/20">
+          <MapPin className="w-3.5 h-3.5 text-sky-400" />
           <span>{t.brand.city}</span>
         </Badge>
 
       </div>
 
-    </Card>
+    </div>
   );
 };

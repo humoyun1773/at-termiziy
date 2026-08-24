@@ -97,29 +97,29 @@ export const CoursesPage: React.FC = () => {
 
       {/* Course Methodology Features */}
       <section className="max-w-[1600px] w-full mx-auto px-4 sm:px-6">
-        <div className="bg-slate-50 dark:bg-slate-900 rounded-3xl p-8 md:p-12 border border-slate-200 dark:border-slate-800">
-          <h3 className="text-xl font-bold text-slate-900 dark:text-white font-heading mb-6 text-center">
+        <div className="bg-slate-950/75 backdrop-blur-md rounded-3xl p-8 md:p-12 border border-white/15 text-white shadow-2xl">
+          <h3 className="text-2xl sm:text-3xl font-black text-white font-heading mb-8 text-center tracking-tight">
             Har Bir Til Kursida Qanday Yondashuv Qo'llaniladi?
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-            <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-2xs">
-              <span className="text-2xl font-black text-sky-600 dark:text-sky-400 block mb-2 font-heading">01</span>
-              <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1">To'liq Sho'ng'ish (Immersion)</h4>
-              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+            <div className="bg-slate-900/70 backdrop-blur-md p-6 rounded-3xl border border-white/10 shadow-lg">
+              <span className="text-3xl font-black text-sky-400 block mb-2 font-heading">01</span>
+              <h4 className="text-base font-bold text-white mb-2">To'liq Sho'ng'ish (Immersion)</h4>
+              <p className="text-xs sm:text-sm text-sky-100/80 leading-relaxed font-medium">
                 Darslarda 100% o'rganilayotgan tildan foydalaniladi, bu esa nutq to'sig'ini tezda yengishga yordam beradi.
               </p>
             </div>
-            <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-2xs">
-              <span className="text-2xl font-black text-sky-600 dark:text-sky-400 block mb-2 font-heading">02</span>
-              <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1">Kunlik Lug'at & Monitoring</h4>
-              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+            <div className="bg-slate-900/70 backdrop-blur-md p-6 rounded-3xl border border-white/10 shadow-lg">
+              <span className="text-3xl font-black text-sky-400 block mb-2 font-heading">02</span>
+              <h4 className="text-base font-bold text-white mb-2">Kunlik Lug'at & Monitoring</h4>
+              <p className="text-xs sm:text-sm text-sky-100/80 leading-relaxed font-medium">
                 Har kuni yangi so'zlar maxsus algoritmlar asosida takrorlanadi va qat'iy nazorat qilinadi.
               </p>
             </div>
-            <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-2xs">
-              <span className="text-2xl font-black text-sky-600 dark:text-sky-400 block mb-2 font-heading">03</span>
-              <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1">Xalqaro Standartlar</h4>
-              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+            <div className="bg-slate-900/70 backdrop-blur-md p-6 rounded-3xl border border-white/10 shadow-lg">
+              <span className="text-3xl font-black text-sky-400 block mb-2 font-heading">03</span>
+              <h4 className="text-base font-bold text-white mb-2">Xalqaro Standartlar</h4>
+              <p className="text-xs sm:text-sm text-sky-100/80 leading-relaxed font-medium">
                 Dasturlar IELTS, CEFR, Goethe, HSK, TOPIK va JLPT xalqaro imtihonlari talablariga to'liq mos keladi.
               </p>
             </div>
