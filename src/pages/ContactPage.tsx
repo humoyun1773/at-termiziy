@@ -46,32 +46,36 @@ export const ContactPage: React.FC = () => {
   return (
     <div className="py-12 md:py-20 space-y-16 overflow-hidden">
       
-      {/* Header with Campus Reception, Students Background */}
+      {/* Full-Width Hero Banner with Ultra-Clear High Contrast Typography */}
       <motion.section 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative py-12 rounded-3xl overflow-hidden border border-sky-100 shadow-sm"
+        className="w-full relative py-16 sm:py-24 text-center overflow-hidden shadow-xl border-b border-sky-100"
       >
-        {/* Real Campus Admissions & Student Consultation Background Image (100% Pure Raw Photo) */}
+        {/* Real Campus Admissions & Student Consultation Background Image */}
         <div className="absolute inset-0 pointer-events-none">
           <img 
             src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=100&w=2560" 
             alt="Qabul bo'limi va talabalar maslahati" 
-            className="w-full h-full object-cover object-center scale-100"
+            className="w-full h-full object-cover object-center"
           />
+          {/* High-Contrast Gradient Scrim for 100% Clear Readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/75 to-slate-950/50" />
         </div>
 
-        <span className="px-4 py-1.5 rounded-full bg-sky-100 text-sky-900 border border-sky-200 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4 shadow-2xs relative z-10">
-          <Phone className="w-3.5 h-3.5 text-sky-600" />
-          {t.contactPage.tag}
-        </span>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 font-heading mb-4 relative z-10">
-          {t.contactPage.title}
-        </h1>
-        <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto relative z-10">
-          {t.contactPage.subtitle}
-        </p>
+        <div className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <span className="px-4 py-1.5 rounded-full bg-sky-500 text-white border border-sky-400/40 text-xs font-extrabold uppercase tracking-wider inline-flex items-center gap-2 mb-4 shadow-lg backdrop-blur-xs">
+            <Phone className="w-3.5 h-3.5 text-white" />
+            {t.contactPage.tag}
+          </span>
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white font-heading mb-4 tracking-tight drop-shadow-lg">
+            {t.contactPage.title}
+          </h1>
+          <p className="text-sm sm:text-base md:text-lg text-sky-100 leading-relaxed max-w-3xl mx-auto font-medium drop-shadow-md">
+            {t.contactPage.subtitle}
+          </p>
+        </div>
       </motion.section>
 
       {/* Main Grid: Form + Info */}

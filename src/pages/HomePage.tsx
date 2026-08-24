@@ -36,14 +36,16 @@ export const HomePage: React.FC = () => {
     <div className="space-y-16 md:space-y-24 pb-20 overflow-hidden">
       
       {/* 1. HERO SECTION WITH VIBRANT TEACHERS & STUDENTS BACKGROUND */}
-      <section className="relative pt-8 pb-10 md:pt-16 md:pb-16 overflow-hidden border-b border-sky-100/80">
-        {/* Real Teachers & Students Classroom Background Image (100% Raw Photo) */}
+      <section className="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden border-b border-sky-100/80">
+        {/* Real Teachers & Students Classroom Background Image */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <img 
             src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=100&w=2560" 
             alt="O'qituvchilar va talabalar" 
             className="w-full h-full object-cover object-center scale-100"
           />
+          {/* High-Contrast Gradient Scrim for 100% Clear Readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/80 to-slate-950/60" />
         </div>
 
         {/* Animated Background Glowing Orbs */}
@@ -102,19 +104,19 @@ export const HomePage: React.FC = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-100/80 text-sky-900 text-xs font-extrabold tracking-wide uppercase shadow-2xs border border-sky-200"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-500 text-white text-xs font-extrabold tracking-wide uppercase shadow-lg border border-sky-400/40 backdrop-blur-xs"
             >
-              <Sparkles className="w-3.5 h-3.5 text-sky-600 fill-sky-400" />
+              <Sparkles className="w-3.5 h-3.5 text-amber-300 fill-amber-300" />
               <span>{t.brand.motto}</span>
             </motion.div>
             
             {/* Main Headline */}
             <h1 
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-black text-slate-900 tracking-tight font-heading max-w-4xl mx-auto py-2"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-black text-white tracking-tight font-heading max-w-4xl mx-auto py-2 drop-shadow-lg"
               style={{ lineHeight: 1.55 }}
             >
               <span className="block mb-2 md:mb-3">{t.hero.titleStart}</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-blue-600 to-sky-500 animate-gradient-x inline">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-sky-300 to-amber-300 animate-gradient-x inline">
                 {t.hero.titleHighlight}
               </span>{' '}
               <span>{t.hero.titleEnd}</span>
@@ -122,7 +124,7 @@ export const HomePage: React.FC = () => {
 
             {/* Subtitle */}
             <p 
-              className="text-sm sm:text-base md:text-lg text-slate-600 font-normal max-w-2xl mx-auto pt-2"
+              className="text-sm sm:text-base md:text-lg text-sky-100 font-medium max-w-2xl mx-auto pt-2 drop-shadow-md"
               style={{ lineHeight: 1.7 }}
             >
               {t.hero.subheading}
