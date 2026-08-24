@@ -15,12 +15,12 @@ import { ContactPage } from '../pages/ContactPage';
 import { NotFoundPage } from '../pages/NotFoundPage';
 
 const pageBackgroundImages: Record<string, string> = {
-  '/': 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1920',
-  '/about': 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1920',
-  '/courses': 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1920',
-  '/combinations': 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&q=80&w=1920',
-  '/career': 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=1920',
-  '/contact': 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1920',
+  '/': 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=100&w=2560',
+  '/about': 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=100&w=2560',
+  '/courses': 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=100&w=2560',
+  '/combinations': 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&q=100&w=2560',
+  '/career': 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=100&w=2560',
+  '/contact': 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=100&w=2560',
 };
 
 /**
@@ -33,16 +33,16 @@ const RootLayout: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col text-slate-900 selection:bg-sky-500 selection:text-white relative bg-white">
-      {/* Full Page Photographic Background Across ALL Pages (100% Full Opacity & High Visibility) */}
+      {/* Full Page Photographic Background Across ALL Pages (100% Ultra-HD, 0% Blur, Crystal Clear & Tiniq) */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <img 
           key={currentBg}
           src={currentBg} 
           alt="Sahifa fon rasmi" 
-          className="w-full h-full object-cover object-center scale-100"
+          className="w-full h-full object-cover object-center scale-100 contrast-105 brightness-100"
         />
-        {/* Soft, ultra-light translucent wash so the photo is 100% clearly visible while content is readable */}
-        <div className="absolute inset-0 bg-white/45 backdrop-blur-[0.5px]" />
+        {/* Subtle, crystal clear glass layer without any blur (0 blur) */}
+        <div className="absolute inset-0 bg-white/20" />
       </div>
 
       <ScrollToTop />

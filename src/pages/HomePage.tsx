@@ -37,14 +37,14 @@ export const HomePage: React.FC = () => {
       
       {/* 1. HERO SECTION WITH VIBRANT TEACHERS & STUDENTS BACKGROUND */}
       <section className="relative pt-8 pb-10 md:pt-16 md:pb-16 overflow-hidden border-b border-sky-100/80">
-        {/* Real Teachers & Students Classroom Background Image (100% Visible) */}
+        {/* Real Teachers & Students Classroom Background Image (100% Ultra-HD Tiniq) */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <img 
-            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1920" 
+            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=100&w=2560" 
             alt="O'qituvchilar va talabalar" 
-            className="w-full h-full object-cover object-center scale-100 opacity-100"
+            className="w-full h-full object-cover object-center scale-100 opacity-100 contrast-105"
           />
-          <div className="absolute inset-0 bg-white/70 backdrop-blur-[0.5px]" />
+          <div className="absolute inset-0 bg-white/40" />
         </div>
 
         {/* Animated Background Glowing Orbs */}
@@ -205,14 +205,14 @@ export const HomePage: React.FC = () => {
         className="max-w-[1600px] w-full mx-auto px-4 sm:px-6"
       >
         <div className="relative rounded-3xl p-6 sm:p-10 border border-sky-100 shadow-sm overflow-hidden">
-          {/* Subtle Classroom Background (100% full visible with light tint) */}
+          {/* Subtle Classroom Background (100% Ultra-HD Tiniq) */}
           <div className="absolute inset-0 pointer-events-none">
             <img 
-              src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1200" 
+              src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=100&w=2560" 
               alt="Dars jarayoni" 
-              className="w-full h-full object-cover opacity-100"
+              className="w-full h-full object-cover opacity-100 contrast-105"
             />
-            <div className="absolute inset-0 bg-white/80 backdrop-blur-[0.5px]" />
+            <div className="absolute inset-0 bg-white/70" />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
@@ -270,14 +270,14 @@ export const HomePage: React.FC = () => {
         className="max-w-[1600px] w-full mx-auto px-4 sm:px-6"
       >
         <div className="relative rounded-3xl p-6 sm:p-10 border border-sky-100 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-center overflow-hidden">
-          {/* Campus Background Image (100% full visible with light tint) */}
+          {/* Campus Background Image (100% Ultra-HD Tiniq) */}
           <div className="absolute inset-0 pointer-events-none">
             <img 
-              src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=1200" 
+              src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=100&w=2560" 
               alt="Akademiya binosi" 
-              className="w-full h-full object-cover opacity-100"
+              className="w-full h-full object-cover opacity-100 contrast-105"
             />
-            <div className="absolute inset-0 bg-white/80 backdrop-blur-[0.5px]" />
+            <div className="absolute inset-0 bg-white/70" />
           </div>
 
           <div className="lg:col-span-6 space-y-4 relative z-10">

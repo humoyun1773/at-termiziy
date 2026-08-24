@@ -27,14 +27,14 @@ export const CombinationsPage: React.FC = () => {
         transition={{ duration: 0.5 }}
         className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative py-12 rounded-3xl overflow-hidden border border-sky-100 shadow-sm"
       >
-        {/* Real Multi-Language Students & Teacher Background Image (100% Visible) */}
+        {/* Real Multi-Language Students & Teacher Background Image (100% Ultra-HD Tiniq) */}
         <div className="absolute inset-0 pointer-events-none">
           <img 
-            src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&q=80&w=1920" 
+            src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&q=100&w=2560" 
             alt="Ta'lim jarayonidagi talabalar va o'qituvchilar" 
-            className="w-full h-full object-cover object-center scale-100 opacity-100"
+            className="w-full h-full object-cover object-center scale-100 opacity-100 contrast-105"
           />
-          <div className="absolute inset-0 bg-white/70 backdrop-blur-[0.5px]" />
+          <div className="absolute inset-0 bg-white/40" />
         </div>
 
         <span className="px-4 py-1.5 rounded-full bg-sky-100 text-sky-900 border border-sky-200 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4 shadow-2xs relative z-10">
