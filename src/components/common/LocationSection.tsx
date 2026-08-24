@@ -43,8 +43,8 @@ export const LocationSection: React.FC<Props> = ({ className = '' }) => {
   const defaultQuery = "38.861122, 65.828012";
   const [searchQuery, setSearchQuery] = useState('');
   const [activeLocationQuery, setActiveLocationQuery] = useState(defaultQuery);
-  const [locationTitle, setLocationTitle] = useState("Al-Hakim At-Termiziy O'quv Markazi");
-  const [locationDesc, setLocationDesc] = useState("Qarshi shahri (38°51'40.0\"N 65°49'40.8\"E)");
+  const [locationTitle, setLocationTitle] = useState("Nur o'quv markazi (Al-Hakim At-Termiziy)");
+  const [locationDesc, setLocationDesc] = useState("VR6H+M54, Qarshi shahri (Tantana to'yxonasi va Toshkent palov choyxonasi yaqinida)");
   const [distanceKm, setDistanceKm] = useState<number | null>(null);
   const [isLocating, setIsLocating] = useState(false);
   const [locationError, setLocationError] = useState<string | null>(null);
@@ -66,8 +66,8 @@ export const LocationSection: React.FC<Props> = ({ className = '' }) => {
   const handleResetToAcademy = () => {
     setSearchQuery('');
     setActiveLocationQuery(defaultQuery);
-    setLocationTitle("Al-Hakim At-Termiziy O'quv Markazi");
-    setLocationDesc("Qarshi shahri (38°51'40.0\"N 65°49'40.8\"E)");
+    setLocationTitle("Nur o'quv markazi (Al-Hakim At-Termiziy)");
+    setLocationDesc("VR6H+M54, Qarshi shahri (Tantana to'yxonasi va Toshkent palov choyxonasi yaqinida)");
     setDistanceKm(null);
   };
 
