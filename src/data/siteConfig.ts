@@ -10,13 +10,13 @@ export const siteConfig = {
   workingHours: "Dushanba - Shanba: 08:00 - 20:00",
   sundayHours: "Dam olish kuni (Telegram orqali 24/7 qabul)",
   coordinates: {
-    lat: 38.86056,
-    lng: 65.78905,
+    lat: 38.861122,
+    lng: 65.828012,
   },
   maps: {
-    google: "https://www.google.com/maps/search/?api=1&query=38.86056,65.78905+(Al-Hakim+At-Termiziy+O'quv+Markazi)",
-    yandex: "https://yandex.uz/maps/?ll=65.78905,38.86056&z=16&text=Qarshi+Mustaqillik+shoh+ko'chasi",
-    twogis: "https://2gis.uz/karshi/search/Mustaqillik%20shoh%20ko'chasi",
+    google: "https://www.google.com/maps/place/38%C2%B051'40.0%22N+65%C2%B049'40.8%22E/@38.861122,65.828012,16z/data=!4m4!3m3!8m2!3d38.861122!4d65.828012?entry=ttu",
+    yandex: "https://yandex.uz/maps/?ll=65.828012,38.861122&z=16&text=38.861122,65.828012",
+    twogis: "https://2gis.uz/karshi/search/38.861122%2C65.828012",
   },
   telegram: "https://t.me/attermiziy_uz",
   socials: {

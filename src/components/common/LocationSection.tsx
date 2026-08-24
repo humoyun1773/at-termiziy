@@ -40,11 +40,11 @@ interface Props {
 }
 
 export const LocationSection: React.FC<Props> = ({ className = '' }) => {
-  const defaultQuery = "Al-Hakim At-Termiziy, Mustaqillik shoh ko'chasi, Qarshi, Uzbekistan";
+  const defaultQuery = "38.861122, 65.828012";
   const [searchQuery, setSearchQuery] = useState('');
   const [activeLocationQuery, setActiveLocationQuery] = useState(defaultQuery);
-  const [locationTitle, setLocationTitle] = useState("Al-Hakim At-Termiziy (Bosh Bino)");
-  const [locationDesc, setLocationDesc] = useState("Qarshi shahar, Mustaqillik shoh ko'chasi, Mustaqillik maydoni yaqinida");
+  const [locationTitle, setLocationTitle] = useState("Al-Hakim At-Termiziy O'quv Markazi");
+  const [locationDesc, setLocationDesc] = useState("Qarshi shahri (38°51'40.0\"N 65°49'40.8\"E)");
   const [distanceKm, setDistanceKm] = useState<number | null>(null);
   const [isLocating, setIsLocating] = useState(false);
   const [locationError, setLocationError] = useState<string | null>(null);
@@ -66,8 +66,8 @@ export const LocationSection: React.FC<Props> = ({ className = '' }) => {
   const handleResetToAcademy = () => {
     setSearchQuery('');
     setActiveLocationQuery(defaultQuery);
-    setLocationTitle("Al-Hakim At-Termiziy (Bosh Bino)");
-    setLocationDesc("Qarshi shahar, Mustaqillik shoh ko'chasi, Mustaqillik maydoni yaqinida");
+    setLocationTitle("Al-Hakim At-Termiziy O'quv Markazi");
+    setLocationDesc("Qarshi shahri (38°51'40.0\"N 65°49'40.8\"E)");
     setDistanceKm(null);
   };
 
@@ -108,11 +108,13 @@ export const LocationSection: React.FC<Props> = ({ className = '' }) => {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  // Dynamic Google Maps embed without hardcoded OSM green pin
+  // Dynamic Google Maps embed
   const mapIframeSrc = 'https://maps.google.com/maps?q=' + encodeURIComponent(activeLocationQuery) + '&t=&z=16&ie=UTF8&iwloc=&output=embed';
 
   const currentYandexUrl = 'https://yandex.uz/maps/?text=' + encodeURIComponent(activeLocationQuery);
-  const currentGoogleUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(activeLocationQuery);
+  const currentGoogleUrl = activeLocationQuery === defaultQuery
+    ? siteConfig.maps.google
+    : 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(activeLocationQuery);
   const current2GisUrl = 'https://2gis.uz/karshi/search/' + encodeURIComponent(activeLocationQuery);
 
   return (
