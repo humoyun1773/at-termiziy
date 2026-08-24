@@ -33,7 +33,7 @@ const RootLayout: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col text-slate-900 selection:bg-sky-500 selection:text-white relative">
-      {/* Full Page Photographic Background Across ALL Pages */}
+      {/* Full Page Background Across ALL Pages (100% Pure Image, No Blue/Dark Overlay) */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <img 
           key={currentBg}
@@ -41,7 +41,6 @@ const RootLayout: React.FC = () => {
           alt="Sahifa fon rasmi" 
           className="w-full h-full object-cover object-center scale-100"
         />
-        <div className="absolute inset-0 bg-slate-950/70" />
       </div>
 
       <ScrollToTop />
