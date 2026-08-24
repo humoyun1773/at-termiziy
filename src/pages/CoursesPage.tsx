@@ -35,14 +35,13 @@ export const CoursesPage: React.FC = () => {
         transition={{ duration: 0.5 }}
         className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative py-12 rounded-3xl overflow-hidden border border-sky-100 shadow-sm"
       >
-        {/* Real Language Students & Teacher Background Image (100% Ultra-HD Tiniq) */}
+        {/* Real Language Students & Teacher Background Image (100% Pure Raw Photo) */}
         <div className="absolute inset-0 pointer-events-none">
           <img 
             src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=100&w=2560" 
             alt="Xorijiy tillarni o'rganayotgan talabalar" 
-            className="w-full h-full object-cover object-center scale-100 opacity-100 contrast-105"
+            className="w-full h-full object-cover object-center scale-100"
           />
-          <div className="absolute inset-0 bg-white/40" />
         </div>
 
         <span className="px-4 py-1.5 rounded-full bg-sky-100 text-sky-900 border border-sky-200 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 mb-4 shadow-2xs relative z-10">
