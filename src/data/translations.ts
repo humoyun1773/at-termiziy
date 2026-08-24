@@ -134,7 +134,7 @@ export const translations = {
       title: "4 Til — Cheksiz Karyera Imkoniyatlari",
       subtitle: "28 oylik dasturimizni tamomlagan talabalarimiz qanday sohalarda faoliyat yuritishadi va qanday natijalarga erishishadi?",
       salaryTag: "O'rtacha Boshlang'ich Maosh",
-      salaryRange: "20 000 000 – 50 000 000+ so'm",
+      salaryRange: "20 000 000+ so'm",
       stepsTitle: "Ishga Joylashish Bosqichlari:",
       steps: [
         {
@@ -328,7 +328,7 @@ export const translations = {
       title: "4 Языка — Безграничные Возможности",
       subtitle: "Где работают и каких высот достигают студенты, окончившие нашу 28-месячную программу?",
       salaryTag: "Средняя Стартовая Зарплата",
-      salaryRange: "20 000 000 – 50 000 000+ сум",
+      salaryRange: "От 20 000 000+ сум",
       stepsTitle: "Этапы Трудоустройства:",
       steps: [
         {
@@ -522,7 +522,7 @@ export const translations = {
       title: "4 Languages — Limitless Global Horizons",
       subtitle: "Where do our 28-month graduates work and what international achievements do they unlock?",
       salaryTag: "Average Entry-Level Salary",
-      salaryRange: "20,000,000 – 50,000,000+ UZS",
+      salaryRange: "From 20,000,000+ UZS",
       stepsTitle: "Employment Guarantee Roadmap:",
       steps: [
         {
