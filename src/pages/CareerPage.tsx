@@ -14,36 +14,23 @@ export const CareerPage: React.FC = () => {
   return (
     <div className="py-12 md:py-20 space-y-16 overflow-hidden">
       
-      {/* Full-Width Hero Banner with Ultra-Clear High Contrast Typography */}
+      {/* Clean Page Hero Banner */}
       <motion.section 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-full relative py-16 sm:py-24 text-center overflow-hidden shadow-xl border-b border-sky-100"
+        className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 text-center pt-4 md:pt-10"
       >
-        {/* Real Career Professionals & Graduates Background Image */}
-        <div className="absolute inset-0 pointer-events-none">
-          <img 
-            src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=100&w=2560" 
-            alt="Muvaffaqiyatli bitiruvchilar va mutaxassislar" 
-            className="w-full h-full object-cover object-center"
-          />
-          {/* High-Contrast Gradient Scrim for 100% Clear Readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/75 to-slate-950/50" />
-        </div>
-
-        <div className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <span className="px-4 py-1.5 rounded-full bg-emerald-600 text-white border border-emerald-400/40 text-xs font-extrabold uppercase tracking-wider inline-flex items-center gap-2 mb-4 shadow-lg backdrop-blur-xs">
-            <Sparkles className="w-3.5 h-3.5 text-amber-300 fill-amber-300" />
-            {t.jobGuarantee.tag}
-          </span>
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white font-heading mb-4 tracking-tight drop-shadow-lg">
-            {t.jobGuarantee.title}
-          </h1>
-          <p className="text-sm sm:text-base md:text-lg text-emerald-100 leading-relaxed max-w-3xl mx-auto font-medium drop-shadow-md">
-            {t.jobGuarantee.desc}
-          </p>
-        </div>
+        <span className="px-4 py-1.5 rounded-full bg-emerald-500 text-white border border-emerald-400/40 text-xs font-black uppercase tracking-wider inline-flex items-center gap-2 mb-4 shadow-lg">
+          <Sparkles className="w-3.5 h-3.5 text-amber-300 fill-amber-300" />
+          {t.jobGuarantee.tag}
+        </span>
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white font-heading mb-4 tracking-tight drop-shadow-lg">
+          {t.jobGuarantee.title}
+        </h1>
+        <p className="text-sm sm:text-base md:text-lg text-emerald-100 leading-relaxed max-w-3xl mx-auto font-medium drop-shadow-md">
+          {t.jobGuarantee.desc}
+        </p>
       </motion.section>
 
       {/* Salary & Opportunity Metrics */}

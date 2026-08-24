@@ -15,68 +15,28 @@ export const AboutPage: React.FC = () => {
   return (
     <div className="py-12 md:py-20 space-y-16 overflow-hidden">
       
-      {/* Full-Width Hero Banner with Ultra-Clear High Contrast Typography */}
+      {/* Clean Page Hero Banner */}
       <motion.section 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-full relative py-16 sm:py-24 text-center overflow-hidden shadow-xl border-b border-sky-100"
+        className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 text-center pt-4 md:pt-10"
       >
-        {/* Real Teacher Instructing Students Background Image */}
-        <div className="absolute inset-0 pointer-events-none">
-          <img 
-            src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=100&w=2560" 
-            alt="Ustoz va o'quvchilar darsi" 
-            className="w-full h-full object-cover object-center"
-          />
-          {/* High-Contrast Gradient Scrim for 100% Clear Readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/75 to-slate-950/50" />
-        </div>
+        <span className="px-4 py-1.5 rounded-full bg-sky-500 text-white border border-sky-400/40 text-xs font-black uppercase tracking-wider inline-flex items-center gap-2 mb-4 shadow-lg">
+          <Sparkles className="w-3.5 h-3.5 text-amber-300 fill-amber-300" />
+          {t.aboutPage.tag}
+        </span>
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white font-heading mb-4 tracking-tight drop-shadow-lg">
+          {t.aboutPage.title}
+        </h1>
+        <p className="text-sm sm:text-base md:text-lg text-sky-100 leading-relaxed max-w-3xl mx-auto font-medium drop-shadow-md mb-6">
+          {t.aboutPage.intro}
+        </p>
 
-        <div className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <span className="px-4 py-1.5 rounded-full bg-sky-500 text-white border border-sky-400/40 text-xs font-extrabold uppercase tracking-wider inline-flex items-center gap-2 mb-4 shadow-lg backdrop-blur-xs">
-            <Sparkles className="w-3.5 h-3.5 text-amber-300 fill-amber-300" />
-            {t.aboutPage.tag}
-          </span>
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white font-heading mb-4 tracking-tight drop-shadow-lg">
-            {t.aboutPage.title}
-          </h1>
-          <p className="text-sm sm:text-base md:text-lg text-sky-100 leading-relaxed max-w-3xl mx-auto font-medium drop-shadow-md">
-            {t.aboutPage.intro}
-          </p>
-        </div>
-      </motion.section>
-
-      {/* Philosophy Banner with Modern Photo Atmosphere */}
-      <motion.section 
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-40px" }}
-        transition={{ duration: 0.5 }}
-        className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8"
-      >
-        <div className="bg-slate-950/75 backdrop-blur-md rounded-3xl p-8 md:p-14 text-white shadow-2xl relative overflow-hidden border border-white/15">
-          <div className="relative h-48 sm:h-64 -mx-8 -mt-8 md:-mx-14 md:-mt-14 mb-8 overflow-hidden">
-            <img 
-              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1920" 
-              alt="Talabalar akademiyasi" 
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
-          </div>
-
-          <div className="max-w-3xl space-y-4 relative z-10">
-            <span className="text-xs font-black text-slate-950 uppercase tracking-wider inline-flex items-center gap-2 bg-amber-400 px-4 py-1.5 rounded-full shadow-md">
-              <span className="w-2 h-2 rounded-full bg-slate-950 animate-pulse" />
-              {t.brand.motto}
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-black font-heading text-white tracking-tight">
-              {t.mottoSection.title}
-            </h2>
-            <p className="text-sm sm:text-base text-sky-100 leading-relaxed font-medium">
-              {t.mottoSection.description}
-            </p>
-          </div>
+        {/* Shior Badge */}
+        <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-amber-400 text-slate-950 text-xs sm:text-sm font-black shadow-xl">
+          <span className="w-2.5 h-2.5 rounded-full bg-slate-950 animate-pulse" />
+          <span>{t.brand.motto}</span>
         </div>
       </motion.section>
 

@@ -33,22 +33,11 @@ export const HomePage: React.FC = () => {
   return (
     <div className="space-y-16 md:space-y-24 pb-20 overflow-hidden">
       
-      {/* 1. HERO SECTION WITH VIBRANT TEACHERS & STUDENTS BACKGROUND */}
-      <section className="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden border-b border-sky-100/80">
-        {/* Real Teachers & Students Classroom Background Image */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <img 
-            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=100&w=2560" 
-            alt="O'qituvchilar va talabalar" 
-            className="w-full h-full object-cover object-center scale-100"
-          />
-          {/* High-Contrast Gradient Scrim for 100% Clear Readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/80 to-slate-950/60" />
-        </div>
-
+      {/* 1. HERO SECTION */}
+      <section className="relative pt-6 pb-12 md:pt-14 md:pb-20 overflow-hidden">
         {/* Animated Background Glowing Orbs */}
-        <div className="absolute top-10 left-1/4 w-80 h-80 bg-sky-400/20 rounded-full blur-3xl pointer-events-none animate-blob" />
-        <div className="absolute top-32 right-1/4 w-96 h-96 bg-blue-400/15 rounded-full blur-3xl pointer-events-none animate-blob [animation-delay:3s]" />
+        <div className="absolute top-10 left-1/4 w-80 h-80 bg-sky-400/15 rounded-full blur-3xl pointer-events-none animate-blob" />
+        <div className="absolute top-32 right-1/4 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl pointer-events-none animate-blob [animation-delay:3s]" />
         
         <div className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 relative z-10">
           
@@ -57,37 +46,37 @@ export const HomePage: React.FC = () => {
             <motion.div 
               animate={{ y: [0, -12, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute left-6 top-16 bg-white/95 backdrop-blur-md px-4 py-2 rounded-2xl shadow-lg border border-slate-200/80 flex items-center gap-2"
+              className="absolute left-6 top-16 bg-slate-900/80 backdrop-blur-md px-4 py-2 rounded-2xl shadow-xl border border-white/20 flex items-center gap-2 text-white"
             >
               <span className="text-lg">🇬🇧</span>
-              <span className="text-xs font-bold text-slate-800">IELTS 7.5+</span>
+              <span className="text-xs font-bold text-white">IELTS 7.5+</span>
             </motion.div>
 
             <motion.div 
               animate={{ y: [0, 14, 0] }}
               transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute right-8 top-12 bg-white/95 backdrop-blur-md px-4 py-2 rounded-2xl shadow-lg border border-slate-200/80 flex items-center gap-2"
+              className="absolute right-8 top-12 bg-slate-900/80 backdrop-blur-md px-4 py-2 rounded-2xl shadow-xl border border-white/20 flex items-center gap-2 text-white"
             >
               <span className="text-lg">🇩🇪</span>
-              <span className="text-xs font-bold text-slate-800">Goethe B2</span>
+              <span className="text-xs font-bold text-white">Goethe B2</span>
             </motion.div>
 
             <motion.div 
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-              className="absolute left-10 bottom-24 bg-white/95 backdrop-blur-md px-4 py-2 rounded-2xl shadow-lg border border-slate-200/80 flex items-center gap-2"
+              className="absolute left-10 bottom-24 bg-slate-900/80 backdrop-blur-md px-4 py-2 rounded-2xl shadow-xl border border-white/20 flex items-center gap-2 text-white"
             >
               <span className="text-lg">🇨🇳</span>
-              <span className="text-xs font-bold text-slate-800">HSK 5</span>
+              <span className="text-xs font-bold text-white">HSK 5</span>
             </motion.div>
 
             <motion.div 
               animate={{ y: [0, 12, 0] }}
               transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-              className="absolute right-12 bottom-28 bg-white/95 backdrop-blur-md px-4 py-2 rounded-2xl shadow-lg border border-slate-200/80 flex items-center gap-2"
+              className="absolute right-12 bottom-28 bg-slate-900/80 backdrop-blur-md px-4 py-2 rounded-2xl shadow-xl border border-white/20 flex items-center gap-2 text-white"
             >
               <span className="text-lg">🇰🇷</span>
-              <span className="text-xs font-bold text-slate-800">TOPIK 5</span>
+              <span className="text-xs font-bold text-white">TOPIK 5</span>
             </motion.div>
           </div>
 
@@ -344,13 +333,13 @@ export const HomePage: React.FC = () => {
         className="max-w-[1600px] w-full mx-auto px-4 sm:px-6"
       >
         <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
-          <Badge variant="secondary" className="px-3.5 py-1 bg-sky-100 text-sky-900 border border-sky-200">
+          <Badge variant="secondary" className="px-4 py-1.5 bg-sky-500 text-white border-0 text-xs font-black uppercase tracking-wider shadow-md">
             Jonli Jarayonlar
           </Badge>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
+          <h2 className="text-2xl sm:text-4xl font-black text-white font-heading tracking-tight drop-shadow-md">
             Akademiyamizdagi Dars va Talabalar Hayoti
           </h2>
-          <p className="text-xs sm:text-sm text-slate-600">
+          <p className="text-sm sm:text-base text-sky-100 font-medium leading-relaxed">
             Haqiqiy xalqaro muhit, qizg'in bahslar, speaking clublar va zamonaviy ta'lim jihozlari.
           </p>
         </div>
@@ -381,14 +370,14 @@ export const HomePage: React.FC = () => {
             <motion.div
               key={idx}
               whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.2 } }}
-              className="relative rounded-3xl overflow-hidden shadow-lg group h-64 border border-sky-100"
+              className="relative rounded-3xl overflow-hidden shadow-xl group h-64 border border-white/15"
             >
               <img 
                 src={item.img} 
                 alt={item.title} 
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent flex flex-col justify-end p-5 text-white">
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent flex flex-col justify-end p-5 text-white">
                 <h3 className="font-bold text-base font-heading text-white">{item.title}</h3>
                 <p className="text-xs text-sky-200 mt-1">{item.desc}</p>
               </div>
@@ -414,16 +403,16 @@ export const HomePage: React.FC = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.3 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-100 dark:bg-sky-950/80 text-sky-800 dark:text-sky-300 text-xs sm:text-sm font-extrabold uppercase tracking-wider border border-sky-200 dark:border-sky-800 shadow-xs"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-500 text-white text-xs sm:text-sm font-black uppercase tracking-wider shadow-md"
           >
-            <span className="w-2 h-2 rounded-full bg-sky-500 animate-ping" />
+            <span className="w-2 h-2 rounded-full bg-white animate-ping" />
             <span>Savollar & Javoblar</span>
           </motion.div>
           
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 dark:text-white font-heading tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white font-heading tracking-tight drop-shadow-md">
             Ko'p Beriladigan Savollar
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-sky-100 max-w-xl mx-auto leading-relaxed font-medium">
             Markazimiz, 28 oylik dastur va o'qish tartibi haqidagi eng asosiy savollarga batafsil javoblar.
           </p>
         </div>

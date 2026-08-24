@@ -28,36 +28,23 @@ export const CoursesPage: React.FC = () => {
   return (
     <div className="py-12 md:py-20 space-y-16 overflow-hidden">
       
-      {/* Full-Width Hero Banner with Ultra-Clear High Contrast Typography */}
+      {/* Clean Page Hero Banner */}
       <motion.section 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-full relative py-16 sm:py-24 text-center overflow-hidden shadow-xl border-b border-sky-100"
+        className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 text-center pt-4 md:pt-10"
       >
-        {/* Real Language Students & Teacher Background Image */}
-        <div className="absolute inset-0 pointer-events-none">
-          <img 
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=100&w=2560" 
-            alt="Xorijiy tillarni o'rganayotgan talabalar" 
-            className="w-full h-full object-cover object-center"
-          />
-          {/* High-Contrast Gradient Scrim for 100% Clear Readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/75 to-slate-950/50" />
-        </div>
-
-        <div className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <span className="px-4 py-1.5 rounded-full bg-sky-500 text-white border border-sky-400/40 text-xs font-extrabold uppercase tracking-wider inline-flex items-center gap-2 mb-4 shadow-lg backdrop-blur-xs">
-            <Sparkles className="w-3.5 h-3.5 text-amber-300 fill-amber-300" />
-            {t.coursesPage.tag}
-          </span>
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white font-heading mb-4 tracking-tight drop-shadow-lg">
-            {t.coursesPage.title}
-          </h1>
-          <p className="text-sm sm:text-base md:text-lg text-sky-100 leading-relaxed max-w-3xl mx-auto font-medium drop-shadow-md">
-            {t.coursesPage.desc}
-          </p>
-        </div>
+        <span className="px-4 py-1.5 rounded-full bg-sky-500 text-white border border-sky-400/40 text-xs font-black uppercase tracking-wider inline-flex items-center gap-2 mb-4 shadow-lg">
+          <Sparkles className="w-3.5 h-3.5 text-amber-300 fill-amber-300" />
+          {t.coursesPage.tag}
+        </span>
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white font-heading mb-4 tracking-tight drop-shadow-lg">
+          {t.coursesPage.title}
+        </h1>
+        <p className="text-sm sm:text-base md:text-lg text-sky-100 leading-relaxed max-w-3xl mx-auto font-medium drop-shadow-md">
+          {t.coursesPage.desc}
+        </p>
       </motion.section>
 
       {/* Filter Tabs using shadcn Tabs */}
