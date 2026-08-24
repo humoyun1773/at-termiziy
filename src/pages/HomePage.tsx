@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { TELEGRAM_URL } from '../data/siteConfig';
-import { testimonialsData, faqData } from '../data/mockData';
+import { faqData } from '../data/mockData';
 import { BannerCombinationsBoard } from '../components/common/BannerCombinationsBoard';
 import { Button } from '../components/ui/button';
 import { Badge } from '../components/ui/badge';
@@ -23,7 +23,6 @@ import {
   Clock, 
   MapPin, 
   Phone, 
-  Star, 
   Building2, 
   Send,
   Sparkles
@@ -401,71 +400,6 @@ export const HomePage: React.FC = () => {
           ))}
         </div>
       </motion.section>
-
-      {/* 9. TESTIMONIALS WITH REAL STUDENT AVATARS */}
-      <motion.section 
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-40px" }}
-        transition={{ duration: 0.5 }}
-        className="max-w-[1600px] w-full mx-auto px-4 sm:px-6"
-      >
-        <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
-          <Badge variant="success" className="px-3.5 py-1 bg-emerald-100 text-emerald-900 border border-emerald-200">
-            Muvaffaqiyat Tarixlari
-          </Badge>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
-            28 Oylik Kurs Bitiruvchilarining Natijalari
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {testimonialsData.map((item, idx) => {
-            const role = item.currentRole[language] || item.currentRole.uz;
-            const quote = item.quote[language] || item.quote.uz;
-
-            return (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.1 }}
-                whileHover={{ y: -6, transition: { duration: 0.2 } }}
-              >
-                <Card className="rounded-3xl border-sky-100 shadow-md hover:shadow-xl hover:border-sky-300 transition-all flex flex-col justify-between h-full bg-white">
-                  <CardContent className="p-6">
-                    <div>
-                      <div className="flex items-center gap-1 text-amber-400 mb-3">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-4 h-4 fill-current" />
-                        ))}
-                      </div>
-                      <p className="text-xs text-slate-700 italic leading-relaxed mb-5">
-                        "{quote}"
-                      </p>
-                    </div>
-
-                    <div className="flex items-center gap-3.5 pt-4 border-t border-slate-100">
-                      <img 
-                        src={item.avatar} 
-                        alt={item.name} 
-                        className="w-12 h-12 rounded-full object-cover shadow-sm border-2 border-sky-400 shrink-0" 
-                      />
-                      <div>
-                        <h4 className="text-xs font-bold text-slate-900">{item.name}</h4>
-                        <span className="text-[11px] text-sky-600 font-medium block">{role}</span>
-                        <span className="text-[10px] text-slate-400 block">{item.company}</span>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            );
-          })}
-        </div>
-      </motion.section>
-
 
       {/* 9. FAQ ACCORDION WITH SHADCN */}
       <motion.section 
