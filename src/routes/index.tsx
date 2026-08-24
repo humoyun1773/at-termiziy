@@ -15,12 +15,12 @@ import { ContactPage } from '../pages/ContactPage';
 import { NotFoundPage } from '../pages/NotFoundPage';
 
 const pageBackgroundImages: Record<string, string> = {
-  '/': 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=100&w=2560',
-  '/about': 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=100&w=2560',
-  '/courses': 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=100&w=2560',
-  '/combinations': 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&q=100&w=2560',
-  '/career': 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=100&w=2560',
-  '/contact': 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=100&w=2560',
+  '/': '/images/bg-home.jpg',
+  '/about': '/images/bg-about.jpg',
+  '/courses': '/images/bg-courses.jpg',
+  '/combinations': '/images/bg-combinations.jpg',
+  '/career': '/images/bg-courses.jpg',
+  '/contact': '/images/bg-about.jpg',
 };
 
 /**
