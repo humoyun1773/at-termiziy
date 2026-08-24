@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { TELEGRAM_URL } from '../data/siteConfig';
-import { teachersData, testimonialsData, faqData } from '../data/mockData';
+import { testimonialsData, faqData } from '../data/mockData';
 import { BannerCombinationsBoard } from '../components/common/BannerCombinationsBoard';
 import { Button } from '../components/ui/button';
 import { Badge } from '../components/ui/badge';
@@ -399,78 +399,6 @@ export const HomePage: React.FC = () => {
               </div>
             </motion.div>
           ))}
-        </div>
-      </motion.section>
-
-      {/* 8. EXPERT TEACHERS & POLYGLOTS WITH REAL PORTRAITS */}
-      <motion.section 
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-40px" }}
-        transition={{ duration: 0.5 }}
-        className="max-w-[1600px] w-full mx-auto px-4 sm:px-6"
-      >
-        <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
-          <Badge variant="secondary" className="px-3 py-1 bg-amber-100 text-amber-900 border border-amber-200">
-            Bizning Ustozlarimiz
-          </Badge>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
-            Xalqaro Sertifikatlarga Ega Mentorlar
-          </h2>
-          <p className="text-xs sm:text-sm text-slate-600">
-            Darslarni o'z sohasining eng yuqori darajadagi mutaxassislari olib boradilar.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {teachersData.map((teacher, idx) => {
-            const role = teacher.role[language] || teacher.role.uz;
-            const exp = teacher.experience[language] || teacher.experience.uz;
-            const bio = teacher.bio[language] || teacher.bio.uz;
-
-            return (
-              <motion.div
-                key={teacher.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.08 }}
-                whileHover={{ y: -6, transition: { duration: 0.2 } }}
-              >
-                <Card className="rounded-3xl border-sky-100 shadow-md hover:shadow-2xl hover:border-sky-300 transition-all text-center h-full overflow-hidden bg-white">
-                  <div className="h-44 w-full overflow-hidden relative">
-                    <img 
-                      src={teacher.image} 
-                      alt={teacher.name}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    <div className="absolute bottom-2 left-3 right-3">
-                      <span className="text-[11px] font-bold text-sky-200 bg-sky-950/80 backdrop-blur-xs px-2.5 py-0.5 rounded-full inline-block">
-                        {teacher.certificate}
-                      </span>
-                    </div>
-                  </div>
-                  <CardContent className="p-5">
-                    <h3 className="text-base font-bold text-slate-900 font-heading">
-                      {teacher.name}
-                    </h3>
-                    <span className="text-xs text-sky-600 font-medium block mt-0.5">
-                      {role}
-                    </span>
-                    <div className="flex items-center justify-center gap-1.5 my-2.5">
-                      <Badge variant="outline" className="text-[10px] px-2.5 py-0.5 border-sky-200 text-sky-800 bg-sky-50">
-                        {exp}
-                      </Badge>
-                    </div>
-                    <p className="text-[11px] text-slate-500 line-clamp-2 leading-relaxed">
-                      {bio}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            );
-          })}
         </div>
       </motion.section>
 
