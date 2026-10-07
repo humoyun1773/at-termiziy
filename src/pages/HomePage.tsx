@@ -287,9 +287,9 @@ export const HomePage: React.FC = () => {
 
             <div className="pt-2">
               <Button asChild className="rounded-2xl font-bold text-sm hover:scale-105 active:scale-95 transition-transform bg-sky-500 hover:bg-sky-400 text-white shadow-lg shadow-sky-500/25 px-6 py-3.5">
-                <a href="tel:+998919517335" className="flex items-center gap-2">
+                <a href="tel:+998901234567" className="flex items-center gap-2">
                   <Phone className="w-4 h-4" />
-                  <span>Markazga Tashrif: +998 91 951 73 35</span>
+                  <span>Markazga Tashrif: +998 90 123 45 67</span>
                 </a>
               </Button>
             </div>
@@ -308,11 +308,11 @@ export const HomePage: React.FC = () => {
                 Al-Hakim At-Termiziy O'quv Markazi
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Manzil: Qashqadaryo viloyati, Qarshi shahri, Mustaqillik shoh ko'chasi. Dushanba - Shanba kunlari soat 08:00 dan 20:00 gacha xizmatingizdamiz.
+                Manzil: Qashqadaryo viloyati, Qarshi shahri, VR6H+M54. Dushanba - Shanba kunlari soat 08:00 dan 20:00 gacha xizmatingizdamiz.
               </p>
               <div className="p-3.5 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-between text-xs sm:text-sm">
                 <span className="text-slate-300 font-medium">Qabul bo'limi:</span>
-                <span className="font-mono font-bold text-white text-sm sm:text-base">+998 91 951 73 35</span>
+                <span className="font-mono font-bold text-white text-sm sm:text-base">+998 90 123 45 67</span>
               </div>
             </div>
           </div>
@@ -486,9 +486,9 @@ export const HomePage: React.FC = () => {
               asChild
               className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-sky-800/80 text-white font-bold text-sm sm:text-base border-sky-600 hover:bg-sky-700 hover:text-white hover:scale-105 active:scale-95 transition-all cursor-pointer backdrop-blur-xs"
             >
-              <a href="tel:+998919517335" className="flex items-center justify-center gap-2">
+              <a href="tel:+998901234567" className="flex items-center justify-center gap-2">
                 <Phone className="w-4 h-4 text-emerald-400" />
-                <span>+998 91 951 73 35</span>
+                <span>+998 90 123 45 67</span>
               </a>
             </Button>
           </div>

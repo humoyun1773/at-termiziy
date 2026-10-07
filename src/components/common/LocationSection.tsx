@@ -384,7 +384,7 @@ export const LocationSection: React.FC<Props> = ({ className = '' }) => {
                   asChild
                   className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-sm cursor-pointer"
                 >
-                  <a href="tel:+998919517335" className="flex items-center justify-center gap-1.5">
+                  <a href="tel:+998901234567" className="flex items-center justify-center gap-1.5">
                     <Phone className="w-3.5 h-3.5" />
                     <span>Qo'ng'iroq qilish</span>
                   </a>

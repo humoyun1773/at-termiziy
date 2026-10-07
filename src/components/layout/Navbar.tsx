@@ -155,10 +155,10 @@ export const Navbar: React.FC = () => {
               <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-medium">
                 <span>Qarshi shahar</span>
                 <a 
-                  href="tel:+998919517335" 
+                  href="tel:+998901234567" 
                   className="font-mono font-bold text-sky-600 hover:underline"
                 >
-                  +998 91 951 73 35
+                  {t.brand.phone}
                 </a>
               </div>
             </div>

@@ -5,7 +5,7 @@ export const translations = {
       type: "O'quv Markazi",
       motto: "INTIZOMNI SEVUVCHILAR UCHUN",
       city: "QARSHI SHAHAR",
-      phone: "+998 91 951 73 35",
+      phone: "+998 90 123 45 67",
       workHours: "Dush - Shanba: 08:00 - 20:00",
       address: "Qashqadaryo viloyati, Qarshi shahri, Mustaqillik shoh ko'chasi"
     },
@@ -199,7 +199,7 @@ export const translations = {
       type: "Учебный Центр",
       motto: "ДЛЯ ТЕХ, КТО ЦЕНИТ ДИСЦИПЛИНУ",
       city: "ГОРОД КАРШИ",
-      phone: "+998 91 951 73 35",
+      phone: "+998 90 123 45 67",
       workHours: "Пн - Сб: 08:00 - 20:00",
       address: "Кашкадарьинская область, г. Карши, проспект Мустакиллик"
     },
@@ -393,7 +393,7 @@ export const translations = {
       type: "Academy & Learning Center",
       motto: "FOR THOSE WHO LOVE DISCIPLINE",
       city: "QARSHI CITY",
-      phone: "+998 91 951 73 35",
+      phone: "+998 90 123 45 67",
       workHours: "Mon - Sat: 08:00 - 20:00",
       address: "Kashkadarya Region, Qarshi City, Mustaqillik Avenue"
     },

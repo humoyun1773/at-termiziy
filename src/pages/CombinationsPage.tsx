@@ -230,9 +230,9 @@ export const CombinationsPage: React.FC = () => {
                 </a>
               </Button>
               <Button variant="outline" size="lg" asChild className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-slate-900 text-white font-bold text-xs sm:text-sm border-white/20 hover:bg-sky-600 hover:text-white hover:scale-105 active:scale-95 transition-all cursor-pointer">
-                <a href="tel:+998919517335" className="flex items-center gap-2">
+                <a href="tel:+998901234567" className="flex items-center gap-2">
                   <Phone className="w-4 h-4 text-emerald-400" />
-                  <span>+998 91 951 73 35</span>
+                  <span>+998 90 123 45 67</span>
                 </a>
               </Button>
             </div>

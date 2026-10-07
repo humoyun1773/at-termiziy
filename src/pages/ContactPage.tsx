@@ -87,8 +87,8 @@ export const ContactPage: React.FC = () => {
                   <Phone className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
                   <div>
                     <span className="text-slate-400 text-[10px] uppercase font-bold block">Telefon Raqam</span>
-                    <a href="tel:+998919517335" className="font-mono font-bold text-white hover:text-sky-400 transition-colors text-sm sm:text-base">
-                      +998 91 951 73 35
+                    <a href="tel:+998901234567" className="font-mono font-bold text-white hover:text-sky-400 transition-colors text-sm sm:text-base">
+                      +998 90 123 45 67
                     </a>
                   </div>
                 </div>
@@ -98,7 +98,7 @@ export const ContactPage: React.FC = () => {
                   <div>
                     <span className="text-slate-400 text-[10px] uppercase font-bold block">Manzil</span>
                     <span className="font-semibold text-white leading-relaxed">
-                      Qashqadaryo viloyati, Qarshi shahri, Mustaqillik shoh ko'chasi
+                      Qashqadaryo viloyati, Qarshi shahri, VR6H+M54
                     </span>
                   </div>
                 </div>
@@ -116,7 +116,7 @@ export const ContactPage: React.FC = () => {
 
               <div className="pt-2 relative z-10">
                 <a
-                  href="tel:+998919517335"
+                  href="tel:+998901234567"
                   className="w-full py-4 px-4 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg transition-all hover:scale-102 active:scale-98"
                 >
                   <Phone className="w-4 h-4" />

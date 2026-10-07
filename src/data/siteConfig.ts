@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Al-Hakim At-Termiziy",
   tagline: "28 Oylik Eksklyuziv Ta'lim Markazi",
   description: "Qarshi shahrida 28 oylik kompleks dastur asosida 4 ta xorijiy tilni o'rganish va kafolatlangan xalqaro ish bilan ta'minlash akademiyasi.",
-  phone: "+998 91 951 73 35",
+  phone: "+998 90 123 45 67",
   email: "info@attermiziy.uz",
   address: "Qashqadaryo viloyati, Qarshi shahri, VR6H+M54",
   shortAddress: "Qarshi sh., VR6H+M54 (Nur o'quv markazi)",

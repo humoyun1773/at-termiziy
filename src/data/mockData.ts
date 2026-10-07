@@ -52,9 +52,9 @@ export const faqData: FAQItem[] = [
       en: "Where are classes held and what is the campus location?"
     },
     answer: {
-      uz: "Barcha darslar Qarshi shahridagi zamonaviy, barcha qulayliklar va audio-vizual texnologiyalar bilan jihozlangan bosh binomizda o'tiladi. Telefonimiz: +998 91 951 73 35.",
-      ru: "Все занятия проходят в нашем главном современном корпусе в городе Карши, оснащенном аудиотехникой и смарт-панелями. Телефон: +998 91 951 73 35.",
-      en: "All classes take place in our premier flagship campus in Qarshi City, equipped with cutting-edge audio-visual and multimedia learning pods. Phone: +998 91 951 73 35."
+      uz: "Barcha darslar Qarshi shahridagi zamonaviy, barcha qulayliklar va audio-vizual texnologiyalar bilan jihozlangan bosh binomizda o'tiladi. Telefonimiz: +998 90 123 45 67.",
+      ru: "Все занятия проходят в нашем главном современном корпусе в городе Карши, оснащенном аудиотехникой и смарт-панелями. Телефон: +998 90 123 45 67.",
+      en: "All classes take place in our premier flagship campus in Qarshi City, equipped with cutting-edge audio-visual and multimedia learning pods. Phone: +998 90 123 45 67."
     }
   }
 ];
